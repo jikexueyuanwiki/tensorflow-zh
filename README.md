@@ -61,7 +61,7 @@
 
 ### 翻译
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[示例人名](https://github.com/xxx)）
+  - [介绍](SOURCE/get_started/introduction.md) （[此处添加翻译者姓名及链接](https://github.com/xxx)）
   - [下载及安装](SOURCE/get_started/os_setup.md)
   - [基本用法](SOURCE/get_started/basic_usage.md)
 - 教程
@@ -82,7 +82,7 @@
 ### 校对
 
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[示例人名](https://github.com/xxx)）
+  - [介绍](SOURCE/get_started/introduction.md) （[此处添加审校者姓名及链接](https://github.com/xxx)）
   - [下载及安装](SOURCE/get_started/os_setup.md)
   - [基本用法](SOURCE/get_started/basic_usage.md)
 - 教程
