@@ -1,7 +1,7 @@
 - 介绍
   - [介绍](SOURCE/get_started/introduction.md)
 - 下载和安装
-  - []](SOURCE/get_started/introduction.md)
+  - [](SOURCE/get_started/introduction.md)
   
 - 什么是 Material
   - [环境](material-design/whatis-material-design/environment.md)
