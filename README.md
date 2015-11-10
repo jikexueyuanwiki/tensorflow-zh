@@ -50,21 +50,55 @@
 - 使用Markdown进行翻译，文件名必须使用英文
 - 翻译后的文档请放到SOURCE文件夹下的对应章节中，然后pull request即可
 - 如遇到文中的图片，请统一放在SOURCE/images目录下
+- 原文中的HTML标签及代码请不要修改、翻译
 - 有其他任何问题都欢迎发issue，我们看到了会尽快回复
+- 翻译人员需将对应的原文地址和翻译人姓名添加到译文末尾，审校人员需要将自己的名字添加到译文末尾，具体格式请参见样例：   
+
+> 原文：[Color Palettes](http://www.google.com/design/spec/resources/color-palettes.html)  翻译：[iceskysl](https://github.com/iceskysl)  校对：[PoppinLp](https://github.com/poppinlp)   
+
 
 ## 参与者（按认领章节排序）
 
 ### 翻译
+- 起步
+  - [介绍](SOURCE/get_started/introduction.md) （[示例人名](https://github.com/xxx)）
+  - [下载及安装](SOURCE/get_started/os_setup.md)
+  - [基本用法](SOURCE/get_started/basic_usage.md)
+- 教程
+  - [Overview](SOURCE/tutorials/overview.md)
+  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
+  - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
+  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
+  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
+  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)
+  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
+  - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 
 
-- About Swift （[xtymichael](https://github.com/xtymichael)）
-
-       
+（后续章节在添加中）      
 
 ### 校对
 
-- About Swift [xxx](https://github.com/xxx)   
+- 起步
+  - [介绍](SOURCE/get_started/introduction.md) （[示例人名](https://github.com/xxx)）
+  - [下载及安装](SOURCE/get_started/os_setup.md)
+  - [基本用法](SOURCE/get_started/basic_usage.md)
+- 教程
+  - [Overview](SOURCE/tutorials/overview.md)
+  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
+  - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
+  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
+  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
+  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)
+  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
+  - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)   
 
-  
+（后续章节在添加中） 
 
 ## 进度记录
 
