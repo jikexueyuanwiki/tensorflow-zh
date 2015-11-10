@@ -3,6 +3,9 @@
 
 ![logo](images/tensorflow_logo.png)
 
+# 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
+
+
 ## 缘起 
 
 2015年11月9日，Google 官方在其博客上称，Google Research 宣布推出第二代机器学习系统 TensorFlow，针对先前的 DistBelief 的短板有了各方面的加强，更重要的是，它是开源的，任何人都可以用。
