@@ -1,7 +1,7 @@
 
 # TensorFlow 官方文档中文版
 
-![logo](images/tensorflow_logo.png)
+![logo](SOURCE/images/tensorflow_logo.png)
 
 ### 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
 
@@ -16,7 +16,11 @@
 
 为了让国内的技术人员在最短的时间内迅速掌握这一世界领先的 AI 系统，极客学院 Wiki 团队发起对 TensorFlow 官方文档的中文协同翻译。
 
-欢迎各路人工智能及机器学习领域的专家和爱好者参与这一翻译项目，我们会为每位翻译和校对人员署名。想进一步深入交流，请加 QQ 群：248320884
+欢迎各路人工智能及机器学习领域的专家和爱好者参与这一翻译项目，我们会为每位翻译和校对人员署名。
+
+## 一起来参与
+
+如果想做出贡献(翻译或者校对)的话，请加QQ群：248320884，谢谢！
 
 ## 内容来源
 
@@ -29,6 +33,24 @@
 中文版 GitHub 仓库：  
 <https://github.com/jikexueyuanwiki/tensorflow-zh>
 
+## 参与步骤
+
+* fork主仓库（<https://github.com/jikexueyuanwiki/tensorflow-zh>）
+* 按照章节认领翻译(每次申请一个章节)，在下面这个`README.md`里找还没有被人申请的章节，写上（@你的github号），给主仓库的`master`分支提pull request；
+* 提的 pull request 被确认，合并到主仓库后，代表你申请的章节*认领*完成，开始翻译；
+* 翻译过程请参 *翻译协作规范* ，完成翻译后提交 pull request 给主仓库的`master`分支；
+* 校核完成后，从主仓库的`master`分支合并到主`publish`分支；
+* 全部翻译完成后，生成PDF/ePub文档，放在极客学院Wiki平台发布；
+
+## 翻译协作规范   
+
+为了让大家协作顺畅，需要每一个人遵循如下协作规范~
+
+- 如果对Markdown和GitHub不了解，请先阅读[如何使用Markdown](markdown.md)以及[如何使用GitHub](learn-github.md)
+- 使用Markdown进行翻译，文件名必须使用英文
+- 翻译后的文档请放到SOURCE文件夹下的对应章节中，然后pull request即可
+- 如遇到文中的图片，请统一放在SOURCE/images目录下
+- 有其他任何问题都欢迎发issue，我们看到了会尽快回复
 
 ## 参与者（按认领章节排序）
 
@@ -47,24 +69,6 @@
 ## 进度记录
 
 - 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范  
-
-# 贡献力量
-
-如果想做出贡献的话，你可以：
-
-- 帮忙校对，挑错别字、病句等等
-- 提出修改建议
-- 提出术语翻译建议
-
-# 翻译建议
-
-如果你愿意一起翻译及校对的话，请仔细阅读：
-
-- 翻译前请先阅读[如何使用Markdown](markdown.md)以及[如何使用GitHub](learn-github.md)
-- 使用 Markdown 进行翻译，文件名必须使用英文
-- 请先查看 TOC.md 文件，找到对应的.md文件进行中文翻译内容的替换
-- 如遇到文中的图片，请统一放在根目录下面的images目录下
-- 有其他任何问题都欢迎发issue，我们看到了会尽快回复
 
 
 ## 感谢支持   
