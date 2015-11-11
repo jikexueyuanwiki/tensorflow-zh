@@ -22,6 +22,8 @@
 
 如果想做出贡献(翻译或者校对)的话，请加QQ群：248320884，谢谢！
 
+PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
+
 ## 内容来源
 
 英文官方网站：     
@@ -93,7 +95,7 @@
   - [BibTex 引用](SOURCE/resources/bib.md) 
   - [示例使用](SOURCE/resources/uses.md)
   - [FAQ](SOURCE/resources/faq.md)
-  - [术语表](SOURCE/resources/glossary.md) ([leege100](https://github.com/leege100))
+  - [术语表](SOURCE/resources/glossary.md)
   - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
 
 ### 校对
