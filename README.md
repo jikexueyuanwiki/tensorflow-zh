@@ -73,7 +73,7 @@
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
-  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)
+  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)(@[Warln](https://github.com/Warln))
   - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
