@@ -130,7 +130,7 @@
   - [BibTex 引用](SOURCE/resources/bib.md) 
   - [示例使用](SOURCE/resources/uses.md)
   - [FAQ](SOURCE/resources/faq.md)
-  - [术语表](SOURCE/resources/glossary.md)
+  - [术语表](SOURCE/resources/glossary.md) ([leege100](https://github.com/leege100))
   - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
 
 ## 进度记录
