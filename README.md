@@ -71,13 +71,13 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [Overview](SOURCE/tutorials/overview.md) （[@PFZheng](https://github.com/PFZheng)）
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) ([@Tony Jin](https://github.com/linbojin))
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)([@chenweican](https://github.com/chenweican))
-  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
+  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)([@bingjin](https://github.com/bingjin))
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)([@oskycar](https://github.com/oskycar))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)([@Warln](https://github.com/Warln))
   - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)([@bingjin](https://github.com/bingjin))
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) ([@zhyhooo](https://github.com/zhyhooo))
