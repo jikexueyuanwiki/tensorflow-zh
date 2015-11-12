@@ -81,7 +81,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
-  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 
+  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) ([@zhyhooo](https://github.com/zhyhooo))
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
   - [读取数据](SOURCE/how_tos/reading_data.md) 
@@ -109,7 +109,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
-  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
+  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)
