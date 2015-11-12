@@ -69,7 +69,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [基本用法](SOURCE/get_started/basic_usage.md) （[@PFZheng](https://github.com/PFZheng)）
 - 教程
   - [Overview](SOURCE/tutorials/overview.md) （[@PFZheng](https://github.com/PFZheng)）
-  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
+  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) ([@Tony Jin](https://github.com/linbojin))
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
