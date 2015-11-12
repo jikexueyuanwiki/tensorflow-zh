@@ -168,7 +168,7 @@ bazel-bin/tensorflow/models/rnn/ptb/ptb_word_lm \
 
 还有几个优化模型的技巧没有提到，包括：
 
-* 降低学习曲线,
-* dropout between the LSTM layers.
+* 降低学习率,
+* 多 LSTM 层间 dropout.
 
 学习和更改代码以进一步改善模型。
