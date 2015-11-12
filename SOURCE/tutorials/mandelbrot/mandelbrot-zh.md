@@ -135,3 +135,4 @@ Not bad!
 不错！
 
 
+> 原文：[Mandelbrot Set](http://tensorflow.org/tutorials/mandelbrot/index.md)  翻译：[ericxk](https://github.com/ericxk)  校对：[](https://github.com/)
