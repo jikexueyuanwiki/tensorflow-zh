@@ -75,9 +75,9 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)([@oskycar](https://github.com/oskycar))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)([@Warln](https://github.com/Warln))
-  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
+  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)([@ericxk](https://githu.com/ericxk))
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)([@ericxk](https://githu.com/ericxk))
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) ([@zhyhooo](https://github.com/zhyhooo))
