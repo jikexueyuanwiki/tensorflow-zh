@@ -72,22 +72,16 @@ tf.initialize_all_variables().run()
 现在我们指定更多的计算...
 
 ```python
-# Compute the new values of z: z^2 + x
-# 计算一个新的值z: z^2 + x
+# 计算一个新值z: z^2 + x
 zs_ = zs*zs + xs
 
-# Have we diverged with this new value?
-# 我们用这个新值分形么？
+# 我们使用这个新值分形么？
 not_diverged = tf.complex_abs(zs_) < 4
 
-# Operation to update the zs and the iteration count.
-# 更新zs并且迭代计算
+# 更新zs并且迭代计算。
 #
-# Note: We keep computing zs after they diverge! This
-#       is very wasteful! There are better, if a little
-#       less simple, ways to do this.
 # 说明：在分形之后我们继续计算zs，这个计算消耗特别大！
-#      如果稍微简单点，这里有更好的方法做这件事。
+#      如果稍微简单点，这里有更好的方法来处理。
 #
 step = tf.group(
   zs.assign(zs_),
@@ -95,15 +89,13 @@ step = tf.group(
   )
 ```
 
-... and run it for a couple hundred steps
-。。。继续执行几百步步骤
+...继续执行几百步步骤
 
 ```python
 for i in range(200): step.run()
 ```
 
-Let's see what we've got.
-让我们看看我们得到什么。
+让我们看看我们得到了什么。
 
 ```python
 DisplayFractal(ns.eval())
@@ -111,8 +103,7 @@ DisplayFractal(ns.eval())
 
 ![jpeg](mandelbrot_output.jpg)
 
-Not bad!
-不错！
 
+不错！
 
 > 原文：[Mandelbrot Set](http://tensorflow.org/tutorials/mandelbrot/index.md)  翻译：[ericxk](https://github.com/ericxk)  校对：[](https://github.com/)
