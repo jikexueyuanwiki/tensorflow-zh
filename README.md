@@ -101,9 +101,9 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ### 校对
 
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[此处添加审校者姓名及链接](https://github.com/xxx)）
-  - [下载及安装](SOURCE/get_started/os_setup.md)
-  - [基本用法](SOURCE/get_started/basic_usage.md)
+  - [介绍](SOURCE/get_started/introduction.md) （[此处添加审校者姓名及链接](https://github.com/xxx)）（[@yangtze](https://github.com/sstruct)）
+  - [下载及安装](SOURCE/get_started/os_setup.md)（[@yangtze](https://github.com/sstruct)）
+  - [基本用法](SOURCE/get_started/basic_usage.md)（[@yangtze](https://github.com/sstruct)）
 - 教程
   - [Overview](SOURCE/tutorials/overview.md)
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
