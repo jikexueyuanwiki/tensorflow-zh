@@ -74,7 +74,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)([@oskycar](https://github.com/oskycar))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)（[@xyang40](https://github.com/xyang40)）
-  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)(@[Warln](https://github.com/Warln))
+  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)([@Warln](https://github.com/Warln))
   - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
@@ -95,7 +95,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [示例使用](SOURCE/resources/uses.md)
   - [FAQ](SOURCE/resources/faq.md)
   - [术语表](SOURCE/resources/glossary.md)
-  - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
+  - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
 
 ### 校对
 
@@ -132,7 +132,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [示例使用](SOURCE/resources/uses.md)
   - [FAQ](SOURCE/resources/faq.md)
   - [术语表](SOURCE/resources/glossary.md)
-  - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
+  - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
 
 ## 进度记录
 
