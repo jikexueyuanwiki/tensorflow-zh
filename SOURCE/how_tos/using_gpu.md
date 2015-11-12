@@ -98,7 +98,7 @@ Could not satisfy explicit device specification '/gpu:2'
 ```
 
 如果你希望TensorFlow自动选择一个存在的且被支持的设备以防你指定的不存在，
-你可以在你创建的会话的配置选项里把`allow_soft_placement`选项设为`True`
+你可以在创建的`session`里把`allow_soft_placement`设为`True`
 
 ```python
 # Creates a graph.
