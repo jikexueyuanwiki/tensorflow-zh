@@ -64,7 +64,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ### 翻译
 
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[此处添加翻译者姓名及链接](https://github.com/xxx)）
+  - [介绍](SOURCE/get_started/introduction.md) （[此处添加翻译者姓名及链接](https://github.com/xxx)）（[@PFZheng](https://github.com/PFZheng)）
   - [下载及安装](SOURCE/get_started/os_setup.md) （[@PFZheng](https://github.com/PFZheng)）
   - [基本用法](SOURCE/get_started/basic_usage.md) （[@PFZheng](https://github.com/PFZheng)）
 - 教程
