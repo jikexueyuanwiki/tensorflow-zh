@@ -107,7 +107,7 @@ word_embeddings = tf.nn.embedding_lookup(embedding_matrix, word_ids)
 \text{loss} = -\frac{1}{N}\sum_{i=1}^{N} \ln p_{\text{target}_i}
 ```
 
-实现起来并非很难，但是这里已经有了可用的函数 `sequence_loss_by_example` ，可以直接在这里使用。
+实现起来并非很难，但是这里已经有个函数 `sequence_loss_by_example` ，可以直接使用。
 
 文献报告中的典型方法是平均化每个词语的困惑度，计算式为
 
