@@ -40,6 +40,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 * fork主仓库（<https://github.com/jikexueyuanwiki/tensorflow-zh>）
 * 按照章节认领翻译(每次申请一个章节)，在下面这个`README.md`里找还没有被人申请的章节，写上（@你的github号），给主仓库的`master`分支提pull request；
 * 提的 pull request 被确认，合并到主仓库后，代表你申请的章节*认领*完成，开始翻译；
+* 翻译的文件为README.md或者TOC.md中对应的md文件，请不要翻译单独文件夹中的index.md
 * 翻译过程请参 *翻译协作规范* ，完成翻译后提交 pull request 给主仓库的`master`分支；
 * 校核完成后，从主仓库的`master`分支合并到主`publish`分支；
 * 全部翻译完成后，生成PDF/ePub文档，放在极客学院Wiki平台发布；
@@ -77,7 +78,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)([@Warln](https://github.com/Warln))
   - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)(@[JoyLiu]https://github.com/fengsehng)
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)([@JoyLiu](https://github.com/fengsehng))
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) ([@zhyhooo](https://github.com/zhyhooo))
