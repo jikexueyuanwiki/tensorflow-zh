@@ -82,7 +82,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) ([@zhyhooo](https://github.com/zhyhooo))
-  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 
+  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) ([@thylaco1eo](https://github.com/thylaco1eo))
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
   - [读取数据](SOURCE/how_tos/reading_data.md) 
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
