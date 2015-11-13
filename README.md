@@ -88,7 +88,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
-  - [使用gpu](SOURCE/how_tos/using_gpu.md) 
+  - [使用gpu](SOURCE/how_tos/using_gpu.md) ([@lianghyv](https://github.com/lianghyv))
   - [共享变量](SOURCE/how_tos/variable_scope.md) 
 - 资源
   - [总览](SOURCE/resources/overview.md) 
