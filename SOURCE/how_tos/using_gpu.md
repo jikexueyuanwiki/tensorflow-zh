@@ -107,7 +107,6 @@ with tf.device('/gpu:2'):
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
   c = tf.matmul(a, b)
 # 新建session with log_device_placement 设置为 True.
-# to True.
 sess = tf.Session(config=tf.ConfigProto(
       allow_soft_placement=True, log_device_placement=True))
 # 运行这个op.
