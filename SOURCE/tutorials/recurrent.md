@@ -174,5 +174,4 @@ bazel-bin/tensorflow/models/rnn/ptb/ptb_word_lm \
 继续学习和更改代码以进一步改善模型吧。
 
 原文：[Recurrent Neural Networks](http://tensorflow.org/tutorials/recurrent/index.md)
-
 翻译：[Warln](https://github.com/Warln)
