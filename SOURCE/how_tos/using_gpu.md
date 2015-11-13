@@ -21,7 +21,7 @@
 a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
 b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
 c = tf.matmul(a, b)
-# 新建`session` with log_device_placement 设置为 True.
+# 新建session with log_device_placement并设置为 True.
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 运行这个op.
 print sess.run(c)
@@ -52,7 +52,7 @@ with tf.device('/cpu:0'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
 c = tf.matmul(a, b)
-# 新建session with log_device_placement 设置为 True.
+# 新建session with log_device_placement并设置为 True.
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 运行这个op.
 print sess.run(c)
@@ -82,7 +82,7 @@ with tf.device('/gpu:2'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
   c = tf.matmul(a, b)
-# 新建session with log_device_placement 设置为 True.
+# 新建session with log_device_placement并设置为 True.
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 运行这个op.
 print sess.run(c)
@@ -98,7 +98,7 @@ Could not satisfy explicit device specification '/gpu:2'
 ```
 
 如果你希望TensorFlow自动选择一个存在的且被支持的设备以防你指定的设备不存在，
-你可以在创建的`session`里把`allow_soft_placement`设置为`True`
+你可以在创建的`session`里把参数`allow_soft_placement`设置为`True`
 
 ```python
 # 新建一个graph.
@@ -106,7 +106,7 @@ with tf.device('/gpu:2'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
   c = tf.matmul(a, b)
-# 新建session with log_device_placement 设置为 True.
+# 新建session with log_device_placement并设置为True.
 sess = tf.Session(config=tf.ConfigProto(
       allow_soft_placement=True, log_device_placement=True))
 # 运行这个op.
@@ -128,7 +128,7 @@ for d in ['/gpu:2', '/gpu:3']:
     c.append(tf.matmul(a, b))
 with tf.device('/cpu:0'):
   sum = tf.add_n(c)
-# 新建session with log_device_placement 设置为 True.
+# 新建session with log_device_placement并设置为 True.
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 # 运行这个op.
 print sess.run(sum)
