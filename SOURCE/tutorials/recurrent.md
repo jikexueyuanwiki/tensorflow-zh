@@ -168,11 +168,11 @@ bazel-bin/tensorflow/models/rnn/ptb/ptb_word_lm \
 
 还有几个优化模型的技巧没有提到，包括：
 
-* 降低学习率,
+* 减少学习率,
 * 多 LSTM 层间 dropout.
 
-学习和更改代码以进一步改善模型。
+继续学习和更改代码以进一步改善模型吧。
 
 原文：[Recurrent Neural Networks](http://tensorflow.org/tutorials/recurrent/index.md)
 
-翻译:[Warln](https://github.com/Warln)
+翻译：[Warln](https://github.com/Warln)
