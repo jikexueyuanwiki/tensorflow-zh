@@ -69,14 +69,14 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： （[@yangtze](https://github.com/sstruct)）
   - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对：（[@yangtze](https://github.com/sstruct)）
 - 教程
-  - [Overview](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）
-  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin))
+  - [Overview](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： ([@ericxk](https://github.com/ericxk))
+  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))
   - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar)) 校对： ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))
-  - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://githu.com/ericxk))√
+  - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@JoyLiu](https://github.com/fengsehng))
 - 运作方式
