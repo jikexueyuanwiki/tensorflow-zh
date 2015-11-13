@@ -138,5 +138,5 @@ for i in range(1000):
 
 ![jpeg](https://github.com/wangaicc/tensorflow-zh/raw/master/SOURCE/tutorials/pdes/pde_output_2.jpg)
 
-Look! Ripples!
+看！！ 多么美丽的涟漪!
 
