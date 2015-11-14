@@ -40,6 +40,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 * fork主仓库（<https://github.com/jikexueyuanwiki/tensorflow-zh>）
 * 按照章节认领翻译(每次申请一个章节)，在下面这个`README.md`里找还没有被人申请的章节，写上（@你的github号），给主仓库的`master`分支提pull request；
 * 提的 pull request 被确认，合并到主仓库后，代表你申请的章节*认领*完成，开始翻译；
+* 翻译的文件为README.md或者TOC.md中对应的md文件，请不要翻译单独文件夹中的index.md
 * 翻译过程请参 *翻译协作规范* ，完成翻译后提交 pull request 给主仓库的`master`分支；
 * 校核完成后，从主仓库的`master`分支合并到主`publish`分支；
 * 全部翻译完成后，生成PDF/ePub文档，放在极客学院Wiki平台发布；
@@ -61,83 +62,47 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 
 ## 参与者（按认领章节排序）
 
-### 翻译
+### 翻译 & 校对
 
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[此处添加翻译者姓名及链接](https://github.com/xxx)）（[@PFZheng](https://github.com/PFZheng)）
-  - [下载及安装](SOURCE/get_started/os_setup.md) （[@PFZheng](https://github.com/PFZheng)）
-  - [基本用法](SOURCE/get_started/basic_usage.md) （[@PFZheng](https://github.com/PFZheng)）
+  - [介绍](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对：（[@yangtze](https://github.com/sstruct)）
+  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： （[@yangtze](https://github.com/sstruct)）
+  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对：（[@yangtze](https://github.com/sstruct)）
 - 教程
-  - [Overview](SOURCE/tutorials/overview.md) （[@PFZheng](https://github.com/PFZheng)）
-  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) ([@Tony Jin](https://github.com/linbojin))
-  - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
-  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
-  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
-  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)(@[Warln](https://github.com/Warln))
-  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
+  - [Overview](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： ([@ericxk](https://github.com/ericxk))
+  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
+  - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))
+  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))
+  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar)) 校对： ([@zhyhooo](https://github.com/zhyhooo))
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
+  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))
+  - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√
   - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
+  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@JoyLiu](https://github.com/fengsehng))
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 
-  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 
-  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 
+  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))
+  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 翻译：([@thylaco1eo](https://github.com/thylaco1eo))
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
   - [读取数据](SOURCE/how_tos/reading_data.md) 
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
-  - [使用gpu](SOURCE/how_tos/using_gpu.md) 
+  - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 
 - 资源
   - [总览](SOURCE/resources/overview.md) 
   - [BibTex 引用](SOURCE/resources/bib.md) 
-  - [示例使用](SOURCE/resources/uses.md)
+  - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))
   - [FAQ](SOURCE/resources/faq.md)
   - [术语表](SOURCE/resources/glossary.md)
-  - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
+  - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
 
-### 校对
-
-- 起步
-  - [介绍](SOURCE/get_started/introduction.md) （[此处添加审校者姓名及链接](https://github.com/xxx)）
-  - [下载及安装](SOURCE/get_started/os_setup.md)
-  - [基本用法](SOURCE/get_started/basic_usage.md)
-- 教程
-  - [Overview](SOURCE/tutorials/overview.md)
-  - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md)
-  - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md)
-  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md)
-  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md)
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
-  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md)
-  - [Mandelbrot Set](SOURCE/tutorials/mandelbrot.md)
-  - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md)
-- 运作方式
-  - [总览](SOURCE/how_tos/overview.md) 
-  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 
-  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 
-  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
-  - [读取数据](SOURCE/how_tos/reading_data.md) 
-  - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
-  - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
-  - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
-  - [使用gpu](SOURCE/how_tos/using_gpu.md) 
-  - [共享变量](SOURCE/how_tos/variable_scope.md) 
-- 资源
-  - [总览](SOURCE/resources/overview.md) 
-  - [BibTex 引用](SOURCE/resources/bib.md) 
-  - [示例使用](SOURCE/resources/uses.md)
-  - [FAQ](SOURCE/resources/faq.md)
-  - [术语表](SOURCE/resources/glossary.md)
-  - [Tensor排名、形状和类型](SOURCE/resources/dim_types.md)
 
 ## 进度记录
 
-- 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范  
+- 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
+ 
 
 
 ## 感谢支持   
