@@ -85,7 +85,7 @@ for n in range(40):
 DisplayArray(u_init, rng=[-0.1, 0.1])
 ```
 
-![jpeg](https://github.com/wangaicc/tensorflow-zh/raw/master/SOURCE/tutorials/pdes/pde_output_1.jpg)
+![jpeg](..\images\pde_output_1.jpg)
 
 现在让我们来指定该微分方程的详细信息。
 
@@ -128,7 +128,7 @@ for i in range(1000):
     DisplayArray(U.eval(), rng=[-0.1, 0.1])
 ```
 
-![jpeg](https://github.com/wangaicc/tensorflow-zh/raw/master/SOURCE/tutorials/pdes/pde_output_2.jpg)
+![jpeg](..\images\pde_output_2.jpg)
 
-看！！ 多么美丽的涟漪!
+看！！ 雨点落在池塘中,泛起了无数涟漪。
 
