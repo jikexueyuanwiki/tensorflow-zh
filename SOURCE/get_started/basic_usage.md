@@ -378,7 +378,7 @@ output = tf.mul(input1, input2)
 with tf.Session() as sess:
   print sess.run([output], feed_dict={input1:[7.], input2:[2.]})
 
-# output:
+# 输出:
 # [array([ 14.], dtype=float32)]
 ```
 
@@ -387,4 +387,8 @@ it. See the
 [MNIST fully-connected feed tutorial](../tutorials/mnist/tf/index.md)
 ([source code](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py))
 for a larger-scale example of feeds.
+如果没有为一个 `placeholder()` 操作提供 feed, 在执行时会产生一个错误.
+[MNIST 全连通 feed 教程](../tutorials/mnist/tf/index.md)
+([source code](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py))
+给出了一个更大规模的使用 feed 的例子.
 
