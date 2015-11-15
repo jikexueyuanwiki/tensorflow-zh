@@ -92,7 +92,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [共享变量](SOURCE/how_tos/variable_scope.md) 
 - 资源
   - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))
-  - [BibTex 引用](SOURCE/resources/bib.md) 
+  - [BibTex 引用](SOURCE/resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))
   - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))
   - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))
   - [术语表](SOURCE/resources/glossary.md)
@@ -105,7 +105,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 
 
 
-## 感谢支持   
+## 感谢支持
 
 ## 离线版本
 
