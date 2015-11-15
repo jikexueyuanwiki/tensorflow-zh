@@ -87,7 +87,7 @@ DisplayArray(u_init, rng=[-0.1, 0.1])
 
 ![jpeg](../images/pde_output_1.jpg)
 
-现在让我们来指定该微分方程的详细信息。
+现在让我们来指定该微分方程的一些详细参数。
 
 ```python
 # Parameters:
