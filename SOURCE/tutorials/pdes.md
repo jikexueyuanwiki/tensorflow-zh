@@ -69,7 +69,7 @@ def laplace(x):
 N = 500
 ```
 
-现在我们需要创建了一个池塘和几滴将要坠入池塘的雨滴。
+然后，我们需要创建了一个池塘和几滴将要坠入池塘的雨滴。
 
 ```python
 # Initial Conditions -- some rain drops hit a pond
@@ -88,7 +88,7 @@ DisplayArray(u_init, rng=[-0.1, 0.1])
 
 ![jpeg](../images/pde_output_1.jpg)
 
-现在让我们来指定该微分方程的一些详细参数。
+现在，让我们来指定该微分方程的一些详细参数。
 
 ```python
 # Parameters:
@@ -131,6 +131,6 @@ for i in range(1000):
 
 ![jpeg](../images/pde_output_2.jpg)
 
-看！！ 雨点落在池塘中,泛起了无数涟漪。
+看！！ 雨点落在池塘中,和现实中一样的泛起了涟漪。
 
-> 原文链接:[http://tensorflow.org/tutorials/pdes/index.md](http://tensorflow.org/tutorials/pdes/index.md) 翻译:[@wangaicc](https://github.com/wangaicc)
+> 原文链接:[http://tensorflow.org/tutorials/pdes/index.md](http://tensorflow.org/tutorials/pdes/index.md)    翻译:[@wangaicc](https://github.com/wangaicc)   校对： 
