@@ -215,4 +215,4 @@ TensorFlow C++ 代码遵循 [Google C++ style guide](http://google.github.io/sty
 (<sup>*</sup> 有一条例外: 我们使用 2 空格缩进而不是 4 空格缩进)
 
 
-原文：[Frequently Asked Questions](tensorflow.org/resources/faq.md) 翻译：[Terence Cooper](https://github.com/TerenceCooper) 校对：
+原文：[Frequently Asked Questions](http://tensorflow.org/resources/faq.md) 翻译：[Terence Cooper](https://github.com/TerenceCooper) 校对：
