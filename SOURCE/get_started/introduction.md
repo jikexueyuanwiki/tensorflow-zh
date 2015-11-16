@@ -74,7 +74,6 @@ MNIST 模型, 请阅读高级教程 (红色药丸链接). 如果你以前从未�
 <!--
 <!-- os_setup.md -->
 <!-- basic_usage.md -->
--->
 </div>
 
 > 原文：[Introduction](http://tensorflow.org/get_started)  翻译：[@doc001](https://github.com/PFZheng)  校对：[@yangtze](https://github.com/sstruct)
