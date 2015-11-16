@@ -93,7 +93,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 - 资源
   - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))
   - [BibTex 引用](SOURCE/resources/bib.md) 
-  - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))
+  - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√
   - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))
   - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
