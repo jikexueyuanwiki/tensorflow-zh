@@ -213,3 +213,6 @@ TensorFlow Python API 遵循 [PEP8](https://www.python.org/dev/peps/pep-0008/) �
 TensorFlow C++ 代码遵循 [Google C++ style guide](http://google.github.io/styleguide/cppguide.html)。
 
 (<sup>*</sup> 有一条例外: 我们使用 2 空格缩进而不是 4 空格缩进)
+
+
+原文：[Frequently Asked Questions](tensorflow.org/resources/faq.md) 翻译：[Terence Cooper](https://github.com/TerenceCooper) 校对：
