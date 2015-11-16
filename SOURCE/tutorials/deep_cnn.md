@@ -286,3 +286,5 @@ Filling queue with 20000 CIFAR images before starting to train. This will take a
 如果你对开发和训练自己的图像分类系统感兴趣，我们推荐你新建一个基于该教程的分支，并修改其中的内容以建立解决您问题的图像分类系统。
 
 > **练习:** 下载[Street View House Numbers (SVHN)](http://ufldl.stanford.edu/housenumbers/) 数据集。新建一个CIFAR-10教程的分支，并将输入数据替换成SVHN。尝试改变网络结构以提高预测性能。
+
+> 原文：[Convolutional Neural Networks](http://tensorflow.org/tutorials/deep_cnn/index.md)  翻译：[oskycar](https://github.com/oskycar)
