@@ -45,7 +45,7 @@ CIFAR-10 教程演示了在TensorFlow上构建更大更复杂模型的个种重�
 
 本教程的代码位于[`tensorflow/models/image/cifar10/`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/models/image/cifar10/).
 
-File | Purpose
+文件 | 作用
 --- | ---
 [`cifar10_input.py`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/models/image/cifar10/cifar10_input.py) | 读取本地CIFAR-10的二进制文件格式的内容。
 [`cifar10.py`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/models/image/cifar10/cifar10.py) | 建立CIFAR-10的模型。
@@ -65,53 +65,36 @@ CIFAR-10 网络模型部分的代码位于
 adds operations that perform inference, i.e. classification, on supplied images.
 3. [**模型训练:**](#model-training) 包括`loss()` and `train()`等一些操作，用于计算损失、计算梯度、进行变量更新以及可视化。
 
-### Model Inputs <a class="md-anchor" id="model-inputs"></a>
+### 模型输入 <a class="md-anchor" id="model-inputs"></a>
 
-The input part of the model is built by the functions `inputs()` and
-`distorted_inputs()` which read images from the CIFAR-10 binary data files.
-These files contain fixed byte length records, so we use
-[`tf.FixedLengthRecordReader`](../../api_docs/python/io_ops.md#FixedLengthRecordReader).
-See [Reading Data](../../how_tos/reading_data/index.md#reading-from-files) to
-learn more about how the `Reader` class works.
+输入模型是通过 `inputs()` 和`distorted_inputs()`函数建立起来的，这2个函数会从CIFAR-10二进制文件中读取图片文件，由于每个图片的存储字节数是固定的，因此可以使用[`tf.FixedLengthRecordReader`](../../api_docs/python/io_ops.md#FixedLengthRecordReader)函数。更多的关于`Reader`类的功能可以查看[Reading Data](../../how_tos/reading_data/index.md#reading-from-files)。
 
-The images are processed as follows:
+图片文件的处理流程如下：  
 
-*  They are cropped to 24 x 24 pixels, centrally for evaluation or
-   [randomly](../../api_docs/python/image.md#random_crop) for training.
-*  They are [approximately whitened](../../api_docs/python/image.md#per_image_whitening)
-   to make the model insensitive to dynamic range.
+*  图片会被统一裁剪到24x24像素大小，并被集中用于评估或[随机](../../api_docs/python/image.md#random_crop)挑选用于训练；
+*  图片会进行[近似的白化处理](../../api_docs/python/image.md#per_image_whitening)，使得模型对图片的动态范围变化不敏感。
 
-For training, we additionally apply a series of random distortions to
-artificially increase the data set size:
+对于训练，我们另外采取了一系列随机变换的方法来人为的增加数据集的大小：
 
-* [Randomly flip](../../api_docs/python/image.md#random_flip_left_right) the image from left to right.
-* Randomly distort the [image brightness](../../api_docs/python/image.md#random_brightness).
-* Randomly distort the [image contrast](../../api_docs/python/image.md#tf_image_random_contrast).
+* 对图像进行[随机的左右翻转](../../api_docs/python/image.md#random_flip_left_right)；
+* 随机变换[图像的亮度](../../api_docs/python/image.md#random_brightness)；
+* 随机变换[图像的对比度](../../api_docs/python/image.md#tf_image_random_contrast)；
 
-Please see the [Images](../../api_docs/python/image.md) page for the list of
-available distortions. We also attach an
-[`image_summary`](../../api_docs/python/train.md#image_summary) to the images
-so that we may visualize them in TensorBoard.  This is a good practice to verify
-that inputs are built correctly.
+可以在[Images](../../api_docs/python/image.md)页的列表中查看所有可用的变换，对于每个原始图我们还附带了一个[`image_summary`](../../api_docs/python/train.md#image_summary)，以便于在TensorBoard中查看。这对于检查输入图像是否正确十分有用。  
 
 <div style="width:50%; margin:auto; margin-bottom:10px; margin-top:20px;">
   <img style="width:70%" src="./cifar_image_summary.png">
 </div>
 
-Reading images from disk and distorting them can use a non-trivial amount of
-processing time. To prevent these operations from slowing down training, we run
-them inside 16 separate threads which continuously fill a TensorFlow
-[queue](../../api_docs/python/io_ops.md#shuffle_batch).
+从磁盘上加载图像并进行变换需要花费不少的处理时间。为了避免这些操作减慢训练过程，我们在16个独立的线程中并行进行这些操作，这16个线程被连续的安排在一个TensorFlow[队列](../../api_docs/python/io_ops.md#shuffle_batch)中。  
 
-### Model Prediction <a class="md-anchor" id="model-prediction"></a>
+### 模型预测 <a class="md-anchor" id="model-prediction"></a>
 
-The prediction part of the model is constructed by the `inference()` function
-which adds operations to compute the *logits* of the predictions. That part of
-the model is organized as follows:
+模型的预测流程由`inference()`构造，该函数会添加必要的操作步骤用于计算预测值的 *logits*，其对应的模型组织方式如下所示：
 
-Layer Name | Description
+Layer 名称 | 描述
 --- | ---
-`conv1` | [convolution](../../api_docs/python/nn.md#conv2d) and [rectified linear](../../api_docs/python/nn.md#relu) activation.
+`conv1` | 实现[卷积](../../api_docs/python/nn.md#conv2d) 以及 [rectified linear](../../api_docs/python/nn.md#relu) activation.
 `pool1` | [max pooling](../../api_docs/python/nn.md#max_pool).
 `norm1` | [local response normalization](../../api_docs/python/nn.md#local_response_normalization).
 `conv2` | [convolution](../../api_docs/python/nn.md#conv2d) and [rectified linear](../../api_docs/python/nn.md#relu) activation.
@@ -121,74 +104,43 @@ Layer Name | Description
 `local4` | [fully connected layer with rectified linear activation](../../api_docs/python/nn.md).
 `softmax_linear` | linear transformation to produce logits.
 
-Here is a graph generated from TensorBoard describing the inference operation:
+这里有一个由TensorBoard绘制的图形，用于描述模型建立过程中经过的步骤：
 
 <div style="width:15%; margin:auto; margin-bottom:10px; margin-top:20px;">
   <img style="width:100%" src="./cifar_graph.png">
 </div>
 
-> **EXERCISE**: The output of `inference` are un-normalized logits. Try editing
-the network architecture to return normalized predictions using [`tf.softmax()`]
-(../../api_docs/python/nn.md#softmax).
+> **练习**: `inference`的输出是未归一化的logits，尝试使用[`tf.softmax()`](../../api_docs/python/nn.md#softmax)修改网络架构后返回归一化的预测值。
 
-The `inputs()` and `inference()` functions provide all the components
-necessary to perform evaluation on a model. We now shift our focus towards
-building operations for training a model.
+`inputs()` 和 `inference()` 函数提供了评估模型时所需的所有构件，现在我们把讲解的重点从构建一个模型转向训练一个模型。
 
-> **EXERCISE:** The model architecture in `inference()` differs slightly from
-the CIFAR-10 model specified in
-[cuda-convnet](https://code.google.com/p/cuda-convnet/).  In particular, the top
-layers are locally connected and not fully connected. Try editing the
-architecture to exactly replicate that fully connected model.
+> **练习:** `inference()` 中的模型跟[cuda-convnet](https://code.google.com/p/cuda-convnet/)中描述的CIFAR-10模型有些许不同，其差异主要在于其顶层不是全连接层而是局部链接层，可以尝试修改网络架构来准确的复制全连接模型。
 
-### Model Training <a class="md-anchor" id="model-training"></a>
+### 模型训练 <a class="md-anchor" id="model-training"></a>
 
-The usual method for training a network to perform N-way classification is
-[multinomial logistic regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression),
-aka. *softmax regression*. Softmax regression applies a
-[softmax](../../api_docs/python/nn.md#softmax) nonlinearity to the
-output of the network and calculates the
-[cross-entropy](../../api_docs/python/nn.md#softmax_cross_entropy_with_logits)
-between the normalized predictions and a
-[1-hot encoding](../../api_docs/python/sparse_ops.md#sparse_to_dense) of the label.
-For regularization, we also apply the usual
-[weight decay](../../api_docs/python/nn.md#l2_loss) losses to all learned
-variables.  The objective function for the model is the sum of the cross entropy
-loss and all these weight decay terms, as returned by the `loss()` function.
+训练一个可进行N维分类的网络的常用方法是使用[多项式逻辑回归](https://en.wikipedia.org/wiki/Multinomial_logistic_regression),又被叫做*softmax 回归*。Softmax 回归在网络的输出层上附加了一个[softmax](../../api_docs/python/nn.md#softmax) nonlinearity，并且计算归一化的预测值和label的[1-hot encoding](../../api_docs/python/sparse_ops.md#sparse_to_dense)的[交叉熵](../../api_docs/python/nn.md#softmax_cross_entropy_with_logits)。在正则化过程中，我们会对所有学习变量应用[权重衰减损失](../../api_docs/python/nn.md#l2_loss)。模型的目标函数是求交叉熵损失和所有权重衰减项的和，`loss()`函数的返回值就是这个值。
 
-We visualize it in TensorBoard with a [scalar_summary](../../api_docs/python/train.md#scalar_summary):
+在TensorBoard中使用[scalar_summary](../../api_docs/python/train.md#scalar_summary)来查看该值的变化情况：
 
 ![CIFAR-10 Loss](./cifar_loss.png "CIFAR-10 Total Loss")
 
-We train the model using standard
-[gradient descent](https://en.wikipedia.org/wiki/Gradient_descent)
-algorithm (see [Training](../../api_docs/python/train.md) for other methods)
-with a learning rate that
-[exponentially decays](../../api_docs/python/train.md#exponential_decay)
-over time.
+我们使用标准的梯度下降算法来训练模型（也可以在[Training](../../api_docs/python/train.md)中看看其他方法），其学习率随时间以指数形式衰减。
 
 ![CIFAR-10 Learning Rate Decay](./cifar_lr_decay.png "CIFAR-10 Learning Rate Decay")
 
-The `train()` function adds the operations needed to minimize the objective by
-calculating the gradient and updating the learned variables (see
-[`GradientDescentOptimizer`](../../api_docs/python/train.md#GradientDescentOptimizer)
-for details).  It returns an operation that executes all the calculations
-needed to train and update the model for one batch of images.
+`train()` 函数会添加一些操作使得目标函数最小化，这些操作包括计算梯度、更新学习变量（详细信息请查看[`GradientDescentOptimizer`](../../api_docs/python/train.md#GradientDescentOptimizer)）。`train()` 函数最终会返回一个用以对一批图像执行所有计算的操作步骤，以便训练并更新模型。
 
-## Launching and Training the Model <a class="md-anchor" id="AUTOGENERATED-launching-and-training-the-model"></a>
+## 开始执行并训练模型 <a class="md-anchor" id="AUTOGENERATED-launching-and-training-the-model"></a>
 
-We have built the model, let's now launch it and run the training operation with
-the script `cifar10_train.py`.
+我们已经把模型建立好了，现在通过执行脚本`cifar10_train.py`来启动训练过程。
 
 ```shell
 python cifar10_train.py
 ```
 
-**NOTE:** The first time you run any target in the CIFAR-10 tutorial,
-the CIFAR-10 dataset is automatically downloaded. The data set is ~160MB
-so you may want to grab a quick cup of coffee for your first run.
+**注意:** 当第一次在CIFAR-10教程上启动任何任务时，会自动下载CIFAR-10数据集，该数据集大约有160M大小，因此第一次运行时泡杯咖啡小栖一会吧。
 
-You should see the output:
+你应该可以看到如下类似的输出:
 
 ```shell
 Filling queue with 20000 CIFAR images before starting to train. This will take a few minutes.
@@ -201,51 +153,29 @@ Filling queue with 20000 CIFAR images before starting to train. This will take a
 ...
 ```
 
-The script reports the total loss every 10 steps as well the speed at which
-the last batch of data was processed. A few comments:
+脚本会在每10步训练过程后打印出总损失值，以及最后一批数据的处理速度。下面是几点注释：
 
-* The first batch of data can be inordinately slow (e.g. several minutes) as the
-preprocessing threads fill up the shuffling queue with 20,000 processed CIFAR
-images.
+* 第一批数据会非常的慢（大概要几分钟时间），因为预处理线程要把20,000个待处理的CIFAR图像填充到重排队列中；
 
-* The reported loss is the average loss of the most recent batch. Remember that
-this loss is the sum of the cross entropy and all weight decay terms.
+* 打印出来的损失值是最近一批数据的损失值的均值。请记住损失值是交叉熵和权重衰减项的和；
 
-* Keep an eye on the processing speed of a batch. The numbers shown above were
-obtained on a Tesla K40c. If you are running on a CPU, expect slower performance.
+* 上面打印结果中关于一批数据的处理速度是在Tesla K40C上统计出来的，如果你运行在CPU上，性能会比此要低；
 
+> **练习:** 当实验时，第一阶段的训练时间有时会非常的长，长到足以让人生厌。可以尝试减少初始化时初始填充到队列中图片数量来改变这种情况。在`cifar10.py`中搜索`NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN`并修改之。  
 
-> **EXERCISE:** When experimenting, it is sometimes annoying that the first
-training step can take so long. Try decreasing the number of images initially
-that initially fill up the queue.  Search for `NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN`
-in `cifar10.py`.
+`cifar10_train.py` 会周期性的在[检查点文件](../../how_tos/variables/index.md#saving-and-restoring)中[保存](../../api_docs/python/state_ops.md#Saver)模型中的所有参数，但是*不会*对模型进行评估。`cifar10_eval.py`会使用该检查点文件来测试预测性能（详见下面的描述：[评估模型](#评估模型)）。
 
-`cifar10_train.py` periodically [saves](../../api_docs/python/state_ops.md#Saver)
-all model parameters in
-[checkpoint files](../../how_tos/variables/index.md#saving-and-restoring)
-but it does *not* evaluate the model. The checkpoint file
-will be used by `cifar10_eval.py` to measure the predictive
-performance (see [Evaluating a Model](#evaluating-a-model) below).
+如果按照上面的步骤做下来，你应该已经开始训练一个CIFAR-10模型了。[恭喜你!](https://www.youtube.com/watch?v=9bZkp7q19f0)
 
+从`cifar10_train.py`输出的终端信息中提供关于模型如何训练的一些信息，但是我们可能希望了解更多关于模型训练时的信息：  
+* 损失是*真的*在减小还是看到的只是噪声数据？  
+* 为模型提供的图片是否合适？  
+* 梯度、激活、权重的设计是否合理？  
+* 当前的学习率是多少？  
 
-If you followed the previous steps, then you have now started training
-a CIFAR-10 model. [Congratulations!](https://www.youtube.com/watch?v=9bZkp7q19f0)
-
-The terminal text returned from `cifar10_train.py` provides minimal insight into
-how the model is training. We want more insight into the model during training:
-
-* Is the loss *really* decreasing or is that just noise?
-* Is the model being provided appropriate images?
-* Are the gradients, activations and weights reasonable?
-* What is the learning rate currently at?
-
-[TensorBoard](../../how_tos/summaries_and_tensorboard/index.md) provides this
-functionality, displaying data exported periodically from `cifar10_train.py` via
-a
-[`SummaryWriter`](../../api_docs/python/train.md#SummaryWriter).
-
-For instance, we can watch how the distribution of activations and degree of
-sparsity in `local3` features evolve during training:
+[TensorBoard](../../how_tos/summaries_and_tensorboard/index.md)提供了该功能，可以通过`cifar10_train.py`中的[`SummaryWriter`](../../api_docs/python/train.md#SummaryWriter)周期性的获取并显示这些数据。
+ 
+比如我们可以在训练过程中查看`local3`的激活情况，以及其特征维度的稀疏情况：
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px; display: flex; flex-direction: row">
   <img style="flex-grow:1; flex-shrink:1;" src="./cifar_sparsity.png">
@@ -260,8 +190,8 @@ values.  See how the scripts use
 [`ExponentialMovingAverage`](../../api_docs/python/train.md#ExponentialMovingAverage)
 for this purpose.
 
-## Evaluating a Model <a class="md-anchor" id="evaluating-a-model"></a>
-
+## 评估模型 <a class="md-anchor" id="evaluating-a-model"></a>
+现在我们可以在另一部分数据集上来评估训练模型的性能。脚本文件`cifar10_eval.py`中对模型进行了评估。  
 Let us now evaluate how well the trained model performs on a hold-out data set.
 the model is evaluated by the script `cifar10_eval.py`.  It constructs the model
 with the `inference()` function and uses all 10,000 images in the evaluation set
