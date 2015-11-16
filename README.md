@@ -85,24 +85,24 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 翻译：([@thylaco1eo](https://github.com/thylaco1eo))
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
   - [读取数据](SOURCE/how_tos/reading_data.md) 
-  - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
+  - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom))
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
   - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 
 - 资源
-  - [总览](SOURCE/resources/overview.md) 
+  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))
   - [BibTex 引用](SOURCE/resources/bib.md) 
-  - [示例使用](SOURCE/resources/uses.md)
-  - [FAQ](SOURCE/resources/faq.md)
-  - [术语表](SOURCE/resources/glossary.md)
+  - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))
+  - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))
+  - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
 
 
 ## 进度记录
 
 - 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
- 
+
 
 
 ## 感谢支持   
