@@ -41,3 +41,6 @@
   * **组织**: Google
   * **描述**: 设备内置计算机视觉模型来做光学字符识别以实现实时翻译。
   * **更多信息**: [Google Research blog post](http://googleresearch.blogspot.com/2015/07/how-google-translate-squeezes-deep.html)
+
+
+> 原文:[http://tensorflow.org/resources/uses.md](http://tensorflow.org/resources/uses.md) 翻译:[andyiac](https://github.com/andyiac)
