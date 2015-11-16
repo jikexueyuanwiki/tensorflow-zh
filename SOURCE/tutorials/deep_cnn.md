@@ -7,7 +7,7 @@
 对CIFAR-10 数据集的分类是机器学习中一个公开的基准测试问题，其任务是对一组32x32RGB的图像进行分类，这些图像涵盖了10个类别：  
 ```飞机， 汽车， 鸟， 猫， 鹿， 狗， 青蛙， 马， 船以及卡车。```
 
-![CIFAR-10 Samples](./cifar_samples.png "CIFAR-10 Samples, from http://www.cs.toronto.edu/~kriz/cifar.html")
+![CIFAR-10 Samples](../images/cifar_samples.png "CIFAR-10 Samples, from http://www.cs.toronto.edu/~kriz/cifar.html")
 
 想了解更多信息请参考[CIFAR-10 page](http://www.cs.toronto.edu/~kriz/cifar.html)，以及Alex Krizhevsky写的[技术报告](http://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)  
 
