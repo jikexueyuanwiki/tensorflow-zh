@@ -29,7 +29,8 @@
 * 如果你有兴趣为 TensorFlow 贡献代码请
   [阅读这篇代码贡献指南](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).
 
-> 原文：Google Inc. 翻译：[Jim-Zenn](https://github.com/Jim-Zenn)
+> 原文：http://tensorflow.org/resources/bib.md 翻译：[Jim-Zenn](https://github.com/Jim-Zenn)
+
 <div class='sections-order' style="display: none;">
 <!--
 <!-- bib.md -->
@@ -39,5 +40,3 @@
 <!-- dims_types.md -->
 -->
 </div>
-
-
