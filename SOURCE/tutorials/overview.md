@@ -1,60 +1,80 @@
-# Overview
+# 综述
 
 
-## MNIST For ML Beginners
+## 面向机器学习初学者的 MNIST 初级教程
 
 If you're new to machine learning, we recommend starting here.  You'll learn
 about a classic problem, handwritten digit classification (MNIST), and get a
 gentle introduction to multiclass classification.
+如果你是机器学习领域的新手, 我们推荐你从本文开始阅读. 本文通过讲述一个经典的问题, 
+手写数字识别 (MNIST), 让你对多类分类 (multiclass classification) 问题有直观的了解.
 
 [View Tutorial](../tutorials/mnist/beginners/index.md)
+[阅读教程](../tutorials/mnist/beginners/index.md)
 
 
-## Deep MNIST for Experts
+## 面向机器学习专家的 MNIST 高级教程
 
 If you're already familiar with other deep learning software packages, and are
 already familiar with MNIST, this tutorial with give you a very brief primer on
 TensorFlow.
+如果你已经对其它深度学习软件比较熟悉, 并且也对 MNIST 很熟悉, 这篇教程能够引导你
+对 TensorFlow 有初步了解.
 
 [View Tutorial](../tutorials/mnist/pros/index.md)
+[阅读教程](../tutorials/mnist/pros/index.md)
 
 
-## TensorFlow Mechanics 101
+## TensorFlow 使用指南
 
 This is a technical tutorial, where we walk you through the details of using
 TensorFlow infrastructure to train models at scale.  We use again MNIST as the
 example.
+这是一篇技术教程, 详细介绍了如何使用 TensorFlow 架构训练大规模模型. 本文继续使用
+MNIST 作为例子.
 
 [View Tutorial](../tutorials/mnist/tf/index.md)
+[阅读教程](../tutorials/mnist/tf/index.md)
 
 
-## Convolutional Neural Networks
+## 卷积神经网络 
 
 An introduction to convolutional neural networks using the CIFAR-10 data set.
 Convolutional neural nets are particularly tailored to images, since they
 exploit translation invariance to yield more compact and effective
 representations of visual content.
+这篇文章介绍了如何使用 TensorFlow 在 CIFAR-10 数据集上训练卷积神经网络. 卷积
+神经网络是为图像识别量身定做的一个模型. 相比其它模型, 该模型利用了平移不变性
+(translation invariance), 从而能够更更简洁有效地表示视觉内容.
 
 [View Tutorial](../tutorials/deep_cnn/index.md)
+[阅读教程](../tutorials/deep_cnn/index.md)
 
 
-## Vector Representations of Words
+## 单词的向量表示
 
 This tutorial motivates why it is useful to learn to represent words as vectors
 (called *word embeddings*). It introduces the word2vec model as an efficient
 method for learning embeddings. It also covers the high-level details behind
 noise-contrastive training methods (the biggest recent advance in training
 embeddings).
+本文让你了解为什么学会使用向量来表示单词, 即单词嵌套 (word embedding), 是一件很有用的事情. 
+文章中介绍的 word2vec 模型, 是一种高效学习嵌套的方法. 本文还涉及了对比噪声(noise-contrastive) 
+训练方法的一些高级细节, 该训练方法是训练嵌套领域最近最大的进展. 
 
 [View Tutorial](../tutorials/word2vec/index.md)
+[阅读教程](../tutorials/word2vec/index.md)
 
 
-## Recurrent Neural Networks
+## 递归神经网络 (Recurrent Neural Network, 简称 RNN)
 
 An introduction to RNNs, wherein we train an LSTM network to predict the next
 word in an English sentence.  (A task sometimes called language modeling.)
+一篇 RNN 的介绍文章, 文章中训练了一个 LSTM 网络来预测一个英文句子的下一个单词 
+(该任务有时候被称作语言建模).
 
 [View Tutorial](../tutorials/recurrent/index.md)
+[阅读教程](../tutorials/recurrent/index.md)
 
 
 ## Sequence-to-Sequence Models
