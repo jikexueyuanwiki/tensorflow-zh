@@ -1,3 +1,0 @@
-# TensorBoard:
-
-TensorBoard涉及到的运算通常是训练庞大的深度神经网络这样复杂而又难以理解的运算。为了更方便TensorFlow程序的理解，调试与优化，我们发布了一套叫做TensorFlow的可视化工具。
