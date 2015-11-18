@@ -73,7 +73,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))
-  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar)) 校对： ([@zhyhooo](https://github.com/zhyhooo))
+  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√
   - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√
