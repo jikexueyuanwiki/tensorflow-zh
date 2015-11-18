@@ -59,6 +59,17 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 
 > 原文：[Color Palettes](http://www.google.com/design/spec/resources/color-palettes.html)  翻译：[iceskysl](https://github.com/iceskysl)  校对：[PoppinLp](https://github.com/poppinlp)   
 
+## 校对规范
+
+- 文章通顺，适合人类阅读与理解，别让人以为是机翻
+- 确保图片都能正常显示，且其相对地址都是SOURCE/images，图片存放正确
+- 专有名词符合术语表中的翻译要求，拿不准的新词汇可以使用中文翻译后加括号内英文的形式
+- 校对人员需有一定专业背景，保证译文无专业知识方面错误
+- 请查看翻译人员是否将原文链接和翻译链接放到译文最下方，审校人员需要将自己的名字添加到译文末尾，具体格式请参见样例：   
+
+> 原文：[Color Palettes](http://www.google.com/design/spec/resources/color-palettes.html)  翻译：[iceskysl](https://github.com/iceskysl)  校对：[PoppinLp](https://github.com/poppinlp)   
+
+- 有任何问题请提Issues或到协同翻译群讨论，校对后提PR等待Merge，管理员通过后会在目录后面打√标识完成
 
 ## 参与者（按认领章节排序）
 
