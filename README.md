@@ -84,7 +84,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [综述](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： ([@ericxk](https://github.com/ericxk))
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
   - [深入MNIST](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))√
-  - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))
+  - [TensorFlow运作方式入门](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))√
   - [卷积神经网络](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√
@@ -95,7 +95,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√
-  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))
+  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√
   - [读取数据](SOURCE/how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast))
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom))
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）
