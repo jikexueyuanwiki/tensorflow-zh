@@ -65,15 +65,15 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ### 翻译 & 校对
 
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对：（[@yangtze](https://github.com/sstruct)）
-  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： （[@yangtze](https://github.com/sstruct)）
-  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对：（[@yangtze](https://github.com/sstruct)）
+  - [简介](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）
+  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： （[@yangtze](https://github.com/sstruct)）
+  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）
 - 教程
-  - [Overview](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）校对： ([@ericxk](https://github.com/ericxk))
+  - [综述](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： ([@ericxk](https://github.com/ericxk))
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
   - [Deep MNIST for Expert](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))
   - [TensorFlow Mechanics 101](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))
-  - [Convolutional Neural Networks](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar)) 校对： ([@zhyhooo](https://github.com/zhyhooo))
+  - [卷积神经网络](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√
   - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√
@@ -86,7 +86,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))
   - [读取数据](SOURCE/how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast))
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom))
-  - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
+  - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
   - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))
