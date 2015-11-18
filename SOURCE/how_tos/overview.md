@@ -1,16 +1,18 @@
-# Overview
+# 综述 Overview
 
 
-## Variables: Creation, Initializing, Saving, and Restoring
+## Variables: 创建，初始化，保存，恢复 Variables: Creation, Initializing, Saving, and Restoring
 
+TensorFlow Variables 是内存中的容纳 tensor 的缓存。了解用它们在训练时(during training)保存和更新模型参数(model parameters) 的方法，[参看教程](../how_tos/variables/index.md)。
 TensorFlow Variables are in-memory buffers containing tensors.  Learn how to
 use them to hold and update model parameters during training.
 
 [View Tutorial](../how_tos/variables/index.md)
 
 
-## TensorFlow Mechanics 101
+## TensorFlow 机制 101 TensorFlow Mechanics 101
 
+用 MNIST 手写数字识别作为一个小例子，一步一步的将使用 TensorFlow 基础架构(infrastructure)训练大规模模型的细节做详细介绍介绍，[参看教程](../tutorials/mnist/tf/index.md)。
 A step-by-step walk through of the details of using TensorFlow infrastructure
 to train models at scale, using MNIST handwritten digit recognition as a toy
 example.
@@ -52,24 +54,26 @@ to facilitate asynchronous and concurrent training.
 [View Tutorial](../how_tos/threading_and_queues/index.md)
 
 
-## Adding a New Op
+## 添加新的 Op Adding a New Op
 
+TensorFlow 已经提供一整套节点操作(operation)，你可以在你的 graph 中随意使用它们，不过这里有关于添加自定义操作(custom op)的细节，[参看教程](../how_tos/adding_an_op/index.md)。
 TensorFlow already has a large suite of node operations from which you can
 compose in your graph, but here are the details of how to add you own custom Op.
-
 [View Tutorial](../how_tos/adding_an_op/index.md)
 
 
-## Custom Data Readers
+## 自定义数据的 Reader Custom Data Readers
 
+如果你有相当大量的自定义数据集合，可能你想要对 TensorFlow 进行扩展，使它能直接以数据自身的格式将其读入，[参看教程](../how_tos/new_data_formats/index.md)。
 If you have a sizable custom data set, you may want to consider extending
 TensorFlow to read your data directly in it's native format.  Here's how.
 
 [View Tutorial](../how_tos/new_data_formats/index.md)
 
 
-## Using GPUs
+## 使用 GPU Using GPUs
 
+此教程描述了 用 GPU 构建和运行模型的方法。
 This tutorial describes how to construct and execute models on GPU(s).
 
 [View Tutorial](../how_tos/using_gpu/index.md)
