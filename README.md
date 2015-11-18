@@ -82,8 +82,8 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo)) 校对： ([@jishaoming](https://github.com/jishaoming))
-  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 翻译：([@Warln](https://github.com/Warln)) 翻译：([@thylaco1eo](https://github.com/thylaco1eo))
-  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
+  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))
+  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))
   - [读取数据](SOURCE/how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast))
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom))
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
