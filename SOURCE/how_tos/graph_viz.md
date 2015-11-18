@@ -165,3 +165,6 @@ with tf.name_scope('hidden') as scope:
     </td>
   </tr>
 </table>
+
+原文: [TensorBoard: Graph Visualization](http://tensorflow.org/how_tos/graph_viz/index.html#tensorboard-graph-visualization)
+翻译: [@Warln](https://github.com/Warln)
