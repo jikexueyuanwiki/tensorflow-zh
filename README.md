@@ -99,7 +99,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [读取数据](SOURCE/how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast))
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom))
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）
-  - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))
+  - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√
   - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))
 - 资源
@@ -114,7 +114,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ## 进度记录
 
 - 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
-- 2015-11-18, 所有章节认领完毕，翻译完成17章，校对认领7章，Star数361，fork数100，协同翻译QQ群及技术交流群的TF爱好者将近300人，GitHub搜索TensorFlow排名第二
+- 2015-11-18, 所有章节认领完毕，翻译完成18章，校对认领7章，Star数361，fork数100，协同翻译QQ群及技术交流群的TF爱好者将近300人，GitHub搜索TensorFlow排名第二
 
 ## 感谢支持
 
