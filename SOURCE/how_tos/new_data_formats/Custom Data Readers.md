@@ -97,14 +97,8 @@ REGISTER_OP("TextLineReader")
 A Reader that outputs the lines of a file delimited by '\n'.
 )doc");
 ```
-
-
-To define an `OpKernel`, Readers can use the shortcut of descending from
-`ReaderOpKernel`, defined in
-[`tensorflow/core/framework/reader_op_kernel.h`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/reader_op_kernel.h),
-and implement a constructor that calls `SetReaderFactory`.  After defining
-your class, you will need to register it using `REGISTER_KERNEL_BUILDER(...)`.
-An example with no attrs:
+要定义一个 OpKernel， 读写器可以使用定义在[tensorflow/core/framework/reader_op_kernel.h](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/reader_op_kernel.h)中的 ReaderOpKernel 的递减快捷方式，并运行一个叫 SetReaderFactory 的构造函数。
+定义所需要的类之后，你需要通过 REGISTER_KERNEL_BUILDER(...) 注册这个类。一个没有属性的例子：
 
 ```c++
 #include "tensorflow/core/framework/reader_op_kernel.h"
@@ -121,8 +115,7 @@ class TFRecordReaderOp : public ReaderOpKernel {
 REGISTER_KERNEL_BUILDER(Name("TFRecordReader").Device(DEVICE_CPU),
                         TFRecordReaderOp);
 ```
-
-An example with attrs:
+一个带有属性的例子：
 
 ```c++
 #include "tensorflow/core/framework/reader_op_kernel.h"
@@ -148,7 +141,7 @@ REGISTER_KERNEL_BUILDER(Name("TextLineReader").Device(DEVICE_CPU),
                         TextLineReaderOp);
 ```
 
-The last step is to add the Python wrapper.  You will import
+最后一步是添加 Python 包装器 You will import
 `tensorflow.python.ops.io_ops` in
 [`tensorflow/python/user_ops/user_ops.py`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/user_ops/user_ops.py)
 and add a descendant of [`io_ops.ReaderBase`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/ops/io_ops.py).
