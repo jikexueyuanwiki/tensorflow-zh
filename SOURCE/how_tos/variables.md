@@ -1,8 +1,3 @@
-[原文链接](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/variables.md)
-
-译者：赵屹华 (@zhyhooo)
-
-
 #变量:创建、初始化、保存和加载#
 
 当你在训练模型时，用[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)来存储和更新参数。变量是内存中用于存放张量 (Tensor) 的缓存区。它们必须被明确地初始化，并能在训练过程中和结束后被保存到磁盘。你随后可以恢复保存的值来训练和分析模型。
@@ -165,3 +160,7 @@ saver = tf.train.Saver({"my_v2": v2})
 # Use the saver object normally after that.
 ...
 ```
+
+[原文链接](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/variables.md)
+
+译者：赵屹华 (@zhyhooo)
