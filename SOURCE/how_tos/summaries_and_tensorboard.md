@@ -65,3 +65,5 @@ tensorboard --logdir=/path/to/log-directory
 的每一个选项，如果TensorBoard中没有数据与这个选项相关的话，则会显示一条如何排序才适用于这个选项的提示。
 
 更多更详细的关于如何使用graph选项来显示你的图像的信息。参见[TensorBoard:图表可视化](./graph_viz.md)
+
+原文地址：[TensorBoard:Visualizing Learning](http://tensorflow.org/how_tos/summaries_and_tensorboard/index.html#tensorboard-visualizing-learning) 翻译：[thylaco1eo](https://github.com/thylaco1eo) 校对：
