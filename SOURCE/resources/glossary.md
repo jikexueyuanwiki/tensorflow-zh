@@ -54,4 +54,4 @@ Tensor是一种特定的多维数组。比如，一个浮点型的四维数组�
 
 在C++中，Tensor是方法[Session::Run()](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/api_docs/cc/ClassSession.md)的返回值，见[tensorflow::Tensor](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/api_docs/cc/ClassTensor.md)，这样的Tensor持有数据。
 
-原文：[Glossary](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/resources/glossary.md) 翻译：[leege100](https://github.com/leege100)
+原文：[Glossary](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/resources/glossary.md) 翻译：[leege100](https://github.com/leege100)
