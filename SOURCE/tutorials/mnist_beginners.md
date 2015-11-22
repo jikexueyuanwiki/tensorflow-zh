@@ -185,7 +185,7 @@ cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 ```
 
-在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵。梯度下降算法（gradient descent algorithm）是一个简单的过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动。当然TensorFlow也提供了[其他许多优化算法](../../../api_docs/python/train.md#optimizers)：只要简单地调整一行代码就可以使用任意一种算法。
+在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵。梯度下降算法（gradient descent algorithm）是一个简单的过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动。当然TensorFlow也提供了[其他许多优化算法](../api_docs/python/train.md#optimizers)：只要简单地调整一行代码就可以使用任意一种算法。
 
 TensorFlow在这里实际上所做的就是它在后台给你的计算图增加了一系列新的计算操作单元用于实现反向传播算法和梯度下降算法。然后，它返回给你的只是一个单一的操作，当运行这个操作时，它用梯度下降算法训练你的模型，微调你的变量，不断减少成本。
 
@@ -245,3 +245,5 @@ print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 
 相对于结果更重要的是，我们从这个模型中学习到的思想。不过，如果你仍然对这里的结果有点失望，可以查看[下一个教程](./mnist_pros.md)，在那里你可以学习如何用FensorFlow构建更加复杂的模型以获得更好的性能！
 
+
+原文地址：[MNIST For ML Beginners](http://tensorflow.org/tutorials/mnist/beginners/index.md	) 翻译：[linbojin](https://github.com/linbojin) 校对：
