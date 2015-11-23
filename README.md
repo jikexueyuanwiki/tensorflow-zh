@@ -77,9 +77,9 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ### 翻译 & 校对
 
 - 起步
-  - [简介](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）
-  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： （[@yangtze](https://github.com/sstruct)）
-  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）
+  - [简介](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
+  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： （[@yangtze](https://github.com/sstruct)）√
+  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
 - 教程
   - [综述](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： ([@ericxk](https://github.com/ericxk))
   - [MNIST For ML Beginners](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin)) 校对： ([@ericxk](https://github.com/ericxk))
