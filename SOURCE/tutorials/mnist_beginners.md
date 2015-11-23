@@ -241,4 +241,4 @@ print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看[下一个教程](./mnist_pros.md)，在那里你可以学习如何用FensorFlow构建更加复杂的模型以获得更好的性能！
 
 
-原文地址：[MNIST For ML Beginners](http://tensorflow.org/tutorials/mnist/beginners/index.md	) 翻译：[linbojin](https://github.com/linbojin) 校对：
+原文地址：[MNIST For ML Beginners](http://tensorflow.org/tutorials/mnist/beginners/index.md) 翻译：[linbojin](https://github.com/linbojin) 校对：
