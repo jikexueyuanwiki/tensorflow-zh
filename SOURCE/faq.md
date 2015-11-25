@@ -9,3 +9,17 @@
 ### (示例)官网地址是哪里？
 
 [http://www.tensorflow.org/](http://www.tensorflow.org/)
+
+### 如何安装 pip ？
+
+ * Ubuntu (14.04)
+
+        sudo apt-get update && sudo apt-get install -y python python-dev python-pip
+
+ * CentOS 7
+
+        yum update -y && yum install -y python python-devel epel-release.noarch python-pip
+
+### docker run -it b.gcr.io/tensorflow/tensorflow 失败
+
+该镜像所在仓库被墙，需要梯子。
