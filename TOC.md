@@ -32,7 +32,8 @@
   - [FAQ](SOURCE/resources/faq.md)
   - [术语表](SOURCE/resources/glossary.md)
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
-
+- 其他
+  - [常见问题汇总](SOURCE/faq.md)
 
   
   
