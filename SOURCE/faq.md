@@ -23,3 +23,8 @@
 ### docker run -it b.gcr.io/tensorflow/tensorflow 失败
 
 该镜像所在仓库被墙，需要梯子。
+
+[这里](http://pan.baidu.com/s/1bnyVrMR)（密码：v9ts）有镜像的导出包。
+使用方法
+
+    docker load < sensorflow.tar.gz
