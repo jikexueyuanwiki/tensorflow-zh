@@ -785,11 +785,15 @@ TF_CALL_REAL_NUMBER_TYPES(REGISTER_KERNEL);
 
 In addition to being able to accept or produce different types, ops can consume
 or produce a variable number of tensors.
+除了能够使用不同类型的 tensor 作为输入或输出, Op 还支持使用多个 tensor 作为输入或输出.
 
 In the next example, the attr `T` holds a *list* of types, and is used as the
 type of both the input `in` and the output `out`.  The input and output are
 lists of tensors of that type (and the number and types of tensors in the output
 are the same as the input, since both have type `T`).
+在接下来的例子里, 属性 `T` 存储了一个类型*列表*, 并同时作为输入 `in` 和输出 `out` 的类型.
+输入和输出均为指定类型的 tensor 列表. 既然输入和输出的类型均为 `T`, 它们的 tensor 数量和类型
+是一致的.
 
 ```c++
 REGISTER_OP("PolymorphicListExample")
@@ -802,6 +806,7 @@ You can also place restrictions on what types can be specified in the list. In
 this next case, the input is a list of `float` and `double` tensors. The Op
 accepts, for example, input types `(float, double, float)` and in that case the
 output type would also be `(float, double, float)`.
+可以为列表中可存放的类型添加约束条件. 在下一个例子中, 输入是 `float` 和 `double` 类型 tensor
 
 ```c++
 REGISTER_OP("ListTypeRestrictionExample")
