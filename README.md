@@ -117,6 +117,12 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 - 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
 - 2015-11-18, 所有章节认领完毕，翻译完成18章，校对认领7章，Star数361，fork数100，协同翻译QQ群及技术交流群的TF爱好者将近300人，GitHub搜索TensorFlow排名第二
 
+## TensorFlow相关文章资源
+
+- [Google官方Blog宣布TensorFlow开源](https://googleblog.blogspot.com/2015/11/tensorflow-smarter-machine-learning-for.html)
+- [TensorFlow WhitePaper(PDF下载)](http://download.tensorflow.org/paper/whitepaper2015.pdf)
+
+
 ## 感谢支持
 
 ## 离线版本
