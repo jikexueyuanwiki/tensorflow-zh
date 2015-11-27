@@ -487,6 +487,14 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
     (like `NumberTypes()`) in
     [`tensorflow/core/framework/types.h`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/types.h).
     In this example the attr `t` must be one of the numeric types:
+* 这里有一些常见类型约束条件的快捷方式:
+    * `numbertype`: 限制类型为数字类型, 即非 string 非 bool 的类型.
+    * `realnumbertype`: 与 `numbertype` 区别是不支持复杂类型.
+    * `quantizedtype`: 与 `numbertype` 区别是只支持量化数值 (quantized number type).
+    
+    这些类型的列表在 [`tensorflow/core/framework/types.h`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/types.h)
+    文件中通过函数定义 (如 `NumberTypes()`).
+    本例中属性 `t` 必须为某种数字类型:
 
     ```c++
     REGISTER_OP("NumberType")
@@ -494,6 +502,7 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
     ```
 
     For this op:
+    对于这个 op:
 
     ```python
     tf.number_type(t=tf.int32)  # Valid
@@ -502,9 +511,11 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
 
 * `int >= <n>`: The value must be an int whose value is greater than or equal to
   `<n>`, where `<n>` is a natural number.
+* `int >= <n>`: 值必须是一个整数, 且取值大于等于 `<n>`, `<n>` 是一个自然数.
 
   For example, the following Op registration specifies that the attr `a` must
   have a value that is at least `2`:
+  例如, 下列 Op 注册操作指定了属性 `a` 的取值至少为 `2`.
 
   ```c++
   REGISTER_OP("MinIntExample")
@@ -513,10 +524,13 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
 
 * `list(<type>) >= <n>`: A list of type `<type>` whose length is greater than
   or equal to `<n>`.
+* `list(<type>) >= <n>`: 一个 `<type>` 类型列表, 列表长度必须大于等于 `<n>`.
 
   For example, the following Op registration specifies that the attr `a` is a
   list of types (either `int32` or `float`), and that there must be at least 3
   of them:
+  例如, 下面的 Op 注册操作指定属性 `a` 是一个列表, 列表中的元素类型是 `int32` 或  `float`
+  列表长度至少为3.
 
   ```c++
   REGISTER_OP("TypeListExample")
@@ -525,6 +539,8 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
 
 To set a default value for an attr (making it optional in the generated code),
 add `= <default>` to the end, as in:
+通过添加 `= <default>` 到约束条件末尾, 给一个属性设置默认值 (使其在自动生成的代码里
+变成可选属性), 如下:
 
 ```c++
 REGISTER_OP("AttrDefaultExample")
@@ -533,8 +549,10 @@ REGISTER_OP("AttrDefaultExample")
 
 The supported syntax of the default value is what would be used in the proto
 representation of the resulting GraphDef definition.
+默认值支持的语法将在最终 GraphDef 定义的 protobuf 表示中被使用.
 
 Here are examples for how to specify a default for all types:
+下面是给所有类型赋予默认值的例子:
 
 ```c++
 REGISTER_OP("AttrDefaultExampleForAllTypes")
@@ -551,6 +569,7 @@ REGISTER_OP("AttrDefaultExampleForAllTypes")
 
 Note in particular that the values of type `type` use [the `DT_*` names
 for the types](../../resources/dims_types.md#data-types).
+请特别注意那些类型值里面包含的 [`DT_*` 名称](../../resources/dims_types.md#data-types).
 
 ### Polymorphism <a class="md-anchor" id="Polymorphism"></a>
 #### Type Polymorphism <a class="md-anchor" id="type-polymorphism"></a>
@@ -559,9 +578,12 @@ For ops that can take different types as input or produce different output
 types, you can specify [an attr](#attrs) in
 [an input or output type](#inputs-outputs) in the Op registration.  Typically
 you would then register an `OpKernel` for each supported type.
+对于那些可以使用不同类型输入或产生不同类型输出的 Op, 可以注册 Op 时为输入/输出类型里指定一个[属性](#attrs).
+一般紧接着, 会为每一个支持的类型注册一个 `OpKernel`.
 
 For instance, if you'd like the `ZeroOut` Op to work on `float`s
 in addition to `int32`s, your Op registration might look like:
+例如, 想要 `ZeroOut` Op 支持 `float`, 
 
 <code class="lang-c++"><pre>
 REGISTER\_OP("ZeroOut")
