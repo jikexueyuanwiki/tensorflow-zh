@@ -583,7 +583,7 @@ you would then register an `OpKernel` for each supported type.
 
 For instance, if you'd like the `ZeroOut` Op to work on `float`s
 in addition to `int32`s, your Op registration might look like:
-例如, 想要 `ZeroOut` Op 支持 `float`, 
+例如, 除了 `int32` 外, 想要 `ZeroOut` Op 支持 `float`, 注册代码如下:
 
 <code class="lang-c++"><pre>
 REGISTER\_OP("ZeroOut")
@@ -594,6 +594,8 @@ REGISTER\_OP("ZeroOut")
 
 Your Op registration now specifies that the input's type must be `float`, or
 `int32`, and that its output will be the same type, since both have type `T`.
+这段 Op 注册代码现在指定了输入的类型必须为 `float` 或 `int32`, 而且
+既然输入和输出制定了同样的类型 `T`, 输出也同样如此.
 
 > A note on naming:{#naming} Inputs, outputs, and attrs generally should be
 > given snake_case names.  The one exception is attrs that are used as the type
@@ -602,6 +604,11 @@ Your Op registration now specifies that the input's type must be `float`, or
 > example, this last definition of ZeroOut will generate a Python function that
 > looks like:
 >
+> 一个命名建议:{#naming} 输入, 输出, 和属性通常使用 snake_case 命名法.
+> 唯一的例外是属性被用作输入类型或是输入类型的一部分. 当添加到图中时, 这些属性
+> 可以被推断出来, 因此不会出现在 Op 的函数里. 例如, 最后一个 ZeroOut 定义
+> 生成的 Python 函数如下:
+>
 > ```python
 > def zero_out(to_zero, name=None):
 >   """...
@@ -609,18 +616,28 @@ Your Op registration now specifies that the input's type must be `float`, or
 >     to_zero: A `Tensor`. Must be one of the following types:
 >         `float32`, `int32`.
 >     name: A name for the operation (optional).
+>   参数:
+>     to_zero: 一个 `Tensor`. 必须为下列类型之一:
+>         `float32`, `int32`.
+>     name: 操作的名字 (可选).
 >
 >   Returns:
 >     A `Tensor`. Has the same type as `to_zero`.
+>   返回值:
+>     一个 `Tensor`, 类型和 `to_zero` 一样.
 >   """
 > ```
 >
 > If `to_zero` is passed an `int32` tensor, then `T` is automatically set to
 > `int32` (well, actually `DT_INT32`). Those inferred attrs are given
 > Capitalized or CamelCase names.
+> 如果输入的 `to_zero` 是一个 `int32` tensor, 然后 `T` 将被自动
+> 设置为 `int32` (即 `DT_INT32`). 那些推导出的属性的名称字母全大写
+> 或采用驼峰命名法.
 >
 > Compare this with an op that has a type attr that determines the output
 > type:
+> 下面是一个输出类型自动推断的例子, 读者可以对比一下:
 >
 > ```c++
 > REGISTER_OP("StringToNumber")
@@ -634,19 +651,28 @@ Your Op registration now specifies that the input's type must be `float`, or
 >
 > In this case, the user has to specify the output type, as in the generated
 > Python:
+> 在这种情况下, 用户需要在生成的 Python 代码中指定输出类型.
 >
 > ```python
 > def string_to_number(string_tensor, out_type=None, name=None):
 >   """Converts each string in the input Tensor to the specified numeric type.
+>   """将输入 Tensor 中的每一个字符串转化成指定的数字类型
 >
 >   Args:
 >     string_tensor: A `Tensor` of type `string`.
 >     out_type: An optional `tf.DType` from: `tf.float32, tf.int32`.
 >       Defaults to `tf.float32`.
 >     name: A name for the operation (optional).
+>   参数:
+>     string_tensor: 一个 `string` 类型的 `Tensor`.
+>     out_type: 一个可选的 `tf.DType`, 取值为 `tf.float32, tf.int32`.
+>       默认值是 `tf.float32`.
+>     name: 操作的名称 (可选).
 >
 >   Returns:
 >     A `Tensor` of type `out_type`.
+>   返回值:
+>     一个 `out_type` 类型的 `Tensor`.
 >   """
 > ```
 
@@ -695,6 +721,8 @@ REGISTER\_KERNEL\_BUILDER(
 > To preserve [backwards compatibility](#backwards-compatibility), you should
 > specify a [default value](#default-values-constraints) when adding an attr to
 > an existing op:
+> 为了保持[向后兼容性](#backwards-compatibility), 你在为一个
+> 已有的 op 添加属性时, 必须指定一个[默认值](#default-values-constraints)
 >
 > <code class="lang-c++"><pre>
 > REGISTER\_OP("ZeroOut")
@@ -704,6 +732,7 @@ REGISTER\_KERNEL\_BUILDER(
 > </pre></code>
 
 Lets say you wanted to add more types, say `double`:
+如果需要添加更多类型, 例如 `double`:
 
 <code class="lang-c++"><pre>
 REGISTER\_OP("ZeroOut")
@@ -715,6 +744,8 @@ REGISTER\_OP("ZeroOut")
 Instead of writing another `OpKernel` with redundant code as above, often you
 will be able to use a C++ template instead.  You will still have one kernel
 registration (`REGISTER\_KERNEL\_BUILDER` call) per overload.
+为了避免为新增的类型写冗余的 `OpKernel` 代码, 通常可以写一个 C++ 模板. 
+当然, 仍然需要为每一个重载版本定义一个 keneral 注册 (`REGISTER\_KERNEL\_BUILDER` 调用).
 
 <code class="lang-c++"><pre>
 <b>template &lt;typename T&gt;</b>
@@ -761,6 +792,7 @@ REGISTER\_KERNEL\_BUILDER(
 
 If you have more than a couple overloads, you can put the registration in a
 macro.
+如果有很多重载, 可以将注册操作通过一个宏来实现.
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -780,6 +812,8 @@ REGISTER_KERNEL(double);
 Depending on the list of types you are registering the kernel for, you may be
 able to use a macro provided by
 [`tensorflow/core/framework/register_types.h`][register_types]:
+取决于注册 kernel 使用哪写类型, 你可能可以使用[`tensorflow/core/framework/register_types.h`][register_types]
+提供的宏.
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -828,7 +862,9 @@ You can also place restrictions on what types can be specified in the list. In
 this next case, the input is a list of `float` and `double` tensors. The Op
 accepts, for example, input types `(float, double, float)` and in that case the
 output type would also be `(float, double, float)`.
-可以为列表中可存放的类型添加约束条件. 在下一个例子中, 输入是 `float` 和 `double` 类型 tensor
+可以为列表中可存放的类型添加约束条件. 在下一个例子中, 输入是 `float` 和 
+`double` 类型的 tensor 列表. 这个 Op 可接受的
+输入类型和输出类型均为 `(float, double, float)`.
 
 ```c++
 REGISTER_OP("ListTypeRestrictionExample")
@@ -839,6 +875,7 @@ REGISTER_OP("ListTypeRestrictionExample")
 
 If you want all the tensors in a list to be of the same type, you might do
 something like:
+如果想要一个列表中的所有 tensor 是同一类型, 你需要写下列代码:
 
 ```c++
 REGISTER_OP("IntListInputExample")
@@ -849,10 +886,14 @@ REGISTER_OP("IntListInputExample")
 
 This accepts a list of `int32` tensors, and uses an `int` attr `N` to
 specify the length of the list.
+这段代码接受 `int32` tensor 列表, 并用一个 `int` 属性 `N`
+来指定列表的长度.
 
 This can be made [type polymorphic](#type-polymorphism) as well.  In the next
 example, the input is a list of tensors (with length `"N"`) of the same (but
 unspecified) type (`"T"`), and the output is a single tensor of matching type:
+这也可用于[类型推断](#type-polymorphism). 在下一个例子中,
+输入是一个 tensor 列表, 长度为 `"N"`, 类型为 `"T"`， 输出是单个 `"T"` 的 tensor.
 
 ```c++
 REGISTER_OP("SameListInputExample")
@@ -866,6 +907,8 @@ By default, tensor lists have a minimum length of 1. You can change that default
 using
 [a `">="` constraint on the corresponding attr](#default-values-constraints).
 In this next example, the input is a list of at least 2 `int32` tensors:
+默认情况下, tensor 列表的最小长度为1. 这个约束条件可以通过
+[为指定的属性增加一个 `">="` 约束](#default-values-constraints)来变更.
 
 ```c++
 REGISTER_OP("MinLengthIntListExample")
@@ -875,6 +918,7 @@ REGISTER_OP("MinLengthIntListExample")
 ```
 
 The same syntax works with `"list(type)"` attrs:
+同样的语法也适用于 `"list(type)"` 属性:
 
 ```c++
 REGISTER_OP("MinimumLengthPolymorphicListExample")
@@ -883,9 +927,10 @@ REGISTER_OP("MinimumLengthPolymorphicListExample")
     .Output("out: T");
 ```
 
-### Inputs and Outputs <a class="md-anchor" id="AUTOGENERATED-inputs-and-outputs"></a>
+### 输入和输出 <a class="md-anchor" id="AUTOGENERATED-inputs-and-outputs"></a>
 
 To summarize the above, an Op registration can have multiple inputs and outputs:
+总结一下上述内容, 一个 Op 注册操作可以指定多个输入和输出:
 
 ```c++
 REGISTER_OP("MultipleInsAndOuts")
@@ -896,6 +941,7 @@ REGISTER_OP("MultipleInsAndOuts")
 ```
 
 Each input or output spec is of the form:
+每一个输入或输出形式如下:
 
 ```
 <name>: <io-type-expr>
@@ -904,12 +950,17 @@ Each input or output spec is of the form:
 where `<name>` begins with a letter and can be composed of alphanumeric
 characters and underscores. `<io-type-expr>` is one of the following type
 expressions:
+其中, `<name>` 以字母打头, 且只能由数字, 字母和下划线组成. `<io-type-expr>` 可以是
+下列类型表达式之一:
 
 * `<type>`, where `<type>` is a supported input type (e.g. `float`, `int32`,
   `string`). This specifies a single tensor of the given type.
+* `<type>`, 一个合法的输入类型, 如 `float`, `int32`, `string`. 这可用于指定给定类型
+  的单个 tensor.
 
   See
   [the list of supported Tensor types](../../resources/dims_types.md#data-types).
+  参见[合法 Tensor 类型列表](../../resources/dims_types.md#data-types).
 
   ```c++
   REGISTER_OP("BuiltInTypesExample")
@@ -920,6 +971,8 @@ expressions:
 * `<attr-type>`, where `<attr-type>` is the name of an [Attr](#attrs) with type
   `type` or `list(type)` (with a possible type restriction). This syntax allows
   for [polymorphic ops](#Polymorphism).
+* `<attr-type>`, 一个[属性](#attrs)和一个类型 `type` 或类型列表 `list(type)`(可能
+  包含类型限制). 该语法可实现[多态 Op](#Polymorphism).
 
   ```c++
   REGISTER_OP("PolymorphicSingleInput")
@@ -933,6 +986,7 @@ expressions:
 
   Referencing an attr of type `list(type)` allows you to accept a sequence of
   tensors.
+  将属性的类型设置为 `list(type)` 将允许你接受一个序列的 tensor.
 
   ```c++
   REGISTER_OP("ArbitraryTensorSequenceExample")
@@ -948,6 +1002,7 @@ expressions:
 
   Note that the number and types of tensors in the output `out` is the same as
   in the input `in`, since both are of type `T`.
+  注意, 输入和输出均为 `T`, 意味着输入和输出的类型与数量均相同.
 
 * For a sequence of tensors with the same type: `<number> * <type>`, where
   `<number>` is the name of an [Attr](#attrs) with type `int`.  The `<type>` can
@@ -955,6 +1010,9 @@ expressions:
   [a specific type like `int32` or `float`](../../resources/dims_types.md#data-types),
   or the name of an attr with type `type`.  As an example of the first, this
   Op accepts a list of `int32` tensors:
+* `<number> * <type>`, 一组拥有相同类型的 tensor, `<number>` 是一个 `int` 类型属性的名称.
+  `<type>` 可以是[一个类似于 `int32` 和 `float` 的特定类型](../../resources/dims_types.md#data-types), 
+  或者一个 `type` 类型属性的名字. 前者的例子如下, 该例子接受一个 `int32` tensor 列表作为 Op 输入:
 
   ```c++
   REGISTER_OP("Int32SequenceExample")
@@ -964,6 +1022,7 @@ expressions:
 
   Whereas this Op accepts a list of tensors of any type, as long as they are all
   the same:
+  后者的例子如下, 该例子接受一个泛型 tensor 列表作为 Op 输入:
 
   ```c++
   REGISTER_OP("SameTypeSequenceExample")
@@ -974,29 +1033,38 @@ expressions:
 
 * For a reference to a tensor: `Ref(<type>)`, where `<type>` is one of the
   previous types.
+* Tensor 的引用表示为 `Ref(<type>)`, 其中 `<type>` 是上述类型之一.
 
 > A note on naming: Any attr used in the type of an input will be inferred.  By
 > convention those inferred attrs use capital names (like `T` or `N`).
 > Otherwise inputs, outputs, and attrs have names like function parameters
 > (e.g. `num_outputs`).  For more details, see the
 > [earlier note on naming](#naming).
+> 一个命名建议: 当使用属性表示一个输入的类型时, 该类型可以被推断出来. 实现该特性, 将需要推断
+> 的类型用大写名称表示 (如 `T` 或 `N`), 其它的输入, 输出, 和属性想使用函数参数一样使用这些
+> 大写名称. 参见之前的[命名建议](#naming)章节查看更多细节.
 
 For more details, see
 [`tensorflow/core/framework/op_def_builder.h`][op_def_builder].
+更多细节参见 [`tensorflow/core/framework/op_def_builder.h`][op_def_builder].
 
-### Backwards compatibility <a class="md-anchor" id="AUTOGENERATED-backwards-compatibility"></a>
+### 向后兼容性 <a class="md-anchor" id="AUTOGENERATED-backwards-compatibility"></a>
 
 In general, changes to specifications must be backwards-compatible: changing the
 specification of an Op must not break prior serialized GraphDefs constructed
 from older specfications.
+通常, 对规范的改变必须保持向后兼容性: Op 使用新规范后, 保证使用旧规范构造的序列化 GraphDef 仍能正确工作.
 
 There are several ways to preserve backwards-compatibility.
+下面是几种保持向后兼容性的方式:
 
 1. Any new attrs added to an operation must have default values defined, and
    with that default value the Op must have the original behavior. To change an
    operation from not polymorphic to polymorphic, you *must* give a default
    value to the new type attr to preserve the original signature by default. For
    example, if your operation was:
+1. 添加到 Op 的新属性必须有默认值, 且默认值下的行为有明确定义. 将一个非多态的操作变为多态操作,
+   你*必须*为新的类型属性赋予默认值, 以保持原始的函数签名. 例如, 有如下操作:
 
    ```c++
    REGISTER_OP("MyGeneralUnaryOp")
@@ -1005,6 +1073,7 @@ There are several ways to preserve backwards-compatibility.
    ```
 
    you can make it polymorphic in a backwards-compatible way using:
+   可以通过下述方式将其变为多态, 且保持向后兼容性:
 
    ```c++
    REGISTER_OP("MyGeneralUnaryOp")
@@ -1016,19 +1085,26 @@ There are several ways to preserve backwards-compatibility.
 1. You can safely make a constraint on an attr less restrictive.  For example,
    you can change from `{int32, int64}` to `{int32, int64, float}` or from
    `{"apple", "orange"}` to `{"apple", "banana", "orange"}`.
+1. 放宽一个属性的约束条件是安全的. 例如, 你可以将 `{int32, int64}` 变为 `{int32, int64, float}`,
+   或者, 将 `{"apple", "orange"}` 变为 `{"apple", "banana", "orange"}`.
 
 1. Namespace any new Ops you create, by prefixing the Op names with something
    unique to your project. This avoids having your Op colliding with any Ops
    that might be included in future versions of Tensorflow.
+1. 通过给 Op 名称添加一些项目中唯一的标识作为前缀, 来为新建的 Op 添加命名空间. 命名空间
+   可以预防你的 Op 与 TensorFlow 未来版本里的内置 Op 产生命名冲突.
 
 1. Plan ahead! Try to anticipate future uses for the Op. Some signature changes
    can't be done in a compatible way (for example, adding an input, or making a
    single input into a list).
+1. 超前计划! 尝试着去预测 Op 未来的的用途, 超前设计, 毕竟, 一些签名的变更无法保证兼容性
+   (例如, 增加新的输入, 或将原来的单元素输入变成一个列表).
 
 If you cannot make your change to an operation backwards compatible, then
 create a new operation with a new name with the new semantics.
+如果不能以兼容的方式改变一个操作, 那就创建一个全新的操作, 来实现所需功能.
 
-## GPU Support <a class="md-anchor" id="mult-archs"></a>
+## GPU 支持 <a class="md-anchor" id="mult-archs"></a>
 
 You can implement different OpKernels and register one for CPU and another for
 GPU, just like you can [register kernels for different types](#Polymorphism).
@@ -1036,6 +1112,9 @@ There are several examples of kernels with GPU support in
 [`tensorflow/core/kernels/`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/).
 Notice some kernels have a CPU version in a `.cc` file, a GPU version in a file
 ending in `_gpu.cu.cc`, and some code shared in common in a `.h` file.
+你可以实现不同的 OpKernel, 将其中之一注册到 GPU, 另一个注册到 GPU, 正如[为不同的类型注册 kernel ](#Polymorphism)一样. 
+[`tensorflow/core/kernels/`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/) 中又一些 GPU 支持的例子. 
+注意, 一些 kernel 的 CPU 版本位于 `.cc` 文件, GPU 版本位于 `_gpu.cu.cc` 文件, 共享的代码位于 `.h` 文件.
 
 For example, the [`pad` op](../../api_docs/python/array_ops.md#pad) has
 everything but the GPU kernel in [`tensorflow/core/kernels/pad_op.cc`][pad_op].
@@ -1046,6 +1125,13 @@ and the shared code is a templated class defined in
 One thing to note, even when the GPU kernel version of `pad` is used, it still
 needs its `"paddings"` input in CPU memory.  To mark that inputs or outputs are
 kept on the CPU, add a `HostMemory()` call to the kernel registration, e.g.:
+例如, [`pad` op](../../api_docs/python/array_ops.md#pad) 除了 GPU kernel 外的其它代码
+均在 [`tensorflow/core/kernels/pad_op.cc`][pad_op] 中. GPU kernel 位于 [`tensorflow/core/kernels/pad_op_gpu.cu.cc`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/pad_op_gpu.cu.cc), 
+共享的一个模板类代码定义在 [`tensorflow/core/kernels/pad_op.h`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/pad_op.h).
+需要注意的事情是, 即使使用 `pad` 的 GPU 版本时, 仍然需要将 `"paddings"` 输入放置到内存中.
+为了实现这一点, 将输入或输出标记为必须保存在内存中, 为 kernel 注册一个 `HostMemory()` 调用.
+如下:
+
 
 ```c++
 #define REGISTER_GPU_KERNEL(T)                         \
@@ -1056,7 +1142,7 @@ kept on the CPU, add a `HostMemory()` call to the kernel registration, e.g.:
                           PadOp<GPUDevice, T>)
 ```
 
-## Implement the gradient in Python <a class="md-anchor" id="AUTOGENERATED-implement-the-gradient-in-python"></a>
+## 使用 Python 实现梯度 <a class="md-anchor" id="AUTOGENERATED-implement-the-gradient-in-python"></a>
 
 Given a graph of ops, TensorFlow uses automatic differentiation
 (backpropagation) to add new ops representing gradients with respect to the
@@ -1065,11 +1151,13 @@ existing ops (see
 To make automatic differentiation work for new ops, you must register a gradient
 function which computes gradients with respect to the ops' inputs given
 gradients with respect to the ops' outputs.
+给定一个 Op 组成的图, TensorFlow 使用自动微分(反向传播)来添加新的 Op, 
 
 Mathematically, if an op computes \\(y = f(x)\\) the registered gradient op
 converts gradients \\(\partial / \partial y\\) with respect to \\(y\\) into
 gradients \\(\partial / \partial x\\) with respect to \\(x\\) via the chain
 rule:
+数学上, 
 
 $$\frac{\partial}{\partial x}
     = \frac{\partial}{\partial y} \frac{\partial y}{\partial x}
@@ -1133,7 +1221,7 @@ Note that at the time the gradient function is called, only the data flow graph
 of ops is available, not the tensor data itself.  Thus, all computation must be
 performed using other tensorflow ops, to be run at graph execution time.
 
-## Implement a shape function in Python <a class="md-anchor" id="AUTOGENERATED-implement-a-shape-function-in-python"></a>
+## 在 Python 中实现一个 shape 函数 <a class="md-anchor" id="AUTOGENERATED-implement-a-shape-function-in-python"></a>
 
 The TensorFlow Python API has a feature called "shape inference" that provides
 information about the shapes of tensors without having to execute the
@@ -1149,6 +1237,7 @@ output of the op). To register a shape function, apply the
 to a shape function. For example, the
 [`ZeroOut` op defined above](#define_interface) would have a shape function like
 the following:
+TensorFlow Python API 有一个
 
 ```python
 @tf.RegisterShape("ZeroOut"):
