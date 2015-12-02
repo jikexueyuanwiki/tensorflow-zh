@@ -88,8 +88,8 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [卷积神经网络](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
   - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译：（[@xyang40](https://github.com/xyang40)）
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
-  - [Mandelbrot集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))
-  - [Partial Differential Equations](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))
+  - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
+  - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@JoyLiu](https://github.com/fengsehng))
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√
