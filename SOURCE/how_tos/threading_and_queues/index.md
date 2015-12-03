@@ -14,7 +14,7 @@ that takes an item off the queue, adds one to that item, and puts it back on the
 end of the queue. Slowly, the numbers on the queue increase.
 
 <div style="width:70%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="IncremeterFifoQueue.gif">
+<img style="width:100%" src="threading_and_queues/IncremeterFifoQueue.gif">
 </div>
 
 `Enqueue`, `EnqueueMany`, and `Dequeue` are special nodes. They take a pointer
@@ -170,3 +170,5 @@ except Exception, e:
 coord.request_stop()
 coord.join(threads)
 ```
+
+原文地址：([Threading and Queues](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/threading_and_queues/index.md)) 翻译：([zhangkom](https://github.com/zhangkom)) 校对：
