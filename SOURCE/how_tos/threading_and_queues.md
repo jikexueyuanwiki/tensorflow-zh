@@ -6,7 +6,7 @@
 为了感受一下队列，让我们看一个简单的例子。我们先创建一个“先入先出”的队列（FIFOQueue），并用零填充。然后，我们将构建一个TensorFlow图，从队列中拿走一个元素，添加另外一个到该元素，并把它放回队列的末尾。慢慢地，队列的元素就会增加。
 
 <div style="width:70%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="IncremeterFifoQueue.gif">
+<img style="width:100%" src="threading_and_queues/IncremeterFifoQueue.gif">
 </div>
 `Enqueue`、 `EnqueueMany`和`Dequeue`都是特殊的节点。他们需要一个指针指向队列，而不是一个正常的值，允许他们去改变指向的队列。我们建议您将它们看作是类似队列的方法。事实上，在Python API中，它们就是队列对象的方法（例如`q.enqueue(...)`）。
 
@@ -116,3 +116,5 @@ except Exception, e:
 coord.request_stop()
 coord.join(threads)
 ```
+
+原文地址：[Threading and Queues](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/threading_and_queues/index.md) 翻译：[zhangkom](https://github.com/zhangkom) 校对：
