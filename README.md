@@ -92,7 +92,8 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@JoyLiu](https://github.com/fengsehng))
 - 运作方式
-  - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√
+  - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：
+  （[@lonlonago]( https://github.com/lonlonago))
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√
@@ -103,11 +104,13 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√
 - 资源
-  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√
+  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：
+  （[@lonlonago]( https://github.com/lonlonago))
   - [BibTex 引用](SOURCE/resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√
   - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√
   - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√
-  - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√
+  - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
+  （[@lonlonago]( https://github.com/lonlonago))
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
