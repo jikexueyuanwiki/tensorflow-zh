@@ -104,12 +104,12 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√
 - 资源
-  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago))
+  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
   - [BibTex 引用](SOURCE/resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√
   - [示例使用](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√
   - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√
   - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
-  （[@lonlonago]( https://github.com/lonlonago))
+  （[@lonlonago]( https://github.com/lonlonago)) √
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
