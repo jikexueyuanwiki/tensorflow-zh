@@ -35,6 +35,14 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 中文版 GitHub 仓库：  
 <https://github.com/jikexueyuanwiki/tensorflow-zh>
 
+## 关于TensorFlow的一些报道   
+
+[野心：像开放安卓一样，这一次，谷歌决定开放它的机器学习系统——TensorFlow](http://www.huxiu.com/article/130763/1.html?f=wangzhan)   
+
+[最强大机器学习平台开源 谷歌准备主宰人工智能？](http://m.wallstreetcn.com/node/226012)
+
+
+
 ## 参与步骤
 
 * fork主仓库（<https://github.com/jikexueyuanwiki/tensorflow-zh>）
