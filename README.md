@@ -6,7 +6,7 @@
 ### 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
 
 
-## 缘起 
+## 缘起
 
 2015年11月9日，Google 官方在其博客上称，Google Research 宣布推出第二代机器学习系统 TensorFlow，针对先前的 DistBelief 的短板有了各方面的加强，更重要的是，它是开源的，任何人都可以用。
 
@@ -91,8 +91,8 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@JoyLiu](https://github.com/fengsehng))
-- 运作方式
-  - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√
+- 入门指南
+  - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对： ([@andyyehoo](https://github.com/andyyehoo))
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√  校对： ([@lucky521](https://github.com/lucky521)) √
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√  校对： ([@lucky521](https://github.com/lucky521)) √
@@ -100,7 +100,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom)) √
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√
-  - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 
+  - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√
   - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√
 - 资源
   - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√
@@ -114,7 +114,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 
 ## 进度记录
 
-- 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
+- 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范
 - 2015-11-18, 所有章节认领完毕，翻译完成18章，校对认领7章，Star数361，fork数100，协同翻译QQ群及技术交流群的TF爱好者将近300人，GitHub搜索TensorFlow排名第二
 
 ## TensorFlow 相关资源
@@ -129,4 +129,3 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ## 感谢支持
 
 ## 离线版本
-
