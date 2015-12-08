@@ -73,7 +73,7 @@ enqueue_op = queue.enqueue(example)
 inputs = queue.dequeue_many(batch_size)
 train_op = ...use 'inputs' to build the training part of the graph...
 ```
-在Python的训练程序中，创建一个`QueueRunner`将运行几个线程来处理和将样本排成队列。创建一个`Coordinator`，让queue runner启动它的线程，这些线程有同步器进行连接。写一个带同步器的训练循环。
+在Python的训练程序中，创建一个`QueueRunner`来运行几个线程， 这几个线程处理样本，并且将样本推入队列。创建一个`Coordinator`，让queue runner使用`Coordinator`来启动这些线程，创建一个训练的循环， 并且使用`Coordinator`来控制`QueueRunner`的线程们的终止。
 
 ```
 # Create a queue runner that will run 4 threads in parallel to enqueue
