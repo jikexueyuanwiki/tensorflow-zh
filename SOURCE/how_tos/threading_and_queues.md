@@ -8,7 +8,7 @@
 <div style="width:70%; margin:auto; margin-bottom:10px; margin-top:20px;">
 <img style="width:100%" src="threading_and_queues/IncremeterFifoQueue.gif">
 </div>
-`Enqueue`、 `EnqueueMany`和`Dequeue`都是特殊的节点。他们需要一个指针指向队列，而不是一个正常的值，允许他们去改变指向的队列。我们建议您将它们看作是类似队列的方法。事实上，在Python API中，它们就是队列对象的方法（例如`q.enqueue(...)`）。
+`Enqueue`、 `EnqueueMany`和`Dequeue`都是特殊的节点。他们需要获取队列指针，而非普通的值，如此才能修改队列内容。我们建议您将它们看作队列的方法。事实上，在Python API中，它们就是队列对象的方法（例如`q.enqueue(...)`）。
 
 现在你已经对队列有了一定的了解，让我们深入到细节...
 
