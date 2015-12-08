@@ -22,7 +22,7 @@
 
 这种结构具有许多优点，正如在[Reading data how to](../reading_data)中强调的，同时，[Reading data how to](../reading_data)也概括地描述了如何简化输入管道的构造过程。
 
-TensorFlow的`Session`对象是多线程的，因此多个线程可以很方便地使用同一个会话而且并行的执行操作。然而，要实现启动线程的Python程序也不是很容易的。所有线程都必须能够同时停止，必须能够捕获并报告异常，同时队列必须正确的关闭。
+TensorFlow的`Session`对象是可以支持多线程的，因此多个线程可以很方便地使用同一个会话（Session）并且并行地执行操作。然而，在Python程序实现这样的并行运算却并不容易。所有线程都必须能被同步终止，异常必须能被正确捕获并报告，回话终止的时候， 队列必须能被正确地关闭。
 
 TensorFlow提供了两个类来实现：[tf.Coordinator](../../api_docs/python/train.md#Coordinator)和
 [tf.QueueRunner](../../api_docs/python/train.md#QueueRunner)。这两个类被设计成一起使用。`Coordinator`类可以用来同时停止多线程而且给一个一直等待所有线程停止的程序报告异常。`QueueRunner`类用来保证多个线程共同将张量在放同一个队列中。
