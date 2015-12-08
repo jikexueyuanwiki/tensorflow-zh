@@ -115,4 +115,4 @@ coord.request_stop()
 coord.join(threads)
 ```
 
-原文地址：[Threading and Queues](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/threading_and_queues/index.md) 翻译：[zhangkom](https://github.com/zhangkom) 校对：［volvet](https://github.com/volvet)
+原文地址：[Threading and Queues](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/SOURCE/how_tos/threading_and_queues/index.md) 翻译：[zhangkom](https://github.com/zhangkom) 校对：[volvet](https://github.com/volvet)
