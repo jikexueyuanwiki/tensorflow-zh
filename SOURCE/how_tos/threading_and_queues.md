@@ -62,7 +62,7 @@ coord.join(threads)
 `QueueRunner`类会创建一组线程， 这些线程可以重复的执行Enquene操作， 他们使用同一个Coordinator来处理线程同步终止。此外，一个QueueRunner会运行一个*closer thread*，当Coordinator收到异常报告时，这个*closer thread*会自动关闭队列。
 
 您可以使用一个queue runner，来实现上述结构。
-首先建立一个TensorFlow图表，这个图表使用队列来输入样本。添加处理这些样本并添加样本到队列中的操作。增加training操作来移除队列中的样本。
+首先建立一个TensorFlow图表，这个图表使用队列来输入样本。增加处理样本并将样本推入队列中的操作。增加training操作来移除队列中的样本。
 
 ```python
 example = ...ops to create one example...
