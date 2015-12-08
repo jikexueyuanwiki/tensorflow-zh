@@ -20,7 +20,7 @@
 * 多个线程准备训练样本，并且把这些样本推入队列。
 * 一个训练线程执行一个训练操作，此操作会从队列中移除最小批次的样本（mini-batches)。
 
-这种结构具有许多优点，如在[Reading data how to](../reading_data)中强调的，同时，[Reading data how to]也给出了一种概括的功能来简化输入管道的构造。
+这种结构具有许多优点，正如在[Reading data how to](../reading_data)中强调的，同时，[Reading data how to](../reading_data)也概括地描述了如何简化输入管道的构造过程。
 
 TensorFlow的`Session`对象是多线程的，因此多个线程可以很方便地使用同一个会话而且并行的执行操作。然而，要实现启动线程的Python程序也不是很容易的。所有线程都必须能够同时停止，必须能够捕获并报告异常，同时队列必须正确的关闭。
 
