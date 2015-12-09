@@ -98,7 +98,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
   - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
-  - [MNIST Data Download](SOURCE/tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter))
+  - [MNIST 数据下载](SOURCE/tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter))
 - 运作方式
   - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：
   （[@lonlonago]( https://github.com/lonlonago))
