@@ -114,11 +114,11 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 - 资源
   - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
   - [BibTex 引用](SOURCE/resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo] (https://github.com/PengFoo)) 
-  - [使用示例](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ （[@lonlonago]( https://github.com/lonlonago))
+  - [使用示例](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago]( https://github.com/lonlonago)) √
   - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo] (https://github.com/PengFoo))
   - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
   （[@lonlonago]( https://github.com/lonlonago)) √
-  - [Tensor的阶、形状和数据类型](SOURCE/resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago))
+  - [Tensor的阶、形状和数据类型](SOURCE/resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
 
