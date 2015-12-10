@@ -968,4 +968,4 @@ def _int_list_input_example_shape(op):
 [TensorShapeProto]:https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/tensor_shape.proto
 [TensorProto]:https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/tensor.proto
 
-> 原文：[Adding a New Op](http://www.tensorflow.org/how_tos/adding_an_op/index.html#adding-a-new-op)  翻译：[@doc001](https://github.com/PFZheng)
+> 原文：[Adding a New Op](http://www.tensorflow.org/how_tos/adding_an_op/index.html#adding-a-new-op)  翻译：[@doc001](https://github.com/PFZheng) 校对：[@ZHNathanielLee]（https://github.com/ZHNathanielLee)
