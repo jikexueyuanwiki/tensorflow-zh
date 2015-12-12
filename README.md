@@ -94,8 +94,8 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [深入MNIST](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))√  校对： ([@HongyangWang](https://github.com/WangHong-yang)) √
   - [TensorFlow运作方式入门](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))√  校对： ([@LichAmnesia](https://github.com/LichAmnesia)) √
   - [卷积神经网络](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译： ([@btpeter](https://github.com/btpeter))校对： ([@waiwaizheng](https://github.com/waiwaizheng))
-  - [Recurrent Neural Networks](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
+  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
+  - [递归神经网络](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
   - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
   - [MNIST数据下载](SOURCE/tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter)) 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
@@ -126,6 +126,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 
 - 2015-11-10, 谷歌发布全新人工智能系统TensorFlow并宣布开源, 极客学院Wiki启动协同翻译，创建 GitHub 仓库，制定协同规范 
 - 2015-11-18, 所有章节认领完毕，翻译完成18章，校对认领7章，Star数361，fork数100，协同翻译QQ群及技术交流群的TF爱好者将近300人，GitHub搜索TensorFlow排名第二
+- 2015-12-10, Star数超过500
 
 ## TensorFlow 相关资源
 
