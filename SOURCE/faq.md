@@ -20,6 +20,10 @@
 
         yum update -y && yum install -y python python-devel epel-release.noarch python-pip
 
+ * MACOS
+
+        sudo easy_install pip
+
 ### docker run -it b.gcr.io/tensorflow/tensorflow 失败
 
 该镜像所在仓库被墙，需要梯子。
