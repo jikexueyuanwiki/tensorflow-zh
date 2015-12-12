@@ -440,7 +440,7 @@ REGISTER\_OP("ZeroOut")
 >   """
 > ```
 >
-> 如果输入的 `to_zero` 是一个 `int32` tensor, 然后 `T` 将被自动
+> 如果输入的 `to_zero` 是一个 `int32` 的tensor, 然后 `T` 将被自动
 > 设置为 `int32` (实际上是 `DT_INT32`). 那些推导出的属性的名称字母全大写
 > 或采用驼峰命名法.
 >
