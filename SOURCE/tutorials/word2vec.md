@@ -25,7 +25,7 @@
 通常图像或音频系统处理的是由图片中所有单个原始像素点强度值或者音频中功率谱密度的强度值，把它们编码成丰富、高纬度的向量数据集。对于物体或语音识别这一类的任务，我们所需的全部信息已经都存储在原始数据中（显然人类本身就是依赖原始数据进行日常的物体或语音识别的）。然后，自然语言处理系统通常将词汇作为离散的单一符号，例如 "cat" 一词或可表示为 `Id537` ，而 "dog" 一词或可表示为 `Id143`。这些符号编码毫无规律，无法提供不同词汇之间可能存在的关联信息。换句话说，在处理关于 "dogs" 一词的信息时，模型将无法利用已知的关于 "cats" 的信息（例如，它们都是动物，有四条腿，可作为宠物等等）。可见，将词汇表达为上述的独立离散符号将进一步导致数据稀疏，使我们在训练统计模型时不得不寻求更多的数据。而词汇的向量表示将克服上述的难题。
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="img/audio-image-text.png" alt>
+<img style="width:100%" src="../images/audio-image-text.png" alt>
 </div>
 
 [向量空间模型](https://en.wikipedia.org/wiki/Vector_space_model) (VSMs)将词汇表达（嵌套）于一个连续的向量空间中，语义近似的词汇被映射为相邻的数据点。向量空间模型在自然语言处理领域中有着漫长且丰富的历史，不过几乎所有利用这一模型的方法都依赖于
@@ -65,13 +65,13 @@ $$
 这里提出了一个解决语言概率模型的合适的通用方法。然而这个方法实际执行起来开销非常大，因为我们需要去计算并正则化当前上下文环境 \\(h\\) 中所有其他 \\(V\\) 单词 \\(w'\\) 的概率得分，*在每一步训练迭代中*。
 
 <div style="width:60%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="img/softmax-nplm.png" alt>
+<img style="width:100%" src="../images/softmax-nplm.png" alt>
 </div>
 
 从另一个角度来说，当使用word2vec模型时，我们并不需要对概率模型中的所有特征进行学习。而CBOW模型和Skip-Gram模型为了避免这种情况发生，使用一个二分类器（逻辑回归）在同一个上下文环境里从 \\(k\\) 虚构的 (噪声) 单词 \\(\tilde w\\) 区分出真正的目标单词 \\(w_t\\)。我们下面详细阐述一下CBOW模型，对于Skip-Gram模型只要简单地做相反的操作即可。
 
 <div style="width:60%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="img/nce-nplm.png" alt>
+<img style="width:100%" src="../images/nce-nplm.png" alt>
 </div>
 
 从数学角度来说，我们的目标是对每个样本最大化：
@@ -117,7 +117,7 @@ $$J^{(t)}_\text{NEG} = \log Q_\theta(D=1 | \text{the, quick}) +
 [Mikolov et al., 2013](http://www.aclweb.org/anthology/N13-1090)论文中的例子)。
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="img/linear-relationships.png" alt>
+<img style="width:100%" src="../images/linear-relationships.png" alt>
 </div>
 
 这也解释了为什么这些向量在传统的NLP问题中可作为特性使用，比如用在对一个演讲章节打个标签，或者对一个专有名词的识别
@@ -196,7 +196,7 @@ for inputs, labels in generate_batch(...):
 使用t-SNE来看一下嵌套学习完成的结果。
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="img/tsne.png" alt>
+<img style="width:100%" src="../images/tsne.png" alt>
 </div>
 
 Et voila! 与预期的一样，相似的单词被聚类在一起。对word2vec模型更复杂的实现需要用到TensorFlow一些更高级的特性，具体是实现可以参考
