@@ -62,3 +62,4 @@ MNIST是在机器学习领域中的一个经典问题。该问题解决的是把
 ```python
 images_feed, labels_feed = data_set.next_batch(FLAGS.batch_size)
 ```
+原文地址：[MNIST Data Download](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/tutorials/mnist/download/index.md) 翻译：[btpeter](https://github.com/btpeter) 校对：waiwaizheng
