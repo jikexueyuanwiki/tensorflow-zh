@@ -201,21 +201,11 @@ def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):
 
 在这个例子中， 你虽然只使用了一个文件名队列， 但是TensorFlow依然能保证多个文件阅读器从同一次迭代(epoch)的不同文件中读取数据，知道这次迭代的所有文件都被开始读取为止。（通常来说一个线程来对文件名队列进行填充的效率是足够的）
 
-An alternative is to use a single reader via the
-[`tf.train.shuffle_batch` function](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#shuffle_batch)
-with `num_threads` bigger than 1.  This will make it read from a single file at
-the same time (but faster than with 1 thread), instead of N files at once.
-This can be important:
+另一种替代方案是： 使用[`tf.train.shuffle_batch` function](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#shuffle_batch),设置`num_threads`的值大于1。 这种方案可以保证同一时刻只在一个文件中进行读取操作(但是读取速度依然优于单线程)，而不是之前的同时读取多个文件。这种方案的优点是：
+*   避免了两个不同的线程从同一个文件中读取同一个样本。
+*   避免了过多的磁盘搜索操作。
 
-*   If you have more reading threads than input files, to avoid the risk that
-    you will have two threads reading the same example from the same file near
-    each other.
-*   Or if reading N files in parallel causes too many disk seeks.
-
-How many threads do you need? the `tf.train.shuffle_batch*` functions add a
-summary to the graph that indicates how full the example queue is. If you have
-enough reading threads, that summary will stay above zero.  You can
-[view your summaries as training progresses using TensorBoard](tensorflow-zh/SOURCE/how_tos/summaries_and_tensorboard/index.md).
+你一共需要多少个读取线程呢？ 函数`tf.train.shuffle_batch*`为TensorFlow图提供了获取文件名队列中的元素个数之和的方法。 如果你有足够多的读取线程， 文件名队列中的元素个数之和应该一直是一个略高于0的数。你可以参考[TensorBoard:可视化学习](tensorflow-zh/SOURCE/how_tos/summaries_and_tensorboard/index.md).
 
 ### Creating threads to prefetch using `QueueRunner` objects <a class="md-anchor" id="QueueRunner"></a>
 
