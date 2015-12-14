@@ -7,7 +7,7 @@
 为了感受一下队列，让我们来看一个简单的例子。我们先创建一个“先入先出”的队列（FIFOQueue），并将其内部所有元素初始化为零。然后，我们构建一个TensorFlow图，它从队列前端取走一个元素，加上1之后，放回队列的后端。慢慢地，队列的元素的值就会增加。
 
 <div style="width:70%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="threading_and_queues/IncremeterFifoQueue.gif">
+<img style="width:100%" src="../images/IncremeterFifoQueue.gif">
 </div>
 `Enqueue`、 `EnqueueMany`和`Dequeue`都是特殊的节点。他们需要获取队列指针，而非普通的值，如此才能修改队列内容。我们建议您将它们看作队列的方法。事实上，在Python API中，它们就是队列对象的方法（例如`q.enqueue(...)`）。
 
