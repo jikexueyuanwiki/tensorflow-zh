@@ -51,12 +51,10 @@
 
 为了让你有直观的认识, 创建一个简单的 Op 作为例子. 该 Op 接受一个 `int32` 类型 tensor 作为
 输入, 输出这个 tensor 的一个副本, 副本与原 tensor 唯一的区别在于第一个元素被置为 0. 创建
-文件 `tensorflow/core/user_ops/zero_out.cc`, 并调用 `REGISTER_OP` 宏
-来定义 Op 的接口.
+文件 `tensorflow/core/user_ops/zero_out.cc`, 并调用 `REGISTER_OP` 宏来定义 Op 的接口.
 
-```c++
-#include "tensorflow/core/framework/op.h"
-
+```
+ #include "tensorflow/core/framework/op.h"
 REGISTER_OP("ZeroOut")
     .Input("to_zero: int32")
     .Output("zeroed: int32");
