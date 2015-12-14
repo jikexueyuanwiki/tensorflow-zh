@@ -234,9 +234,9 @@ Op 可以有属性, 属性的值在 Op 添加到图中时被设置. 属性值用
 例如, 如果想要 `ZeroOut` Op 保存一个用户索引, 指示该 Op 不仅仅只有一个元素, 你可以注册 Op 如下:
 
 ```
-REGISTER\_OP("ZeroOut")
-    <b>.Attr("preserve\_index: int")</b>
-    .Input("to\_zero: int32")
+REGISTER_OP("ZeroOut")
+    .Attr("preserve_index: int")
+    .Input("to_zero: int32")
     .Output("zeroed: int32");
 ```
 
@@ -245,38 +245,38 @@ REGISTER\_OP("ZeroOut")
 ```
 class ZeroOutOp : public OpKernel {
  public:
-  explicit ZeroOutOp(OpKernelConstruction\* context) : OpKernel(context) {<b>
+  explicit ZeroOutOp(OpKernelConstruction * context) : OpKernel(context) {
    // 获取欲保存的索引值
-    OP\_REQUIRES\_OK(context,
-                   context-&gt;GetAttr("preserve\_index", &preserve\_index\_));
-    // 检查 preserve\_index 是否为正
-    OP\_REQUIRES(context, preserve\_index_ &gt;= 0,
-                errors::InvalidArgument("Need preserve\_index &gt;= 0, got ",
-                                        preserve\_index_));
-  </b>}
-  void Compute(OpKernelContext\* context) override {
-    // ...
+    OP_REQUIRES_OK(context,
+                   context->GetAttr("preserve_index", &preserve_index_));
+    // 检查 preserve_index 是否为正
+    OP_REQUIRES(context, preserve_index_ >= 0,
+                errors::InvalidArgument("Need preserve_index >= 0, got ",
+                                        preserve_index_));
   }
- <b>private:
-  int preserve\_index\_;</b>
+  void Compute(OpKernelContext* context) override {
+    // ...
+}
+ private:
+  int preserve_index_;
 };
 ```
 
 该值可以在 `Compute` 方法中被使用:
 
 ```
-void Compute(OpKernelContext\* context) override {
+void Compute(OpKernelContext* context) override {
     // ...
-<br/>    <b>// 检查 preserve_index 范围是否合法
-    OP\_REQUIRES(context, preserve\_index_ &lt; input.dimension(0),
-                errors::InvalidArgument("preserve\_index out of range"));<br/>
-    </b>// 设置输出 tensor 所有的元素值为 0
-    const int N = input.size();
+   // 检查 preserve_index 范围是否合法
+OP_REQUIRES(context, preserve_index_ < input.dimension(0),
+                errors::InvalidArgument("preserve_index out of range"));
+    // 设置输出 tensor 所有的元素值为 0
+   const int N = input.size();
     for (int i = 0; i < N; i++) {
-      output\_flat(i) = 0;
-    }<br/>
-    <b>// 保存请求的输入值
-    output\_flat(preserve\_index\_) = input(preserve\_index\_);</b>
+      output_flat(i) = 0;
+    }
+    // 保存请求的输入值
+   output_flat(preserve_index_) = input(preserve_index_);
   }
 ```
 
@@ -285,8 +285,8 @@ void Compute(OpKernelContext\* context) override {
 
 
 ```
-REGISTER\_OP("ZeroOut")
-     <b>.Attr("preserve\_index: int = 0")</b>
+REGISTER_OP("ZeroOut")
+     .Attr("preserve_index: int = 0")
      .Input("to_zero: int32")
      .Output("zeroed: int32");
 ```
@@ -331,10 +331,10 @@ REGISTER_OP("RestrictedTypeExample")
 ```
 
 * 这里有一些常见类型约束条件的快捷方式:
-*
-    * `numbertype`: 限制类型为数字类型, 即非 string 非 bool 的类型.
-    * `realnumbertype`: 与 `numbertype` 区别是不支持复杂类型.
-    * `quantizedtype`: 与 `numbertype` 区别是只支持量化数值 (quantized number type).
+
+  * `numbertype`: 限制类型为数字类型, 即非 string 非 bool 的类型.
+  * `realnumbertype`: 与 `numbertype` 区别是不支持复杂类型.
+  * `quantizedtype`: 与 `numbertype` 区别是只支持量化数值 (quantized number type).
     
 这些类型的列表在 [`tensorflow/core/framework/types.h`](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/types.h)
 文件中通过函数定义 (如 `NumberTypes()`).
