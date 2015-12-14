@@ -1,4 +1,4 @@
-#变量:创建、初始化、保存和加载#
+# 变量:创建、初始化、保存和加载#
 
 当你在训练模型时，用[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)来存储和更新参数。变量是内存中用于存放张量 (Tensor) 的缓存区。它们必须被明确地初始化，并能在训练过程中和结束后被保存到磁盘。你随后可以恢复保存的值来训练和分析模型。
 
@@ -7,7 +7,7 @@
 - The [`tf.Variable`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Variable)class.
 - The [`tf.train.Saver`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Saver)class.
 
-##创建##
+## 创建
 
 当创建一个[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)时，你将一个`张量`作为初始值传入`Variable()`构造函数。TensorFlow提供了一系列操作符来初始化张量，初始值是[常量或是随机值](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/constant_op.md)。
  
@@ -28,7 +28,7 @@ biases = tf.Variable(tf.zeros([200]), name="biases")
 
 `tf.Variable`的返回值是Python的`tf.Variable`类的一个实例。
 
-##初始化##
+## 初始化
 
 变量的初始化必须在模型的其它操作运行之前先明确地完成。最简单的方法就是添加一个给所有变量初始化的操作，并在使用模型之前首先运行那个操作。
 
@@ -55,7 +55,7 @@ with tf.Session() as sess:
   ...
 ```    
 
-###由另一个变量初始化###
+### 由另一个变量初始化
 
 你有时候会需要用另一个变量的初始化值给当前变量初始化。由于`tf.initialize_all_variables()`是并行地初始化所有变量，所以在有这种需求的情况下需要小心。
 
@@ -71,21 +71,21 @@ w2 = tf.Variable(weights.initialized_value(), name="w2")
 w_twice = tf.Variable(weights.initialized_value() * 0.2, name="w_twice")
 ```
 
-###自定义初始化###
+### 自定义初始化
 
 `tf.initialize_all_variables()`函数便捷地添加一个op来初始化模型的所有变量。你也可以给它传入一组变量进行初始化。详情请见[Variables Documentation](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)，包括检查变量是否被初始化。
 
-##保存和加载##
+## 保存和加载
 
 最简单的保存和恢复模型的方法是使用`tf.train.Saver`对象。构造器给graph的所有变量，或是定义在列表里的变量，添加`save`和`restore`ops。saver对象提供了方法来运行这些ops，定义检查点文件的读写路径。
 
-###检查点文件###
+### 检查点文件
 
 变量存储在二进制文件里，主要包含从变量名到tensor值的映射关系。
 
 当你创建一个`Saver`对象时，你可以选择性地为检查点文件中的变量挑选变量名。默认情况下，将每个变量[`Variable.name`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Variable.name)属性的值。
 
-###保存变量###
+### 保存变量
 
 用`tf.train.Saver()`创建一个`Saver`来管理模型中的所有变量。
 
@@ -111,8 +111,7 @@ with tf.Session() as sess:
   print "Model saved in file: ", save_path
 ```
 	
-
-###恢复变量###
+### 恢复变量
 
 用同一个`Saver`对象来恢复变量。注意，当你从文件中恢复变量时，不需要事先对它们做初始化。
 
@@ -134,7 +133,7 @@ with tf.Session() as sess:
   ...
 ```
 
-###选择存储和恢复哪些变量###
+### 选择存储和恢复哪些变量
 
 如果你不给`tf.train.Saver()`传入任何参数，那么saver将处理graph中的所有变量。其中每一个变量都以变量创建时传入的名称被保存。
 

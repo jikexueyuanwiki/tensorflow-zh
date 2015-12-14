@@ -69,7 +69,6 @@ MNIST 模型, 请阅读高级教程 (红色药丸链接). 如果你以前从未�
 * [TensorFlow 技术指南](../tutorials/mnist/tf/index.md)
 
 <div class='sections-order' style="display: none;">
-<!--
 <!-- os_setup.md -->
 <!-- basic_usage.md -->
 </div>

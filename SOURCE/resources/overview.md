@@ -34,11 +34,9 @@
 > 校对：[lonlonago]( https://github.com/lonlonago)
 
 <div class='sections-order' style="display: none;">
-<!--
 <!-- bib.md -->
 <!-- uses.md -->
 <!-- faq.md -->
 <!-- glossary.md -->
 <!-- dims_types.md -->
--->
 </div>

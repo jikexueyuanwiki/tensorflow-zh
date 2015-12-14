@@ -74,7 +74,6 @@ TensorFlow 可以用于与机器学习完全无关的其它计算领域. 这里�
 
 
 <div class='sections-order' style="display: none;">
-<!--
 <!-- mnist/beginners/index.md -->
 <!-- mnist/pros/index.md -->
 <!-- mnist/tf/index.md -->
@@ -85,7 +84,6 @@ TensorFlow 可以用于与机器学习完全无关的其它计算领域. 这里�
 <!-- mandelbrot/index.md -->
 <!-- pdes/index.md -->
 <!-- mnist/download/index.md -->
--->
 </div>
 
 > 原文：[Overview](http://tensorflow.org/tutorials)  翻译：[@doc001](https://github.com/PFZheng)  校对：[@eric_xu](https://github.com/ericxk)

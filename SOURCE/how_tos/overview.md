@@ -66,7 +66,6 @@ TensorFlow 已经提供一整套节点操作(）operation)，你可以在你的 
 
 校对：[lonlonago]( https://github.com/lonlonago)
 <div class='sections-order' style="display: none;">
-<!--
 <!-- variables/index.md -->
 <!-- ../tutorials/mnist/tf/index.md -->
 <!-- summaries_and_tensorboard/index.md -->
@@ -77,6 +76,5 @@ TensorFlow 已经提供一整套节点操作(）operation)，你可以在你的 
 <!-- new_data_formats/index.md -->
 <!-- using_gpu/index.md -->
 <!-- variable_scope/index.md -->
--->
 </div>
 
