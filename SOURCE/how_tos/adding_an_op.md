@@ -680,7 +680,7 @@ REGISTER_OP("MinimumLengthPolymorphicListExample")
 
 总结一下上述内容, 一个 Op 注册操作可以指定多个输入和输出:
 
-```c++
+```
 REGISTER_OP("MultipleInsAndOuts")
     .Input("y: int32")
     .Input("z: float")
@@ -697,12 +697,11 @@ REGISTER_OP("MultipleInsAndOuts")
 其中, `<name>` 以字母打头, 且只能由数字, 字母和下划线组成. `<io-type-expr>` 可以是
 下列类型表达式之一:
 
-* `<type>`, 一个合法的输入类型, 如 `float`, `int32`, `string`. 这可用于指定给定类型
-  的单个 tensor.
+* `<type>`, 一个合法的输入类型, 如 `float`, `int32`, `string`. 这可用于指定给定类型的单个 tensor.
 
 参见[合法 Tensor 类型列表](tensorflow-zh/SOURCE/resources/dims_types.md#data-types).
 
-```c++
+```
 REGISTER_OP("BuiltInTypesExample")
       .Input("integers: int32")
       .Input("complex_numbers: scomplex64");
@@ -711,7 +710,7 @@ REGISTER_OP("BuiltInTypesExample")
 * `<attr-type>`, 一个[属性](#attrs)和一个类型 `type` 或类型列表 `list(type)`(可能
   包含类型限制). 该语法可实现[多态 Op](#Polymorphism).
 
-```c++
+```
 REGISTER_OP("PolymorphicSingleInput")
       .Attr("T: type")
       .Input("in: T);
@@ -722,7 +721,7 @@ REGISTER_OP("RestrictedPolymorphicSingleInput")
 
 将属性的类型设置为 `list(type)` 将允许你接受一个序列的 tensor.
 
-```c++
+```
 REGISTER_OP("ArbitraryTensorSequenceExample")
       .Attr("T: list(type)")
       .Input("in: T")
@@ -739,7 +738,7 @@ REGISTER_OP("RestrictedTensorSequenceExample")
   `<type>` 可以是[一个类似于 `int32` 和 `float` 的特定类型](tensorflow-zh/SOURCE/resources/dims_types.md#data-types), 
   或者一个 `type` 类型属性的名字. 前者的例子如下, 该例子接受一个 `int32` tensor 列表作为 Op 输入:
 
-```c++
+```
 REGISTER_OP("Int32SequenceExample")
       .Attr("NumTensors: int")
       .Input("in: NumTensors * int32")
@@ -747,7 +746,7 @@ REGISTER_OP("Int32SequenceExample")
 
 后者的例子如下, 该例子接受一个泛型 tensor 列表作为 Op 输入:
 
-```c++
+```
 REGISTER_OP("SameTypeSequenceExample")
       .Attr("NumTensors: int")
       .Attr("T: type")
@@ -771,7 +770,7 @@ REGISTER_OP("SameTypeSequenceExample")
 1. 任何添加到 Op 的新属性必须有默认值, 且默认值下的行为有明确定义. 将一个非多态的操作变为多态操作,
    你*必须*为新的类型属性赋予默认值, 以保持原始的函数签名. 例如, 有如下操作:
 
-```c++
+```
 REGISTER_OP("MyGeneralUnaryOp")
        .Input("in: float")
        .Output("out: float");
@@ -779,7 +778,7 @@ REGISTER_OP("MyGeneralUnaryOp")
 
 可以通过下述方式将其变为多态, 且保持向后兼容性:
 
-```c++
+```
 REGISTER_OP("MyGeneralUnaryOp")
        .Input("in: T")
        .Output("out: T")
@@ -810,9 +809,9 @@ REGISTER_OP("MyGeneralUnaryOp")
 为了实现这一点, 将输入或输出标记为必须保存在内存中, 为 kernel 注册一个 `HostMemory()` 调用.
 如下:
 
-```c++
-#define REGISTER_GPU_KERNEL(T)                         \
-  REGISTER_KERNEL_BUILDER(Name("Pad")                  \
+```
+ #define REGISTER_GPU_KERNEL(T)                         \
+REGISTER_KERNEL_BUILDER(Name("Pad")                  \
                               .Device(DEVICE_GPU)      \
                               .TypeConstraint<T>("T")  \
                               .HostMemory("paddings"), \
