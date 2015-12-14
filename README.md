@@ -81,42 +81,42 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 ### 翻译 & 校对
 
 - 起步
-  - [简介](SOURCE/get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
-  - [下载及安装](SOURCE/get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： （[@yangtze](https://github.com/sstruct)）√
-  - [基本用法](SOURCE/get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
+  - [简介](get_started/introduction.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
+  - [下载及安装](get_started/os_setup.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： （[@yangtze](https://github.com/sstruct)）√
+  - [基本用法](get_started/basic_usage.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对：（[@yangtze](https://github.com/sstruct)）√
 - 教程
-  - [综述](SOURCE/tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： ([@ericxk](https://github.com/ericxk)) √
-  - [MNIST机器学习入门](SOURCE/tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin))√ 校对： ([@ericxk](https://github.com/ericxk))
-  - [深入MNIST](SOURCE/tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))√  校对： ([@HongyangWang](https://github.com/WangHong-yang)) √
-  - [TensorFlow运作方式入门](SOURCE/tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))√  校对： ([@LichAmnesia](https://github.com/LichAmnesia)) √
-  - [卷积神经网络](SOURCE/tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
-  - [递归神经网络](SOURCE/tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
-  - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
-  - [偏微分方程](SOURCE/tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
-  - [MNIST数据下载](SOURCE/tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
+  - [综述](tutorials/overview.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√ 校对： ([@ericxk](https://github.com/ericxk)) √
+  - [MNIST机器学习入门](tutorials/mnist_beginners.md) 翻译：([@Tony Jin](https://github.com/linbojin))√ 校对： ([@ericxk](https://github.com/ericxk))
+  - [深入MNIST](tutorials/mnist_pros.md) 翻译：([@chenweican](https://github.com/chenweican))√  校对： ([@HongyangWang](https://github.com/WangHong-yang)) √
+  - [TensorFlow运作方式入门](tutorials/mnist_tf.md) 翻译：([@bingjin](https://github.com/bingjin))√  校对： ([@LichAmnesia](https://github.com/LichAmnesia)) √
+  - [卷积神经网络](tutorials/deep_cnn.md) 翻译： ([@oskycar](https://github.com/oskycar))√  校对： ([@zhyhooo](https://github.com/zhyhooo))
+  - [Vector Representations of Words](tutorials/word2vec.md)翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
+  - [递归神经网络](tutorials/recurrent.md) 翻译：([@Warln](https://github.com/Warln))√  校对： ([@HongyangWang](https://github.com/WangHong-yang))
+  - [曼德布洛特(Mandelbrot)集合](tutorials/mandelbrot.md) 翻译：([@ericxk](https://github.com/ericxk))√  校对： ([@tensorfly](https://github.com/tensorfly))√
+  - [偏微分方程](tutorials/pdes.md) 翻译：([@wangaicc](https://github.com/wangaicc))√  校对： ([@tensorfly](https://github.com/tensorfly))√
+  - [MNIST数据下载](tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
 - 运作方式
-  - [总览](SOURCE/how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：
+  - [总览](how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：
   （[@lonlonago]( https://github.com/lonlonago))
-  - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
-  - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√  校对： ([@lucky521](https://github.com/lucky521)) √
-  - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√  校对： ([@lucky521](https://github.com/lucky521)) √
-  - [读取数据](SOURCE/how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast)) 校对： ([@allensummer](http://github.com/allensummer))
-  - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom)) √ 校对：（[@volvet](https://github.com/volvet))√
-  - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√校对：（[@ZHNathanielLee](https://github.com/ZHNathanielLee)) √
-  - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√ 校对：([@pengfoo] (https://github.com/PengFoo))
-  - [使用gpu](SOURCE/how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 校对：([@qiaohaijun] (https://github.com/qiaohaijun))
-  - [共享变量](SOURCE/how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√校对：([@pengfoo] (https://github.com/PengFoo))
+  - [变量:创建、初始化、保存和加载](how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
+  - [TensorBoard:可视化学习](how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√  校对： ([@lucky521](https://github.com/lucky521)) √
+  - [TensorBoard:图表可视化](how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√  校对： ([@lucky521](https://github.com/lucky521)) √
+  - [读取数据](how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast)) 校对： ([@allensummer](http://github.com/allensummer))
+  - [线程和队列](how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom)) √ 校对：（[@volvet](https://github.com/volvet))√
+  - [添加新的Op](how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√校对：（[@ZHNathanielLee](https://github.com/ZHNathanielLee)) √
+  - [自定义数据读取](how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√ 校对：([@pengfoo] (https://github.com/PengFoo))
+  - [使用gpu](how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 校对：([@qiaohaijun] (https://github.com/qiaohaijun))
+  - [共享变量](how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√校对：([@pengfoo] (https://github.com/PengFoo))
 - 资源
-  - [总览](SOURCE/resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
-  - [BibTex 引用](SOURCE/resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo] (https://github.com/PengFoo)) 
-  - [使用示例](SOURCE/resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago]( https://github.com/lonlonago)) √
-  - [FAQ](SOURCE/resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo] (https://github.com/PengFoo))
-  - [术语表](SOURCE/resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
+  - [总览](resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
+  - [BibTex 引用](resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo] (https://github.com/PengFoo)) 
+  - [使用示例](resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago]( https://github.com/lonlonago)) √
+  - [FAQ](resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo] (https://github.com/PengFoo))
+  - [术语表](resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
   （[@lonlonago]( https://github.com/lonlonago)) √
-  - [Tensor的阶、形状和数据类型](SOURCE/resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
+  - [Tensor的阶、形状和数据类型](resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
 - 其他
-  - [常见问题汇总](SOURCE/faq.md)
+  - [常见问题汇总](faq.md)
 
 ## 进度记录
 
