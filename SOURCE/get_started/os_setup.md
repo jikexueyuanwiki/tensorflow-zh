@@ -59,8 +59,7 @@ $ docker run -it b.gcr.io/tensorflow/tensorflow
  
 ## 基于 VirtualEnv 的安装 <a class="md-anchor" id="virtualenv_install"></a>
 
-我们推荐使用 [virtualenv](https://pypi.python.org/pypi/virtualenv) 创建一个隔离
-的容器, 来安装 TensorFlow. 这是可选的, 但是这样做能使排查安装问题变得更容易.
+我们推荐使用 [virtualenv](https://pypi.python.org/pypi/virtualenv) 创建一个隔离的容器, 来安装 TensorFlow. 这是可选的, 但是这样做能使排查安装问题变得更容易.
 
 首先, 安装所有必备工具:
 

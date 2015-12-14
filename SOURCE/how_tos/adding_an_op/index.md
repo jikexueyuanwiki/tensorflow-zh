@@ -3,7 +3,7 @@
 PREREQUISITES:
 
 * Some familiarity with C++.
-* Must have [downloaded TensorFlow source](../../get_started/index.md#source),
+* Must have [downloaded TensorFlow source](../../get_started/introduction.md),
   and be able to build it.
 
 If you'd like to incorporate an operation that isn't covered by the existing

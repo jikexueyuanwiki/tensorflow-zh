@@ -42,7 +42,6 @@ for step in xrange(0, 201):
 # 得到最佳拟合结果 W: [[0.100  0.200]], b: [0.300]
 ```
 
-
 为了进一步激发你的学习欲望, 我们想让你先看一下 TensorFlow 是如何解决一个经典的机器
 学习问题的. 在神经网络领域, 最为经典的问题莫过于 MNIST 手写数字分类问题. 我们准备了
 两篇不同的教程, 分别面向机器学习领域的初学者和专家. 如果你已经使用其它软件训练过许多
@@ -50,10 +49,10 @@ MNIST 模型, 请阅读高级教程 (红色药丸链接). 如果你以前从未�
 (蓝色药丸链接). 如果你的水平介于这两类人之间, 我们建议你先快速浏览初级教程, 然后再阅读高级教程.
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px; display: flex; flex-direction: row">
- <a href="../tutorials/mnist/beginners/index.md" title="面向机器学习初学者的 MNIST 初级教程">
+ <a href="tensorflow-zh/SOURCE/tutorials/mnist_beginners.md" title="面向机器学习初学者的 MNIST 初级教程">
    <img style="flex-grow:1; flex-shrink:1; border: 1px solid black;" src="../images/blue_pill.png" alt="面向机器学习初学者的 MNIST 初级教程" />
  </a>
- <a href="../tutorials/mnist/pros/index.md" title="面向机器学习专家的 MNIST 高级教程">
+ <a href="tensorflow-zh/SOURCE/tutorials/mnist_pros.md" title="面向机器学习专家的 MNIST 高级教程">
    <img style="flex-grow:1; flex-shrink:1; border: 1px solid black;" src="../images/red_pill.png" alt="面向机器学习专家的 MNIST 高级教程" />
  </a>
 </div>
@@ -68,7 +67,6 @@ MNIST 模型, 请阅读高级教程 (红色药丸链接). 如果你以前从未�
 * [下载与安装](../get_started/os_setup.md)
 * [基本使用](../get_started/basic_usage.md)
 * [TensorFlow 技术指南](../tutorials/mnist/tf/index.md)
-
 
 <div class='sections-order' style="display: none;">
 <!--
