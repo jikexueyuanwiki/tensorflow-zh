@@ -24,7 +24,7 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 Tensorflow基于一个高效的C++模块进行运算。与这个模块的连接叫做session。一般而言，使用TensorFlow程序的流程是先创建一个图，然后在session中加载它。
 
-这里，我们使用更加方便的`InteractiveSession`类。通过它，你可以更加灵活地构建你的代码。它能让你在运行图的时候，插入一些构建[计算图](../../get_started/basic_usage.md#the-computation-graph)的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用`InteractiveSession`的话，你需要在开始session和[加载图](../../get_started/basic_usage.md#launching-the-graph-in-a-session)之前，构建整个计算图。
+这里，我们使用更加方便的`InteractiveSession`类。通过它，你可以更加灵活地构建你的代码。它能让你在运行图的时候，插入一些构建[计算图](tensorflow-zh/SOURCE/get_started/basic_usage.md#the-computation-graph)的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用`InteractiveSession`的话，你需要在开始session和[加载图](../../get_started/basic_usage.md#launching-the-graph-in-a-session)之前，构建整个计算图。
 
 ```python
 import tensorflow as tf
