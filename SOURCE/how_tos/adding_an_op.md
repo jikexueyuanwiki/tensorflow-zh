@@ -356,7 +356,7 @@ tf.number_type(t=tf.bool)   # 无效
 
 例如, 下列 Op 注册操作指定了属性 `a` 的取值至少为 `2`.
 
-```c++
+```
 REGISTER_OP("MinIntExample")
       .Attr("a: int >= 2");
 ```
@@ -407,8 +407,8 @@ REGISTER_OP("AttrDefaultExampleForAllTypes")
 例如, 除了 `int32` 外, 想要 `ZeroOut` Op 支持 `float`, 注册代码如下:
 
 ```
-REGISTER\_OP("ZeroOut")
-    <b>.Attr("T: {float, int32}")</b>
+REGISTER_OP("ZeroOut")
+    .Attr("T: {float, int32}")
     .Input("to_zero: <b>T</b>")
     .Output("zeroed: <b>T</b>");
 ```
@@ -469,7 +469,7 @@ def string_to_number(string_tensor, out_type=None, name=None):
 
 ```
  #include "tensorflow/core/framework/op_kernel.h"
-class ZeroOut<b>Int32</b>Op : public OpKernel {
+class ZeroOutInt32Op : public OpKernel {
   // 和之前一样
 };
 class ZeroOutFloatOp : public OpKernel {
@@ -478,10 +478,10 @@ class ZeroOutFloatOp : public OpKernel {
       : OpKernel(context) {}
   void Compute(OpKernelContext * context) override {
     // 获取输入 tensor
-    const Tensor& input_tensor = context-&gt;input(0);
+    const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<float>();
     // 创建一个输出 tensor
-    Tensor* output = NULL;
+    Tensor * output = NULL;
     OP_REQUIRES_OK(context,
                     context->allocate_output(0, input_tensor.shape(), &output));
     auto output_flat = output->template flat<float>();
