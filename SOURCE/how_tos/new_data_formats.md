@@ -2,14 +2,14 @@
 
 基本要求:
 
-*   熟悉 C++ 编程。
-*   确保
+* 熟悉 C++ 编程。
+* 确保
     [下载 TensorFlow 源文件](tensorflow-zh/SOURCE/get_started/os_setup.md#source), 并可编译使用。
 
 我们将支持文件格式的任务分成两部分：
 
-*   文件格式: 我们使用 *Reader* Op来从文件中读取一个 *record* (可以使任意字符串)。
-*   记录格式: 我们使用解码器或者解析运算将一个字符串记录转换为TensorFlow可以使用的张量。
+* 文件格式: 我们使用 *Reader* Op来从文件中读取一个 *record* (可以使任意字符串)。
+* 记录格式: 我们使用解码器或者解析运算将一个字符串记录转换为TensorFlow可以使用的张量。
 
 例如， 读取一个
 [CSV 文件](https://en.wikipedia.org/wiki/Comma-separated_values)，我们使用
@@ -41,20 +41,20 @@ Reader 是专门用来读取文件中的记录的。TensorFlow中内建了一些
 
 新创建一个名为 SomeReader 的读写器，需要以下步骤：
 
-1.  在 C++ 中, 定义一个
+1. 在 C++ 中, 定义一个
     [tensorflow::ReaderBase](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/reader_base.h)的子类，命名为
      "SomeReader".
-2.  在 C++ 中，注册一个新的读写器Op和Kernel，命名为 "SomeReader"。
-3.  在 Python 中, 定义一个 [tf.ReaderBase](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/ops/io_ops.py) 的子类，命名为 "SomeReader"。
+2. 在 C++ 中，注册一个新的读写器Op和Kernel，命名为 "SomeReader"。
+3. 在 Python 中, 定义一个 [tf.ReaderBase](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/ops/io_ops.py) 的子类，命名为 "SomeReader"。
 
 你可以把所有的 C++ 代码放在
 `tensorflow/core/user_ops/some_reader_op.cc`文件中.  读取文件的代码将被嵌入到C++ 的 ReaderBase 类的迭代中。 这个 ReaderBase 类 是在 [tensorflow/core/kernels/reader_base.h](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/kernels/reader_base.h) 中定义的。
 你需要执行以下的方法：
 
-*   OnWorkStartedLocked：打开下一个文件
-*   ReadLocked：读取一个记录或报告 EOF/error
-*   OnWorkFinishedLocked：关闭当前文件
-*   ResetLocked：清空记录，例如：一个错误记录
+* OnWorkStartedLocked：打开下一个文件
+* ReadLocked：读取一个记录或报告 EOF/error
+* OnWorkFinishedLocked：关闭当前文件
+* ResetLocked：清空记录，例如：一个错误记录
 
 以上这些方法的名字后面都带有 "Locked"， 表示  ReaderBase 在调用任何一个方法之前确保获得互斥锁，这样就不用担心线程安全（虽然只保护了该类中的元素而不是全局的）。
 
