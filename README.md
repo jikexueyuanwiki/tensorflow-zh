@@ -104,14 +104,14 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [读取数据](how_tos/reading_data.md)  翻译： ([@westeast](https://github.com/westeast)) 校对： ([@allensummer](http://github.com/allensummer))
   - [线程和队列](how_tos/threading_and_queues.md) 翻译： ([@zhangkom](https://github.com/zhangkom)) √ 校对：（[@volvet](https://github.com/volvet))√
   - [添加新的Op](how_tos/adding_an_op.md) 翻译：（[@PFZheng](https://github.com/PFZheng)）√校对：（[@ZHNathanielLee](https://github.com/ZHNathanielLee)) √
-  - [自定义数据读取](how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√ 校对：([@pengfoo] (https://github.com/PengFoo))
-  - [使用gpu](how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 校对：([@qiaohaijun] (https://github.com/qiaohaijun))
-  - [共享变量](how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√校对：([@pengfoo] (https://github.com/PengFoo))
+  - [自定义数据读取](how_tos/new_data_formats.md) 翻译：([@derekshang](https://github.com/derekshang))√ 校对：([@pengfoo](https://github.com/PengFoo))
+  - [使用gpu](how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 校对：([@qiaohaijun](https://github.com/qiaohaijun))
+  - [共享变量](how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√校对：([@pengfoo](https://github.com/PengFoo))
 - 资源
   - [总览](resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
-  - [BibTex 引用](resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo] (https://github.com/PengFoo)) 
+  - [BibTex 引用](resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo](https://github.com/PengFoo)) 
   - [使用示例](resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago]( https://github.com/lonlonago)) √
-  - [FAQ](resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo] (https://github.com/PengFoo))
+  - [FAQ](resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo](https://github.com/PengFoo))
   - [术语表](resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
   （[@lonlonago]( https://github.com/lonlonago)) √
   - [Tensor的阶、形状和数据类型](resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
