@@ -108,13 +108,13 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [使用gpu](how_tos/using_gpu.md)翻译：([@lianghyv](https://github.com/lianghyv))√ 校对：([@qiaohaijun](https://github.com/qiaohaijun))
   - [共享变量](how_tos/variable_scope.md) 翻译：([@nb312](https://github.com/nb312))√校对：([@pengfoo](https://github.com/PengFoo))
 - 资源
-  - [总览](resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
+  - [总览](resources/overview.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：（[@lonlonago](https://github.com/lonlonago)) √
   - [BibTex 引用](resources/bib.md) 翻译：([@Jim-Zenn](https://github.com/Jim-Zenn))√ 校对：([@pengfoo](https://github.com/PengFoo)) 
-  - [使用示例](resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago]( https://github.com/lonlonago)) √
+  - [使用示例](resources/uses.md) 翻译：([@andyiac](https://github.com/andyiac))√ 校对（[@lonlonago](https://github.com/lonlonago)) √
   - [FAQ](resources/faq.md) 翻译：([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：([@pengfoo](https://github.com/PengFoo))
   - [术语表](resources/glossary.md) 翻译： ([@leege100](https://github.com/leege100))√ 校对：
-  （[@lonlonago]( https://github.com/lonlonago)) √
-  - [Tensor的阶、形状和数据类型](resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago]( https://github.com/lonlonago)) √
+  （[@lonlonago](https://github.com/lonlonago)) √
+  - [Tensor的阶、形状和数据类型](resources/dims_types.md) 翻译：([@nb312](https://github.com/nb312))√ 校对：（[@lonlonago](https://github.com/lonlonago)) √
 - 其他
   - [常见问题汇总](faq.md)
 
