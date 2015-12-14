@@ -1,6 +1,6 @@
 # TensorFlow 官方文档中文版
 
-![logo](https://github.com/jikexueyuanwiki/tensorflow-zh/tree/master/SOURCE/images/tensorflow_logo.png)
+![logo](../SOURCE/images/tensorflow_logo.png)
 
 ### 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
 
