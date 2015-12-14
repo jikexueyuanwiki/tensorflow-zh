@@ -72,10 +72,10 @@ A typical pipeline for reading records from files has the following stages:
 For the list of filenames, use either a constant string Tensor (like
 `["file0", "file1"]` or `[("file%d" % i) for i in range(2)]`) or the
 [`tf.train.match_filenames_once`
-function](../../api_docs/python/io_ops.md#match_filenames_once).
+function](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#match_filenames_once).
 
 Pass the list of filenames to the [`tf.train.string_input_producer`
-function](../../api_docs/python/io_ops.md#string_input_producer).
+function](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#string_input_producer).
 `string_input_producer` creates a FIFO queue for holding the filenames until
 the reader needs them.
 
