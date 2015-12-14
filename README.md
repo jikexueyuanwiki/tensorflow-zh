@@ -1,10 +1,8 @@
-
 # TensorFlow 官方文档中文版
 
 ![logo](SOURCE/images/tensorflow_logo.png)
 
 ### 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
-
 
 ## 缘起 
 
@@ -40,8 +38,6 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
 [野心：像开放安卓一样，这一次，谷歌决定开放它的机器学习系统——TensorFlow](http://www.huxiu.com/article/130763/1.html?f=wangzhan)   
 
 [最强大机器学习平台开源 谷歌准备主宰人工智能？](http://m.wallstreetcn.com/node/226012)
-
-
 
 ## 参与步骤
 
