@@ -4,19 +4,19 @@
 
 如果你是机器学习领域的新手, 我们推荐你从本文开始阅读. 本文通过讲述一个经典的问题, 手写数字识别 (MNIST), 让你对多类分类 (multiclass classification) 问题有直观的了解.
 
-[阅读教程](../tutorials/mnist-beginners.md)
+[阅读教程](../tutorials/mnist_beginners.md)
 
 ## 面向机器学习专家的 MNIST 高级教程
 
 如果你已经对其它深度学习软件比较熟悉, 并且也对 MNIST 很熟悉, 这篇教程能够引导你对 TensorFlow 有初步了解.
 
-[阅读教程](../tutorials/mnist-pros.md)
+[阅读教程](../tutorials/mnist_pros.md)
 
 ## TensorFlow 使用指南
 
 这是一篇技术教程, 详细介绍了如何使用 TensorFlow 架构训练大规模模型. 本文继续使用MNIST 作为例子.
 
-[阅读教程](../tutorials/mnist-tf.md)
+[阅读教程](../tutorials/mnist_tf.md)
 
 ## 卷积神经网络 
 
@@ -58,7 +58,7 @@ TensorFlow 可以用于与机器学习完全无关的其它计算领域. 这里�
 
 一篇关于下载 MNIST 手写识别数据集的详细教程.
 
-[阅读教程](../tutorials/mnist-download.md)
+[阅读教程](../tutorials/mnist_download.md)
 
 ## 视觉物体识别 (Visual Object Recognition)
 
