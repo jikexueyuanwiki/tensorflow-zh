@@ -71,32 +71,26 @@ REGISTER_OP("ZeroOut")
 
 将 kernel 添加到刚才创建的文件中, kernel 看起来和下面的代码类似:
 
-```c++
+```
  #include "tensorflow/core/framework/op_kernel.h"
-
 using namespace tensorflow;
-
 class ZeroOutOp : public OpKernel {
  public:
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
-
   void Compute(OpKernelContext* context) override {
     // 获取输入 tensor.
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<int32>();
-
    // 创建一个输出 tensor.
     Tensor* output_tensor = NULL;
     OP_REQUIRES_OK(context, context->allocate_output(0, input_tensor.shape(),
                                                      &output_tensor));
     auto output = output_tensor->template flat<int32>();
-
     // 设置 tensor 除第一个之外的元素均设为 0.
     const int N = input.size();
     for (int i = 1; i < N; i++) {
       output(i) = 0;
     }
-
     // 尽可能地保留第一个元素的值.
     if (N > 0) output(0) = input(0);
   }
@@ -108,7 +102,7 @@ class ZeroOutOp : public OpKernel {
 
 将下列代码加入到 `zero_out.cc` 中, 注册 `ZeroOut` op:
 
-```c++
+```
 REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
 ```
 
@@ -163,7 +157,7 @@ def my_fact():
 [`tensorflow/cc/ops/standard_ops.h`][standard_ops-cc] 通过下述申明, 
 导入用户自定义 Op 自动生成的包装器.
 
-```c++
+```
  #include "tensorflow/cc/ops/user_ops.h"
 ```
 
@@ -175,8 +169,6 @@ def my_fact():
 
 ```python
 import tensorflow as tf
-
-
 class ZeroOutTest(tf.test.TestCase):
   def testZeroOut(self):
     with self.test_session():
@@ -196,11 +188,10 @@ $ bazel test tensorflow/python:zero_out_op_test
 呢? 
 这意味需要在上述 OpKernel 实现中添加相关的检查.
 
-```c++
+```
   void Compute(OpKernelContext* context) override {
    // 获取输入 tensor
     const Tensor& input_tensor = context->input(0);
-
     OP_REQUIRES(context, TensorShapeUtils::IsVector(input_tensor.shape()),
                 errors::InvalidArgument("ZeroOut expects a 1-D vector."));
     // ...
