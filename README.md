@@ -97,7 +97,7 @@ PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
   - [MNIST数据下载](tutorials/mnist_download.md) 翻译： ([@btpeter](https://github.com/btpeter)) √ 校对： ([@waiwaizheng](https://github.com/waiwaizheng))
 - 运作方式
   - [总览](how_tos/overview.md) 翻译： ([@Terence Cooper](https://github.com/TerenceCooper))√ 校对：
-  （[@lonlonago]( https://github.com/lonlonago))
+  （[@lonlonago](https://github.com/lonlonago))
   - [变量:创建、初始化、保存和加载](how_tos/variables.md) 翻译： ([@zhyhooo](https://github.com/zhyhooo))√ 校对： ([@jishaoming](https://github.com/jishaoming))
   - [TensorBoard:可视化学习](how_tos/summaries_and_tensorboard.md)翻译：([@thylaco1eo](https://github.com/thylaco1eo))√  校对： ([@lucky521](https://github.com/lucky521)) √
   - [TensorBoard:图表可视化](how_tos/graph_viz.md)  翻译：([@Warln](https://github.com/Warln))√  校对： ([@lucky521](https://github.com/lucky521)) √
