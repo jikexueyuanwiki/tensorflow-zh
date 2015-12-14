@@ -3,8 +3,7 @@
 基本要求:
 
 * 熟悉 C++ 编程。
-* 确保
-    [下载 TensorFlow 源文件](tensorflow-zh/SOURCE/get_started/os_setup.md#source), 并可编译使用。
+* 确保[下载 TensorFlow 源文件](tensorflow-zh/SOURCE/get_started/os_setup.md#source), 并可编译使用。
 
 我们将支持文件格式的任务分成两部分：
 
@@ -60,23 +59,23 @@ Reader 是专门用来读取文件中的记录的。TensorFlow中内建了一些
 
 对于 OnWorkStartedLocked, 需要打开的文件名是 `current_work()` 函数的返回值。此时的 ReadLocked 的数字签名如下:
 
-```c++
+```
 Status ReadLocked(string* key, string* value, bool* produced, bool* at_end)
 ```
 
 如果 ReadLocked 从文件中成功读取了一条记录，它将更新为：
 
-*   *key： 记录的标志位，通过该标志位可以重新定位到该记录。 可以包含从 current_work() 返回值获得的文件名，并追加一个记录号或其他信息。
-*   *value： 包含记录的内容。
-*   *produced： 设置为 true。
+* *key： 记录的标志位，通过该标志位可以重新定位到该记录。 可以包含从 current_work() 返回值获得的文件名，并追加一个记录号或其他信息。
+* *value： 包含记录的内容。
+* *produced： 设置为 true。
 
 当你在文件（EOF）末尾，设置 *at_end 为 true ，在任何情况下，都将返回 Status::OK()。 当出现错误的时候，只需要使用
 [tensorflow/core/lib/core/errors.h](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/lib/core/errors.h) 中的一个辅助功能就可以简单地返回，不需要做任何参数修改。
 
 接下来你讲创建一个实际的读写器Op。 如果你已经熟悉了[添加新的Op](tensorflow-zh/SOURCE/how_tos/adding_an_op/index.md) 那会很有帮助。 主要步骤如下：
 
-*   注册Op。
-*   定义并注册 OpKernel。
+* 注册Op。
+* 定义并注册 OpKernel。
 
 要注册Op，你需要用到一个调用指令定义在
 [tensorflow/core/framework/op.h](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/core/framework/op.h)中的REGISTER_OP。
@@ -117,7 +116,7 @@ REGISTER_KERNEL_BUILDER(Name("TFRecordReader").Device(DEVICE_CPU),
 ```
 一个带有属性的例子：
 
-```c
+```
  #include "tensorflow/core/framework/reader_op_kernel.h"
 class TextLineReaderOp : public ReaderOpKernel {
  public:
@@ -142,7 +141,7 @@ REGISTER_KERNEL_BUILDER(Name("TextLineReader").Device(DEVICE_CPU),
 最后一步是添加 Python 包装器，你需要将 tensorflow.python.ops.io_ops 导入到
 [tensorflow/python/user_ops/user_ops.py](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/user_ops/user_ops.py)，并添加一个 [io_ops.ReaderBase](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/python/ops/io_ops.py)的衍生函数。
 
-```python
+```
 from tensorflow.python.framework import ops
 from tensorflow.python.ops import common_shapes
 from tensorflow.python.ops import io_ops
