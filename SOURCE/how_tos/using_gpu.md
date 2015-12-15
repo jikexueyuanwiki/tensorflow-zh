@@ -160,4 +160,4 @@ AddN: /job:localhost/replica:0/task:0/cpu:0
 [cifar10 tutorial](tensorflow-zh/SOURCE/tutorials/deep_cnn/index.md) 这个例子很好的演示了怎样用GPU集群训练.
 
 > 原文:[using_gpu](http://tensorflow.org/how_tos/using_gpu/index.md)
-翻译:[@lianghyv](https://github.com/lianghyv) 校对:[](https://github.com/)
+翻译:[@lianghyv](https://github.com/lianghyv) 校对:[Wiki](https://github.com/jikexueyuanwiki)

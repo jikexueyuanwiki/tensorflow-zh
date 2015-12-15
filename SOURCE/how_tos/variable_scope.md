@@ -284,4 +284,4 @@ File | What's in it?
 `models/image/cifar10.py` |图像中检测对象的模型.
 `models/rnn/rnn_cell.py` |时间递归神经网络的元方法集.
 `models/rnn/seq2seq.py` |为创建`sequence-to-sequence`模型的方法集.
-原文：[Sharing Variables](http://www.tensorflow.org/how_tos/variable_scope/index.md) 翻译：[nb312](https://github.com/nb312)
+原文：[Sharing Variables](http://www.tensorflow.org/how_tos/variable_scope/index.md) 翻译：[nb312](https://github.com/nb312)校对：[Wiki](https://github.com/jikexueyuanwiki)
