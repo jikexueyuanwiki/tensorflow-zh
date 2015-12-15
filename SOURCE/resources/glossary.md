@@ -84,4 +84,4 @@ Tensor是一种特定的多维数组。比如，一个浮点型的四维数组�
 
 翻译：[leege100](https://github.com/leege100)
 
-校对：[lonlonago]( https://github.com/lonlonago)
+校对：[lonlonago](https://github.com/lonlonago)
