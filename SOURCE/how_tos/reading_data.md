@@ -172,7 +172,7 @@ def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):
 
 在这个例子中， 你虽然只使用了一个文件名队列， 但是TensorFlow依然能保证多个文件阅读器从同一次迭代(epoch)的不同文件中读取数据，知道这次迭代的所有文件都被开始读取为止。（通常来说一个线程来对文件名队列进行填充的效率是足够的）
 
-另一种替代方案是： 使用[`tf.train.shuffle_batch` function](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#shuffle_batch),设置`num_threads`的值大于1。 这种方案可以保证同一时刻只在一个文件中进行读取操作(但是读取速度依然优于单线程)，而不是之前的同时读取多个文件。这种方案的优点是：
+另一种替代方案是： 使用[`tf.train.shuffle_batch` 函数](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#shuffle_batch),设置`num_threads`的值大于1。 这种方案可以保证同一时刻只在一个文件中进行读取操作(但是读取速度依然优于单线程)，而不是之前的同时读取多个文件。这种方案的优点是：
 *   避免了两个不同的线程从同一个文件中读取同一个样本。
 *   避免了过多的磁盘搜索操作。
 
