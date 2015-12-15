@@ -178,21 +178,3 @@ def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):
 
 你一共需要多少个读取线程呢？ 函数`tf.train.shuffle_batch*`为TensorFlow图提供了获取文件名队列中的元素个数之和的方法。 如果你有足够多的读取线程， 文件名队列中的元素个数之和应该一直是一个略高于0的数。具体可以参考[TensorBoard:可视化学习](tensorflow-zh/SOURCE/how_tos/summaries_and_tensorboard/index.md).
 
-### Creating threads to prefetch using `QueueRunner` objects <a class="md-anchor" id="QueueRunner"></a>
-
-The short version: many of the `tf.train` functions listed above add
-[`QueueRunner`](tensorflow-zh/SOURCE/api_docs/python/train.md#QueueRunner) objects to your
-graph.  These require that you call
-[`tf.train.start_queue_runners`](tensorflow-zh/SOURCE/api_docs/python/train.md#start_queue_runners)
-before running any training or inference steps, or it will hang forever. This
-will start threads that run the input pipeline, filling the example queue so
-that the dequeue to get the examples will succeed.  This is best combined with a
-[`tf.train.Coordinator`](tensorflow-zh/SOURCE/api_docs/python/train.md#Coordinator) to cleanly
-shut down these threads when there are errors. If you set a limit on the number
-of epochs, that will use an epoch counter that will need to be intialized.  The
-recommended code pattern combining these is:
-
-```python
-# Create the graph, etc.
-init_op = tf.initialize_all_variables()
-

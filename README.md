@@ -99,11 +99,6 @@
 - 加入TensorFlow微信讨论群:   
   ![](SOURCE/images/weixin.jpg)
 
-
-
-
-
-
 ## 感谢支持
 
 - [极客学院 Wiki](http://wiki.jikexueyuan.com) 提供图文教程托管服务
