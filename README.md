@@ -1,8 +1,8 @@
 # TensorFlow 官方文档中文版
 
-![](SOURCE/images/tensorflow_logo.png)
+![](SOURCE/images/TensorFlow.jpg)
 
-### 你正在翻译的项目可能会比 Android 系统更加深远地影响着世界！
+### 你正在阅读的项目可能会比 Android 系统更加深远地影响着世界！
 
 ## 缘起 
 
@@ -29,7 +29,7 @@
 
 ## 参与者（按认领章节排序）
 
-### 翻译
+### 翻译   
 
 - [@PFZheng](https://github.com/PFZheng)      
 - [@Tony Jin](https://github.com/linbojin) 
@@ -79,15 +79,30 @@
 - 2015-12-10, Star数超过500
 - 2015-12-15, 项目正式上线
 
-## TensorFlow 相关资源
+## 花絮
 
-- [Google官方Blog宣布TensorFlow开源](https://googleblog.blogspot.com/2015/11/tensorflow-smarter-machine-learning-for.html)
-- [TensorFlow WhitePaper(PDF下载)](http://download.tensorflow.org/paper/whitepaper2015.pdf)
-- [Jeff Dean 介绍 TensorFlow（视频）](https://www.youtube.com/watch?v=90-S1M7Ny_o&t=21m2s)
-- [TensorFlow 简化版接口 Scikit Flow](https://github.com/google/skflow)
-- [TensorFlow 使用样例](https://github.com/aymericdamien/TensorFlow-Examples)
-- [TensorFlow 与 mxnet, caffe 对比 @chenrudan](http://chenrudan.github.io/blog/2015/11/18/comparethreeopenlib.html)
-- [TensorFlow 与 torch7, caffe, mxnet 在内存使用量以及性能对比 @mli](https://github.com/dmlc/mxnet/blob/master/doc/overview_chn.md)
+在组织翻译的过程中，有些事情令人印象深刻，记录下来，希望以后来学习文档的同学能够明了到手中这份文档的由来：
+
+- 参加翻译的有学生，也有老师；有专门研究AI/ML的，也有对此感兴趣的；有国内的，也有远在纽约的；有工程技术人员也有博士、专家
+- 其中一位，[恩泽](https://github.com/longmotto)同学，为了翻译一篇文档，在前一天没有睡觉的情况下坚持翻完，20个小事没有合眼
+- 还有一位老师，刚从讲台上讲完课，就立即给我们的翻译提修改意见
+- 很多同学自发的将搭建环境中遇到的问题总结到FAQ里帮助他人
+- 为了一个翻译细节，经常是来回几次，和其他人讨论完善
+
+## 持续改进
+
+这样的一个高技术领域的文档，我们在翻译的过程中，难免会有不完善的地方，希望请大家一起帮助我们持续改进文档的翻译质量，帮助更多的人，方法：
+
+- 在GitHub上提Issue或Pull Request，地址为: [https://github.com/jikexueyuanwiki/tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
+- 加入我们的QQ群提建议--协同翻译群：248320884，技术交流群：495115006
+- 给我们写邮件： wiki@jikexueyuan.com
+- 加入TensorFlow微信讨论群:
+  ![](SOURCE/images/weixin.jpg)
+
+
+
+
+
 
 ## 感谢支持
 
@@ -95,11 +110,5 @@
 
 ## 离线版本
 
-目前，离线版本(PDF、ePub)可正常下载、使用。
-
-## 一起来参与
-
-如果想做出贡献(翻译或者校对)的话，请加QQ群：248320884，谢谢！
-
-PS: 想探讨TensorFlow技术的可以加"TensorFlow技术交流群"：495115006
+目前，离线版本(PDF、ePub)可正常下载、使用
 
