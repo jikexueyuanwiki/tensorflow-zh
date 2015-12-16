@@ -34,7 +34,7 @@
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
   - [相关资源](SOURCE/resource.md)
-  - [个人心得](SOURCE/personal.md)
+  - [个人学习心得](SOURCE/personal.md)
 
   
   
