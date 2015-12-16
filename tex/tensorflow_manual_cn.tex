@@ -53,11 +53,11 @@
 
 \subsection {MNIST之机器学习入门}
 
-This tutorial is intended for readers who are new to both machine learning and TensorFlow. If you already know what MNIST is, and what softmax (multinomial logistic) regression is, you might prefer this faster paced tutorial. Be sure to install TensorFlow before starting either tutorial.
+% This tutorial is intended for readers who are new to both machine learning and TensorFlow. If you already know what MNIST is, and what softmax (multinomial logistic) regression is, you might prefer this faster paced tutorial. Be sure to install TensorFlow before starting either tutorial.
 
 这个教程的目标读者是对机器学习和TensorFlow都不太了解的新手。如果你已经了解MNIST和softmax回归(softmax regression)的相关知识，你可以阅读这个快速上手教程。
 
-When one learns how to program, there's a tradition that the first thing you do is print "Hello World." Just like programming has Hello World, machine learning has MNIST.
+% When one learns how to program, there's a tradition that the first thing you do is print "Hello World." Just like programming has Hello World, machine learning has MNIST.
 
 当我们开始学习编程的时候，第一件事往往是学习打印“Hello World”。就好比编程入门有Hello World，机器学习入门有MNIST。
 MNIST是一个入门级的计算机视觉数据集，它包含各种手写数字图片：
@@ -111,10 +111,53 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 这是一个使用softmax回归（softmax regression）模型的经典案例。softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，最后一步也需要用softmax来分配概率。
 
-softmax回归（softmax regression）分两步：第一步
+softmax回归（softmax regression）分两步：
+
+第一步
 
 为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。
 下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值。红色代表负数权值，蓝色代表正数权值。
+
+\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-weights.png}
+
+我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量。因此对于给定的输入图片$x$它代表的是数字$x$的证据可以表示为
+
+$evidence_i = \sum{W_i}$
+
+其中
+
+$b_i$ 代表数字$i$类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和。然后用softmax函数可以把这些证据转换
+成概率$y$:
+
+$y = softmax(evidence)$
+
+这里的softmax可以看成是一个激励（activation）函数或者链接（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布。因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值。softmax函数可以定义为：
+
+$softmax(x) = normalize(exp(x))$
+
+展开等式右边的子式，可以得到：
+
+$softmax(x)_i = $
+
+但是更多的时候把softmax模型函数定义为前一种形式：把输入值当成幂指数求值，再正则化这些结果值。这个幂运算表示，更大的证据对应更大的假设模型（hypothesis）里面的乘数权重值。反之，拥有更少的证据意味着在假设模型里面拥有更小的乘数系数。假设模型里的权值不可以是0值或者负值。Softmax然后会正则化这些权重值，使它们的总和等于1，以此构造一个有效的概率分布。（更多的关于Softmax函数的信息，可以参考Michael Nieslen的书里面的这个部分，其中有关于softmax的可交互式的可视化解释。）
+
+对于softmax回归模型可以用下面的图解释，对于输入的$xs$ 加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：
+
+\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-regression-scalargraph.png}
+
+如果把它写成一个等式，我们可以得到：
+
+\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-regression-scalarequation.png}
+
+我们也可以用向量表示这个计算过程：用矩阵乘法和向量相加。这有助于提高计算效率。（也是一种更有效的思考方式）
+
+\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-regression-vectorequation.png}
+
+更进一步，可以写成更加紧凑的方式：
+
+$y = softmax(W_x+b)$
+
+\subsubsection {实现回归模型}
 
 
 \section{TensorFlow运作方式}
