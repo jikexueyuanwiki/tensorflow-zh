@@ -174,4 +174,4 @@ ops.RegisterShape("SomeReader")(common_shapes.scalar_shape)
 [tf.decode_png](tensorflow-zh/SOURCE/api_docs/python/image.md#decode_png)， 或者
 [tf.decode_raw](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#decode_raw)。通过读取 tf.decode_raw 的响应输出并使用[tf.slice](tensorflow-zh/SOURCE/api_docs/python/array_ops.md#slice) 和
 [tf.reshape](tensorflow-zh/SOURCE/api_docs/python/array_ops.md#reshape) 来提取数据是通用的方法。
-> 原文：[Custom Data Readers](http://tensorflow.org/how_tos/new_data_formats/index.html#custom-data-readers)  翻译：[@derekshang](https://github.com/derekshang)  校对：
+> 原文：[Custom Data Readers](http://tensorflow.org/how_tos/new_data_formats/index.html#custom-data-readers)  翻译：[@derekshang](https://github.com/derekshang)  校对：[Wiki](https://github.com/jikexueyuanwiki)

@@ -3,12 +3,12 @@
   - [下载及安装](SOURCE/get_started/os_setup.md)
   - [基本用法](SOURCE/get_started/basic_usage.md)
 - 教程
-  - [综述](SOURCE/tutorials/overview.md)
+  - [总览](SOURCE/tutorials/overview.md)
   - [MNIST 机器学习入门](SOURCE/tutorials/mnist_beginners.md)
   - [深入 MNIST](SOURCE/tutorials/mnist_pros.md)
   - [TensorFlow 运作方式入门](SOURCE/tutorials/mnist_tf.md)
   - [卷积神经网络](SOURCE/tutorials/deep_cnn.md)
-  - [Vector Representations of Words](SOURCE/tutorials/word2vec.md)
+  - [字词的向量表示](SOURCE/tutorials/word2vec.md)
   - [递归神经网络](SOURCE/tutorials/recurrent.md)
   - [曼德布洛特(Mandelbrot)集合](SOURCE/tutorials/mandelbrot.md)
   - [偏微分方程](SOURCE/tutorials/pdes.md) 
@@ -33,6 +33,7 @@
   - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
+  - [相关资源](SOURCE/resource.md)
 
   
   
