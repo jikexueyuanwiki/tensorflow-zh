@@ -157,20 +157,20 @@ softmax回归（softmax regression）分两步：首先，为了得到一张给�
 
 
 \begin{center}
-\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-weights.png}
+\includegraphics[width=.7\textwidth]{../SOURCE/images/softmax-weights.png}
 \end{center}
 
 我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量。因此对于给定的输入图片$x$它代表的是数字$x$的证据可以表示为\\
 \begin{equation}
 evidence_i = \sum_j{W_{i,j}}x_j+b_i
 \end{equation}\\
-其中，$b_i$ 代表数字$i$类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和。然后用softmax函数可以把这些证据转换
+其中，$W_i$代表权重，$b_i$ 代表第$i$类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和。然后用softmax函数可以把这些证据转换
 成概率$y$:\\
 \begin{equation}
 y = softmax(evidence)
 \end{equation}
 
-这里的softmax可以看成是一个激励（activation）函数或者链接（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布。因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值。softmax函数可以定义为：\\
+这里的softmax可以看成是一个激励（activation）函数或是链接（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布。因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值。softmax函数可以定义为：\\
 \begin{equation}
 softmax(x) = normalize(exp(x))
 \end{equation}\\
@@ -251,9 +251,10 @@ y = tf.placeholder("float", [None,10])
 -\sum{y'log(y)}
 \end{equation}
 计算交叉熵:
-\begin{equation}
+
+\begin{lstlisting}
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
-\end{equation}
+\end{lstlisting}
 
 首先，用 tf.log 计算y的每个元素的对数。接下来，我们把y\_的每一个元素和tf.log(y\_)的对应元素相乘。最后，用tf.reduce\_sum计算张量的所有元素的总和。（注意，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和。对于100个数据点的预测表现比单一数据点的表现能更好地描述我们的模型的性能。
 
