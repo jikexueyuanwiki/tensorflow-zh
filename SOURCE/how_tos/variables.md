@@ -1,15 +1,15 @@
 # 变量:创建、初始化、保存和加载#
 
-当你在训练模型时，用[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)来存储和更新参数。变量是内存中用于存放张量 (Tensor) 的缓存区。它们必须被明确地初始化，并能在训练过程中和结束后被保存到磁盘。你随后可以恢复保存的值来训练和分析模型。
+当训练模型时，用[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)来存储和更新参数。变量包含张量 (Tensor)存放于内存的缓存区。建模时它们需要被明确地初始化，模型训练后它们必须被存储到磁盘。这些变量的值可在之后模型训练和分析是被加载。
 
-此篇文档将涉及以下两个TensorFlow类。点击链接查看完整的API文档：
+本文档描述以下两个TensorFlow类。点击以下链接可查看完整的API文档：
 
-- The [`tf.Variable`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Variable)class.
-- The [`tf.train.Saver`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Saver)class.
+- [`tf.Variable`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Variable) 类
+- [`tf.train.Saver`](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md#Saver) 类
 
 ## 创建
 
-当创建一个[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)时，你将一个`张量`作为初始值传入`Variable()`构造函数。TensorFlow提供了一系列操作符来初始化张量，初始值是[常量或是随机值](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/constant_op.md)。
+当创建一个[变量](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/state_ops.md)时，你将一个`张量`作为初始值传入构造函数`Variable()`。TensorFlow提供了一系列操作符来初始化张量，初始值是[常量或是随机值](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/api_docs/python/constant_op.md)。
  
 注意，所有这些操作符都需要你指定张量的shape。那个形状自动成为变量的shape。变量的shape通常是固定的，但TensorFlow提供了高级的机制来重新调整其行列数。
 
@@ -160,4 +160,9 @@ saver = tf.train.Saver({"my_v2": v2})
 ...
 ```
 
+<<<<<<< HEAD
+>原文链接: [http://tensorflow.org/how_tos/variables/index.html](http://tensorflow.org/how_tos/variables/index.html) 
+>翻译：[赵屹华](https://github.com/zhyhooo)
+=======
 原文链接: [http://tensorflow.org/how_tos/variables/index.html](http://tensorflow.org/how_tos/variables/index.html) 翻译：[赵屹华](https://github.com/zhyhooo) 校对：[Wiki](https://github.com/jikexueyuanwiki)
+>>>>>>> 9fdd1fb099994170ea12d0b15d069e4ec224444c
