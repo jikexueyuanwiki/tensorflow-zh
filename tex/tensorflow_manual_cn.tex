@@ -27,7 +27,7 @@
 
 \usepackage{graphicx}
 % 支持插入eps图形文件
-\usepackage{epsfig}
+% \usepackage{epsfig}
 
 % 支持超链接
 \usepackage[colorlinks]{hyperref}
@@ -42,7 +42,7 @@
 \usepackage{listings}
 \lstset{ %
   backgroundcolor=\color{myback},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=bl,                   % sets the caption-position to bottom
@@ -56,12 +56,12 @@
   language=Python,                 % the language of the code
   morekeywords={*,...},            % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=5pt,                   % how far the line-numbers are from the code
+  numbersep=4pt,                   % how far the line-numbers are from the code
   numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
   rulecolor=\color{mygray},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,          % underline spaces within strings only
-  showtabs=false,                  % show tabs within strings adding particular underscores
+  showstringspaces=true,          % underline spaces within strings only
+  showtabs=true,                  % show tabs within strings adding particular underscores
   stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{orange},     % string literal style
   tabsize=2,                       % sets default tabsize to 2 spaces
@@ -84,7 +84,9 @@
 
 \section{起步}
 
+\newpage
 \section{基础教程}
+
 \subsection {综述}
 
 \subsection {MNIST之机器学习入门}
@@ -144,9 +146,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 softmax回归（softmax regression）分两步：
 
-第一步
-
-为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。
+第一步，为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。
 下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值。红色代表负数权值，蓝色代表正数权值。
 
 \includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-weights.png}
@@ -209,7 +209,7 @@ b = tf.Variable(tf.zeros([10]))
 
 注意， W 的维度是[784，10]，因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，每一位对应不同数字类。 b 的形状是[10]，所以我们可以直接把它加到输出上面。
 
-现在，我们可以实现我们的模型啦。只需要一行代码
+现在，可以实现我们的模型了，只需以下一行代码：
 
 \begin{lstlisting}
 y = tf.nn.softmax(tf.matmul(x,W) + b)
@@ -269,8 +269,8 @@ sess.run(init)
 然后开始训练模型，这里我们让模型循环训练1000次！
 \begin{lstlisting}
 for i in range(1000):
-batch_xs, batch_ys = mnist.train.next_batch(100)
-sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+    batch_xs, batch_ys = mnist.train.next_batch(100)
+    sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 \end{lstlisting}
 
 该循环的每个步骤中，我们都会随机抓取训练数据中的100个批处理数据点，然后我们用这些数据点作为参数替换之前的占位符来运行train\_step。
@@ -281,7 +281,7 @@ sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 那么我们的模型性能如何呢？
 
-首先让我们找出那些预测正确的标签。 tf.argmax 是一个非常有用的函数，它能给你在一个张量里沿着某条轴的最高条目的索引值。比如， tf.argmax(y,1) 是模型认为每个输入最有可能对应的那些标签，而 tf.argmax(y\_,1) 代表正确的标签。 我们可以用 tf.equal 来检测我们的预测是否真实标签匹配。
+首先让我们找出那些预测正确的标签。tf.argmax是一个非常有用的函数，它能给你在一个张量里沿着某条轴的最高条目的索引值。比如，tf.argmax(y,1)是模型认为每个输入最有可能对应的那些标签，而tf.argmax(y\_,1)代表正确的标签。我们可以用 tf.equal 来检测我们的预测是否真实标签匹配。
 
 \begin{lstlisting}
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
@@ -299,14 +299,14 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})
 \end{lstlisting}
 
-这个最终结果值应该大约是91%。
+最终结果值应该大约是91\%。
 
-这个结果好吗？嗯，并不太好。事实上，这个结果是很差的。这是因为我们仅仅使用了一个非常简单的模型。不过，做一些小小的改进，我们就可以得到97％的正确率。最好的模型甚至可以获得超过99.7％的准确率！（想了解更多信息，可以看看这个关于各种模型的性能对比列表。)
+这个结果好吗？嗯，并不太好。事实上，这个结果是很差的。这是因为我们仅仅使用了一个非常简单的模型。不过，做一些小小的改进，我们就可以得到97\%的正确率。最好的模型甚至可以获得超过99.7\%的准确率！（想了解更多信息，可以看看这个关于各种模型的性能对比列表。)
 
-比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看下一个教程，在那里你可以学习如何用FensorFlow构建更加复杂的模型以获得更好的性能！
+比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看下一个教程，在那里你将学到如何用FensorFlow构建更加复杂的模型以获得更好的性能！
 
-原文地址：[MNIST For ML Beginnershref="http://tensorflow.org/tutorials/mnist/beginners/index.md")
-翻译：linbojin 校对：
+原文地址：\href{http://tensorflow.org/tutorials/mnist/beginners/index.md}{MNIST For ML Beginners}
+翻译：\href{https://github.com/linbojin}{linbojin} 校对：
 
 
 
