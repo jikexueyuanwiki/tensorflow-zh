@@ -6,7 +6,7 @@
 \documentclass[a4paper,11pt,twoside]{ctexart}
 
 \usepackage{geometry}
-\geometry{left=3.5cm, right=3cm, top=3.cm, bottom=3cm}
+\geometry{left=3.5cm, right=3cm, top=3cm, bottom=3cm}
 %控制页眉页脚页码
 \pagestyle{headings}
 %罗马字符页码
@@ -99,11 +99,13 @@
 
 当我们开始学习编程的时候，第一件事往往是学习打印“Hello World”。就好比编程入门有Hello World，机器学习入门有MNIST。
 MNIST是一个入门级的计算机视觉数据集，它包含各种手写数字图片：
-
-\includegraphics[width=.8\textwidth]{../SOURCE/images/MNIST.png}
-
+\begin{center}
+\includegraphics[width=.55\textwidth]{../SOURCE/images/MNIST.png}
+\end{center}
 它也包含每一张图片对应的标签，告诉我们这个是数字几。比如，上面这四张图片的标签分别是5,0,4,1。
+
 在此教程中，我们将训练一个机器学习模型用于预测图片里面的数字。我们的目的不是要设计一个世界一流的复杂模型 -- 尽管我们会在之后给你源代码去实现一流的预测模型 -- 而是要介绍下如何使用TensorFlow。所以，我们这里会从一个很简单的数学模型开始，它叫做Softmax Regression。
+
 对应这个教程的实现代码很短，而且真正有意思的内容只包含在三行代码里面。但是，去理解包含在这些代码里面的设计思想是非常重要的：TensorFlow工作流程和机器学习的基本概念。因此，这个教程会很详细地介绍这些代码的实现原理。
 
 \subsubsection {MNIST数据集}
@@ -122,7 +124,9 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 每一张图片包含$ 28 \times 28$像素。我们可以用一个数字数组来表示这张图片：
 
+\begin{center}
 \includegraphics[width=.85\textwidth]{../SOURCE/images/MNIST-Matrix.png}
+\end{center}
 
 我们把这个数组展开成一个向量，长度是 $ 28 \times 28 = 784$。如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开。从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较复杂的结构 (提醒: 此类数据的可视化是计算密集型的)。
 
@@ -130,11 +134,15 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 因此，在MNIST训练数据集中，mnist.train.images 是一个形状为 [60000, 784] 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。
 
+\begin{center}
 \includegraphics[width=.75\textwidth]{../SOURCE/images/mnist-train-xs.png}
+\end{center}
 
 相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是"one-hot vectors"。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成([1,0,0,0,0,0,0,0,0,0,0])。因此， mnist.train.labels 是一个 [60000, 10] 的数字矩阵。
 
+\begin{center}
 \includegraphics[width=.75\textwidth]{../SOURCE/images/mnist-train-ys.png}
+\end{center}
 
 现在，我们准备开始真正的建模之旅啦！
 
@@ -144,19 +152,19 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 这是一个使用softmax回归（softmax regression）模型的经典案例。softmax模型可以用来给不同的对象分配概率。即使在之后，我们训练更加精细的模型时，最后一步也需要用softmax来分配概率。
 
-softmax回归（softmax regression）分两步：
-
-第一步，为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。
+softmax回归（softmax regression）分两步：首先，为了得到一张给定图片属于某个特定数字类的证据（evidence），我们对图片像素值进行加权求和。如果这个像素具有很强的证据说明这张图片不属于该类，那么相应的权值为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数。
 下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值。红色代表负数权值，蓝色代表正数权值。
 
+
+\begin{center}
 \includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-weights.png}
+\end{center}
 
 我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量。因此对于给定的输入图片$x$它代表的是数字$x$的证据可以表示为\\
 \begin{equation}
 evidence_i = \sum_j{W_{i,j}}x_j+b_i
 \end{equation}\\
-其中\\
-$b_i$ 代表数字$i$类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和。然后用softmax函数可以把这些证据转换
+其中，$b_i$ 代表数字$i$类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和。然后用softmax函数可以把这些证据转换
 成概率$y$:\\
 \begin{equation}
 y = softmax(evidence)
@@ -172,13 +180,19 @@ softmax(x)_i = \frac{exp(x_i)}{\sum_j{exp(x_j)}}
 \end{equation}\\
 但是更多的时候把softmax模型函数定义为前一种形式：把输入值当成幂指数求值，再正则化这些结果值。这个幂运算表示，更大的证据对应更大的假设模型（hypothesis）里面的乘数权重值。反之，拥有更少的证据意味着在假设模型里面拥有更小的乘数系数。假设模型里的权值不可以是0值或者负值。Softmax然后会正则化这些权重值，使它们的总和等于1，以此构造一个有效的概率分布。（更多的关于Softmax函数的信息，可以参考Michael Nieslen的书里面的这个部分，其中有关于softmax的可交互式的可视化解释。）
 
-对于softmax回归模型可以用下面的图解释，对于输入的$xs$ 加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：\\
-\includegraphics[width=.7\textwidth]{../SOURCE/images/softmax-regression-scalargraph.png}\\
-如果把它写成一个等式，我们可以得到：\\
-\includegraphics[width=.7\textwidth]{../SOURCE/images/softmax-regression-scalarequation.png}\\
-我们也可以用向量表示这个计算过程：用矩阵乘法和向量相加。这有助于提高计算效率（也是一种更有效的思考方式）。\\
-\includegraphics[width=.7\textwidth]{../SOURCE/images/softmax-regression-vectorequation.png}\\
-更进一步，可以写成更加紧凑的方式：\\
+对于softmax回归模型可以用下面的图解释，对于输入的$xs$ 加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：
+\begin{center}
+\includegraphics[width=.65\textwidth]{../SOURCE/images/softmax-regression-scalargraph.png}}
+\end{center}
+如果把它写成一个方程，可以得到：
+\begin{center}
+\includegraphics[width=.68\textwidth]{../SOURCE/images/softmax-regression-scalarequation.png}
+\end{center}
+我们也可以用向量表示这个计算过程：用矩阵乘法和向量相加。这有助于提高计算效率（也是一种更有效的思考方式）。
+\begin{center}
+\includegraphics[width=.68\textwidth]{../SOURCE/images/softmax-regression-vectorequation.png}
+\end{center}
+更进一步，可以写成更加紧凑的方式：
 \begin{equation}
 y = softmax(W_x+b)
 \end{equation}
