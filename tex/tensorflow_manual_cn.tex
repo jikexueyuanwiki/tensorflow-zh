@@ -2,8 +2,8 @@
 % Encoding: UTF8
 % SEIKA 2015
 
-%\documentclass[a4paper,11pt,twoside]{article}
-\documentclass[a4paper,11pt,twoside]{ctexart}
+%\documentclass[a4paper,11pt,twoside]{book}
+\documentclass[a4paper,11pt,twoside]{ctexbook}
 
 \usepackage{geometry}
 \geometry{left=3.5cm, right=3cm, top=3cm, bottom=3cm}
@@ -41,34 +41,35 @@
 
 \usepackage{listings}
 \lstset{ %
-  backgroundcolor=\color{myback},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=true,                 % sets automatic line breaking
-  captionpos=bl,                   % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
-  deletekeywords={...},            % if you want to delete keywords from the given language
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=single,                    % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  keywordstyle=\color{blue},       % keyword style
-  language=Python,                 % the language of the code
-  morekeywords={*,...},            % if you want to add more keywords to the set
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=4pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-  rulecolor=\color{mygray},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=true,          % underline spaces within strings only
-  showtabs=true,                  % show tabs within strings adding particular underscores
-  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  stringstyle=\color{orange},     % string literal style
-  tabsize=2,                       % sets default tabsize to 2 spaces
-  %title=myPython.py                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  backgroundcolor=\color{myback},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\scriptsize\ttfamily,   % the size of the fonts that are used for the code
+  breakatwhitespace=false,           % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                   % sets automatic line breaking
+  captionpos=bl,                     % sets the caption-position to bottom
+  commentstyle=\color{mygreen},      % comment style
+  deletekeywords={...},              % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  extendedchars=true,                % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                      % adds a frame around the code
+  keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},         % keyword style
+  language=Python,                   % the language of the code
+  morekeywords={*,...},              % if you want to add more keywords to the set
+  numbers=left,                      % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=4pt,                     % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray},   % the style that is used for the line-numbers
+  rulecolor=\color{mygray},          % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                  % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=true,             % underline spaces within strings only
+  showtabs=true,                     % show tabs within strings adding particular underscores
+  stepnumber=1,                      % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{orange},        % string literal style
+  tabsize=2,                         % sets default tabsize to 2 spaces
+  %title=myPython.py                 % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
 % \setCJKmainfont[BoldFont={SimSun},ItalicFont={KaiTi}] %{SimSun}
+
 %%%%%%%%%%%%
 \title{Tensorflow 指南}
 \author{}
@@ -82,14 +83,15 @@
 \tableofcontents
 \newpage
 
-\section{起步}
+\chapter{起步}
 
 \newpage
-\section{基础教程}
+\chapter{基础教程}
 
-\subsection {综述}
+\section {综述}
 
-\subsection {MNIST之机器学习入门}
+\newpage
+\section {MNIST之机器学习入门}\label{MINIST_beginner}
 
 % This tutorial is intended for readers who are new to both machine learning and TensorFlow. If you already know what MNIST is, and what softmax (multinomial logistic) regression is, you might prefer this faster paced tutorial. Be sure to install TensorFlow before starting either tutorial.
 
@@ -108,7 +110,7 @@ MNIST是一个入门级的计算机视觉数据集，它包含各种手写数字
 
 对应这个教程的实现代码很短，而且真正有意思的内容只包含在三行代码里面。但是，去理解包含在这些代码里面的设计思想是非常重要的：TensorFlow工作流程和机器学习的基本概念。因此，这个教程会很详细地介绍这些代码的实现原理。
 
-\subsubsection {MNIST数据集}
+\subsection {MNIST数据集}
 
 MNIST数据集的官网是\href{http://yann.lecun.com/exdb/mnist/}{Yann LeCun's website}。在这里，我们提供了一份python源代码用于自动下载和安装这个数据集。你可以下载这段\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{代码}，然后用下面的代码导入到你的项目里面，也可以直接复制粘贴到你的代码文件里面。
 
@@ -146,7 +148,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 现在，我们准备开始真正的建模之旅啦！
 
-\subsubsection {Softmax回归介绍}
+\subsection {Softmax回归介绍}
 
 我们知道MNIST的每一张图片都表示一个数字，从0到9。我们希望得到给定图片代表每个数字的概率。比如说，我们的模型可能推测一张包含9的图片代表数字9的概率是80\%但是判断它是8的概率是5\%（因为8和9都有上半部分的小圆），然后给予它代表其他数字的概率更小的值。
 
@@ -197,7 +199,7 @@ softmax(x)_i = \frac{exp(x_i)}{\sum_j{exp(x_j)}}
 y = softmax(W_x+b)
 \end{equation}
 
-\subsubsection {实现回归模型}
+\subsection {实现回归模型}
 为了用python实现高效的数值计算，我们通常会使用函数库，比如NumPy，会把类似矩阵乘法这样的复杂运算使用其他外部语言实现。不幸的是，从外部计算切换回Python的每一个操作，仍然是一个很大的开销。如果你用GPU来进行外部计算，这样的开销会更大。用分布式的计算方式，也会花费更多的资源用来传输数据。
 
 TensorFlow也把复杂的计算放在python之外完成，但是为了避免前面说的那些开销，它做了进一步完善。TensorFlow不单独地运行单一的复杂计算，而是让我们可以先用图描述一系列可交互的计算操作，然后全部一起在Python之外运行。（这样类似的运行方式，可以在不少的机器学习库中看到。）
@@ -233,7 +235,7 @@ y = tf.nn.softmax(tf.matmul(x,W) + b)
 
 至此，我们先用了几行简短的代码来设置变量，然后只用了一行代码来定义我们的模型。TensorFlow不仅仅可以使softmax回归模型计算变得特别简单，它也用这种非常灵活的方式来描述其他各种数值计算，从机器学习模型对物理学模拟仿真模型。一旦被定义好之后，我们的模型就可以在不同的设备上运行：计算机的CPU，GPU，甚至是手机！
 
-\subsubsection{训练模型}
+\subsection{训练模型}
 为了训练我们的模型，我们首先需要定义一个指标来评估这个模型是好的。其实，在机器学习，我们通常定义指标来表示一个模型是坏的，这个指标称为成本（cost）或损失（loss），然后尽量最小化这个指标。但是，这两种方式是相同的。
 
 一个非常常见的，非常漂亮的成本函数是“交叉熵”（cross-entropy）。交叉熵产生于信息论里面的信息压缩编码技术，但是它后来演变成为从博弈论到机器学习等其他领域里的重要技术手段。它的定义如下：
@@ -292,7 +294,7 @@ for i in range(1000):
 
 使用一小部分的随机数据来进行训练被称为随机训练（stochastic training）- 在这里更确切的说是随机梯度下降训练。在理想情况下，我们希望用我们所有的数据来进行每一步的训练，因为这能给我们更好的训练结果，但显然这需要很大的计算开销。所以，每一次训练我们可以使用不同的数据子集，这样做既可以减少计算开销，又可以最大化地学习到数据集的总体特性。
 
-\subsubsection{评估我们的模型}
+\subsection{评估我们的模型}
 
 那么我们的模型性能如何呢？
 
@@ -323,31 +325,285 @@ print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 原文地址：\href{http://tensorflow.org/tutorials/mnist/beginners/index.md}{MNIST For ML Beginners}
 翻译：\href{https://github.com/linbojin}{linbojin} 校对：
 
+\newpage
+\section {深入MNIST} \label{MINIST_pros}
+TensorFlow是一个做大规模数值计算的强大库。其中一个特点就是它能够实现和训练深度神经网络。 在这一小节里，我们将会学习在MNIST上构建深度卷积分类器的基本步骤。
+
+\emph{这个教程假设你已经熟悉神经网络和MNIST数据集。如果你尚未了解，请查看\hyperref[MINIST_beginner]{新手指南}.}
+
+\subsection {安装}
+在创建模型之前，我们会先加载MNIST数据集，然后启动一个TensorFlow的session。
+
+\subsubsection {加载MINIST数据}
+
+为了方便起见，我们已经准备了一个脚本来自动下载和导入MNIST数据集。它会自动创建一个'MNIST\_data'的目录来存储数据。
+
+\begin{lstlisting}
+import input_data
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+\end{lstlisting}
+
+\subsubsection {开始TensorFlow的交互会话}
+
+Tensorflow基于一个高效的C++模块进行运算。与这个模块的连接叫做session。一般而言，使用TensorFlow程序的流程是先创建一个图，然后在session中加载它。
+
+这里，我们使用更加方便的InteractiveSession类。通过它，你可以更加灵活地构建你的代码。它能让你在运行图的时候，插入一些构建计算图的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用InteractiveSession的话，你需要在开始session和加载图之前，构建整个计算图。
+
+\begin{lstlisting}
+import tensorflow as tf
+sess = tf.InteractiveSession()
+\end{lstlisting}
+
+\subsubsection {计算图}
+
+传统的计算行为中，为了更高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的lib，在Python外完成这些费时的操作（例如矩阵运算）。可是，每一步操作依然会经常在Python和第三方lib之间切换。这些操作很糟糕，特别是当你想在GPU上进行计算，又或者想使用分布式的做法的时候。这些情况下数据传输代价高昂。
+
+在TensorFlow中，也有Python与外界的频繁操作。但是它在这一方面，做了进一步的改良。TensorFlow构建一个交互操作的图，作为一个整体在Python外运行，而不是以代价高昂的单个交互操为单位在Python外运行。这与Theano、Torch的做法很相似。
+
+所以，这部分Python代码，目的是构建这个在外部运行的计算图，并安排这个计算图的哪一部分应该被运行。详细请阅读计算图 部分的基本用法。 %add link here
+
+\subsection{构建Softmax Regression模型}
+
+在这小节里，我们将会构建一个一层线性的softmax regression模型。下一节里，我们会扩展到多层卷积网络。
+
+\subsubsection{占位符}
+我们先来创建计算图的输入（图片）和输出（类别）。
+
+\begin{lstlisting}
+x = tf.placeholder("float", shape=[None, 784])
+y_ = tf.placeholder("float", shape=[None, 10])
+\end{lstlisting}
+
+这里的x和y并不是具体值，他们是一个placeholder，是一个变量，在TensorFlow运行计算的时候使用。
+
+输入图片x是浮点数2维张量。这里，定义它的shape为[None, 784]，其中784是单张展开的MNIST图片的维度数。shape的第一维输入指代一个batch的大小，None，可为任意值。输出值y\_也是一个2维张量，其中每一行为一个10维向量代表对应MNIST图片的分类。
+
+虽然placeholder的shape参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。
+
+\subsubsection{Variables}
+
+我们现在为模型定义权重W和偏置b。它们可以被视作是额外的输入量，但是TensorFlow有一个更好的方式来处理：Variable。一个Variable代表着在TensorFlow计算图中的一个值，它是能在计算过程中被读取和修改的。在机器学习的应用过程中，模型参数一般用Variable来表示。
+
+\begin{lstlisting}
+W = tf.Variable(tf.zeros([784,10]))
+b = tf.Variable(tf.zeros([10]))
+\end{lstlisting}
+
+我们在调用tf.Variable的时候传入初始值。在这个例子里，我们把W和b都初始化为零向量。W是一个784x10的矩阵（因为我们有784个特征和10个输出值）。b是一个10维的向量（因为我们有10个分类）。
+
+Variable需要在session之前初始化，才能在session中使用。初始化需要初始值（本例当中是全为零）传入并赋值给每一个Variable。这个操作可以一次性完成。
+
+\begin{lstlisting}
+sess.run(tf.initialize_all_variables())
+\end{lstlisting}
+
+\subsubsection{预测分类与损失函数}
+现在我们可以实现我们的regression模型了。这只需要一行！我们把图片x和权重矩阵W相乘，加上偏置b，然后计算每个分类的softmax概率值。
+
+\begin{lstlisting}
+y = tf.nn.softmax(tf.matmul(x,W) + b)
+\end{lstlisting}
+
+在训练中最小化损失函数同样很简单。我们这里的损失函数用目标分类和模型预测分类之间的交叉熵。
+
+\begin{lstlisting}
+cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+\end{lstlisting}
+
+注意，tf.reduce\_sum把minibatch里的每张图片的交叉熵值都加起来了。我们计算的交叉熵是指整个minibatch的。
+
+\subsection{训练模型}
+
+我们已经定义好了模型和训练的时候用的损失函数，接下来使用TensorFlow来训练。因为TensorFlow知道整个计算图，它会用自动微分法来找到损失函数对于各个变量的梯度。TensorFlow有大量内置的优化算法 这个例子中，我们用最速下降法让交叉熵下降，步长为0.01。
+
+\begin{lstlisting}
+train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+\end{lstlisting}
+
+这一行代码实际上是用来往计算图上添加一个新操作，其中包括计算梯度，计算每个参数的步长变化，并且计算出新的参数值。
+
+train\_step这个操作，用梯度下降来更新权值。因此，整个模型的训练可以通过反复地运行train\_step来完成。
+
+\begin{lstlisting}
+for i in range(1000):
+    batch = mnist.train.next_batch(50)
+    train_step.run(feed_dict={x: batch[0], y_: batch[1]})
+\end{lstlisting}
+
+每一步迭代，我们都会加载50个训练样本，然后执行一次train\_step，使用feed\_dict，用训练数据替换placeholder向量x和y\_。
+
+注意，在计算图中，你可以用feed\_dict来替代任何张量，并不仅限于替换placeholder。
+
+\subsubsection{评估模型}
+
+我们的模型效果怎样？
+
+首先，要先知道我们哪些label是预测正确了。tf.argmax是一个非常有用的函数。它会返回一个张量某个维度中的最大值的索引。例如，tf.argmax(y,1)表示我们模型对每个输入的最大概率分类的分类值。而 tf.argmax(y\_,1)表示真实分类值。我们可以用tf.equal来判断我们的预测是否与真实分类一致。
+
+\begin{lstlisting}
+correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+\end{lstlisting}
+
+这里返回一个布尔数组。为了计算我们分类的准确率，我们将布尔值转换为浮点数来代表对、错，然后取平均值。例如：[True, False, True, True]变为[1,0,1,1]，计算出平均值为0.75。
+
+\begin{lstlisting}
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+\end{lstlisting}
+
+最后，我们可以计算出在测试数据上的准确率，大概是91\%。
+
+\begin{lstlisting}
+print accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels})
+\end{lstlisting}
+
+\subsection{构建多层卷积网络模型}
+
+在MNIST上只有91\%正确率，实在太糟糕。在这个小节里，我们用一个稍微复杂的模型：卷积神经网络来改善效果。这会达到大概99.2\%的准确率。虽然不是最高，但是还是比较让人满意。
+
+\subsubsection{权重初始化}
+
+在创建模型之前，我们先来创建权重和偏置。一般来说，初始化时应加入轻微噪声，来打破对称性，防止零梯度的问题。因为我们用的是ReLU，所以用稍大于0的值来初始化偏置能够避免节点输出恒为0的问题（dead neurons）。为了不在建立模型的时候反复做初始化操作，我们定义两个函数用于初始化。
+
+\begin{lstlisting}
+def weight_variable(shape):
+    initial = tf.truncated_normal(shape, stddev=0.1)
+    return tf.Variable(initial)
+
+def bias_variable(shape):
+    initial = tf.constant(0.1, shape=shape)
+    return tf.Variable(initial)
+\end{lstlisting}
+
+\subsubsection{卷积和池化}
+
+TensorFlow在卷积和池化上有很强的灵活性。我们怎么处理边界？步长应该设多大？在这个实例里，我们会一直使用vanilla版本。我们的卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的2x2大小的模板做max pooling。为了代码更简洁，我们把这部分抽象成一个函数。
+
+\begin{lstlisting}
+def conv2d(x, W):
+    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
+
+def max_pool_2x2(x):
+    return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+\end{lstlisting}
+
+\subsubsection{第一层卷积}
+
+现在我们可以开始实现第一层了。它由一个卷积接一个max pooling完成。卷积在每个5x5的patch中算出32个特征。权重是一个[5, 5, 1, 32]的张量，前两个维度是patch的大小，接着是输入的通道数目，最后是输出的通道数目。输出对应一个同样大小的偏置向量。
+
+\begin{lstlisting}
+W_conv1 = weight_variable([5, 5, 1, 32])
+b_conv1 = bias_variable([32])
+\end{lstlisting}
+
+为了用这一层，我们把x变成一个4d向量，第2、3维对应图片的宽高，最后一维代表颜色通道。
+
+\begin{lstlisting}
+x_image = tf.reshape(x, [-1,28,28,1])
+\end{lstlisting}
+
+我们把x\_image和权值向量进行卷积相乘，加上偏置，使用ReLU激活函数，最后max pooling。
+
+\begin{lstlisting}
+h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_pool1 = max_pool_2x2(h_conv1)
+\end{lstlisting}
+
+\subsubsection{第二层卷积}
+
+为了构建一个更深的网络，我们会把几个类似的层堆叠起来。第二层中，每个5x5的patch会得到64个特征。
+
+\begin{lstlisting}
+W_conv2 = weight_variable([5, 5, 32, 64])
+b_conv2 = bias_variable([64])
+
+h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+h_pool2 = max_pool_2x2(h_conv2)
+\end{lstlisting}
+
+\subsubsection{密集连接层}
+
+现在，图片降维到7x7，我们加入一个有1024个神经元的全连接层，用于处理整个图片。我们把池化层输出的张量reshape成一些向量，乘上权重矩阵，加上偏置，使用ReLU激活。
+
+\begin{lstlisting}
+W_fc1 = weight_variable([7 * 7 * 64, 1024])
+b_fc1 = bias_variable([1024])
+
+h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+\end{lstlisting}
+
+\textbf{Dropout}
+
+为了减少过拟合，我们在输出层之前加入dropout。我们用一个placeholder来代表一个神经元在dropout中被保留的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的tf.nn.dropout操作会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。
+
+\begin{lstlisting}
+keep_prob = tf.placeholder("float")
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+\end{lstlisting}
+
+\subsubsection{输出层}
+
+最后，我们添加一个softmax层，就像前面的单层softmax regression一样。
+
+\begin{lstlisting}
+W_fc2 = weight_variable([1024, 10])
+b_fc2 = bias_variable([10])
+
+y_conv=tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+\end{lstlisting}
+
+\subsubsection{训练和评估模型}
+
+这次效果又有多好呢？我们用前面几乎一样的代码来测测看。只是我们会用更加复杂的ADAM优化器来做梯度最速下降，在feed\_dict中加入额外的参数keep\_prob来控制dropout比例。然后每100次迭代输出一次日志。
+
+\begin{lstlisting}
+cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
+train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+sess.run(tf.initialize_all_variables())
+for i in range(20000):
+  batch = mnist.train.next_batch(50)
+  if i%100 == 0:
+    train_accuracy = accuracy.eval(feed_dict={
+        x:batch[0], y_: batch[1], keep_prob: 1.0})
+    print "step %d, training accuracy %g"%(i, train_accuracy)
+  train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+
+print "test accuracy %g"%accuracy.eval(feed_dict={
+    x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0})
+\end{lstlisting}
+
+以上代码，在最终测试集上的准确率大概是99.2%。
+
+目前为止，我们已经学会了用TensorFlow来快速和简易地搭建、训练和评估一个复杂一点儿的深度学习模型。
+
+原文地址：Deep MNIST for Experts
+翻译：chenweican
+校对：HongyangWang
+
+\newpage
+\section {TensorFlow运作方式}
+\section {卷积神经网络}
+\subsection {概述}
+\subsection {代码组织}
+\subsection {CIFAR-10模型}
+\subsection {开始执行并训练模型}
+\subsection {模型评估}
+\section {Vector Representations of Words}
+\section {循环神经网络}
+\section {曼德博(Mandelbrot)集合}
+\section {偏微分方程}
+\section {MNIST数据集下载}
 
 
 \newpage
-\subsection {深入MNIST}
-\subsection {TensorFlow运作方式}
-\subsection {卷积神经网络}
-\subsubsection {概述}
-\subsubsection {代码组织}
-\subsubsection {CIFAR-10模型}
-\subsubsection {开始执行并训练模型}
-\subsubsection {模型评估}
-\subsection {Vector Representations of Words}
-\subsection {循环神经网络}
-\subsection {曼德博(Mandelbrot)集合}
-\subsection {偏微分方程}
-\subsection {MNIST数据集下载}
-
+\chapter{运作方式}
 
 \newpage
-\section{运作方式}
+\chapter{资源}
 
 \newpage
-\section{资源}
-
-\newpage
-\section{其他}
+\chapter{其他}
 
 \end{document}
