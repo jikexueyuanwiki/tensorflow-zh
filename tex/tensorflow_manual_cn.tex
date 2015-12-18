@@ -356,7 +356,7 @@ sess = tf.InteractiveSession()
 
 \subsubsection {计算图}
 
-传统的计算行为中，为了更高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的lib，在Python外完成这些费时的操作（例如矩阵运算）。可是，每一步操作依然会经常在Python和第三方lib之间切换。这些操作很蛋疼，特别是当你想在GPU上进行计算，又或者想使用分布式的做法的时候。这些情况下数据传输代价高昂。
+传统的计算行为中，为了更高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的lib，在Python外完成这些费时的操作（例如矩阵运算）。可是，每一步操作依然会经常在Python和第三方lib之间切换。这些操作很糟糕，特别是当你想在GPU上进行计算，又或者想使用分布式的做法的时候。这些情况下数据传输代价高昂。
 
 在TensorFlow中，也有Python与外界的频繁操作。但是它在这一方面，做了进一步的改良。TensorFlow构建一个交互操作的图，作为一个整体在Python外运行，而不是以代价高昂的单个交互操为单位在Python外运行。这与Theano、Torch的做法很相似。
 
@@ -532,7 +532,8 @@ h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 \end{lstlisting}
 
-\subsubsection{Dropout}
+\textbf{Dropout}
+
 为了减少过拟合，我们在输出层之前加入dropout。我们用一个placeholder来代表一个神经元在dropout中被保留的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的tf.nn.dropout操作会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。
 
 \begin{lstlisting}
