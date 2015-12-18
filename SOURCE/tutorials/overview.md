@@ -30,7 +30,7 @@
 
 [阅读教程](../tutorials/word2vec.md)
 
-## 递归神经网络 (Recurrent Neural Network, 简称 RNN)
+## 循环神经网络 (Recurrent Neural Network, 简称 RNN)
 
 一篇 RNN 的介绍文章, 文章中训练了一个 LSTM 网络来预测一个英文句子的下一个单词(该任务有时候被称作语言建模).
 
