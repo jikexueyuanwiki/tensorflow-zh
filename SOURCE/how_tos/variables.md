@@ -160,9 +160,5 @@ saver = tf.train.Saver({"my_v2": v2})
 ...
 ```
 
-<<<<<<< HEAD
 >原文链接: [http://tensorflow.org/how_tos/variables/index.html](http://tensorflow.org/how_tos/variables/index.html) 
->翻译：[赵屹华](https://github.com/zhyhooo)
-=======
-原文链接: [http://tensorflow.org/how_tos/variables/index.html](http://tensorflow.org/how_tos/variables/index.html) 翻译：[赵屹华](https://github.com/zhyhooo) 校对：[Wiki](https://github.com/jikexueyuanwiki)
->>>>>>> 9fdd1fb099994170ea12d0b15d069e4ec224444c
+>翻译：[赵屹华](https://github.com/zhyhooo) 校对：[Wiki](https://github.com/jikexueyuanwiki)
