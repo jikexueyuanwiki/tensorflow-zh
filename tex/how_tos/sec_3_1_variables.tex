@@ -1,0 +1,46 @@
+%!TEX program = xelatex
+% Encoding: UTF8
+% SEIKA 2015
+
+
+% Chapter 3 How to ...
+% Section 3.1
+
+\chapter{运作方式}
+
+\section{变量:创建、初始化、保存和加载}
+
+当训练模型时，用变量来存储和更新参数。变量包含张量 (Tensor)存放于内存的缓存区。建模时它们需要被明确地初始化，模型训练后它们必须被存储到磁盘。这些变量的值可在之后模型训练和分析是被加载。
+
+本文档描述以下两个TensorFlow类。点击以下链接可查看完整的API文档：
+\begin{itemize}
+  \item tf.Variable 类 % add link here
+  \item tf.train.Saver 类 % add link here
+\end{itemize}
+
+\subsection {创建}
+
+当创建一个变量时，你将一个张量作为初始值传入构造函数Variable()。TensorFlow提供了一系列操作符来初始化张量，初始值是常量或是随机值。
+% add link here
+
+\begin{lstlisting}
+# Create two variables.
+weights = tf.Variable(tf.random_normal([784, 200], stddev=0.35), name="weights")
+biases = tf.Variable(tf.zeros([200]), name="biases")
+\end{lstlisting}
+
+调用tf.Variable()添加一些操作(Op, operation)到graph：
+\begin{itemize}
+  \item 一个Variable操作存放变量的值。
+  \item 一个初始化op将变量设置为初始值。这事实上是一个tf.assign操作。
+  \item 初始值的操作，例如示例中对biases变量的zeros操作也被加入了graph。
+\end{itemize}
+tf.Variable的返回值是Python的tf.Variable类的一个实例。
+
+\subsection {初始化}
+
+变量的初始化必须在模型的其它操作运行之前先明确地完成。最简单的方法就是添加一个给所有变量初始化的操作，并在使用模型之前首先运行那个操作。
+
+你或者可以从检查点文件中重新获取变量值，详见下文。
+
+使用tf.initialize\_all\_variables()添加一个操作对变量做初始化。记得在完全构建好模型并加载之后再运行那个操作。
