@@ -3,8 +3,9 @@
 % SEIKA 2015
 
 
-% Chapter 2 TutorialsHow to ...
-% Section 2.3 minist pros
+% Chapter 2 Tutorials
+% Section 2.3 minist_pros
+
 
 \newpage
 \section {深入MNIST} \label{MINIST_pros}
@@ -55,31 +56,31 @@ x = tf.placeholder("float", shape=[None, 784])
 y_ = tf.placeholder("float", shape=[None, 10])
 \end{lstlisting}
 
-这里的x和y并不是具体值，他们是一个placeholder，是一个变量，在TensorFlow运行计算的时候使用。
+这里的\lstinline{x}和\lstinline{y}并不是具体值，他们是一个\lstinline{placeholder}，是一个变量，在TensorFlow运行计算的时候使用。
 
-输入图片x是浮点数2维张量。这里，定义它的shape为[None, 784]，其中784是单张展开的MNIST图片的维度数。shape的第一维输入指代一个batch的大小，None，可为任意值。输出值y\_也是一个2维张量，其中每一行为一个10维向量代表对应MNIST图片的分类。
+输入图片x是浮点数2维张量。这里，定义它的\lstinline{shape}为\lstinline{[None, 784]}，其中784是单张展开的MNIST图片的维度数。\lstinline{shape}的第一维输入指代一个batch的大小，\lstinline{None}，可为任意值。输出值\lstinline{y_}也是一个2维张量，其中每一行为一个10维向量代表对应MNIST图片的分类。
 
-虽然placeholder的shape参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。
+虽然\lstinline{placeholder}的\lstinline{shape}参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。
 
 \subsubsection{Variables}
 
-我们现在为模型定义权重W和偏置b。它们可以被视作是额外的输入量，但是TensorFlow有一个更好的方式来处理：Variable。一个Variable代表着在TensorFlow计算图中的一个值，它是能在计算过程中被读取和修改的。在机器学习的应用过程中，模型参数一般用Variable来表示。
+我们现在为模型定义权重\lstinline{W}和偏置\lstinline{b}。它们可以被视作是额外的输入量，但是TensorFlow有一个更好的方式来处理：\lstinline{Variable}。一个\lstinline{Variable}代表着在TensorFlow计算图中的一个值，它是能在计算过程中被读取和修改的。在机器学习的应用过程中，模型参数一般用\lstinline{Variable}来表示。
 
 \begin{lstlisting}
 W = tf.Variable(tf.zeros([784,10]))
 b = tf.Variable(tf.zeros([10]))
 \end{lstlisting}
 
-我们在调用tf.Variable的时候传入初始值。在这个例子里，我们把W和b都初始化为零向量。W是一个784x10的矩阵（因为我们有784个特征和10个输出值）。b是一个10维的向量（因为我们有10个分类）。
+我们在调用\lstinline{tf.Variable}的时候传入初始值。在这个例子里，我们把\lstinline{W}和\lstinline{b}都初始化为零向量。\lstinline{W}是一个$784\times10$的矩阵（因为我们有784个特征和10个输出值）。\lstinline{b}是一个10维的向量（因为我们有10个分类）。
 
-Variable需要在session之前初始化，才能在session中使用。初始化需要初始值（本例当中是全为零）传入并赋值给每一个Variable。这个操作可以一次性完成。
+\lstinline{Variable}需要在\lstinline{session}之前初始化，才能在\lstinline{session}中使用。初始化需要初始值（本例当中是全为零）传入并赋值给每一个\lstinline{Variable}。这个操作可以一次性完成。
 
 \begin{lstlisting}
 sess.run(tf.initialize_all_variables())
 \end{lstlisting}
 
 \subsubsection{预测分类与损失函数}
-现在我们可以实现我们的regression模型了。这只需要一行！我们把图片x和权重矩阵W相乘，加上偏置b，然后计算每个分类的softmax概率值。
+现在我们可以实现我们的regression模型了。这只需要一行！我们把图片\lstinline{x}和权重矩阵\lstinline{W}相乘，加上偏置\lstinline{b}，然后计算每个分类的softmax概率值。
 
 \begin{lstlisting}
 y = tf.nn.softmax(tf.matmul(x,W) + b)
@@ -91,7 +92,7 @@ y = tf.nn.softmax(tf.matmul(x,W) + b)
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 \end{lstlisting}
 
-注意，tf.reduce\_sum把minibatch里的每张图片的交叉熵值都加起来了。我们计算的交叉熵是指整个minibatch的。
+注意，\lstinline{tf.reduce_sum}把\lstinline{minibatch}里的每张图片的交叉熵值都加起来了。我们计算的交叉熵是指整个\lstinline{minibatch}的。
 
 \subsection{训练模型}
 
@@ -103,7 +104,7 @@ train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 这一行代码实际上是用来往计算图上添加一个新操作，其中包括计算梯度，计算每个参数的步长变化，并且计算出新的参数值。
 
-train\_step这个操作，用梯度下降来更新权值。因此，整个模型的训练可以通过反复地运行train\_step来完成。
+\lstinline{train_step}这个操作，用梯度下降来更新权值。因此，整个模型的训练可以通过反复地运行\lstinline{train_step}来完成。
 
 \begin{lstlisting}
 for i in range(1000):

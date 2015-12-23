@@ -38,28 +38,28 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 下载下来的数据集被分成两部分：60000行的训练数据集（`mnist.train`）和10000行的测试数据集（`mnist.test`）。这样的切分很重要，在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）。
 
-正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是 `mnist.train.images` ，训练数据集的标签是 `mnist.train.labels`。
+正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是\lstinline{mnist.train.images} ，训练数据集的标签是\lstinline{mnist.train.labels}。
 
 每一张图片包含$ 28 \times 28$像素。我们可以用一个数字数组来表示这张图片：
 
 \begin{center}
-\includegraphics[width=.85\textwidth]{../SOURCE/images/MNIST-Matrix.png}
+\includegraphics[width=.8\textwidth]{../SOURCE/images/MNIST-Matrix.png}
 \end{center}
 
 我们把这个数组展开成一个向量，长度是 $ 28 \times 28 = 784$。如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开。从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较复杂的结构 (提醒: 此类数据的可视化是计算密集型的)。
 
 展平图片的数字数组会丢失图片的二维结构信息。这显然是不理想的，最优秀的计算机视觉方法会挖掘并利用这些结构信息，我们会在后续教程中介绍。但是在这个教程中我们忽略这些结构，所介绍的简单数学模型，softmax回归(softmax regression)，不会利用这些结构信息。
 
-因此，在MNIST训练数据集中，mnist.train.images 是一个形状为 [60000, 784] 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。
+因此，在MNIST训练数据集中，\lstinline{mnist.train.images}是一个形状为 [60000, 784] 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。
 
 \begin{center}
 \includegraphics[width=.75\textwidth]{../SOURCE/images/mnist-train-xs.png}
 \end{center}
 
-相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是"one-hot vectors"。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成([1,0,0,0,0,0,0,0,0,0,0])。因此， mnist.train.labels 是一个 [60000, 10] 的数字矩阵。
+相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是"one-hot vectors"。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成([1,0,0,0,0,0,0,0,0,0,0])。因此，\lstinline{mnist.train.labels}是一个 [60000, 10] 的数字矩阵。
 
 \begin{center}
-\includegraphics[width=.75\textwidth]{../SOURCE/images/mnist-train-ys.png}
+\includegraphics[width=.7\textwidth]{../SOURCE/images/mnist-train-ys.png}
 \end{center}
 
 现在，我们准备开始真正的建模之旅啦！
@@ -75,7 +75,7 @@ softmax回归（softmax regression）分两步：首先，为了得到一张给�
 
 
 \begin{center}
-\includegraphics[width=.7\textwidth]{../SOURCE/images/softmax-weights.png}
+\includegraphics[width=.65\textwidth]{../SOURCE/images/softmax-weights.png}
 \end{center}
 
 我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量。因此对于给定的输入图片$x$它代表的是数字$x$的证据可以表示为\\
@@ -100,7 +100,7 @@ softmax(x)_i = \frac{exp(x_i)}{\sum_j{exp(x_j)}}
 
 对于softmax回归模型可以用下面的图解释，对于输入的$xs$ 加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：
 \begin{center}
-\includegraphics[width=.65\textwidth]{../SOURCE/images/softmax-regression-scalargraph.png}}
+\includegraphics[width=.65\textwidth]{../SOURCE/images/softmax-regression-scalargraph.png}
 \end{center}
 如果把它写成一个方程，可以得到：
 \begin{center}
@@ -128,18 +128,18 @@ import tensorflow as tf
 \begin{lstlisting}
 x = tf.placeholder("float", [None, 784])
 \end{lstlisting}
-x 不是一个特定的值，而是一个占位符 placeholder ，我们在TensorFlow运行计算时输入这个值。我们希望能够输入任意数量的MNIST图像，每一张图展平成784维的向量。我们用2维的浮点数张量来表示这些图，这个张量的形状是 [None，784 ] 。（这里的 None 表示此张量的第一个维度可以是任何长度的。）
+x 不是一个特定的值，而是一个占位符\lstinline{placeholder}，我们在TensorFlow运行计算时输入这个值。我们希望能够输入任意数量的MNIST图像，每一张图展平成784维的向量。我们用2维的浮点数张量来表示这些图，这个张量的形状是 [None，784]。（这里的\lstinline{None}表示此张量的第一个维度可以是任何长度的。）
 
-我们的模型也需要权重值和偏置量，当然我们可以把它们当做是另外的输入（使用占位符），但TensorFlow有一个更好的方法来表示它们： Variable 。 一个 Variable 代表一个可修改的张量，存在在TensorFlow的用于描述交互性操作的图中。它们可以用于计算输入值，也可以在计算中被修改。对于各种机器学习应用，一般都会有模型参数，可以用 Variable 表示。
+我们的模型也需要权重值和偏置量，当然我们可以把它们当做是另外的输入（使用占位符），但TensorFlow有一个更好的方法来表示它们：\lstinline{Variable}。 一个\lstinline{Variable}代表一个可修改的张量，存在在TensorFlow的用于描述交互性操作的图中。它们可以用于计算输入值，也可以在计算中被修改。对于各种机器学习应用，一般都会有模型参数，可以用\lstinline{Variable}表示。
 
 \begin{lstlisting}
 W = tf.Variable(tf.zeros([784,10]))
 b = tf.Variable(tf.zeros([10]))
 \end{lstlisting}
 
-我们赋予 tf.Variable 不同的初值来创建不同的Variable ：在这里，我们都用全为零的张量来初始化 W 和b 。因为我们要学习 W 和 b 的值，它们的初值可以随意设置。
+我们赋予\lstinline{tf.Variable} 不同的初值来创建不同的\lstinline{Variable}：在这里，我们都用全为零的张量来初始化\lstinline{W}和\lstinline{b}。因为我们要学习\lstinline{W}和\lstinline{b}的值，它们的初值可以随意设置。
 
-注意， W 的维度是[784，10]，因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，每一位对应不同数字类。 b 的形状是[10]，所以我们可以直接把它加到输出上面。
+注意，\lstinline{W}的维度是\lstinline{[784，10]}，因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，每一位对应不同数字类。\lstinline{b}的形状是\lstinline{[10]}，所以我们可以直接把它加到输出上面。
 
 现在，可以实现我们的模型了，只需以下一行代码：
 
@@ -147,7 +147,7 @@ b = tf.Variable(tf.zeros([10]))
 y = tf.nn.softmax(tf.matmul(x,W) + b)
 \end{lstlisting}
 
-首先，我们用tf.matmul(X，W)表示$x$乘以$W$，对应之前等式里面的$W_x$，这里$x$是一个2维张量拥有多个输入。然后再加上$b$，把和输入到tf.nn.softmax函数里面。
+首先，我们用\lstinline{tf.matmul(X，W)}表示$x$乘以$W$，对应之前等式里面的$W_x$，这里$x$是一个2维张量拥有多个输入。然后再加上$b$，把和输入到\lstinline{tf.nn.softmax}函数里面。
 
 至此，我们先用了几行简短的代码来设置变量，然后只用了一行代码来定义我们的模型。TensorFlow不仅仅可以使softmax回归模型计算变得特别简单，它也用这种非常灵活的方式来描述其他各种数值计算，从机器学习模型对物理学模拟仿真模型。一旦被定义好之后，我们的模型就可以在不同的设备上运行：计算机的CPU，GPU，甚至是手机！
 
@@ -214,13 +214,13 @@ for i in range(1000):
 
 那么我们的模型性能如何呢？
 
-首先让我们找出那些预测正确的标签。tf.argmax是一个非常有用的函数，它能给你在一个张量里沿着某条轴的最高条目的索引值。比如，tf.argmax(y,1)是模型认为每个输入最有可能对应的那些标签，而tf.argmax(y\_,1)代表正确的标签。我们可以用 tf.equal 来检测我们的预测是否真实标签匹配。
+首先让我们找出那些预测正确的标签。\lstinline{tf.argmax()}是一个非常有用的函数，它能给你在一个张量里沿着某条轴的最高条目的索引值。比如，\lstinline{tf.argmax(y,1)}是模型认为每个输入最有可能对应的那些标签，而\lstinline{tf.argmax(y_,1)}代表正确的标签。我们可以用\lstinline{tf.equal} 来检测我们的预测是否真实标签匹配。
 
 \begin{lstlisting}
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
 \end{lstlisting}
 
-这行代码会给我们一组布尔值。为了确定正确预测项的比例，我们可以把布尔值转换成浮点数，然后取平均值。例如， [True, False, True, True] 会变成 [1,0,1,1] ，取平均值后得到 0.75 .
+这行代码会给我们一组布尔值。为了确定正确预测项的比例，我们可以把布尔值转换成浮点数，然后取平均值。例如，\lstinline{[True, False, True, True]}会变成\lstinline{[1,0,1,1]}，取平均值后得到 0.75 .
 
 \begin{lstlisting}
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
