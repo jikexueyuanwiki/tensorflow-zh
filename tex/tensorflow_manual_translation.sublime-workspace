@@ -1,0 +1,1526 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dd",
+				"dd_keys"
+			],
+			[
+				"k",
+				"key"
+			],
+			[
+				"DD",
+				"DD_day_car"
+			],
+			[
+				"Dd",
+				"DD"
+			],
+			[
+				"che",
+				"check_daytime"
+			],
+			[
+				"rec",
+				"rec_dict"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"cread",
+				"create_ld"
+			],
+			[
+				"fl",
+				"flw_v_type"
+			],
+			[
+				"fo",
+				"following_dist_data"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"re",
+				"rec_dict"
+			],
+			[
+				"file",
+				"file_dir"
+			],
+			[
+				"d1",
+				"dic1"
+			],
+			[
+				"dc",
+				"dic0"
+			],
+			[
+				"dic",
+				"dic1"
+			],
+			[
+				"d",
+				"dic0"
+			],
+			[
+				"pl",
+				"pltcolor"
+			],
+			[
+				"plt",
+				"plt_color"
+			],
+			[
+				"maj",
+				"majority"
+			],
+			[
+				"ca",
+				"candidate"
+			],
+			[
+				"m",
+				"majority_cnt"
+			],
+			[
+				"cd",
+				"candidate"
+			],
+			[
+				"cc",
+				"count_candidate"
+			],
+			[
+				"majo",
+				"majority_cnt"
+			],
+			[
+				"ba",
+				"bat_iter_res"
+			],
+			[
+				"te",
+				"temp"
+			],
+			[
+				"ma",
+				"max_iter"
+			],
+			[
+				"ite",
+				"iter_res"
+			],
+			[
+				"ini",
+				"init_res"
+			],
+			[
+				"in",
+				"init_sol"
+			],
+			[
+				"sir",
+				"sa_iter_res"
+			],
+			[
+				"on",
+				"obj_nex"
+			],
+			[
+				"it",
+				"iter_res"
+			],
+			[
+				"tem",
+				"temp"
+			],
+			[
+				"is",
+				"init_sol"
+			],
+			[
+				"c",
+				"c"
+			],
+			[
+				"sol",
+				"sol_nex"
+			],
+			[
+				"dist",
+				"dist_dict"
+			],
+			[
+				"pick",
+				"pickle_load"
+			],
+			[
+				"n",
+				"num_monve"
+			],
+			[
+				"sa",
+				"sa_stopper"
+			],
+			[
+				"t",
+				"temp_0"
+			],
+			[
+				"init",
+				"init_temp"
+			],
+			[
+				"pr",
+				"problem_size"
+			],
+			[
+				"len",
+				"line"
+			],
+			[
+				"read",
+				"read_file"
+			],
+			[
+				"dis",
+				"dist_dict"
+			],
+			[
+				"obj",
+				"obj_nex"
+			],
+			[
+				"so",
+				"sol_cur"
+			],
+			[
+				"cnt",
+				"cnt_bad"
+			],
+			[
+				"cre",
+				"create_data"
+			],
+			[
+				"L",
+				"Luxury"
+			],
+			[
+				"ac",
+				"accepted"
+			],
+			[
+				"per",
+				"perm_index"
+			],
+			[
+				"ret",
+				"ret_tree"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"cl",
+				"class_list"
+			],
+			[
+				"sub",
+				"sub_labels"
+			],
+			[
+				"spl",
+				"split_dataset"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"best_f",
+				"best_feature_label"
+			],
+			[
+				"best",
+				"best_feature"
+			],
+			[
+				"cls",
+				"class_cnt"
+			],
+			[
+				"das",
+				"dataset"
+			],
+			[
+				"class",
+				"class_list"
+			],
+			[
+				"s",
+				"split_dataset"
+			],
+			[
+				"ds",
+				"dataset"
+			],
+			[
+				"sp",
+				"split_dataset"
+			],
+			[
+				"fe",
+				"feature_list"
+			],
+			[
+				"dataset",
+				"dataset"
+			],
+			[
+				"calc",
+				"calc_shannon_entropy"
+			],
+			[
+				"my",
+				"my_data"
+			],
+			[
+				"shannon",
+				"shannon_entropy"
+			],
+			[
+				"alr",
+				"alert"
+			],
+			[
+				"data",
+				"dataObj"
+			],
+			[
+				"da",
+				"data_jan"
+			],
+			[
+				"pres",
+				"presentation"
+			],
+			[
+				"br",
+				"batch_result"
+			],
+			[
+				"write",
+				"write_update"
+			],
+			[
+				"ge",
+				"get"
+			],
+			[
+				"get",
+				"get_avgspd"
+			],
+			[
+				"ot",
+				"overtime"
+			],
+			[
+				"Max",
+				"Maxspd_v"
+			],
+			[
+				"over",
+				"overtime"
+			],
+			[
+				"M",
+				"Maxspd_c"
+			],
+			[
+				"tr",
+				"type_rec"
+			],
+			[
+				"csv",
+				"csvdict"
+			],
+			[
+				"time",
+				"timerecord"
+			],
+			[
+				"str",
+				"str2timestamp"
+			],
+			[
+				"coc",
+				"concatenate"
+			],
+			[
+				"gr",
+				"group_index"
+			],
+			[
+				"av",
+				"avg_ex_tm_slip"
+			],
+			[
+				"ex",
+				"ex_tms"
+			],
+			[
+				"exsts",
+				"ex_stations"
+			],
+			[
+				"st",
+				"station_dict"
+			],
+			[
+				"std",
+				"st_dict"
+			],
+			[
+				"th",
+				"this_chain"
+			],
+			[
+				"do",
+				"double_check"
+			],
+			[
+				"en_s",
+				"ent_slip"
+			],
+			[
+				"ent",
+				"ent_slip"
+			],
+			[
+				"en",
+				"en_tms"
+			],
+			[
+				"ens",
+				"en_stations"
+			],
+			[
+				"print_re",
+				"print_records"
+			],
+			[
+				"ch",
+				"chains"
+			],
+			[
+				"print",
+				"print_records"
+			],
+			[
+				"print_rec",
+				"print_record"
+			],
+			[
+				"res",
+				"results"
+			],
+			[
+				"resul",
+				"result"
+			],
+			[
+				"rs",
+				"result"
+			],
+			[
+				"sea",
+				"search_chain"
+			],
+			[
+				"sear",
+				"searchdown"
+			],
+			[
+				"rc",
+				"res_chain"
+			],
+			[
+				"next",
+				"next_node"
+			],
+			[
+				"nex",
+				"next_node"
+			],
+			[
+				"ne",
+				"next_node"
+			],
+			[
+				"se",
+				"searchdown"
+			],
+			[
+				"searc",
+				"search_down"
+			],
+			[
+				"pa",
+				"pairs"
+			],
+			[
+				"search",
+				"searchdown_pair"
+			],
+			[
+				"iso",
+				"isoformat"
+			],
+			[
+				"tst",
+				"timestamp"
+			],
+			[
+				"rec0",
+				"rec0_midtim"
+			],
+			[
+				"dp",
+				"dplt_io"
+			],
+			[
+				"et",
+				"entime"
+			],
+			[
+				"dop",
+				"dplt_io"
+			],
+			[
+				"cex",
+				"curr_ex_plt_forsearch"
+			],
+			[
+				"lo",
+				"loaded"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tensorflow_manual_cn.tex",
+			"settings":
+			{
+				"buffer_size": 9690,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "get_started/sec_1_1_introduction.tex",
+			"settings":
+			{
+				"buffer_size": 4771,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tutorials/sec_2_2_minist_beginners.tex",
+			"settings":
+			{
+				"buffer_size": 10077,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tutorials/sec_2_5_.tex",
+			"settings":
+			{
+				"buffer_size": 2628,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 37.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"git",
+				"Git: Status"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"RER",
+				"SublimeREPL: R"
+			],
+			[
+				"REPLp",
+				"SublimeREPL: Python"
+			],
+			[
+				"REPL",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"RE",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"rep",
+				"SublimeREPL: Python"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"REPLR",
+				"SublimeREPL: R"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git loga",
+				"Git: Log All"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"git br",
+				"Git: New Branch"
+			],
+			[
+				"git ",
+				"Git: Commit history"
+			],
+			[
+				"packinst",
+				"Package Control: Install Package"
+			],
+			[
+				"packcinst",
+				"Package Control: Install Package"
+			],
+			[
+				"git gr",
+				"Git: Graph All"
+			],
+			[
+				"gitlog",
+				"Git: Log Current File"
+			],
+			[
+				"gitsta",
+				"Git: Status"
+			],
+			[
+				"paccin",
+				"Package Control: Install Package"
+			],
+			[
+				"pacins",
+				"Package Control: Install Package"
+			],
+			[
+				"ss",
+				"Set Syntax: LaTeX Log"
+			],
+			[
+				"ssmt",
+				"Set Syntax: TeX Math"
+			],
+			[
+				"sspe",
+				"Set Syntax: Perl"
+			],
+			[
+				"sssq",
+				"Set Syntax: SQL"
+			],
+			[
+				"ssC",
+				"Set Syntax: CSS"
+			],
+			[
+				"ssmad",
+				"Set Syntax: Markdown"
+			],
+			[
+				"ssja",
+				"Set Syntax: Java"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssRC",
+				"Set Syntax: R Console"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"intalpck",
+				"Package Control: Install Package"
+			],
+			[
+				"sssql",
+				"Set Syntax: SQL (Rails)"
+			],
+			[
+				"sssca",
+				"Set Syntax: Scala"
+			],
+			[
+				"ssql",
+				"Set Syntax: SQL"
+			],
+			[
+				"replpy",
+				"SublimeREPL: Python"
+			],
+			[
+				"package control ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"package control insta",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"sstex",
+				"Set Syntax: TeX"
+			],
+			[
+				"stsytex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"remove P",
+				"Package Control: Remove Package"
+			],
+			[
+				"pyth",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"minim",
+				"View: Toggle Minimap"
+			],
+			[
+				"paci",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"pystc",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"python",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove Package",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst pcg",
+				"Package Control: Install Package"
+			],
+			[
+				"instpkg",
+				"Package Control: Install Package"
+			],
+			[
+				"install pckg",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"ssrb",
+				"Set Syntax: Ruby"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			],
+			[
+				"csv",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"ssltex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"sslatex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"code folding",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"ww",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wordwa",
+				"Word Wrap: Toggle"
+			],
+			[
+				"package control list",
+				"Package Control: List Packages"
+			],
+			[
+				"repy",
+				"SublimeREPL: Python"
+			],
+			[
+				"reppp",
+				"SublimeREPL: Python - PDB current file"
+			],
+			[
+				"sspyth",
+				"Set Syntax: Python"
+			],
+			[
+				"st s",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"prefer",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package control",
+				"Package Control: Add Channel"
+			],
+			[
+				"fold ",
+				"Code Folding: Unfold All"
+			],
+			[
+				"sspo",
+				"Set Syntax: Python"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 378.0
+	},
+	"console":
+	{
+		"height": 198.0,
+		"history":
+		[
+			"git ",
+			"exit()",
+			"print (a)",
+			"a = 12",
+			"a ",
+			"help",
+			"dir",
+			"ls",
+			"git",
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"sumtrapdf",
+			"print (a)",
+			"a = 10",
+			"a",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/codes_sync/tensorflow/tensorflow_zh",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials"
+	],
+	"file_history":
+	[
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_1_introduction.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_3_minist_pros.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_4_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_2_minist_beginners.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_translation.sublime-project",
+		"/D/meth_sync/jsptpd/[151221] 南京市 科技进步奖 申报/JSPTPD 高速公路车辆行为分析系统v0/软件著作权 申请/source_code_hardcopy/source_codes.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_1_overview.tex",
+		"/D/SEIKA_sync/JSPTPD/逃费专利申请/patant_application.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn - Copy.tex",
+		"/C/Users/Seika/Desktop/tex/tensorflow_manual_cn.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_zh.tex",
+		"/D/codes_sync/TeX.works/Academic CV/version_20140902/JQi_CV.tex",
+		"/D/codes_sync/TeX.works/jsptpd_template/jsptpd_tex_template.tex",
+		"/D/codes_sync/TeX.works/jsptpd_template/jsptpd_tex_template.toc",
+		"/D/myfonts.txt",
+		"/D/SEIKA_sync/JSPTPD/12345_proj/ana_dscp/jsptpd_tex_template.tex",
+		"/D/SEIKA_sync/JSPTPD/12345_proj/ana_dscp/jsptpd_tex_template.toc",
+		"/D/SEIKA_sync/Project_X/remote sensing/JQi_CV_rs/JQi_CV.tex",
+		"/D/Codes_sync/TeX.works/cjfr/portfolio_model_seed_deployment/portfolio_model_seed_deployment.tex",
+		"/D/Codes_sync/TeX.works/中文字体案例/sample.tex",
+		"/D/迅雷下载/川井郁子(Ikuko.Kawai).-.[Nature].专辑.(FLAC).cue",
+		"/E/YanChenData/DBETC1600112/data/dbo.SEXIT2009021600112.Table.sql",
+		"/E/YanChenData/DBETC1600112/data/dbo.SEXIT2008121600112.Table.sql",
+		"/E/YanChenData/DBETC1600112/data/dbo.ESplit20091600112.Table.sql",
+		"/E/YanChenData/DBETC1600112/data/dbo.ESplit20081600112.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.SEXIT2009011600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.SEntry2011041600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.ESplit20111600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.ESplit20091600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.ESplit20081600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.ETCGResult201320131600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.EGRAYCARD2011061600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.EGRAYCARD2011051600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/表结构/dbo.EData20131600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/表结构/dbo.EData20141600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/表结构/dbo.Egraycard2009021600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/表结构/dbo.Egraycard2009051600101.Table.sql",
+		"/E/YanChenData/DBETC1600101/data/dbo.EData20131600101.Table.sql",
+		"/D/迅雷下载/Dido.-.[Life.for.Rent].专辑.(APE).cue",
+		"/D/SEIKA_sync/Python.Works/jsptpd/x150701/proc.py",
+		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/SublimeREPL/config/Python/Main.sublime-menu",
+		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/random_data_choose.py",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/sample_analysis.py",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/toy.py",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/plot_sample.py",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/scatter_3d.py",
+		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/迅雷下载/texlive2015.iso.md5",
+		"/C/Users/seika/Downloads/texlive2015.iso.md5",
+		"/D/SEIKA_sync/R.Works/cousera/R_ex1/pollutantmean.R",
+		"/D/迅雷下载/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].ALBUM/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].ALBUM.CUE",
+		"/D/迅雷下载/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].ALBUM/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD2)].ALBUM.CUE",
+		"/D/迅雷下载/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].ALBUM/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD2)].ALBUM.cue",
+		"/D/迅雷下载/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].ALBUM.cue",
+		"/D/迅雷下载/Vladimir.Ashkenazy.-.[Rachmaninov.4.Piano.Concertos(CD1)].专辑.(APE).cue",
+		"/F/Doujin.同人音樂/SWING.HOLIC/SH.fpl",
+		"/D/SEIKA_sync/Python.Works/MDPI/MonthlyReport/raw_SQLXCL_processor_v2.py",
+		"/D/SEIKA_sync/Python.Works/MDPI/MonthlyReport/MRPLOT.py",
+		"/D/SEIKA_sync/Python.Works/MDPI/MonthlyReport/BarChart.py",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/DD_filter.py",
+		"/D/SEIKA_sync/PROGRAM/Sublime Text Build 3083 x64 for R/Data/Packages/User/Preferences.sublime-settings",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/plot_sample",
+		"/C/Users/seika/Desktop/hosts",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Windows/System32/drivers/etc/services",
+		"/C/Windows/System32/drivers/etc/protocol",
+		"/C/Windows/System32/drivers/etc/lmhosts.sam",
+		"/C/Windows/System32/drivers/etc/networks",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/data/[201504]_3.txt",
+		"/D/SEIKA_sync/Python.Works/jsptpd/vehicle_behavior/data/[201504]_2.txt",
+		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/User/SublimeREPL.sublime-settings",
+		"/E/TEMP/[201504]_9.txt",
+		"/E/TEMP/[201504]_10.txt",
+		"/E/TEMP/[201504]_11.txt",
+		"/E/TEMP/[201504]_12.txt",
+		"/E/TEMP/[201504]_3.txt",
+		"/E/TEMP/[201504]_2.txt",
+		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/User/Word Highlight.sublime-settings",
+		"/E/TEMP/[201504]_1.txt",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/create_dist_dict.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/sa.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/decision_tree.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/seika_ml_in_action.sublime-project",
+		"/E/Music/[C87]/(C87)(同人音楽)(東方)[Amateras Records] Unrequited Hearts (flac)/Amateras Records - Unrequited Hearts.tta.cue",
+		"/D/SEIKA_sync/JSPTPD/亚太智能交通论坛2015参会展示内容/脚本润色/4业务支撑/新建文本文档.txt",
+		"/D/SEIKA_sync/Python.Works/SEIKA.LIB/SEIKA.pth",
+		"/D/SEIKA.sync/Python.Works/SEIKA.LIB/SEIKA.pth",
+		"/F/Projects/nh_prj.fee_cheater_hunter/2 pro_dual_plates_comb_check.py",
+		"/F/Projects/nh_prj.fee_cheater_hunter/1 data cleanning proc.py",
+		"/C/Users/Seika/Desktop/qa194.tsp",
+		"/D/SEIKA.sync/Python.Works/SEIKA.LIB/csvdict.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/CART/cart_decision_tree.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/CART/regTree.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/ca4663.tsp",
+		"/C/Users/Seika/Downloads/ca4663.tsp",
+		"/C/Users/Seika/Downloads/world.tsp/world.tsp",
+		"/D/SEIKA.sync/Java.Works/SAA/模拟退火.java",
+		"/D/SEIKA.sync/JSPTPD/亚太智能交通论坛2015参会展示内容/qj/业务支撑及协同平台素材及解说词/业务支撑.txt",
+		"/D/SEIKA.sync/Java.Works/SAA/SimulatedAnnealing.java",
+		"/D/SEIKA.sync/Java.Works/SAA/模拟退火.class",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/plot_tree.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/cart/cart_decision_tree.py",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/A 60-day plan of learning data mining",
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/sa",
+		"/D/SEIKA.sync/Python.Works/MLinAct/decision_tree/decision_tree.py",
+		"/D/SEIKA.sync/Python.Works/MLinAct/kNN.py",
+		"/D/SEIKA.sync/Python.Works/MLinAct/knn.py",
+		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/portfolio_model_seed_deployment.tex",
+		"/D/SEIKA.sync/Seika.TEMP/chen_car_mark_every_lane_count.txt",
+		"/D/PROGRAM.sync/SublimeText_x64_3059/Data/Packages/User/Preferences.sublime-settings",
+		"/D/SEIKA.sync/Project_X/remote sensing/profs_provided_by_Dr_ms_li",
+		"/D/SEIKA.sync/Project_X/remote sensing/JQi_CV_rs/JQi_CV.tex",
+		"/D/SEIKA.sync/Project_X/remote sensing/JQi_CV.tex",
+		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/citations.bib",
+		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/portfolio_model_seed_deployment.bbl",
+		"/C/Users/Seika/Desktop/test/url_citation_minimal/test.tex",
+		"/D/PROGRAM.sync/SublimeText_x64_3059/Data/Packages/User/LaTeX.sublime-settings",
+		"/D/SEIKA.sync/Python.Works/seika_scriber/ss1.py",
+		"/D/SEIKA.sync/Python.Works/MDPI/WOS.crunch/py_play.py",
+		"/D/SEIKA.sync/Python.Works/MDPI/Sagitt.prj/Sagitt.py",
+		"/D/SEIKA.sync/Python.Works/MDPI/ProcList.prj/HIP.py",
+		"/D/SEIKA.sync/Python.Works/MDPI/GoogleAnalytics/GA_doi.py",
+		"/D/SEIKA.sync/Python.Works/LearningPython/lec5.py",
+		"/D/SEIKA.sync/Python.Works/check_rvw_auth.py",
+		"/D/SEIKA.sync/Python.Works/id_num_check.py",
+		"/D/Thesis.090106/100324.P-Plan/Sensitivity/ClimateModel/M1_/M1_461x7x7.sol"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 114.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			", ",
+			"}",
+			",",
+			"Tensors",
+			"spread",
+			"chapter",
+			"section",
+			"chapter",
+			"`",
+			"```",
+			"```python",
+			"`",
+			"_",
+			"\\subsubsubsection",
+			"\\subsubsection",
+			"\\subsection",
+			"\\section",
+			"subsubsubsection",
+			"%",
+			"\\includegraphics",
+			"subsection",
+			"co_comment",
+			"mygray",
+			"mygreen",
+			"\\s",
+			"综述}",
+			"60000",
+			"links",
+			"document",
+			"repl_python",
+			"F5",
+			"max",
+			"DD[key]",
+			"blue",
+			"yellow",
+			"green",
+			"flw_type",
+			"green",
+			"print (",
+			"print",
+			"extend",
+			"LD",
+			"ld",
+			"LD",
+			"ld",
+			"LD",
+			"ld",
+			"LD",
+			"ld",
+			"LD",
+			"ld",
+			"warp",
+			"ruler",
+			" ",
+			"vip64",
+			" ",
+			"pickle_dump",
+			"dic0",
+			"2384490",
+			"1404855",
+			"_dir",
+			"=",
+			"E:\\TEMP\\",
+			",",
+			"pickle_dump",
+			"soultion_initialization",
+			"pickle",
+			"lat2",
+			"lon1",
+			"lat1",
+			"cnt_improve",
+			"'C",
+			"[",
+			"Large",
+			"Family",
+			"'M'",
+			"print",
+			"rand",
+			"模拟退火",
+			"print",
+			"b",
+			"a",
+			"errType",
+			"leafType",
+			"createTree",
+			"retTree",
+			"bestFeature",
+			"a",
+			"x",
+			"infogain",
+			"infoGain",
+			"bestInfoGain",
+			"baseEntropy",
+			"numFeatures",
+			"subDataSet",
+			"featList",
+			"newEntropy",
+			"uniqueVals",
+			"splitDataSet",
+			"calcShannonEnt",
+			"featVec",
+			"retDataSet",
+			"DataSet",
+			"dataSet",
+			"under var",
+			"citation",
+			"b.",
+			"0. ",
+			" .",
+			"Table",
+			"table",
+			"Table",
+			"adp_var",
+			"best_regression",
+			"table",
+			"Table",
+			"table",
+			"Table",
+			"table",
+			"Table",
+			"table",
+			"Table",
+			"Temp",
+			"}",
+			";",
+			" ",
+			"hline",
+			"expanding in west"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$\\rm CO_2$",
+			"．",
+			".",
+			"",
+			"\n",
+			"def parse_SQL_mra (yyyy,mm):\n    # parse SQL for checking published articles for given time\n    startdate = '\\\"'+ str(yyyy)+'-'+str(mm)+'-01'+'\\\"'\n    enddate = '\\\"'+ str(yyyy)+'-'+str(mm+1)+'-01'+'\\\"'\n    mrq_a = (\\\n        \"SELECT\\\n            submission_editors_rel.assigned_user_id AS Staff_ID,\\\n            CONCAT(users.firstname,' ',users.lastname) AS Staff_Name,\\\n            users.email AS 'Staff_E-Mail',\\\n            articles.journal_id AS Journal_ID,\\\n            journals.name_short AS Journal_Name, \\\n            special_issues.name AS SI_Name,\\\n            articles.submission_manuscript_id AS Manuscript_ID,\\\n            article_types.name AS Article_Type,\\\n            date(submission_manuscript_state.submission_date) AS Submission_Date,\\\n            articles.pubdate_received AS Received_Date,\\\n            articles.pubdate_published AS Published_Date,\\\n            articles.id_doi AS DOI,\\\n            CONCAT(journals.issn_electronic,'/',articles.volume,'/',articles.issue,'/',articles.firstpage) AS GA_PDF_index\\\n        FROM articles \\\n        LEFT JOIN journals ON journals.id = articles.journal_id \\\n        LEFT JOIN submission_manuscript ON articles.submission_manuscript_id = submission_manuscript.id \\\n        LEFT JOIN submission_editors_rel ON submission_editors_rel.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN users ON users.id = submission_editors_rel.assigned_user_id \\\n        LEFT JOIN submission_manuscript_state ON submission_manuscript_state.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN submission_manuscript_review ON submission_manuscript_review.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN article_types ON articles.article_type_id = article_types.id \\\n        LEFT JOIN special_issues ON articles.special_issue_id = special_issues.id \\\n        WHERE\\\n            articles.pubdate_published >= \"+ startdate + \"\\\n            AND articles.pubdate_published < \" + enddate + \"\\\n        GROUP BY\\\n            articles.id_doi\\\n        ORDER BY\\\n            articles.journal_id, articles.pubdate_published, articles.id_doi, submission_editors_rel.assigned_user_id\\\n        \")\n    return mrq_a\n\ndef parse_SQL_mrs (yyyy,mm):\n    # parse SQL for checking submitted ms under given time\n    startdate = '\\\"'+ str(yyyy)+'-'+str(mm)+'-01'+'\\\"'\n    enddate = '\\\"'+ str(yyyy)+'-'+str(mm+1)+'-01'+'\\\"'\n    mrqs = (\\\n        \"SELECT\\\n            CONCAT(users.firstname,' ',users.lastname) AS Assigned_Staff,\\\n            users.email AS 'Staff_E-Mail',\\\n            submission_manuscript.id AS MSID,\\\n            journals.id AS Journal_ID,\\\n            journals.name_short AS Journal_Name,\\\n            special_issues.name AS SI_Name,\\\n            DATE(submission_manuscript_state.submission_date) AS Submission_Date,\\\n            submission_status.description AS Submission_Status,\\\n            articles.pubdate_published AS Date_Published,\\\n            articles.id_doi AS DOI_Published\\\n        FROM submission_manuscript \\\n        LEFT JOIN `journals` ON submission_manuscript.journal_id = journals.id \\\n        LEFT JOIN `special_issues` ON submission_manuscript.special_issue_id = special_issues.id \\\n        LEFT JOIN `submission_manuscript_state` ON submission_manuscript_state.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN `articles` ON articles.submission_manuscript_id = submission_manuscript.id \\\n        LEFT JOIN `submission_status` ON submission_manuscript_state.status_id = submission_status.id \\\n        LEFT JOIN `submission_editors_rel` ON submission_editors_rel.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN `users` ON users.id = submission_editors_rel.assigned_user_id \\\n        WHERE \\\n            submission_manuscript_state.submission_date >= \" + startdate + \"\\\n            AND submission_manuscript_state.submission_date < \" + enddate + \"\\\n        ORDER BY\\\n            submission_manuscript.journal_id,\\\n            submission_manuscript_state.submission_date,\\\n            submission_status.description \\\n        \")\n    return mrqs\n\ndef parse_SQL_mrf (yyyy,mm):\n    # parse SQL for checking terminated submissions under given time\n    startdate = '\\\"'+ str(yyyy)+'-'+str(mm)+'-01'+'\\\"'\n    enddate = '\\\"'+ str(yyyy)+'-'+str(mm+1)+'-01'+'\\\"'\n    mrqf = (\\\n        \"SELECT\\\n            submission_editors_rel.assigned_user_id AS Staff_ID,\\\n            users.email AS 'Staff_E-Mail', \\\n            submission_manuscript.journal_id AS Journal_ID,\\\n            journals.name_short AS Journal_Name,\\\n            submission_manuscript.id AS Manuscript_ID,\\\n            article_types.name AS Article_Type,\\\n            submission_status.description AS Manuscript_Status,\\\n            DATE (submission_manuscript_state.submission_date) AS Date_Submission,\\\n            DATE (submission_manuscript_decisions.decision_date) AS Date_Decision,\\\n            submission_manuscript_decisions.decision AS Decision,\\\n            articles.pubdate_accepted AS Date_Accepted,\\\n            articles.pubdate_published AS Date_Published,\\\n            DATE (submission_manuscript_state.last_action) AS Date_Last_Action,\\\n            submission_manuscript_review.acceptance AS Review_Acceptance,\\\n            COUNT(*) AS Reviews_invited,\\\n            COUNT(if(submission_manuscript_review.acceptance = 1, TRUE, NULL)) AS Reviews_Accepted,\\\n            COUNT(if(submission_manuscript_review.acceptance = 0, TRUE, NULL)) AS Reviews_Declined,\\\n            COUNT(DISTINCT submission_reviewers.email) AS Uniq_Reviewers,\\\n            COUNT(DISTINCT IF (submission_manuscript_review.acceptance = 1,submission_reviewers.email,NULL )) AS Uniq_Accepted_Reviewers,\\\n            COUNT(DISTINCT IF (submission_manuscript_review.acceptance = 1,submission_reviewers.email,NULL ))/COUNT(DISTINCT submission_reviewers.email) AS Acception_Rate,\\\n            CONCAT (MONTH(submission_manuscript_state.last_action),'-',YEAR(submission_manuscript_state.last_action)) AS Month \\\n        FROM submission_manuscript\\\n        LEFT JOIN submission_manuscript_state ON submission_manuscript.hash_key = submission_manuscript_state.hash_key \\\n        LEFT JOIN submission_status ON submission_manuscript_state.status_id = submission_status.id \\\n        LEFT JOIN submission_manuscript_review ON submission_manuscript.hash_key = submission_manuscript_review.hash_key \\\n        LEFT JOIN submission_reviewers_rel ON submission_manuscript_review.reviewer_rel_id = submission_reviewers_rel.id \\\n        LEFT JOIN submission_reviewers ON submission_reviewers_rel.reviewer_id = submission_reviewers.id \\\n        LEFT JOIN submission_manuscript_decisions ON submission_manuscript.hash_key = submission_manuscript_decisions.hash_key \\\n        LEFT JOIN articles ON articles.submission_manuscript_id = submission_manuscript.id \\\n        LEFT JOIN journals ON journals.id = submission_manuscript.journal_id \\\n        LEFT JOIN article_types ON articles.article_type_id = article_types.id \\\n        LEFT JOIN submission_editors_rel ON submission_editors_rel.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN users ON users.id = submission_editors_rel.assigned_user_id \\\n        WHERE \\\n            (submission_manuscript_state.status_id = 29 \\\n                AND (articles.pubdate_published >= \" + startdate + \" AND articles.pubdate_published < \" + enddate + \")) \\\n            OR ((DATE (submission_manuscript_state.last_action)>= \" + startdate + \" \\\n                AND DATE (submission_manuscript_state.last_action) < \" + enddate + \") \\\n                AND submission_manuscript_state.status_id in (19,102))\\\n        GROUP BY submission_manuscript.id\\\n        ORDER BY journals.id, submission_manuscript_state.status_id, submission_manuscript_state.last_action\\\n        \")\n    return mrqf\n\ndef parse_SQL_search_published (email,date0,date1):\n    # 这个有问题\n    startdate = '\\\"'+ date0[0:4]+'-'+ date0[4:6] + '-' + date0[6:8] + '\\\"'\n    enddate = '\\\"'+ date1[0:4]+'-'+ date1[4:6] + '-' + date1[6:8] + '\\\"'\n    e_mail = '\\\"' + email + '\\\"'\n    sql = (\\\n        \"SELECT \\\n            authors.email, \\\n            articles.journal_id AS Journal_ID,\\\n            journals.name_short AS Journal_Name, \\\n            special_issues.name AS SI_Name,\\\n            articles.submission_manuscript_id AS Manuscript_ID,\\\n            article_types.name AS Article_Type,\\\n            date(submission_manuscript_state.submission_date) AS Submission_Date,\\\n            articles.pubdate_received AS Received_Date,\\\n            articles.pubdate_published AS Published_Date,\\\n            articles.id_doi AS DOI,\\\n            CONCAT(journals.issn_electronic,'/',articles.volume,'/',articles.issue,'/',articles.firstpage) AS GA_PDF_index\\\n        From \\\n            articles \\\n        LEFT JOIN journals ON journals.id = articles.journal_id \\\n        LEFT JOIN submission_manuscript ON articles.submission_manuscript_id = submission_manuscript.id \\\n        LEFT JOIN submission_editors_rel ON submission_editors_rel.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN users ON users.id = submission_editors_rel.assigned_user_id \\\n        LEFT JOIN submission_manuscript_state ON submission_manuscript_state.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN submission_manuscript_review ON submission_manuscript_review.hash_key = submission_manuscript.hash_key \\\n        LEFT JOIN article_types ON articles.article_type_id = article_types.id \\\n        LEFT JOIN special_issues ON articles.special_issue_id = special_issues.id \\\n        LEFT JOIN authors ON articles.id = authors.articles_id \\\n        WHERE\\\n            authors.email LIKE \" + e_mail + \"\\\n            AND articles.pubdate_published >= \"+ startdate + \"\\\n            AND articles.pubdate_published < \" + enddate + \"\\\n        GROUP BY\\\n            articles.id_doi\\\n        ORDER BY\\\n            articles.journal_id, articles.pubdate_published, articles.id_doi \\\n        \")\n\ndef parse_SQL_EBMxJournal ():\n    sql = \"\"\"SELECT\n    editors_roles.rolename AS Role_Name,\n    journals.id AS Journal_ID,\n    journals.name_short AS Journal_Name,\n    editors_boards.section_id AS Section_ID,\n    sections.name_system AS Section_Name,\n    special_issues.id AS SI_ID,\n    special_issues.name AS SI_Name,\n    editors.email AS Editor_EMail,\n    CONCAT (editors.firstname, \" \",editors.lastname) AS Editor_Name,\n    editors.country,\n    editors.affiliation\n    FROM editors\n    LEFT JOIN editors_rel on editors_rel.editor_id = editors.id\n    LEFT JOIN editors_roles on editors_roles.id = editors_rel.role_id\n    LEFT JOIN editors_boards on editors_boards.id = editors_rel.board_id\n    LEFT JOIN journals on journals.id = editors_boards.journal_id\n    LEFT JOIN special_issues on special_issues.id = editors_boards.special_issue_id\n    LEFT JOIN sections on sections.id = editors_boards.section_id\n    WHERE\n        editors_roles.rolename is not null\n        AND journals.name_short is not null\n    ORDER BY\n        journals.id, editors_roles.rolename, editors.email; \"\"\"\n    return sql\n\ndef parse_SQL_CheckAuthors ():\n    # Query author of published during the given period\n    sql = \"\"\"SELECT\n        articles.id AS Article_WebID,\n        articles.journal_id AS Journal_ID,\n        journals.name_short AS Journal_Name,\n        articles.special_issue_id AS SI_ID,\n        special_issues.name AS SI_Name,\n        articles.submission_manuscript_id AS MS_ID,\n        article_types.name AS Ariticle_Type,\n        articles.manuscript_id AS MS_ID,\n        articles.id_doi AS DOI,\n        articles.pubdate_published AS Date_Published,\n        CONCAT(authors.given_names,\" \",authors.lastname) AS Author_Name,\n        authors.email AS \"Author_E-Mail\"\n        -- authors.correspondence AS Correspondence,\n        -- authors.affiliation AS Aff_Index,\n        -- affiliations.number AS Aff_Number,\n        -- affiliations.region AS Region,\n        -- affiliations.name AS Affliation\n        FROM articles\n        LEFT JOIN journals ON articles.journal_id = journals.id\n        LEFT JOIN special_issues ON articles.special_issue_id = special_issues.id\n        LEFT JOIN authors ON articles.id = authors.article_id\n        LEFT JOIN article_types ON article_type_id = article_types.id\n        LEFT JOIN sections ON sections.id = articles.section_id\n        -- LEFT JOIN affiliations ON affiliations.article_id = articles.id\n        -- LEFT JOIN country ON affiliations.country = country.id\n        WHERE\n            -- articles.journal_id = 1\n            -- AND articles.section_id =25\n            -- AND authors.correspondence = 1\n            articles.pubdate_published >= \"2014-01-01\"\n            AND articles.pubdate_published < \"2014-05-01\"\n            -- country.id = 240\n        ORDER BY\n            articles.pubdate_published\"\"\"\n    return sql\n\ndef parse_SQL_CheckSI ():\n    sql = \"\"\"SELECT\n        special_issues.id AS SI_ID,\n        special_issues.section_id AS Section_ID,\n        special_issues.journal_id AS Journal_ID,\n        journals.name_short AS Journal_Name,\n        special_issues.name AS SI_Name,\n        special_issues.date_added AS Established_Date,\n        special_issues.submission_deadline AS Submission_Deadline\n        FROM special_issues\n        LEFT JOIN journals ON special_issues.journal_id = journals.id\n        WHERE\n            special_issues.date_added >= '2014-01-01'\n            AND special_issues.date_added < '2014-05-01'\"\"\"\n    return sql\n\ndef parse_SQL_CheckReviews ():\n    sql = \"\"\"SELECT\n        submission_manuscript.id AS Manuscript_ID,\n        submission_manuscript.journal_id AS Journal_ID,\n        submission_manuscript_state.status_id AS Manuscript_Statis_ID,\n        DATE (submission_manuscript_review.signatures_date_review) AS Review_Date,\n        submission_status.description AS Status_Description,\n        submission_manuscript_state.hash_key,\n        submission_manuscript_review.reviewer_rel_id AS Reviewers_Rel_ID,\n        submission_reviewers_rel.reviewer_id AS Reviewer_ID,\n        CONCAT (submission_reviewers.firstname,\" \",submission_reviewers.lastname) AS Reviewer_Name,\n        submission_reviewers.email AS Reviewer_Email,\n        submission_reviewers.affiliation AS Affiliation,\n        length (submission_manuscript_review.comments_authors)\n    FROM submission_manuscript\n        LEFT JOIN submission_manuscript_state ON submission_manuscript.hash_key = submission_manuscript_state.hash_key\n        LEFT JOIN submission_status ON submission_manuscript_state.status_id = submission_status.id\n        LEFT JOIN submission_manuscript_review ON submission_manuscript.hash_key = submission_manuscript_review.hash_key\n        LEFT JOIN submission_reviewers_rel ON submission_manuscript_review.reviewer_rel_id = submission_reviewers_rel.id\n        LEFT JOIN submission_reviewers ON submission_reviewers_rel.reviewer_id = submission_reviewers.id\n    WHERE\n        submission_manuscript.id is not NULL\n        AND submission_manuscript_review.acceptance = 1\n        AND length (submission_manuscript_review.comments_authors) > 0\n        AND DATE (submission_manuscript_review.signatures_date_review) >= \"2014-01-01\"\n        AND DATE (submission_manuscript_review.signatures_date_review) < \"2014-05-01\"\n    ORDER BY Review_Date, submission_manuscript.id;\"\"\"\n    return sql\n\ndef query_SQL (dbconncfg,querySQL):\n    import mysql.connector\n    conn = mysql.connector.connect(\\\n        user = dbconncfg['user'], password = dbconncfg['password'],\\\n        host = dbconncfg['host'], port = dbconncfg['port'], \\\n        database = dbconncfg['database'])\n    cursor = conn.cursor()\n    query = (querySQL)\n    cursor.execute(query)\n    RES = []\n    for i in cursor:\n        RES.append(i)\n    cursor.close()\n    conn.close()\n    return RES\n\ndef query_SQL2 (dbconncfg,querySQL):\n    import mysql.connector\n    conn = mysql.connector.connect(\\\n        user = dbconncfg['user'], password = dbconncfg['password'],\\\n        host = dbconncfg['host'], port = dbconncfg['port'], \\\n        database = dbconncfg['database'])\n    cursor = conn.cursor()\n    query = (querySQL)\n    cursor.execute(query)\n    return (cursor)\n\ndef mra2dict (L):\n    HEAD = ['Staff_ID','Staff_Name','Staff_E-Mail','Journal_ID',\\\n        'Journal_Name','SI_Name','Manuscript_ID','Article_Type',\\\n        'Submission_Date','Received_Date','Published_Date','DOI','GA_PDF_index']\n    def fillzero (s1,lenth):\n        if len(s1)<lenth:\n            s1 = '0'*(lenth-len(s1)) + s1\n        return (s1)\n    def date2str (date):\n        str_yyyy = fillzero(str(date.year),4)\n        str_mm = fillzero(str(date.month),2)\n        str_dd = fillzero(str(date.day),2)\n        str_date = str_dd+'-'+str_mm+'-'+str_yyyy\n        return str_date\n    def make_d (l):\n        import datetime\n        d = {}\n        for i in range(len(l)):\n            if type(l[i]) is datetime.date:\n                record = date2str(l[i])\n            else:\n                record = l[i]\n            d.update({HEAD[i]:record})\n        return d\n    D = {}\n    for i in range(len(L)):\n        D.update({i+1:make_d(L[i])})\n    return D\n\ndef get_uniq (T,index):\n    uniq = []\n    for i in T:\n        if i[index] not in uniq:\n            uniq.append(i[index])\n    return uniq\n\ndef get_name (editor,QED):\n    name = ''\n    for rec in QED:\n        if rec[7] == editor:\n            name = rec[8]\n            break\n    return name\n\ndef check_editor_J (editor,QED):\n    ed_J = []\n    for rec in QED:\n        if rec[7] == editor:\n            ed_J.append(rec[2])\n    ed_J_uniq = list(set(ed_J))\n    numJ = len(ed_J_uniq)\n    return (numJ,ed_J_uniq)\n\ndef check_pub (editor,QED_A):\n    ed_Pub = []\n    for rec in QED_A:\n        if rec[11] == editor:\n            ed_Pub.append(rec[8])\n    numPub = len(ed_Pub)\n    return (numPub,ed_Pub)\n\ndef check_SI (editor,QED,QED_SI):\n    SI = []\n    avai_SI = get_uniq(QED_SI,0)\n    for rec in QED:\n        if rec[7] == editor and rec[5] in avai_SI:\n            SI.append(rec[6])\n    num_SI = len(SI)\n    return (num_SI,SI)\n\ndef check_reviews (editor, QED_R):\n    rvws = []\n    for rec in QED_R:\n        if rec[9] == editor:\n            rvws.append(rec[0])\n    num_rvw = len(rvws)\n    return (num_rvw,rvws)\n\n# TEST\nprint (\"EBM Evaluation\")\nprint (\"SEIKA 2014\\n\")\n",
+			"2",
+			"",
+			"D_Text['Y_label'] = \"Total APC Invoice (CHF)\"",
+			"Total APC Invoice (CHF)",
+			"Total APC Invoice Sent by Individual (January 2014)",
+			"Average Article Processing Days by Individual (January 2014)",
+			"article processing",
+			"\"MX\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tensorflow_manual_cn.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8347,
+								8347
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3568.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "get_started/sec_1_1_introduction.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								356,
+								356
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "tutorials/sec_2_2_minist_beginners.tex",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								924,
+								831
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "tutorials/sec_2_5_.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2628,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2228,
+								2228
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1033.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 299.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "tensorflow_manual_translation.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Statistical Analyst/Senior Statistical Analyst/Sta"
+			],
+			[
+				"d",
+				"D:\\Dropbox\\Python.Works\\GA.prj\\GA_doi.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 599.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pac",
+				"D:\\SEIKA.sync\\Python.Works\\machine_learning_in_action\\seika_ml_in_action.sublime-workspace"
+			],
+			[
+				"",
+				"D:\\SEIKA_sync\\Python.Works\\seika_scriber\\seika_scriber.sublime-project"
+			]
+		],
+		"width": 455.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 288.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
