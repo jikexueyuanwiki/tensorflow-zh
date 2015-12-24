@@ -523,31 +523,31 @@
 			"file": "tensorflow_manual_cn.tex",
 			"settings":
 			{
-				"buffer_size": 9690,
+				"buffer_size": 3971,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "get_started/sec_1_1_introduction.tex",
+			"file": "get_started/sec_1_3_basic_usage.tex",
 			"settings":
 			{
-				"buffer_size": 4771,
+				"buffer_size": 19492,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "tutorials/sec_2_2_minist_beginners.tex",
+			"file": "tutorials/sec_2_4_.tex",
 			"settings":
 			{
-				"buffer_size": 10077,
+				"buffer_size": 13621,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "tutorials/sec_2_5_.tex",
+			"file": "tutorials/sec_2_3_minist_pros.tex",
 			"settings":
 			{
-				"buffer_size": 2628,
+				"buffer_size": 8298,
 				"line_ending": "Windows"
 			}
 		}
@@ -575,7 +575,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 37.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -944,7 +944,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 378.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -987,14 +987,16 @@
 	],
 	"file_history":
 	[
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_1_introduction.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_3_minist_pros.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_4_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_2_os_setup.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_1_introduction.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/sec_3_1_variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_1_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_3_minist_pros.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_2_minist_beginners.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_translation.sublime-project",
 		"/D/meth_sync/jsptpd/[151221] 南京市 科技进步奖 申报/JSPTPD 高速公路车辆行为分析系统v0/软件著作权 申请/source_code_hardcopy/source_codes.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_1_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn.tex",
 		"/D/SEIKA_sync/JSPTPD/逃费专利申请/patant_application.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn - Copy.tex",
 		"/C/Users/Seika/Desktop/tex/tensorflow_manual_cn.tex",
@@ -1112,9 +1114,7 @@
 		"/D/SEIKA.sync/Python.Works/MDPI/ProcList.prj/HIP.py",
 		"/D/SEIKA.sync/Python.Works/MDPI/GoogleAnalytics/GA_doi.py",
 		"/D/SEIKA.sync/Python.Works/LearningPython/lec5.py",
-		"/D/SEIKA.sync/Python.Works/check_rvw_auth.py",
-		"/D/SEIKA.sync/Python.Works/id_num_check.py",
-		"/D/Thesis.090106/100324.P-Plan/Sensitivity/ClimateModel/M1_/M1_461x7x7.sol"
+		"/D/SEIKA.sync/Python.Works/check_rvw_auth.py"
 	],
 	"find":
 	{
@@ -1132,7 +1132,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			", ",
+			"\\subsection",
+			"{",
+			"###",
+			"`",
+			"## ",
+			"`",
+			"cross_entropy",
+			"`",
+			"###",
+			"\\end{quote}",
+			"\\begin{quote}",
 			"}",
 			",",
 			"Tensors",
@@ -1249,17 +1259,7 @@
 			"table",
 			"Table",
 			"table",
-			"Table",
-			"table",
-			"Table",
-			"table",
-			"Table",
-			"Temp",
-			"}",
-			";",
-			" ",
-			"hline",
-			"expanding in west"
+			"Table"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1300,15 +1300,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9690,
+						"buffer_size": 3971,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8347,
-								8347
+								3829,
+								3829
 							]
 						],
 						"settings":
@@ -1319,7 +1319,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3568.0,
+						"translation.y": 1427.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1327,48 +1327,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "get_started/sec_1_1_introduction.tex",
+					"file": "get_started/sec_1_3_basic_usage.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4771,
+						"buffer_size": 19492,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "tutorials/sec_2_2_minist_beginners.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 10077,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								924,
-								831
+								10706,
+								10712
 							]
 						],
 						"settings":
@@ -1377,27 +1348,27 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4304.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "tutorials/sec_2_5_.tex",
+					"buffer": 2,
+					"file": "tutorials/sec_2_4_.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2628,
+						"buffer_size": 13621,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2228,
-								2228
+								469,
+								465
 							]
 						],
 						"settings":
@@ -1407,11 +1378,42 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 1033.0,
+						"translation.x": -0.0,
+						"translation.y": 48.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "tutorials/sec_2_3_minist_pros.tex",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 8298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								317,
+								317
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 73.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1450,7 +1452,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 299.0
+		"height": 196.0
 	},
 	"output.find_results":
 	{
@@ -1473,6 +1475,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sec_1_3",
+				"tex\\get_started\\sec_1_3_basic_usage.tex"
+			],
 			[
 				"",
 				"Statistical Analyst/Senior Statistical Analyst/Sta"
@@ -1518,7 +1524,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 288.0,
+	"side_bar_width": 233.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

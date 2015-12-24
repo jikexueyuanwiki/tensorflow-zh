@@ -72,184 +72,36 @@
 %%%%%%%%%%%%
 \title{Tensorflow 指南}
 \author{}
-\date{2015-12-16}
+\date{\today}
 % \thanks{}
 
 \begin{document}
 
 \maketitle
-\newpage
 \tableofcontents
-\newpage
 
+%%%% 第一章
+\newpage
 \chapter{起步}
 % \section{Introduction}
 \include{get_started/sec_1_1_introduction}
-\section{Download and Setup}
+\include{get_started/sec_1_2_os_setup}
+\include{get_started/sec_1_3_basic_usage}
 
+%%%% 第二章
 \newpage
-
-\section{Basic Usage}
-
-To use TensorFlow you need to understand how TensorFlow:
-
-\begin{itemize}
-\item Represents computations as graphs.
-\item Executes graphs in the context of Sessions.
-\item Represents data as tensors.
-\item Maintains state with Variables.
-\item Uses feeds and fetches to get data into and out of arbitrary operations.
-\end{itemize}
-
-\subsection{Overview}
-
-TensorFlow is a programming system in which you represent computations as graphs. Nodes in the graph are called ops (short for operations). An op takes zero or more \lstinline{Tensors}, performs some computation, and produces zero or more \lstinline{Tensors}. A Tensor is a typed multi-dimensional array. For example, you can represent a mini-batch of images as a 4-D array of floating point numbers with dimensions \lstinline{[batch, height, width, channels]}.
-
-\subsection{The computation graph}
-
-TensorFlow programs are usually structured into a construction phase, that assembles a graph, and an execution phase that uses a session to execute ops in the graph.
-
-For example, it is common to create a graph to represent and train a neural network in the construction phase, and then repeatedly execute a set of training ops in the graph in the execution phase.
-
-TensorFlow can be used from C, C++, and Python programs. It is presently much easier to use the Python library to assemble graphs, as it provides a large set of helper functions not available in the C and C++ libraries.
-
-The session libraries have equivalent functionalities for the three languages.
-
-\subsubsection {Building the graph}
-To build a graph start with ops that do not need any input (source ops), such as Constant, and pass their output to other ops that do computation.
-
-The ops constructors in the Python library return objects that stand for the output of the constructed ops. You can pass these to other ops constructors to use as inputs.
-
-The TensorFlow Python library has a default graph to which ops constructors add nodes. The default graph is sufficient for many applications. See the Graph class documentation for how to explicitly manage multiple graphs.
-
-\begin{lstlisting}
-import tensorflow as tf
-
-# Create a Constant op that produces a 1x2 matrix.  The op is
-# added as a node to the default graph.
-#
-# The value returned by the constructor represents the output
-# of the Constant op.
-matrix1 = tf.constant([[3., 3.]])
-
-# Create another Constant that produces a 2x1 matrix.
-matrix2 = tf.constant([[2.],[2.]])
-
-# Create a Matmul op that takes 'matrix1' and 'matrix2' as inputs.
-# The returned value, 'product', represents the result of the matrix
-# multiplication.
-product = tf.matmul(matrix1, matrix2)
-\end{lstlisting}
-
-The default graph now has three nodes: two constant() ops and one matmul() op. To actually multiply the matrices, and get the result of the multiplication, you must launch the graph in a session.
-
-\subsubsection {Launching the graph in a session}
-
-Launching follows construction. To launch a graph, create a Session object. Without arguments the session constructor launches the default graph.
-
-See the Session class for the complete session API.
-
-\begin{lstlisting}
-# Launch the default graph.
-sess = tf.Session()
-
-# To run the matmul op we call the session 'run()' method, passing 'product'
-# which represents the output of the matmul op.  This indicates to the call
-# that we want to get the output of the matmul op back.
-#
-# All inputs needed by the op are run automatically by the session.  They
-# typically are run in parallel.
-#
-# The call 'run(product)' thus causes the execution of threes ops in the
-# graph: the two constants and matmul.
-#
-# The output of the op is returned in 'result' as a numpy `ndarray` object.
-result = sess.run(product)
-print(result)
-# ==> [[ 12.]]
-
-# Close the Session when we're done.
-sess.close()
-\end{lstlisting}
-
-Sessions should be closed to release resources. You can also enter a Session with a "with" block. The Session closes automatically at the end of the with block.
-
-\begin{lstlisting}
-with tf.Session() as sess:
-  result = sess.run([product])
-  print(result)
-\end{lstlisting}
-
-The TensorFlow implementation translates the graph definition into executable operations distributed across available compute resources, such as the CPU or one of your computer's GPU cards. In general you do not have to specify CPUs or GPUs explicitly. TensorFlow uses your first GPU, if you have one, for as many operations as possible.
-
-If you have more than one GPU available on your machine, to use a GPU beyond the first you must assign ops to it explicitly. Use with...Device statements to specify which CPU or GPU to use for operations:
-
-\begin{lstlisting}
-with tf.Session() as sess:
-  with tf.device("/gpu:1"):
-    matrix1 = tf.constant([[3., 3.]])
-    matrix2 = tf.constant([[2.],[2.]])
-    product = tf.matmul(matrix1, matrix2)
-    ...
-\end{lstlisting}
-
-Devices are specified with strings. The currently supported devices are:
-
-"/cpu:0": The CPU of your machine.
-"/gpu:0": The GPU of your machine, if you have one.
-"/gpu:1": The second GPU of your machine, etc.
-See Using GPUs for more information about GPUs and TensorFlow.
-
-\subsection{Interactive Usage}
-
-\subsection{Tensors}
-\subsection{Variables}
-\subsection{Fetches}
-\subsection{Feeds}
-
-\begin{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}
-\end{lstlisting}
-
-\begin{lstlisting}
-\end{lstlisting}
-
-
-
-\newpage
-
-%\chapter{基础教程}
+\chapter{基础教程}
 \include{tutorials/sec_2_1_overview}
 \include{tutorials/sec_2_2_minist_beginners}
 \include{tutorials/sec_2_3_minist_pros}
 \include{tutorials/sec_2_4_}
 \include{tutorials/sec_2_5_}
 
-% \newpage
-% \section {TensorFlow运作方式}
-% \section {卷积神经网络}
-% \subsection {概述}
-% \subsection {代码组织}
-% \subsection {CIFAR-10模型}_
-% \subsection {开始执行并训练模型}
-% \subsection {模型评估}
-% \section {Vector Representations of Words}
-% \section {循环神经网络}
-% \section {曼德博(Mandelbrot)集合}
-% \section {偏微分方程}
-% \section {MNIST数据集下载}
-
 
 \newpage
 % Chapter 3 How to...
 % 第三章 运作方式
 \include{how_tos/sec_3_1_variables}
-% \input{how_tos/sec_1_variables}
 
 
 \newpage
