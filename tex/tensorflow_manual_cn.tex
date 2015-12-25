@@ -36,7 +36,7 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
-\definecolor{myback}{rgb}{0.95,0.95,0.95}
+\definecolor{myback}{rgb}{0.95,0.92,0.93}
 
 \usepackage{listings}
 \lstset{ %
@@ -50,6 +50,7 @@
   escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
   extendedchars=true,                % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame=single,                      % adds a frame around the code
+  frameround=tttt,
   keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},         % keyword style
   language=Python,                   % the language of the code
@@ -65,12 +66,15 @@
   stringstyle=\color{orange},        % string literal style
   tabsize=2,                         % sets default tabsize to 2 spaces
   %title=myPython.py                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+  xleftmargin = 2em,
+  xrightmargin = 2em,
+  aboveskip = 0.5 em
 }
 
 % \setCJKmainfont[BoldFont={SimSun},ItalicFont={KaiTi}] %{SimSun}
 
 %%%%%%%%%%%%
-\title{Tensorflow 指南}
+\title{TensorFlow 指南}
 \author{}
 \date{\today}
 % \thanks{}
