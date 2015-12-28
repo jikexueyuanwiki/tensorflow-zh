@@ -1,38 +1,58 @@
 
-\section {下载与安装}
+\section {下载与安装} \label{download_install}
 
-你可以使用我们提供的二进制包, 或者使用源代码, 安装 TensorFlow.
+❂你可以使用我们提供的二进制包,或者源代码,安装 TensorFlow.
 
 %
 %%
 \subsection {安装需求}
 
-TensorFlow Python API 目前支持 Python 2.7 和 python 3.3以上版本。
+❂TensorFlow Python API 目前支持 Python 2.7 和 python 3.3以上版本。
 
-支持 GPU 运算的版本 (仅限Linux) 需要 Cuda Toolkit 7.0 和 CUDNN 6.5 V2. 具体请参考\href{ref}{Cuda安装}。
+❂支持 GPU 运算的版本 (仅限Linux) 需要 Cuda Toolkit 7.0 和 CUDNN 6.5 V2. 具体请参考\href{ref????}{Cuda安装}。
 
 %
 %%
 \subsection {安装总述}
 TensorFlow 支持通过以下不同的方式安装：
 \begin{itemize}
-\item \hyperref[pip_install]{Pip 安装}: Install TensorFlow on your machine, possibly upgrading previously installed Python packages. May impact existing Python programs on your machine.
-\item \hyperref[virtualenv_install]{Virtualenv 安装}: Install TensorFlow in its own directory, not impacting any existing Python programs on your machine.
-\item \hyperref[docker_install]{Docker 安装}: Run TensorFlow in a Docker container isolated from all other programs on your machine.
+%✠% \item \hyperref[pip_install]{Pip 安装}: Install TensorFlow on your machine, possibly upgrading previously installed Python packages. May impact existing Python programs on your machine.
+%✠% \item \hyperref[virtualenv_install]{Virtualenv 安装}: Install TensorFlow in its own directory, not impacting any existing Python programs on your machine.
+%✠% \item \hyperref[docker_install]{Docker 安装}: Run TensorFlow in a Docker container isolated from all other programs on your machine.
+
+\item \hyperref[pip_install]{Pip 安装}: 在你的机器上安装TensorFlow，可能会同时更新之前安装的Python包，并且影响到你机器当前可运行的Python程序．
+
+\item \hyperref[virtualenv_install]{Virtualenv 安装}: 在一个独立的路径下安装TensorFlow，不会影响到你机器当前运行的Python程序．
+
+\item \hyperref[docker_install]{Docker 安装}: 在一个独立的Docker容器中安装TensorFlow，并且不会影响到你机器上的任何其他程序．
 \end{itemize}
 
-If you are familiar with Pip, Virtualenv, or Docker, please feel free to adapt the instructions to your particular needs. The names of the pip and Docker images are listed in the corresponding installation sections.
+%✠% If you are familiar with Pip, Virtualenv, or Docker, please feel free to adapt the instructions to your particular needs. The names of the pip and Docker images are listed in the corresponding installation sections.
 
-If you encounter installation errors, see common problems for some solutions.
+%✠% If you encounter installation errors, see common problems for some solutions.
+
+❂ 如果你已经很熟悉Pip、Virtualenv、Docker这些工具的使用，请利用教程中提供的代码，根据你的需求安装TensorFlow。你会在下文的对应的安装教程中找到Pip或Docker安装所需的镜像。
+
+❂ 如果你遇到了安装错误，请参考章节\hyperref[comm_prob]{常见问题}寻找解决方案。
 
 %
 %%
-\subsection {Pip Installatioin} \label{pip_install}
-\href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} is a package management system used to install and manage software packages written in Python.
+%✠%\subsection {Pip Installatioin} \label{pip_install}
+\subsection {Pip 安装} \label{pip_install}
 
-The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}
+%✠% \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} is a package management system used to install and manage software packages written in Python.
 
-Install pip (or pip3 for python3) if it is not already installed:
+❂ \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} 是一个用于安装和管理Python软件包的管理系统。
+
+%✠% The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}
+
+%✠% The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}
+
+❂ 安装依赖包(\href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}) 列出了pip安装时将会被安装或更新的库文件。
+
+%✠% Install pip (or pip3 for python3) if it is not already installed:
+
+❂ 如果pip尚未被安装，请使用以下代码先安装pip(如果你使用的是Python 3请安装 pip3 ):
 
 \begin{lstlisting}[language = bash]
 # Ubuntu/Linux 64-bit
@@ -44,7 +64,8 @@ $ sudo apt-get install python-pip python-dev
 $ sudo easy_install pip
 \end{lstlisting}
 
-Install TensorFlow:
+%✠% Install TensorFlow:
+❂ 安装 TensorFlow:
 
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit, CPU only:
@@ -62,7 +83,9 @@ $ sudo easy_install --upgrade six
 $ sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.6.0-py2-none-any.whl
 \end{lstlisting}
 
-For Python 3:
+%✠% For Python 3:
+❂ 基于 Python 3 的 TensorFlow 安装:
+
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit, CPU only:
 $ sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.6.0-cp34-none-linux_x86_64.whl
@@ -80,23 +103,33 @@ $ sudo easy_install --upgrade six
 $ sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.6.0-py3-none-any.whl
 \end{lstlisting}
 
-You can now test your \hyperref[test_install]{installation}.
+%✠% You can now test your \hyperref[test_install]{installation}.
+❂ 至此你可以\hyperref[test_install]{测试安装}是否成功。
 
 %
 %%
-\subsection {Virtualenv Installation} \label{virtualenv_install}
+%✠% \subsection {Virtualenv Installation} \label{virtualenv_install}
+❂ \subsection {基于 Virtualenv 安装} \label{virtualenv_install}
+
 \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{Virtualenv} is a tool to keep the dependencies required by different Python projects in separate places. The Virtualenv installation of TensorFlow will not override pre-existing version of the Python packages needed by TensorFlow.
 
-With \href{https://pypi.python.org/pypi/virtualenv}{Virtualenv} the installation is as follows:
+%✠% With \href{https://pypi.python.org/pypi/virtualenv}{Virtualenv} the installation is as follows:
+
+❂ 基于\href{https://pypi.python.org/pypi/virtualenv}{Virtualenv}的安装分为以下几步:
 
 \begin{itemize}
-\item Install pip and Virtualenv.
-\item Create a Virtualenv environment.
-\item Activate the Virtualenv environment and install TensorFlow in it.
-\item After the install you will activate the Virtualenv environment each time you want to use TensorFlow.
+%✠% \item Install pip and Virtualenv.
+%✠% \item Create a Virtualenv environment.
+%✠% \item Activate the Virtualenv environment and install TensorFlow in it.
+%✠% \item After the install you will activate the Virtualenv environment each time you want to use TensorFlow.
+\item 安装 pip 和 Virtualenv.
+\item 建立一个 Virtualenv 环境.
+\item 激活该 Virtualenv 环境，并且在该环境下安装 TensorFlow.
+\item 安装完成之后，每次你需要使用TensorFlow之前必须激活这个Virtualenv 环境.
 \end{itemize}
 
-Install pip and Virtualenv:
+%✠% Install pip and Virtualenv:
+❂ 安装 pip 和 Virtualenv:
 
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit
@@ -109,7 +142,9 @@ $ sudo easy_install pip
 $ sudo pip install --upgrade virtualenv
 \end{lstlisting}
 
-Create a Virtualenv environment in the directory \lstinline{~/tensorflow}:
+%✠% Create a Virtualenv environment in the directory \lstinline{~/tensorflow}:
+❂ 在\lstinline{~/tensorflow}路径下建立一个 Virtualenv 环境:
+
 \begin{lstlisting}
 $ virtualenv --system-site-packages ~/tensorflow
 \end{lstlisting}
@@ -207,10 +242,13 @@ $ path/to/repo/tensorflow/tools/docker/docker_run_gpu.sh b.gcr.io/tensorflow/ten
 
 You can now \hyperref[test_install]{test your installation} within the Docker container.
 
+% ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂
 
 %
 %%
-\subsection {Test the TensorFlow Installation} \label{test_install}
+%✠% \subsection {Test the TensorFlow Installation} \label{test_install}
+❂ \subsection {测试 TensorFlow 安装} \label{test_install}
+
 %%%
 \subsubsection {(Optional, Linux) Enable GPU Support}
 
@@ -514,7 +552,9 @@ Validation error: 7.0%
 
 %
 %%
-\subsection {Common Problems} \label{comm_prob}
+
+% \subsection {Common Problems} \label{comm_prob}
+\subsection {常见问题} \label{comm_prob}
 
 %%%
 \subsubsection {GPU-related issues}

@@ -1,13 +1,29 @@
-\section{Basic Usage}
 
-To use TensorFlow you need to understand how TensorFlow:
+
+% ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂
+
+%✠% \section{Basic Usage} \label{basic_usage}
+❂ \section{使用基础} \label{basic_usage}
+
+
+%✠% To use TensorFlow you need to understand how TensorFlow:
+
+%✠% \begin{itemize}
+%✠% \item Represents computations as graphs.
+%✠% \item Executes graphs in the context of Sessions.
+%✠% \item Represents data as tensors.
+%✠% \item Maintains state with Variables.
+%✠% \item Uses feeds and fetches to get data into and out of arbitrary operations.
+%✠% \end{itemize}
+
+❂ 使用TensorFlow之前你需要了解关于TensorFlow的以下基础知识:
 
 \begin{itemize}
-\item Represents computations as graphs.
-\item Executes graphs in the context of Sessions.
-\item Represents data as tensors.
-\item Maintains state with Variables.
-\item Uses feeds and fetches to get data into and out of arbitrary operations.
+\item 使用\textbf{\lstinline{图(graphs)}}来表示计算.
+\item 在\textbf{\lstinline{会话(Session)}}中执行图.
+\item 使用\textbf{\lstinline{张量(tensors)}}来代表数据.
+\item 通过\textbf{\lstinline{变量(Variables)}}维护状态.
+\item 使用 \lstinline{feeds} 和 \lstinline{fetches} 将数据传入或传出 arbitrary operations.
 \end{itemize}
 
 %
@@ -16,7 +32,12 @@ To use TensorFlow you need to understand how TensorFlow:
 
 TensorFlow is a programming system in which you represent computations as graphs. Nodes in the graph are called ops (short for operations). An op takes zero or more \lstinline{Tensors}, performs some computation, and produces zero or more \lstinline{Tensors}. A Tensor is a typed multi-dimensional array. For example, you can represent a mini-batch of images as a 4-D array of floating point numbers with dimensions \lstinline{[batch, height, width, channels]}.
 
+TensorFlow 是一个以\textbf{\lstinline{图(graphs)}}来表示计算的编程系统,图中的节点被称之为 op (operation的缩写). 一个 op 获得零或多个\textbf{\lstinline{张量(tensors)}}执行计算,产生零或多个\textbf{\lstinline{张量(tensors)}}。张量 是一个按类型划分的多维数组。例如, 你可以将一小组图像集表示为一个四维浮点数数组,这四个维度分别是\lstinline{[batch, height, width, channels]}。
+
 A TensorFlow graph is a description of computations. To compute anything, a graph must be launched in a \lstinline{Session}. A Session places the graph ops onto \lstinline{Devices}, such as CPUs or GPUs, and provides methods to execute them. These methods return tensors produced by ops as \href{http://www.numpy.org/}{numpy} ndarray objects in Python, and as \lstinline{tensorflow::Tensor} instances in C and C++.
+
+TensorFlow的图描述了计算的流程。在计算开始前, 图必须在\lstinline{会话()Session}中被启动.\lstinline{会话()Session}将图的op分发到如CPU或GPU之类的\lstinline{设备(Devices)}上, 同时提供执行 op 的方法。这些方法执行后, 将产生的张量(tensor)返回。在 Python 语言中, 返回\href{http://www.numpy.org}{numpy}的\lstinline{ndarray} 对象; 在 C 和 C++ 语言中, 返回\lstinline{tensorflow::Tensor}实例。
+
 
 %
 %%
@@ -30,12 +51,32 @@ TensorFlow can be used from C, C++, and Python programs. It is presently much ea
 
 The session libraries have equivalent functionalities for the three languages.
 
-\subsubsection {Building the graph}
+通常，TensorFlow编程可按两个阶段组织起来:\textbf{构建阶段}和\textbf{执行阶段}。构建阶段用于组织计算用的图，而执行阶段利用session中执行op操作来计算图。
+
+例如,在构建阶段创建一个图来表示和训练神经网络,然后在执行阶段反复执行一组op来实现图中的训练。
+
+TensorFlow 支持 C, C++, Python 编程语言。 目前, TensorFlow 的 Python 库更加易用,
+它提供了大量的辅助函数来简化构建图的工作, 而这些函数在 C 和 C++ 库中尚不被支持。
+
+这三种语言的会话库 (session libraries) 是一致的.
+
+%%%
+% \subsubsection {Building the graph}
+\subsubsection {构建图}
+
 To build a graph start with ops that do not need any input (source ops), such as Constant, and pass their output to other ops that do computation.
 
 The ops constructors in the Python library return objects that stand for the output of the constructed ops. You can pass these to other ops constructors to use as inputs.
 
 The TensorFlow Python library has a default graph to which ops constructors add nodes. The default graph is sufficient for many applications. See the Graph class documentation for how to explicitly manage multiple graphs.
+
+刚开始基于op建立图的时候一般不需要任何的输入源(source op)，例如输入常量(\lstinline{Constance})，再将它们传递给其它 op 执行运算。
+
+Python库中的op构造函数返回代表已被组织好的op作为输出对象，这些对象可以传递给其它
+op构造函数作为输入。
+
+
+TensorFlow Python 库有一个可被 op构造函数加入计算结点的默认图 (default graph)。 对大多数应用来说，这个默认图已经足够用了。阅读 \hyperref[(../api_docs/python/framework.md#Graph)]{Graph 类}文档来了解如何明晰的管理多个图.
 
 \begin{lstlisting}
 import tensorflow as tf
@@ -58,11 +99,19 @@ product = tf.matmul(matrix1, matrix2)
 
 The default graph now has three nodes: two constant() ops and one matmul() op. To actually multiply the matrices, and get the result of the multiplication, you must launch the graph in a session.
 
-\subsubsection {Launching the graph in a session}
+默认图现在拥有三个节点，两个\lstinline{constant()} op，一个\lstinline{matmul()} op. 为了真正进行矩阵乘法运算，得到乘法结果, 你必须在一个会话(session)中载入动这个图。
+
+%%%
+% \subsubsection {Launching the graph in a session}
+\subsubsection {在会话(session)中载入图(graph)}
 
 Launching follows construction. To launch a graph, create a Session object. Without arguments the session constructor launches the default graph.
 
 See the Session class for the complete session API.
+
+构建过程完成后就可运行执行过程。为了载入之前所构建的图，必须先创建一个会话对象(\lstinline{Session} object)。会话构建器在未指明参数时会载入默认的图。
+
+完整的会话API资料，请参见\textbf{会话类(Session object)}。
 
 \begin{lstlisting}
 # Launch the default graph.
@@ -89,6 +138,8 @@ sess.close()
 
 Sessions should be closed to release resources. You can also enter a Session with a "with" block. The Session closes automatically at the end of the with block.
 
+会话在完成后必须关闭以释放资源。你也可以使用\lstinline{"with"}句块开始一个会话，该会话将在\lstinline{"with"}句块结束时自动关闭。
+
 \begin{lstlisting}
 with tf.Session() as sess:
   result = sess.run([product])
@@ -97,7 +148,11 @@ with tf.Session() as sess:
 
 The TensorFlow implementation translates the graph definition into executable operations distributed across available compute resources, such as the CPU or one of your computer's GPU cards. In general you do not have to specify CPUs or GPUs explicitly. TensorFlow uses your first GPU, if you have one, for as many operations as possible.
 
+TensorFlow 事实上通过一个“翻译”过程，将定义的图转化为不同的可用计算资源间实现分布计算的操作，如CPU或是显卡GPU。通常不需要用户指定具体使用的CPU或GPU，TensorFlow 能自动检测并尽可能的充分利用找到的第一个 GPU 进行运算。
+
 If you have more than one GPU available on your machine, to use a GPU beyond the first you must assign ops to it explicitly. Use with...Device statements to specify which CPU or GPU to use for operations:
+
+如果你的设备上有不止一个GPU，你需要明确指定op操作到不同的运算设备以调用它们。使用\lstinline{with...Device}语句明确指定哪个CPU或GPU将被调用。
 
 \begin{lstlisting}
 with tf.Session() as sess:
@@ -108,12 +163,29 @@ with tf.Session() as sess:
     ...
 \end{lstlisting}
 
-Devices are specified with strings. The currently supported devices are:
-
-"/cpu:0": The CPU of your machine.
-"/gpu:0": The GPU of your machine, if you have one.
+Devices are specified with strings. The currently supported devices are:\\
+"/cpu:0": The CPU of your machine.\\
+"/gpu:0": The GPU of your machine, if you have one.\\
 "/gpu:1": The second GPU of your machine, etc.
+
 See Using GPUs for more information about GPUs and TensorFlow.
+
+使用字符串指定设备，目前支持的设备包括:\\
+\lstinline{"/cpu:0"}：计算机的CPU；\\
+\lstinline{"/gpu:0"}：计算机的第一个GPU，如果可用；\\
+\lstinline{"/gpu:1"}：计算机的第二个GPU，以此类推。
+
+关于使用GPU的更多信息，请参阅\textbf{GPU使用}。
+
+
+%%%%  *  `"/cpu:0"`: 机器的 CPU.
+%%%%  *  `"/gpu:0"`: 机器的第一个 GPU, 如果有的话.
+%%%%  *  `"/gpu:1"`: 机器的第二个 GPU, 以此类推.
+%%%%
+%%%%  阅读[使用GPU](tensorflow-zh/SOURCE/how_tos/using_gpu.md)章节, 了解 TensorFlow GPU 使用的更多信息.
+%%%%
+
+
 
 %
 %%
@@ -235,42 +307,9 @@ with tf.Session() as sess:
 
 A \lstinline{placeholder()} operation generates an error if you do not supply a feed for it. See the \hyperref[minist_tf]{MNIST fully-connected feed tutorial} (\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py}{source code}) for a larger-scale example of feeds.
 
-%%%%  # 基本使用 <a class="md-anchor" id="AUTOGENERATED-basic-usage"></a>
-%%%%
-%%%%  使用 TensorFlow, 你必须明白 TensorFlow:
-%%%%
-%%%%  * 使用图 (graph) 来表示计算任务.
-%%%%  * 在被称之为 `会话 (Session)` 的上下文 (context) 中执行图.
-%%%%  * 使用 tensor 表示数据.
-%%%%  * 通过 `变量 (Variable)` 维护状态.
-%%%%  * 使用 feed 和 fetch 为任意操作输入和输出数据.
-%%%%
-%%%%  ## 综述 <a class="md-anchor" id="AUTOGENERATED-overview"></a>
-%%%%
-%%%%  TensorFlow 是一个编程系统, 使用图来表示计算任务. 图中的节点被称之为 *op*
-%%%%  (operation 的缩写). 一个 op 获得 0 个或多个 `Tensor`, 执行计算,
-%%%%  产生 0 个或多个 `Tensor `. 每个 Tensor 是一个类型化的多维数组.
-%%%%  例如, 你可以将一小组图像集表示为一个四维浮点数数组,
-%%%%  这四个维度分别是 `[batch, height, width, channels]`.
-%%%%
-%%%%  一个 TensorFlow 图*描述*了计算的过程. 为了进行计算, 图必须在 `会话` 里被启动.
-%%%%  `会话` 将图的 op 分发到诸如 CPU 或 GPU 之类的 `设备` 上, 同时提供执行 op 的方法.
-%%%%  这些方法执行后, 将产生的 tensor 返回. 在 Python 语言中, 返回的 tensor 是
-%%%%  [numpy](http://www.numpy.org) `ndarray` 对象; 在 C 和 C++ 语言中, 返回的 tensor 是
-%%%%   `tensorflow::Tensor` 实例.
-%%%%
-%%%%  ## 计算图 <a class="md-anchor" id="AUTOGENERATED-the-computation-graph"></a>
-%%%%
-%%%%  TensorFlow 程序通常被组织成一个构建阶段, 和一个执行阶段. 在构建阶段, op 的执行步骤
-%%%%  被描述成一个图. 在执行阶段, 使用会话执行执行图中的 op.
-%%%%
-%%%%  例如, 通常在构建阶段创建一个图来表示和训练神经网络, 然后在执行阶段反复执行图中的训练 op.
-%%%%
-%%%%  TensorFlow 支持 C, C++, Python 编程语言. 目前, TensorFlow 的 Python 库更加易用,
-%%%%  它提供了大量的辅助函数来简化构建图的工作, 这些函数尚未被 C 和 C++ 库支持.
-%%%%
-%%%%  三种语言的会话库 (session libraries) 是一致的.
-%%%%
+
+
+
 %%%%  ### 构建图 <a class="md-anchor" id="AUTOGENERATED-building-the-graph"></a>
 %%%%
 %%%%  构建图的第一步, 是创建源 op (source op). 源 op 不需要任何输入, 例如 `常量 (Constant)`. 源 op 的输出被传递给其它 op 做运算.
@@ -302,6 +341,7 @@ A \lstinline{placeholder()} operation generates an error if you do not supply a 
 %%%%  默认图现在有三个节点, 两个 `constant()` op, 和一个`matmul()` op. 为了真正进行矩阵相乘运算, 并得到矩阵乘法的
 %%%%  结果, 你必须在会话里启动这个图.
 %%%%
+
 %%%%  ### 在一个会话中启动图 <a class="md-anchor" id="AUTOGENERATED-launching-the-graph-in-a-session"></a>
 %%%%
 %%%%  构造阶段完成后, 才能启动图. 启动图的第一步是创建一个 `Session` 对象, 如果无任何创建参数,
