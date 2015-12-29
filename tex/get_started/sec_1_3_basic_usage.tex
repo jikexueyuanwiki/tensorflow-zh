@@ -41,7 +41,8 @@ TensorFlow的图描述了计算的流程。在计算开始前, 图必须在\lsti
 
 %
 %%
-\subsection{The computation graph}
+%✠ \subsection{The computation graph}
+\subsection {图的构建}
 
 TensorFlow programs are usually structured into a construction phase, that assembles a graph, and an execution phase that uses a session to execute ops in the graph.
 
@@ -177,23 +178,19 @@ See Using GPUs for more information about GPUs and TensorFlow.
 
 关于使用GPU的更多信息，请参阅\textbf{GPU使用}。
 
-
-%%%%  *  `"/cpu:0"`: 机器的 CPU.
-%%%%  *  `"/gpu:0"`: 机器的第一个 GPU, 如果有的话.
-%%%%  *  `"/gpu:1"`: 机器的第二个 GPU, 以此类推.
-%%%%
-%%%%  阅读[使用GPU](tensorflow-zh/SOURCE/how_tos/using_gpu.md)章节, 了解 TensorFlow GPU 使用的更多信息.
-%%%%
-
-
-
 %
 %%
-\subsection{Interactive Usage}
+% \subsection{Interactive Usage}
+\subsection{交互式使用}
 
 The Python examples in the documentation launch the graph with a \href{https://www.tensorflow.org/versions/master/api_docs/python/client.html#Session}{\lstinline{Session}} and use the \href{https://www.tensorflow.org/versions/master/api_docs/python/client.html#Session.run}{\lstinline{Session.run()}} method to execute operations.
 
 For ease of use in interactive Python environments, such as \href{http://ipython.org/}{\lstinline{IPython}} you can instead use the \href{https://www.tensorflow.org/versions/master/api_docs/python/client.html#InteractiveSession}{\lstinline{InteractiveSession}} class, and the \href{https://www.tensorflow.org/versions/master/api_docs/python/framework.html#Tensor.eval}{\lstinline{Tensor.eval()}} and \href{https://www.tensorflow.org/versions/master/api_docs/python/framework.html#Operation.run}{\lstinline{Operation.run()}} methods. This avoids having to keep a variable holding the session.
+
+文档中的 Python 示例使用一个会话\textbf{\lstinline{Session}}来启动图, 并调用\textbf{\lstinline{Session.run()}}方法执行操作。
+
+为了方便使用如\hyperref{http://ipython.org}{IPython}的交互式Python环境, 可以使用
+\lstinline{InteractiveSession}(../api\_docs/python/client.md#InteractiveSession) 代替\lstinline{Session}类, 使用\lstinline{Tensor.eval()}(../api\_docs/python/framework.md#Tensor.eval) 和 \lstinline{Operation.run()}(../api\_docs/python/framework.md#Operation.run) 方法代替\lstinline{Session.run()}. 这样可以避免使用一个变量来持有会话.
 
 \begin{lstlisting}
 # Enter an interactive TensorFlow Session.
@@ -217,13 +214,21 @@ sess.close()
 
 %
 %%
-\subsection{Tensors}
+%✠ \subsection{Tensors}
+\subsection{张量(Tensors)}
 TensorFlow programs use a tensor data structure to represent all data -- only tensors are passed between operations in the computation graph. You can think of a TensorFlow tensor as an n-dimensional array or list. A tensor has a static type, a rank, and a shape. To learn more about how TensorFlow handles these concepts, see the \href{https://www.tensorflow.org/versions/master/resources/dims_types.html}{Rank, Shape, and Type} reference.
+
+TensorFlow 程序使用 tensor 数据结构来代表所有的数据, 计算图中, 操作间传递的数据都是 tensor. 你可以把 TensorFlow tensor 看作是一个 n 维的数组或列表. 一个 tensor 包含一个静态类型 rank, 和一个 shape. 想了解 TensorFlow 是如何处理这些概念的, 参见 [Rank, Shape, 和 Type](../resources/dims\_types.md).
+
 
 %
 %%
-\subsection{Variables}
+%✠ \subsection{Variables}
+\subsection{变量}
+
 Variables maintain state across executions of the graph. The following example shows a variable serving as a simple counter. See \href{https://www.tensorflow.org/versions/master/how_tos/variables/index.html}{Variables} for more details.
+
+变量(../how\_tos/variables/index.md) 维护图执行过程中的状态信息。下面的例子演示了如何使用变量实现一个简单的计数器，更多细节详见 [变量](tensorflow-zh/how\_tos/variables.md)。
 
 \begin{lstlisting}
 # Create a Variable, that will be initialized to the scalar value 0.
@@ -262,12 +267,18 @@ The \lstinline{assign()} operation in this code is a part of the expression grap
 
 You typically represent the parameters of a statistical model as a set of Variables. For example, you would store the weights for a neural network as a tensor in a Variable. During training you update this tensor by running a training graph repeatedly.
 
+代码中\lstinline{assign()}操作是图所描绘的表达式的一部分, 正如\lstinline {add()}操作一样. 所以在调用\lstinline {run()}执行表达式之前, 它并不会真正执行赋值操作.
+
+通常会将一个统计模型中的参数表示为一组变量. 例如, 你可以将一个神经网络的权重作为某个变量存储在一个 tensor 中. 在训练过程中, 通过重复运行训练图, 更新这个 tensor.
+
 
 %
 %%
 \subsection{Fetches}
 
 To fetch the outputs of operations, execute the graph with a \lstinline{run()} call on the \lstinline{Session} object and pass in the tensors to retrieve. In the previous example we fetched the single node \lstinline{state}, but you can also fetch multiple tensors:
+
+为了取回操作的输出内容, 可以在使用 \lstinline{Session} 对象的 \lstinline{run()} 调用 执行图时, 传入一些 tensor,这些 tensor 会帮助你取回结果. 在之前的例子里, 我们只取回了单个节点\lstinline{state}, 但是你也可以取回多个tensor:
 
 \begin{lstlisting}
 input1 = tf.constant(3.0)
@@ -286,12 +297,19 @@ with tf.Session() as sess:
 
 All the ops needed to produce the values of the requested tensors are run once (not once per requested tensor).
 
+需要获取的多个 tensor 值，在 op 的一次运行中一起获得（而不是逐个去获取 tensor）。
+
 %
 %%
 \subsection{Feeds}
+
 The examples above introduce tensors into the computation graph by storing them in \lstinline{Constants} and \lstinline{Variables}. TensorFlow also provides a feed mechanism for patching a tensor directly into any operation in the graph.
 
 A feed temporarily replaces the output of an operation with a tensor value. You supply feed data as an argument to a \lstinline{run()} call. The feed is only used for the run call to which it is passed. The most common use case involves designating specific operations to be "feed" operations by using \lstinline{tf.placeholder()} to create them:
+
+上述示例在计算图中引入了 tensor, 以\lstinline{常量(Constants)}或\lstinline {变量(Variables)}的形式存储. TensorFlow 还提供了 feed 机制, 该机制可以临时替代图中的任意操作中的 tensor 可以对图中任何操作提交补丁, 直接插入一个 tensor.
+
+feed 使用一个 tensor 值临时替换一个操作的输出结果. 你可以提供 feed 数据作为 \lstinline {run()} 调用的参数.feed 只在调用它的方法内有效, 方法结束, feed 就会消失. 最常见的用例是将某些特殊的操作指定为 "feed" 操作, 标记的方法是使用\lstinline{tf.placeholder()}为这些操作创建占位符.
 
 \begin{lstlisting}
 input1 = tf.placeholder(tf.float32)
@@ -307,8 +325,11 @@ with tf.Session() as sess:
 
 A \lstinline{placeholder()} operation generates an error if you do not supply a feed for it. See the \hyperref[minist_tf]{MNIST fully-connected feed tutorial} (\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py}{source code}) for a larger-scale example of feeds.
 
+如果没有正确提供 feed, \lstinline{placeholder()} 操作将会产生一个错误提示.关于feed的规模更大的案例，参见\hyperref[minist_tf]{MNIST 全连通 feed 教程}以及其\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py}{源代码}。
 
-
+原文：[Basic Usage](http://tensorflow.org/get_started/basic_usage.md)
+翻译：[@doc001](https://github.com/PFZheng)
+校对：[@yangtze](https://github.com/sstruct)
 
 %%%%  ### 构建图 <a class="md-anchor" id="AUTOGENERATED-building-the-graph"></a>
 %%%%
