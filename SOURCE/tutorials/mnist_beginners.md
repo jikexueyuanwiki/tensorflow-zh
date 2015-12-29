@@ -235,6 +235,6 @@ print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 
 这个结果好吗？嗯，并不太好。事实上，这个结果是很差的。这是因为我们仅仅使用了一个非常简单的模型。不过，做一些小小的改进，我们就可以得到97％的正确率。最好的模型甚至可以获得超过99.7％的准确率！（想了解更多信息，可以看看这个关于各种模型的[性能对比列表](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html)。)
 
-比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看[下一个教程](./mnist_pros.md)，在那里你可以学习如何用FensorFlow构建更加复杂的模型以获得更好的性能！
+比结果更重要的是，我们从这个模型中学习到的设计思想。不过，如果你仍然对这里的结果有点失望，可以查看[下一个教程](./mnist_pros.md)，在那里你可以学习如何用TensorFlow构建更加复杂的模型以获得更好的性能！
 
 原文地址：[MNIST For ML Beginners](http://tensorflow.org/tutorials/mnist/beginners/index.md) 翻译：[linbojin](https://github.com/linbojin) 校对：
