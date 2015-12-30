@@ -523,39 +523,15 @@
 			"file": "tensorflow_manual_cn.tex",
 			"settings":
 			{
-				"buffer_size": 3932,
+				"buffer_size": 4524,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "get_started/sec_1_3_basic_usage.tex",
+			"file": "tutorials/c2s01_minist_beginners.tex",
 			"settings":
 			{
-				"buffer_size": 21553,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "get_started/sec_1_1_introduction.tex",
-			"settings":
-			{
-				"buffer_size": 3627,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "get_started/sec_1_2_os_setup.tex",
-			"settings":
-			{
-				"buffer_size": 37091,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tutorials/sec_2_4_.tex",
-			"settings":
-			{
-				"buffer_size": 13621,
+				"buffer_size": 10079,
 				"line_ending": "Windows"
 			}
 		}
@@ -989,18 +965,35 @@
 	[
 		"/D/codes_sync/tensorflow/tensorflow_zh",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials"
 	],
 	"file_history":
 	[
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_4_.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_5_.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_2_os_setup.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn.toc",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s04_.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/sec_3_1_variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s00_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s00_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/chpt_3_how_tos.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s05_reading_data.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s06_threading_and_queues.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s07_adding_an_op.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s09_using_gpu.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s04_graph_viz.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s02_variable_scope.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_6_word2vec.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_7_recurrent.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_9_mandelbrot.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_8_seq2seq.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_5_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_11_mnist_download.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_10_pdes.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_2_os_setup.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_1_introduction.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/sec_1_3_basic_usage.tex",
+		"/D/pandoc_test/variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_4_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tensorflow_manual_cn.toc",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_1_overview.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_3_minist_pros.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/sec_2_2_minist_beginners.tex",
@@ -1103,30 +1096,11 @@
 		"/D/SEIKA.sync/Java.Works/SAA/模拟退火.class",
 		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/plot_tree.py",
 		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/cart/cart_decision_tree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/A 60-day plan of learning data mining",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/sa",
-		"/D/SEIKA.sync/Python.Works/MLinAct/decision_tree/decision_tree.py",
-		"/D/SEIKA.sync/Python.Works/MLinAct/kNN.py",
-		"/D/SEIKA.sync/Python.Works/MLinAct/knn.py",
-		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/portfolio_model_seed_deployment.tex",
-		"/D/SEIKA.sync/Seika.TEMP/chen_car_mark_every_lane_count.txt",
-		"/D/PROGRAM.sync/SublimeText_x64_3059/Data/Packages/User/Preferences.sublime-settings",
-		"/D/SEIKA.sync/Project_X/remote sensing/profs_provided_by_Dr_ms_li",
-		"/D/SEIKA.sync/Project_X/remote sensing/JQi_CV_rs/JQi_CV.tex",
-		"/D/SEIKA.sync/Project_X/remote sensing/JQi_CV.tex",
-		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/citations.bib",
-		"/D/SEIKA.sync/TeX.works/cjfr/portfolio_model_seed_deployment/portfolio_model_seed_deployment.bbl",
-		"/C/Users/Seika/Desktop/test/url_citation_minimal/test.tex",
-		"/D/PROGRAM.sync/SublimeText_x64_3059/Data/Packages/User/LaTeX.sublime-settings",
-		"/D/SEIKA.sync/Python.Works/seika_scriber/ss1.py",
-		"/D/SEIKA.sync/Python.Works/MDPI/WOS.crunch/py_play.py",
-		"/D/SEIKA.sync/Python.Works/MDPI/Sagitt.prj/Sagitt.py",
-		"/D/SEIKA.sync/Python.Works/MDPI/ProcList.prj/HIP.py",
-		"/D/SEIKA.sync/Python.Works/MDPI/GoogleAnalytics/GA_doi.py"
+		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/A 60-day plan of learning data mining"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -1140,6 +1114,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sec_2",
+			"sec_3_1_variables",
 			"%%%%",
 			"subsubsection",
 			"%%%%",
@@ -1265,9 +1241,7 @@
 			"citation",
 			"b.",
 			"0. ",
-			" .",
-			"Table",
-			"table"
+			" ."
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1308,15 +1282,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3932,
+						"buffer_size": 4524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								954,
-								954
+								4042,
+								4042
 							]
 						],
 						"settings":
@@ -1327,7 +1301,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 597.0,
+						"translation.y": 1584.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1335,122 +1309,31 @@
 				},
 				{
 					"buffer": 1,
-					"file": "get_started/sec_1_3_basic_usage.tex",
+					"file": "tutorials/c2s01_minist_beginners.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21553,
+						"buffer_size": 10079,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10976,
-								10976
+								452,
+								452
 							]
 						],
 						"settings":
 						{
 							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4976.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "get_started/sec_1_1_introduction.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3627,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1034.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "get_started/sec_1_2_os_setup.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 37091,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "tutorials/sec_2_4_.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 13621,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								171,
-								181
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1458,7 +1341,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -1489,7 +1372,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 286.0
+		"height": 152.0
 	},
 	"output.find_results":
 	{
@@ -1503,7 +1386,7 @@
 	"project": "tensorflow_manual_translation.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1557,7 +1440,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 268.0,
+	"side_bar_width": 219.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
