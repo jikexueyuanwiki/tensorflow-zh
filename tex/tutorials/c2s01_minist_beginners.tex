@@ -17,9 +17,11 @@
 
 当我们开始学习编程的时候，第一件事往往是学习打印“Hello World”。就好比编程入门有Hello World，机器学习入门有MNIST。
 MNIST是一个入门级的计算机视觉数据集，它包含各种手写数字图片：
+
 \begin{center}
 \includegraphics[width=.55\textwidth]{../SOURCE/images/MNIST.png}
 \end{center}
+
 它也包含每一张图片对应的标签，告诉我们这个是数字几。比如，上面这四张图片的标签分别是5,0,4,1。
 
 在此教程中，我们将训练一个机器学习模型用于预测图片里面的数字。我们的目的不是要设计一个世界一流的复杂模型 -- 尽管我们会在之后给你源代码去实现一流的预测模型 -- 而是要介绍下如何使用TensorFlow。所以，我们这里会从一个很简单的数学模型开始，它叫做Softmax Regression。

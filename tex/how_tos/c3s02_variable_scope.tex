@@ -1,0 +1,367 @@
+
+
+\section{共享变量}\label{ux5171ux4eabux53d8ux91cf}
+
+你可以在\href{tensorflow-zh/SOURCE/how_tos/variables/index.md}{怎么使用变量}中所描述的方式来创建，初始化，保存及加载单一的变量.但是当创建复杂的模块时，通常你需要共享大量变量集并且如果你还想在同一个地方初始化这所有的变量,我们又该怎么做呢.本教程就是演示如何使用\texttt{tf.variable\_scope()}
+和\texttt{tf.get\_variable()}两个方法来实现这一点.
+
+\subsection{问题}\label{ux95eeux9898}
+
+假设你为图片过滤器创建了一个简单的模块，和我们的\href{tensorflow-zh/SOURCE/tutorials/deep_cnn/index.md}{卷积神经网络教程}模块相似,但是这里包括两个卷积（为了简化实例这里只有两个）.如果你仅使用\texttt{tf.Variable}变量,那么你的模块就如\href{tensorflow-zh/SOURCE/how_tos/variables/index.md}{怎么使用变量}里面所解释的是一样的模块.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{my_image_filter(input_images):}
+    \NormalTok{conv1_weights }\OperatorTok{=} \NormalTok{tf.Variable(tf.random_normal([}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{32}\NormalTok{]),}
+        \NormalTok{name}\OperatorTok{=}\StringTok{"conv1_weights"}\NormalTok{)}
+    \NormalTok{conv1_biases }\OperatorTok{=} \NormalTok{tf.Variable(tf.zeros([}\DecValTok{32}\NormalTok{]), name}\OperatorTok{=}\StringTok{"conv1_biases"}\NormalTok{)}
+    \NormalTok{conv1 }\OperatorTok{=} \NormalTok{tf.nn.conv2d(input_images, conv1_weights,}
+        \NormalTok{strides}\OperatorTok{=}\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{], padding}\OperatorTok{=}\StringTok{'SAME'}\NormalTok{)}
+    \NormalTok{relu1 }\OperatorTok{=} \NormalTok{tf.nn.relu(conv1 }\OperatorTok{+} \NormalTok{conv1_biases)}
+
+    \NormalTok{conv2_weights }\OperatorTok{=} \NormalTok{tf.Variable(tf.random_normal([}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{32}\NormalTok{]),}
+        \NormalTok{name}\OperatorTok{=}\StringTok{"conv2_weights"}\NormalTok{)}
+    \NormalTok{conv2_biases }\OperatorTok{=} \NormalTok{tf.Variable(tf.zeros([}\DecValTok{32}\NormalTok{]), name}\OperatorTok{=}\StringTok{"conv2_biases"}\NormalTok{)}
+    \NormalTok{conv2 }\OperatorTok{=} \NormalTok{tf.nn.conv2d(relu1, conv2_weights,}
+        \NormalTok{strides}\OperatorTok{=}\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{], padding}\OperatorTok{=}\StringTok{'SAME'}\NormalTok{)}
+    \ControlFlowTok{return} \NormalTok{tf.nn.relu(conv2 }\OperatorTok{+} \NormalTok{conv2_biases)}
+\end{Highlighting}
+\end{Shaded}
+
+你很容易想到，模块集很快就比一个模块变得更为复杂，仅在这里我们就有了四个不同的变量：\texttt{conv1\_weights},\texttt{conv1\_biases},
+\texttt{conv2\_weights}, 和\texttt{conv2\_biases}.
+当我们想重用这个模块时问题还在增多.假设你想把你的图片过滤器运用到两张不同的图片，
+\texttt{image1}和\texttt{image2}.你想通过拥有同一个参数的同一个过滤器来过滤两张图片，你可以调用\texttt{my\_image\_filter()}两次，但是这会产生两组变量.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# First call creates one set of variables.}
+\NormalTok{result1 }\OperatorTok{=} \NormalTok{my_image_filter(image1)}
+\CommentTok{# Another set is created in the second call.}
+\NormalTok{result2 }\OperatorTok{=} \NormalTok{my_image_filter(image2)}
+\end{Highlighting}
+\end{Shaded}
+
+通常共享变量的方法就是在单独的代码块中来创建他们并且通过使用他们的函数.如使用字典的例子：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variables_dict }\OperatorTok{=} \NormalTok{\{}
+    \StringTok{"conv1_weights"}\NormalTok{: tf.Variable(tf.random_normal([}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{32}\NormalTok{]),}
+        \NormalTok{name}\OperatorTok{=}\StringTok{"conv1_weights"}\NormalTok{)}
+    \CommentTok{"conv1_biases"}\NormalTok{: tf.Variable(tf.zeros([}\DecValTok{32}\NormalTok{]), name}\OperatorTok{=}\StringTok{"conv1_biases"}\NormalTok{)}
+    \NormalTok{... etc. ...}
+\NormalTok{\}}
+
+\KeywordTok{def} \NormalTok{my_image_filter(input_images, variables_dict):}
+    \NormalTok{conv1 }\OperatorTok{=} \NormalTok{tf.nn.conv2d(input_images, variables_dict[}\StringTok{"conv1_weights"}\NormalTok{],}
+        \NormalTok{strides}\OperatorTok{=}\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{], padding}\OperatorTok{=}\StringTok{'SAME'}\NormalTok{)}
+    \NormalTok{relu1 }\OperatorTok{=} \NormalTok{tf.nn.relu(conv1 }\OperatorTok{+} \NormalTok{variables_dict[}\StringTok{"conv1_biases"}\NormalTok{])}
+
+    \NormalTok{conv2 }\OperatorTok{=} \NormalTok{tf.nn.conv2d(relu1, variables_dict[}\StringTok{"conv2_weights"}\NormalTok{],}
+        \NormalTok{strides}\OperatorTok{=}\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{], padding}\OperatorTok{=}\StringTok{'SAME'}\NormalTok{)}
+    \ControlFlowTok{return} \NormalTok{tf.nn.relu(conv2 }\OperatorTok{+} \NormalTok{variables_dict[}\StringTok{"conv2_biases"}\NormalTok{])}
+
+\CommentTok{# The 2 calls to my_image_filter() now use the same variables}
+\NormalTok{result1 }\OperatorTok{=} \NormalTok{my_image_filter(image1, variables_dict)}
+\NormalTok{result2 }\OperatorTok{=} \NormalTok{my_image_filter(image2, variables_dict)}
+\end{Highlighting}
+\end{Shaded}
+
+虽然使用上面的方式创建变量是很方便的，但是在这个模块代码之外却破坏了其封装性：
+
+\begin{itemize}
+\tightlist
+\item
+  在构建试图的代码中标明变量的名字，类型，形状来创建.
+\item
+  当代码改变了，调用的地方也许就会产生或多或少或不同类型的变量.
+\end{itemize}
+
+解决此类问题的方法之一就是使用类来创建模块，在需要的地方使用类来小心地管理他们需要的变量.
+一个更高明的做法,不用调用类，而是利用TensorFlow 提供了\emph{变量作用域}
+机制，当构建一个视图时,很容易就可以共享命名过的变量.
+
+\subsection{变量作用域实例}\label{ux53d8ux91cfux4f5cux7528ux57dfux5b9eux4f8b}
+
+变量作用域机制在TensorFlow中主要由两部分组成：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tf.get\_variable(\textless{}name\textgreater{},\ \textless{}shape\textgreater{},\ \textless{}initializer\textgreater{})}:
+  通过所给的名字创建或是返回一个变量.
+\item
+  \texttt{tf.variable\_scope(\textless{}scope\_name\textgreater{})}:
+  通过 \texttt{tf.get\_variable()}为变量名指定命名空间.
+\end{itemize}
+
+方法 \texttt{tf.get\_variable()}
+用来获取或创建一个变量，而不是直接调用\texttt{tf.Variable}.它采用的不是像`tf.Variable这样直接获取值来初始化的方法.一个初始化就是一个方法，创建其形状并且为这个形状提供一个张量.这里有一些在TensorFlow中使用的初始化变量：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tf.constant\_initializer(value)} 初始化一切所提供的值,
+\item
+  \texttt{tf.random\_uniform\_initializer(a,\ b)}从a到b均匀初始化,
+\item
+  \texttt{tf.random\_normal\_initializer(mean,\ stddev)}
+  用所给平均值和标准差初始化均匀分布.
+\end{itemize}
+
+为了了解\texttt{tf.get\_variable()}怎么解决前面所讨论的问题,让我们在单独的方法里面创建一个卷积来重构一下代码，命名为\texttt{conv\_relu}：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{conv_relu(}\BuiltInTok{input}\NormalTok{, kernel_shape, bias_shape):}
+    \CommentTok{# Create variable named "weights".}
+    \NormalTok{weights }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"weights"}\NormalTok{, kernel_shape,}
+        \NormalTok{initializer}\OperatorTok{=}\NormalTok{tf.random_normal_initializer())}
+    \CommentTok{# Create variable named "biases".}
+    \NormalTok{biases }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"biases"}\NormalTok{, bias_shape,}
+        \NormalTok{initializer}\OperatorTok{=}\NormalTok{tf.constant_intializer(}\FloatTok{0.0}\NormalTok{))}
+    \NormalTok{conv }\OperatorTok{=} \NormalTok{tf.nn.conv2d(}\BuiltInTok{input}\NormalTok{, weights,}
+        \NormalTok{strides}\OperatorTok{=}\NormalTok{[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{], padding}\OperatorTok{=}\StringTok{'SAME'}\NormalTok{)}
+    \ControlFlowTok{return} \NormalTok{tf.nn.relu(conv }\OperatorTok{+} \NormalTok{biases)}
+\end{Highlighting}
+\end{Shaded}
+
+这个方法中用了\texttt{"weights"}
+和\texttt{"biases"}两个简称.而我们更偏向于用\texttt{conv1} 和
+\texttt{conv2}这两个变量的写法,但是不同的变量需要不同的名字.这就是\texttt{tf.variable\_scope()}
+变量起作用的地方.他为变量指定了相应的命名空间.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{my_image_filter(input_images):}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"conv1"}\NormalTok{):}
+        \CommentTok{# Variables created here will be named "conv1/weights", "conv1/biases".}
+        \NormalTok{relu1 }\OperatorTok{=} \NormalTok{conv_relu(input_images, [}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{32}\NormalTok{], [}\DecValTok{32}\NormalTok{])}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"conv2"}\NormalTok{):}
+        \CommentTok{# Variables created here will be named "conv2/weights", "conv2/biases".}
+        \ControlFlowTok{return} \NormalTok{conv_relu(relu1, [}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{32}\NormalTok{, }\DecValTok{32}\NormalTok{], [}\DecValTok{32}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+现在，让我们看看当我们调用 \texttt{my\_image\_filter()}
+两次时究竟会发生了什么.
+
+\begin{verbatim}
+result1 = my_image_filter(image1)
+result2 = my_image_filter(image2)
+# Raises ValueError(... conv1/weights already exists ...)
+\end{verbatim}
+
+就像你看见的一样，\texttt{tf.get\_variable()}会检测已经存在的变量是否已经共享.如果你想共享他们，你需要像下面使用的一样，通过\texttt{reuse\_variables()}这个方法来指定.
+
+\begin{verbatim}
+with tf.variable_scope("image_filters") as scope:
+    result1 = my_image_filter(image1)
+    scope.reuse_variables()
+    result2 = my_image_filter(image2)
+\end{verbatim}
+
+用这种方式来共享变量是非常好的，轻量级而且安全.
+
+\subsection{变量作用域是怎么工作的？}\label{ux53d8ux91cfux4f5cux7528ux57dfux662fux600eux4e48ux5de5ux4f5cux7684}
+
+\subsubsection{\texorpdfstring{理解 \texttt{tf.get\_variable()}
+}{理解 tf.get\_variable() }}\label{ux7406ux89e3-tf.getux5fvariable}
+
+为了理解变量作用域，首先完全理解\texttt{tf.get\_variable()}是怎么工作的是很有必要的.
+通常我们就是这样调用\texttt{tf.get\_variable} 的.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(name, shape, dtype, initializer)}
+\end{Highlighting}
+\end{Shaded}
+
+此调用做了有关作用域的两件事中的其中之一，方法调入.总的有两种情况.
+
+\begin{itemize}
+\tightlist
+\item
+  情况1:当\texttt{tf.get\_variable\_scope().reuse\ ==\ False}时，作用域就是为创建新变量所设置的.
+\end{itemize}
+
+这种情况下，\texttt{v}将通过\texttt{tf.Variable}所提供的形状和数据类型来重新创建.创建变量的全称将会由当前变量作用域名+所提供的\texttt{名字}所组成,并且还会检查来确保没有任何变量使用这个全称.如果这个全称已经有一个变量使用了，那么方法将会抛出\texttt{ValueError}错误.如果一个变量被创建,他将会用\texttt{initializer(shape)}进行初始化.比如：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{v.name }\OperatorTok{==} \StringTok{"foo/v:0"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  情况1：当\texttt{tf.get\_variable\_scope().reuse\ ==\ True}时，作用域是为重用变量所设置
+\end{itemize}
+
+这种情况下，调用就会搜索一个已经存在的变量，他的全称和当前变量的作用域名+所提供的\texttt{名字}是否相等.如果不存在相应的变量，就会抛出\texttt{ValueError}
+错误.如果变量找到了，就返回这个变量.如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{, reuse}\OperatorTok{=}\VariableTok{True}\NormalTok{):}
+    \NormalTok{v1 }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{v1 }\OperatorTok{==} \NormalTok{v}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{\texttt{tf.variable\_scope()}
+基础}{tf.variable\_scope() 基础}}\label{tf.variableux5fscope-ux57faux7840}
+
+知道\texttt{tf.get\_variable()}是怎么工作的,使得理解变量作用域变得很容易.变量作用域的主方法带有一个名称，它将会作为前缀用于变量名,并且带有一个重用标签来区分以上的两种情况.嵌套的作用域附加名字所用的规则和文件目录的规则很类似：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"bar"}\NormalTok{):}
+        \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{v.name }\OperatorTok{==} \StringTok{"foo/bar/v:0"}
+\end{Highlighting}
+\end{Shaded}
+
+当前变量作用域可以用\texttt{tf.get\_variable\_scope()}进行检索并且\texttt{reuse}
+标签可以通过调用\texttt{tf.get\_variable\_scope().reuse\_variables()}设置为\texttt{True}
+.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+    \NormalTok{tf.get_variable_scope().reuse_variables()}
+    \NormalTok{v1 }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{v1 }\OperatorTok{==} \NormalTok{v}
+\end{Highlighting}
+\end{Shaded}
+
+注意你\emph{不能}设置\texttt{reuse}标签为\texttt{False}.其中的原因就是允许改写创建模块的方法.想一下你前面写得方法\texttt{my\_image\_filter(inputs)}.有人在变量作用域内调用\texttt{reuse=True}
+是希望所有内部变量都被重用.如果允许在方法体内强制执行\texttt{reuse=False}，将会打破内部结构并且用这种方法使得很难再共享参数.
+
+即使你不能直接设置 \texttt{reuse} 为 \texttt{False}
+,但是你可以输入一个重用变量作用域,然后就释放掉,就成为非重用的变量.当打开一个变量作用域时,使用\texttt{reuse=True}
+作为参数是可以的.但也要注意，同一个原因，\texttt{reuse}
+参数是不可继承.所以当你打开一个重用变量作用域，那么所有的子作用域也将会被重用.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"root"}\NormalTok{):}
+    \CommentTok{# At start, the scope is not reusing.}
+    \ControlFlowTok{assert} \NormalTok{tf.get_variable_scope().reuse }\OperatorTok{==} \VariableTok{False}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+        \CommentTok{# Opened a sub-scope, still not reusing.}
+        \ControlFlowTok{assert} \NormalTok{tf.get_variable_scope().reuse }\OperatorTok{==} \VariableTok{False}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{, reuse}\OperatorTok{=}\VariableTok{True}\NormalTok{):}
+        \CommentTok{# Explicitly opened a reusing scope.}
+        \ControlFlowTok{assert} \NormalTok{tf.get_variable_scope().reuse }\OperatorTok{==} \VariableTok{True}
+        \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"bar"}\NormalTok{):}
+            \CommentTok{# Now sub-scope inherits the reuse flag.}
+            \ControlFlowTok{assert} \NormalTok{tf.get_variable_scope().reuse }\OperatorTok{==} \VariableTok{True}
+    \CommentTok{# Exited the reusing scope, back to a non-reusing one.}
+    \ControlFlowTok{assert} \NormalTok{tf.get_variable_scope().reuse }\OperatorTok{==} \VariableTok{False}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{获取变量作用域}\label{ux83b7ux53d6ux53d8ux91cfux4f5cux7528ux57df}
+
+在上面的所有例子中，我们共享参数只因为他们的名字是一致的，那是因为我们开启一个变量作用域重用时刚好用了同一个字符串.在更复杂的情况，他可以通过变量作用域对象来使用，而不是通过依赖于右边的名字来使用.为此,变量作用域可以被获取并使用，而不是仅作为当开启一个新的变量作用域的名字.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{) }\ImportTok{as} \NormalTok{foo_scope:}
+    \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(foo_scope)}
+    \NormalTok{w }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"w"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(foo_scope, reuse}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+    \NormalTok{v1 }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+    \NormalTok{w1 }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"w"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{v1 }\OperatorTok{==} \NormalTok{v}
+\ControlFlowTok{assert} \NormalTok{w1 }\OperatorTok{==} \NormalTok{w}
+\end{Highlighting}
+\end{Shaded}
+
+当开启一个变量作用域，使用一个预先已经存在的作用域时，我们会跳过当前变量作用域的前缀而直接成为一个完全不同的作用域.这就是我们做得完全独立的地方.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{) }\ImportTok{as} \NormalTok{foo_scope:}
+    \ControlFlowTok{assert} \NormalTok{foo_scope.name }\OperatorTok{==} \StringTok{"foo"}
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"bar"}\NormalTok{)}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"baz"}\NormalTok{) }\ImportTok{as} \NormalTok{other_scope:}
+        \ControlFlowTok{assert} \NormalTok{other_scope.name }\OperatorTok{==} \StringTok{"bar/baz"}
+        \ControlFlowTok{with} \NormalTok{tf.variable_scope(foo_scope) }\ImportTok{as} \NormalTok{foo_scope2:}
+            \ControlFlowTok{assert} \NormalTok{foo_scope2.name }\OperatorTok{==} \StringTok{"foo"}  \CommentTok{# Not changed.}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{变量作用域中的初始化器}\label{ux53d8ux91cfux4f5cux7528ux57dfux4e2dux7684ux521dux59cbux5316ux5668}
+
+使用\texttt{tf.get\_variable()}允许你重写方法来创建或者重用变量,并且可以被外部透明调用.但是如果我们想改变创建变量的初始化器那要怎么做呢？是否我们需要为所有的创建变量方法传递一个额外的参数呢？那在大多数情况下，当我们想在一个地方并且为所有的方法的所有的变量设置一个默认初始化器，那又改怎么做呢？为了解决这些问题，变量作用域可以携带一个默认的初始化器.他可以被子作用域继承并传递给\texttt{tf.get\_variable()}
+调用.但是如果其他初始化器被明确地指定,那么他将会被重写.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{, initializer}\OperatorTok{=}\NormalTok{tf.constant_initializer(}\FloatTok{0.4}\NormalTok{)):}
+    \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+    \ControlFlowTok{assert} \NormalTok{v.}\BuiltInTok{eval}\NormalTok{() }\OperatorTok{==} \FloatTok{0.4}  \CommentTok{# Default initializer as set above.}
+    \NormalTok{w }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"w"}\NormalTok{, [}\DecValTok{1}\NormalTok{], initializer}\OperatorTok{=}\NormalTok{tf.constant_initializer(}\FloatTok{0.3}\NormalTok{)):}
+    \ControlFlowTok{assert} \NormalTok{w.}\BuiltInTok{eval}\NormalTok{() }\OperatorTok{==} \FloatTok{0.3}  \CommentTok{# Specific initializer overrides the default.}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"bar"}\NormalTok{):}
+        \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+        \ControlFlowTok{assert} \NormalTok{v.}\BuiltInTok{eval}\NormalTok{() }\OperatorTok{==} \FloatTok{0.4}  \CommentTok{# Inherited default initializer.}
+    \ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"baz"}\NormalTok{, initializer}\OperatorTok{=}\NormalTok{tf.constant_initializer(}\FloatTok{0.2}\NormalTok{)):}
+        \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+        \ControlFlowTok{assert} \NormalTok{v.}\BuiltInTok{eval}\NormalTok{() }\OperatorTok{==} \FloatTok{0.2}  \CommentTok{# Changed default initializer.}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{在\texttt{tf.variable\_scope()}中ops的名称}{在tf.variable\_scope()中ops的名称}}\label{ux5728tf.variableux5fscopeux4e2dopsux7684ux540dux79f0}
+
+我们讨论 \texttt{tf.variable\_scope}
+怎么处理变量的名字.但是又是如何在作用域中影响到
+其他ops的名字的呢？ops在一个变量作用域的内部创建，那么他应该是共享他的名字，这是很自然的想法.出于这样的原因，当我们用\texttt{with\ tf.variable\_scope("name")}时，这就间接地开启了一个\texttt{tf.name\_scope("name")}.比如：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \NormalTok{x }\OperatorTok{=} \FloatTok{1.0} \OperatorTok{+} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+\ControlFlowTok{assert} \NormalTok{x.op.name }\OperatorTok{==} \StringTok{"foo/add"}
+\end{Highlighting}
+\end{Shaded}
+
+名称作用域可以被开启并添加到一个变量作用域中,然后他们只会影响到ops的名称,而不会影响到变量.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \NormalTok{tf.variable_scope(}\StringTok{"foo"}\NormalTok{):}
+    \ControlFlowTok{with} \NormalTok{tf.name_scope(}\StringTok{"bar"}\NormalTok{):}
+        \NormalTok{v }\OperatorTok{=} \NormalTok{tf.get_variable(}\StringTok{"v"}\NormalTok{, [}\DecValTok{1}\NormalTok{])}
+        \NormalTok{x }\OperatorTok{=} \FloatTok{1.0} \OperatorTok{+} \NormalTok{v}
+\ControlFlowTok{assert} \NormalTok{v.name }\OperatorTok{==} \StringTok{"foo/v:0"}
+\ControlFlowTok{assert} \NormalTok{x.op.name }\OperatorTok{==} \StringTok{"foo/bar/add"}
+\end{Highlighting}
+\end{Shaded}
+
+当用一个引用对象而不是一个字符串去开启一个变量作用域时，我们就不会为ops改变当前的名称作用域.
+
+\subsection{使用实例 }\label{ux4f7fux7528ux5b9eux4f8b}
+
+这里有一些指向怎么使用变量作用域的文件.特别是，他被大量用于
+\href{https://zh.wikipedia.org/wiki/\%E9\%80\%92\%E5\%BD\%92\%E7\%A5\%9E\%E7\%BB\%8F\%E7\%BD\%91\%E7\%BB\%9C}{时间递归神经网络}和\texttt{sequence-to-sequence}模型,
+
+File \textbar{} What's in it? --- \textbar{} ---
+\texttt{models/image/cifar10.py} \textbar{}图像中检测对象的模型.
+\texttt{models/rnn/rnn\_cell.py} \textbar{}时间递归神经网络的元方法集.
+\texttt{models/rnn/seq2seq.py}
+\textbar{}为创建\texttt{sequence-to-sequence}模型的方法集.
+原文：\href{http://www.tensorflow.org/how_tos/variable_scope/index.md}{Sharing
+Variables}
+翻译：\href{https://github.com/nb312}{nb312}校对：\href{https://github.com/jikexueyuanwiki}{Wiki}
