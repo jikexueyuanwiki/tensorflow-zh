@@ -1,6 +1,6 @@
 # TensorFlow 官方文档中文版
 
-![](../images/TensorFlow.jpg)   
+![](https://github.com/jikexueyuanwiki/tensorflow-zh/tree/master/SOURCE/images/TensorFlow.jpg)   
 
 ### 你正在阅读的项目可能会比 Android 系统更加深远地影响着世界！   
 
