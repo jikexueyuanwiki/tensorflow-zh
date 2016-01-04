@@ -28,7 +28,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是 `mnist.train.images` ，训练数据集的标签是 `mnist.train.labels`。
  
-每一张图片包含28像素X28像素。我们可以用一个数字数组来表示这张图片：
+每一张图片包含28X28个像素点。我们可以用一个数字数组来表示这张图片：
 
 <div style="width:50%; margin:auto; margin-bottom:10px; margin-top:20px;">
 <img style="width:100%" src="../images/MNIST-Matrix.png">
