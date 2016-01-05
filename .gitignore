@@ -5,4 +5,5 @@
 *.synctex.gz
 *.toc
 *.fls
-
+*.sublime-project
+*.sublime-workspace

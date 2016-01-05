@@ -24,6 +24,8 @@
 
 % \newfontfamily\CodeFont{Ubuntu Mono}
 \newfontfamily\CodeFont{Consolas}
+% \newfontfamily\CodeFont{Lucida Console}
+% \setmonofont{Lucida Console}
 
 \usepackage{graphicx}
 % 支持插入eps图形文件
@@ -38,6 +40,8 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 \definecolor{myback}{rgb}{0.95,0.92,0.93}
+
+\usepackage{amsmath}
 
 \usepackage{listings}
 \lstset{ %
@@ -124,6 +128,27 @@
 \include{how_tos/c3s08_new_data_formats}
 \include{how_tos/c3s09_using_gpu}
 
+\newpage
+% Chapter 4 API (Python)
+\chapter{Python API}
+\include{api/c4s00}
+\include{api/python/c4s01_framework}
+\include{api/python/c4s02_constant_op}
+\include{api/python/c4s03_state_ops}
+\include{api/python/c4s04_array_ops}
+\include{api/python/c4s05_math_ops}
+\include{api/python/c4s06_control_flow_ops}
+\include{api/python/c4s07_image}
+\include{api/python/c4s08_sparse_ops}
+\include{api/python/c4s09_io_ops}
+\include{api/python/c4s10_python_io}
+\include{api/python/c4s11_nn}
+\include{api/python/c4s12_client}
+\include{api/python/c4s13_train}
+
+\newpage
+% Chapter 5 API (C++)
+\chapter{C++ API}
 
 \newpage
 \chapter{资源}

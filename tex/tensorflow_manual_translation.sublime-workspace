@@ -523,15 +523,23 @@
 			"file": "tensorflow_manual_cn.tex",
 			"settings":
 			{
-				"buffer_size": 4524,
+				"buffer_size": 5213,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "tutorials/c2s01_minist_beginners.tex",
+			"file": "api/python/c4s01_framework.tex",
 			"settings":
 			{
-				"buffer_size": 10079,
+				"buffer_size": 91607,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/python/c4s04_array_ops.tex",
+			"settings":
+			{
+				"buffer_size": 43938,
 				"line_ending": "Windows"
 			}
 		}
@@ -559,10 +567,26 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "",
+		"height": 106.0,
+		"last_filter": "install",
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"packinstal",
+				"Package Control: Install Package"
+			],
 			[
 				"git log",
 				"Git: Log All"
@@ -602,10 +626,6 @@
 			[
 				"rep",
 				"SublimeREPL: Python"
-			],
-			[
-				"Package Control: ",
-				"Package Control: Disable Package"
 			],
 			[
 				"REPLR",
@@ -741,10 +761,6 @@
 			],
 			[
 				"package control ins",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -928,7 +944,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -964,15 +980,43 @@
 	"expanded_folders":
 	[
 		"/D/codes_sync/tensorflow/tensorflow_zh",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials"
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex"
 	],
 	"file_history":
 	[
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s04_.tex",
-		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/sec_3_1_variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/c4s03_state_ops.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s00_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/index.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/client.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/math_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/python_io.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/io_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/sparse_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/image.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/control_flow_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/state_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/array_ops.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s03_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/c4s00.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/c4s01_framework.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/framework.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/nn.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/train.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/python/constant_op.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/api/index.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s03_viz_learning.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s02_minist_pros.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s01_minist_beginners.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s00_overview.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s06_recurrent.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/c1s02_os_setup.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/get_started/c1s03_basic_usage.tex",
+		"/M/Doujin.同人会展/[C89]/(C89)[幽閉サテライト]瞳に隠された想ヒ[FLAC]/Yuuhei Satellite - 瞳に隠された想ヒ (2015) [FLAC] {YHST-0058}/瞳に隠された想ヒ.cue",
+		"/D/codes_sync/tensorflow/tensorflow_zh/markdown.md",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s01_variables.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s04_.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/tutorials/c2s05_word2vec.tex",
+		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/sec_3_1_variables.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/chpt_3_how_tos.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s05_reading_data.tex",
 		"/D/codes_sync/tensorflow/tensorflow_zh/tex/how_tos/c3s06_threading_and_queues.tex",
@@ -1067,36 +1111,7 @@
 		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/User/SublimeREPL.sublime-settings",
 		"/E/TEMP/[201504]_9.txt",
 		"/E/TEMP/[201504]_10.txt",
-		"/E/TEMP/[201504]_11.txt",
-		"/E/TEMP/[201504]_12.txt",
-		"/E/TEMP/[201504]_3.txt",
-		"/E/TEMP/[201504]_2.txt",
-		"/D/SEIKA_sync/PROGRAM/SublimeText_x64_3059/Data/Packages/User/Word Highlight.sublime-settings",
-		"/E/TEMP/[201504]_1.txt",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/create_dist_dict.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/sa.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/decision_tree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/seika_ml_in_action.sublime-project",
-		"/E/Music/[C87]/(C87)(同人音楽)(東方)[Amateras Records] Unrequited Hearts (flac)/Amateras Records - Unrequited Hearts.tta.cue",
-		"/D/SEIKA_sync/JSPTPD/亚太智能交通论坛2015参会展示内容/脚本润色/4业务支撑/新建文本文档.txt",
-		"/D/SEIKA_sync/Python.Works/SEIKA.LIB/SEIKA.pth",
-		"/D/SEIKA.sync/Python.Works/SEIKA.LIB/SEIKA.pth",
-		"/F/Projects/nh_prj.fee_cheater_hunter/2 pro_dual_plates_comb_check.py",
-		"/F/Projects/nh_prj.fee_cheater_hunter/1 data cleanning proc.py",
-		"/C/Users/Seika/Desktop/qa194.tsp",
-		"/D/SEIKA.sync/Python.Works/SEIKA.LIB/csvdict.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/CART/cart_decision_tree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/CART/regTree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/simulated annealing/ca4663.tsp",
-		"/C/Users/Seika/Downloads/ca4663.tsp",
-		"/C/Users/Seika/Downloads/world.tsp/world.tsp",
-		"/D/SEIKA.sync/Java.Works/SAA/模拟退火.java",
-		"/D/SEIKA.sync/JSPTPD/亚太智能交通论坛2015参会展示内容/qj/业务支撑及协同平台素材及解说词/业务支撑.txt",
-		"/D/SEIKA.sync/Java.Works/SAA/SimulatedAnnealing.java",
-		"/D/SEIKA.sync/Java.Works/SAA/模拟退火.class",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/plot_tree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/decision_tree/cart/cart_decision_tree.py",
-		"/D/SEIKA.sync/Python.Works/machine_learning_in_action/A 60-day plan of learning data mining"
+		"/E/TEMP/[201504]_11.txt"
 	],
 	"find":
 	{
@@ -1114,6 +1129,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"verbatim",
+			"\\ ",
+			"\\_",
+			"texttt",
+			"end{verbatim",
+			"begin{verbatim",
+			"texttt",
+			"View Tutorial",
+			"texttt",
+			"。",
+			"texttt",
 			"sec_2",
 			"sec_3_1_variables",
 			"%%%%",
@@ -1230,18 +1256,7 @@
 			"subDataSet",
 			"featList",
 			"newEntropy",
-			"uniqueVals",
-			"splitDataSet",
-			"calcShannonEnt",
-			"featVec",
-			"retDataSet",
-			"DataSet",
-			"dataSet",
-			"under var",
-			"citation",
-			"b.",
-			"0. ",
-			" ."
+			"uniqueVals"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1249,6 +1264,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			" ",
+			"_",
+			"．",
 			"$\\rm CO_2$",
 			"．",
 			".",
@@ -1273,7 +1291,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1282,15 +1300,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4524,
+						"buffer_size": 5213,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4042,
-								4042
+								4566,
+								4566
 							]
 						],
 						"settings":
@@ -1301,39 +1319,244 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1584.0,
+						"translation.y": 2077.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "tutorials/c2s01_minist_beginners.tex",
+					"file": "api/python/c4s01_framework.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10079,
+						"buffer_size": 91607,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								452,
-								452
+								5777,
+								5777
 							]
 						],
 						"settings":
 						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1827.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "api/python/c4s04_array_ops.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10580,
+								10580
+							],
+							[
+								10678,
+								10678
+							],
+							[
+								11313,
+								11313
+							],
+							[
+								11405,
+								11405
+							],
+							[
+								12026,
+								12026
+							],
+							[
+								12150,
+								12150
+							],
+							[
+								13553,
+								13553
+							],
+							[
+								14235,
+								14235
+							],
+							[
+								15262,
+								15262
+							],
+							[
+								15354,
+								15354
+							],
+							[
+								15417,
+								15417
+							],
+							[
+								15523,
+								15523
+							],
+							[
+								17125,
+								17125
+							],
+							[
+								17450,
+								17450
+							],
+							[
+								19706,
+								19706
+							],
+							[
+								20116,
+								20116
+							],
+							[
+								24312,
+								24312
+							],
+							[
+								24599,
+								24599
+							],
+							[
+								25529,
+								25529
+							],
+							[
+								25579,
+								25579
+							],
+							[
+								25606,
+								25606
+							],
+							[
+								25657,
+								25657
+							],
+							[
+								28746,
+								28746
+							],
+							[
+								28806,
+								28806
+							],
+							[
+								30099,
+								30099
+							],
+							[
+								30142,
+								30142
+							],
+							[
+								31813,
+								31813
+							],
+							[
+								32413,
+								32413
+							],
+							[
+								33841,
+								33841
+							],
+							[
+								34992,
+								34992
+							],
+							[
+								38870,
+								38870
+							],
+							[
+								39111,
+								39111
+							],
+							[
+								40596,
+								40596
+							],
+							[
+								40752,
+								40752
+							],
+							[
+								40856,
+								40856
+							],
+							[
+								41155,
+								41155
+							],
+							[
+								42145,
+								42145
+							],
+							[
+								42223,
+								42223
+							],
+							[
+								42321,
+								42321
+							],
+							[
+								42457,
+								42457
+							],
+							[
+								42812,
+								42812
+							],
+							[
+								42870,
+								42870
+							],
+							[
+								43151,
+								43151
+							],
+							[
+								43424,
+								43424
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 17283.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1372,7 +1595,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 152.0
+		"height": 227.0
 	},
 	"output.find_results":
 	{
@@ -1386,7 +1609,7 @@
 	"project": "tensorflow_manual_translation.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1440,7 +1663,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 219.0,
+	"side_bar_width": 231.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -48,7 +48,7 @@ sess = tf.InteractiveSession()
 
 在这小节里，我们将会构建一个一层线性的softmax regression模型。下一节里，我们会扩展到多层卷积网络。
 
-\subsubsection{占位符}
+\subsubsection{占位符(placeholder)}
 我们先来创建计算图的输入（图片）和输出（类别）。
 
 \begin{lstlisting}
@@ -62,7 +62,7 @@ y_ = tf.placeholder("float", shape=[None, 10])
 
 虽然\lstinline{placeholder}的\lstinline{shape}参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。
 
-\subsubsection{Variables}
+\subsubsection{变量(Variables)}
 
 我们现在为模型定义权重\lstinline{W}和偏置\lstinline{b}。它们可以被视作是额外的输入量，但是TensorFlow有一个更好的方式来处理：\lstinline{Variable}。一个\lstinline{Variable}代表着在TensorFlow计算图中的一个值，它是能在计算过程中被读取和修改的。在机器学习的应用过程中，模型参数一般用\lstinline{Variable}来表示。
 
@@ -170,7 +170,7 @@ def max_pool_2x2(x):
 
 \subsubsection{第一层卷积}
 
-现在我们可以开始实现第一层了。它由一个卷积接一个max pooling完成。卷积在每个5x5的patch中算出32个特征。权重是一个[5, 5, 1, 32]的张量，前两个维度是patch的大小，接着是输入的通道数目，最后是输出的通道数目。输出对应一个同样大小的偏置向量。
+现在我们可以开始实现第一层了。它由一个卷积接一个max pooling完成。卷积在每个$5\times5$的patch中算出32个特征。权重是一个\lstinline{[5, 5, 1, 32]}的张量，前两个维度是patch的大小，接着是输入的通道数目，最后是输出的通道数目。输出对应一个同样大小的偏置向量。
 
 \begin{lstlisting}
 W_conv1 = weight_variable([5, 5, 1, 32])
@@ -204,7 +204,7 @@ h_pool2 = max_pool_2x2(h_conv2)
 
 \subsubsection{密集连接层}
 
-现在，图片降维到7x7，我们加入一个有1024个神经元的全连接层，用于处理整个图片。我们把池化层输出的张量reshape成一些向量，乘上权重矩阵，加上偏置，使用ReLU激活。
+现在，图片降维到$7\times7$，我们加入一个有1024个神经元的全连接层，用于处理整个图片。我们把池化层输出的张量reshape成一些向量，乘上权重矩阵，加上偏置，使用ReLU激活。
 
 \begin{lstlisting}
 W_fc1 = weight_variable([7 * 7 * 64, 1024])
@@ -216,7 +216,7 @@ h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 
 \textbf{Dropout}
 
-为了减少过拟合，我们在输出层之前加入dropout。我们用一个placeholder来代表一个神经元在dropout中被保留的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的tf.nn.dropout操作会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。
+为了减少过拟合，我们在输出层之前加入dropout。我们用一个placeholder来代表一个神经元在dropout中被保留的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的\lstinline{tf.nn.dropout}操作会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。
 
 \begin{lstlisting}
 keep_prob = tf.placeholder("float")
@@ -256,7 +256,7 @@ print "test accuracy %g"%accuracy.eval(feed_dict={
     x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0})
 \end{lstlisting}
 
-以上代码，在最终测试集上的准确率大概是99.2%。
+以上代码，在最终测试集上的准确率大概是99.2\%。
 
 目前为止，我们已经学会了用TensorFlow来快速和简易地搭建、训练和评估一个复杂一点儿的深度学习模型。
 

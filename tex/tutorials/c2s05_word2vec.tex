@@ -28,8 +28,7 @@ embeddings相关内容已经是个专家了，那么请安心跳过本节内容�
 
 \subsection{动机: 为什么需要学习 Word Embeddings?}\label{ux52a8}
 
-通常图像或音频系统处理的是由图片中所有单个原始像素点强度值或者音频中功率谱密度的强度值，把它们编码成丰富、高纬度的向量数据集。对于物体或语音识别这一类的任务，我们所需的全部信息已经都存储在原始数据中（显然人类本身就是依赖原始数据进行日常的物体或语音识别的）。然后，自然语言处理系统通常将词汇作为离散的单一符号，例如
-``cat'' 一词或可表示为\lstinline{Id537} ，而"dog"一词或可表示为\lstinline{Id143}。这些符号编码毫无规律，无法提供不同词汇之间可能存在的关联信息。换句话说，在处理关于"dogs" 一词的信息时，模型将无法利用已知的关于"cats"的信息（例如，它们都是动物，有四条腿，可作为宠物等等）。可见，将词汇表达为上述的独立离散符号将进一步导致数据稀疏，使我们在训练统计模型时不得不寻求更多的数据。而词汇的向量表示将克服上述的难题。
+通常图像或音频系统处理的是由图片中所有单个原始像素点强度值或者音频中功率谱密度的强度值，把它们编码成丰富、高纬度的向量数据集。对于物体或语音识别这一类的任务，我们所需的全部信息已经都存储在原始数据中（显然人类本身就是依赖原始数据进行日常的物体或语音识别的）。然后，自然语言处理系统通常将词汇作为离散的单一符号，例如"cat" 一词或可表示为\lstinline{Id537} ，而"dog"一词或可表示为\lstinline{Id143}。这些符号编码毫无规律，无法提供不同词汇之间可能存在的关联信息。换句话说，在处理关于"dogs" 一词的信息时，模型将无法利用已知的关于"cats"的信息（例如，它们都是动物，有四条腿，可作为宠物等等）。可见，将词汇表达为上述的独立离散符号将进一步导致数据稀疏，使我们在训练统计模型时不得不寻求更多的数据。而词汇的向量表示将克服上述的难题。
 
 \href{https://en.wikipedia.org/wiki/Vector_space_model}{向量空间模型(VSMs)}
 将词汇表达（嵌套）于一个连续的向量空间中，语义近似的词汇被映射为相邻的数据点。向量空间模型在自然语言处理领域中有着漫长且丰富的历史，不过几乎所有利用这一模型的方法都依赖于\href{https://en.wikipedia.org/wiki/Distributional_semantics\#Distributional_Hypothesis}{分布式假设}，其核心思想为出现于上下文情景中的词汇都有相类似的语义。采用这一假设的研究方法大致分为以下两类：\emph{基于技术的方法}(如，\href{https://en.wikipedia.org/wiki/Latent_semantic_analysis}{潜在语义分析})，和 \emph{预测方法} (如，\href{http://www.scholarpedia.org/article/Neural_net_language_models}{神经概率化语言模型}).
@@ -37,14 +36,11 @@ embeddings相关内容已经是个专家了，那么请安心跳过本节内容�
 其中它们的区别在如下论文中又详细阐述\href{http://clic.cimec.unitn.it/marco/publications/acl2014/baroni-etal-countpredict-acl2014.pdf}{Baroni
 etal.}，不过简而言之：基于计数的方法计算某词汇与其邻近词汇在一个大型语料库中共同出现的频率及其他统计量，然后将这些统计量映射到一个小型且稠密的向量中。预测方法则试图直接从某词汇的邻近词汇对其进行预测，在此过程中利用已经学习到的小型且稠密的\emph{嵌套向量}。
 
-Word2vec是一种可以进行高效率词嵌套学习的预测模型。其两种变体分别为：连续词袋模型（CBOW）及Skip-Gram模型。从算法角度看，这两种方法非常相似，其区别为CBOW根据源词上下文词汇（`the cat sits on the'）来预测目标词汇（例如，`mat'），而Skip-Gram模型做法相反，它通过目标词汇来预测源词汇。Skip-Gram模型采取CBOW的逆过程的动机在于：CBOW算法对于很多分布式信息进行了平滑处理（例如将一整段上下文信息视为一个单一观察量）。很多情况下，对于小型的数据集，这一处理是有帮助的。相形之下，Skip-Gram模型将每个“上下文---目标词汇”的组合视为一个新观察量，这种做法在大型数据集中会更为有效。本教程余下部分将着重讲解Skip-Gram模型。
+Word2vec是一种可以进行高效率词嵌套学习的预测模型。其两种变体分别为：连续词袋模型（CBOW）及Skip-Gram模型。从算法角度看，这两种方法非常相似，其区别为CBOW根据源词上下文词汇（"the cat sits on the"）来预测目标词汇（例如，"mat"），而Skip-Gram模型做法相反，它通过目标词汇来预测源词汇。Skip-Gram模型采取CBOW的逆过程的动机在于：CBOW算法对于很多分布式信息进行了平滑处理（例如将一整段上下文信息视为一个单一观察量）。很多情况下，对于小型的数据集，这一处理是有帮助的。相形之下，Skip-Gram模型将每个“上下文---目标词汇”的组合视为一个新观察量，这种做法在大型数据集中会更为有效。本教程余下部分将着重讲解Skip-Gram模型。
 
 \subsection{处理噪声对比训练}\label{ux5904ux7406ux566aux58f0ux5bf9ux6bd4ux8badux7ec3}
 
-神经概率化语言模型通常使用\href{https://en.wikipedia.org/wiki/Maximum_likelihood}{极大似然法(ML)} 进行训练，其中通过\href{https://en.wikipedia.org/wiki/Softmax_function}{\emph{softmax}
-function} 来最大化当提供前一个单词 \textbf{h} (代表
-``history'')，后一个单词的概率 \includegraphics{../SOURCE/images/vr1.png} (代表
-``target'')，
+神经概率化语言模型通常使用\href{https://en.wikipedia.org/wiki/Maximum_likelihood}{极大似然法(ML)} 进行训练，其中通过\href{https://en.wikipedia.org/wiki/Softmax_function}{\emph{softmax}function} 来最大化当提供前一个单词$h$ (代表"history")，后一个单词的概率$w_t$ (代表"target")，
 
 \begin{figure}[htbp]
 \centering
@@ -52,8 +48,12 @@ function} 来最大化当提供前一个单词 \textbf{h} (代表
 \caption{}
 \end{figure}
 
-当 \textbf{score(w\_t,h)} 计算了文字 \textbf{w\_t} 和 上下文 \textbf{h}
-的相容性（通常使用向量积）。我们使用对数似然函数来训练训练集的最大值，比如通过：
+当$score(w_t,h)$ 计算了文字 $w_t$ 和 上下文 $h$的相容性（通常使用向量积）。我们使用对数似然函数来训练训练集的最大值，比如通过：
+
+\begin{align}
+P(w_t|h) & = softmax(score(w_t,h)) \\
+         & = \frac{exp\{score(w_t,h)\}}{\sum_{Word w'in Vocab}{exp\{score(w',h)\}}}
+\end{align}
 
 \begin{figure}[htbp]
 \centering
@@ -88,7 +88,7 @@ function} 来最大化当提供前一个单词 \textbf{h} (代表
 
 下面来看一下这个数据集
 
-\texttt{the\ quick\ brown\ fox\ jumped\ over\ the\ lazy\ dog}
+\lstinline{"the quick brown fox jumped over the lazy dog"}
 
 我们首先对一些单词以及它们的上下文环境建立一个数据集。我们可以以任何合理的方式定义`上下文'，而通常上这个方式是根据文字的句法语境的（使用语法原理的方式处理当前目标单词可以看一下这篇文献
 \href{https://levyomer.files.wordpress.com/2014/04/dependency-based-word-embeddings-acl-2014.pdf}{Levy et al.}，比如说把目标单词左边的内容当做一个“上下文”，或者以目标单词右边的内容，等等。现在我们把目标单词的左右单词视作一个上下文，
