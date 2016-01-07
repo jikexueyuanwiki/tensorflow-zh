@@ -77,6 +77,7 @@ Jeff回信原文：
 - [@ZHNathanielLee](https://github.com/ZHNathanielLee)
 - [@pengfoo](https://github.com/PengFoo)
 - [@qiaohaijun](https://github.com/qiaohaijun)
+- [@Seika](https://github.com/SeikaScarlet)
 
 ## 进度记录
 

@@ -1,0 +1,677 @@
+
+
+\section{TensorFlow Python reference documentation
+}\label{tensorflow-python-reference-documentation}
+
+\begin{itemize}
+\item
+  \textbf{\href{../../api_docs/python/framework.md}{Building Graphs}}:
+\item
+  \href{../../api_docs/python/framework.md\#add_to_collection}{\texttt{add\_to\_collection}}
+\item
+  \href{../../api_docs/python/framework.md\#as_dtype}{\texttt{as\_dtype}}
+\item
+  \href{../../api_docs/python/framework.md\#control_dependencies}{\texttt{control\_dependencies}}
+\item
+  \href{../../api_docs/python/framework.md\#convert_to_tensor}{\texttt{convert\_to\_tensor}}
+\item
+  \href{../../api_docs/python/framework.md\#device}{\texttt{device}}
+\item
+  \href{../../api_docs/python/framework.md\#Dimension}{\texttt{Dimension}}
+\item
+  \href{../../api_docs/python/framework.md\#DType}{\texttt{DType}}
+\item
+  \href{../../api_docs/python/framework.md\#get_collection}{\texttt{get\_collection}}
+\item
+  \href{../../api_docs/python/framework.md\#get_default_graph}{\texttt{get\_default\_graph}}
+\item
+  \href{../../api_docs/python/framework.md\#get_seed}{\texttt{get\_seed}}
+\item
+  \href{../../api_docs/python/framework.md\#Graph}{\texttt{Graph}}
+\item
+  \href{../../api_docs/python/framework.md\#GraphKeys}{\texttt{GraphKeys}}
+\item
+  \href{../../api_docs/python/framework.md\#import_graph_def}{\texttt{import\_graph\_def}}
+\item
+  \href{../../api_docs/python/framework.md\#name_scope}{\texttt{name\_scope}}
+\item
+  \href{../../api_docs/python/framework.md\#NoGradient}{\texttt{NoGradient}}
+\item
+  \href{../../api_docs/python/framework.md\#op_scope}{\texttt{op\_scope}}
+\item
+  \href{../../api_docs/python/framework.md\#Operation}{\texttt{Operation}}
+\item
+  \href{../../api_docs/python/framework.md\#RegisterGradient}{\texttt{RegisterGradient}}
+\item
+  \href{../../api_docs/python/framework.md\#RegisterShape}{\texttt{RegisterShape}}
+\item
+  \href{../../api_docs/python/framework.md\#Tensor}{\texttt{Tensor}}
+\item
+  \href{../../api_docs/python/framework.md\#TensorShape}{\texttt{TensorShape}}
+\item
+  \textbf{\href{../../api_docs/python/constant_op.md}{Constants,
+  Sequences, and Random Values}}:
+\item
+  \href{../../api_docs/python/constant_op.md\#constant}{\texttt{constant}}
+\item
+  \href{../../api_docs/python/constant_op.md\#fill}{\texttt{fill}}
+\item
+  \href{../../api_docs/python/constant_op.md\#linspace}{\texttt{linspace}}
+\item
+  \href{../../api_docs/python/constant_op.md\#ones}{\texttt{ones}}
+\item
+  \href{../../api_docs/python/constant_op.md\#ones_like}{\texttt{ones\_like}}
+\item
+  \href{../../api_docs/python/constant_op.md\#random_normal}{\texttt{random\_normal}}
+\item
+  \href{../../api_docs/python/constant_op.md\#random_shuffle}{\texttt{random\_shuffle}}
+\item
+  \href{../../api_docs/python/constant_op.md\#random_uniform}{\texttt{random\_uniform}}
+\item
+  \href{../../api_docs/python/constant_op.md\#range}{\texttt{range}}
+\item
+  \href{../../api_docs/python/constant_op.md\#set_random_seed}{\texttt{set\_random\_seed}}
+\item
+  \href{../../api_docs/python/constant_op.md\#truncated_normal}{\texttt{truncated\_normal}}
+\item
+  \href{../../api_docs/python/constant_op.md\#zeros}{\texttt{zeros}}
+\item
+  \href{../../api_docs/python/constant_op.md\#zeros_like}{\texttt{zeros\_like}}
+\item
+  \textbf{\href{../../api_docs/python/state_ops.md}{Variables}}:
+\item
+  \href{../../api_docs/python/state_ops.md\#all_variables}{\texttt{all\_variables}}
+\item
+  \href{../../api_docs/python/state_ops.md\#assert_variables_initialized}{\texttt{assert\_variables\_initialized}}
+\item
+  \href{../../api_docs/python/state_ops.md\#assign}{\texttt{assign}}
+\item
+  \href{../../api_docs/python/state_ops.md\#assign_add}{\texttt{assign\_add}}
+\item
+  \href{../../api_docs/python/state_ops.md\#assign_sub}{\texttt{assign\_sub}}
+\item
+  \href{../../api_docs/python/state_ops.md\#constant_initializer}{\texttt{constant\_initializer}}
+\item
+  \href{../../api_docs/python/state_ops.md\#count_up_to}{\texttt{count\_up\_to}}
+\item
+  \href{../../api_docs/python/state_ops.md\#device}{\texttt{device}}
+\item
+  \href{../../api_docs/python/state_ops.md\#get_checkpoint_state}{\texttt{get\_checkpoint\_state}}
+\item
+  \href{../../api_docs/python/state_ops.md\#get_variable}{\texttt{get\_variable}}
+\item
+  \href{../../api_docs/python/state_ops.md\#get_variable_scope}{\texttt{get\_variable\_scope}}
+\item
+  \href{../../api_docs/python/state_ops.md\#IndexedSlices}{\texttt{IndexedSlices}}
+\item
+  \href{../../api_docs/python/state_ops.md\#initialize_all_variables}{\texttt{initialize\_all\_variables}}
+\item
+  \href{../../api_docs/python/state_ops.md\#initialize_variables}{\texttt{initialize\_variables}}
+\item
+  \href{../../api_docs/python/state_ops.md\#latest_checkpoint}{\texttt{latest\_checkpoint}}
+\item
+  \href{../../api_docs/python/state_ops.md\#random_normal_initializer}{\texttt{random\_normal\_initializer}}
+\item
+  \href{../../api_docs/python/state_ops.md\#random_uniform_initializer}{\texttt{random\_uniform\_initializer}}
+\item
+  \href{../../api_docs/python/state_ops.md\#Saver}{\texttt{Saver}}
+\item
+  \href{../../api_docs/python/state_ops.md\#scatter_add}{\texttt{scatter\_add}}
+\item
+  \href{../../api_docs/python/state_ops.md\#scatter_sub}{\texttt{scatter\_sub}}
+\item
+  \href{../../api_docs/python/state_ops.md\#scatter_update}{\texttt{scatter\_update}}
+\item
+  \href{../../api_docs/python/state_ops.md\#sparse_mask}{\texttt{sparse\_mask}}
+\item
+  \href{../../api_docs/python/state_ops.md\#trainable_variables}{\texttt{trainable\_variables}}
+\item
+  \href{../../api_docs/python/state_ops.md\#truncated_normal_initializer}{\texttt{truncated\_normal\_initializer}}
+\item
+  \href{../../api_docs/python/state_ops.md\#uniform_unit_scaling_initializer}{\texttt{uniform\_unit\_scaling\_initializer}}
+\item
+  \href{../../api_docs/python/state_ops.md\#update_checkpoint_state}{\texttt{update\_checkpoint\_state}}
+\item
+  \href{../../api_docs/python/state_ops.md\#Variable}{\texttt{Variable}}
+\item
+  \href{../../api_docs/python/state_ops.md\#variable_scope}{\texttt{variable\_scope}}
+\item
+  \href{../../api_docs/python/state_ops.md\#zeros_initializer}{\texttt{zeros\_initializer}}
+\item
+  \textbf{\href{../../api_docs/python/array_ops.md}{Tensor
+  Transformations}}:
+\item
+  \href{../../api_docs/python/array_ops.md\#cast}{\texttt{cast}}
+\item
+  \href{../../api_docs/python/array_ops.md\#concat}{\texttt{concat}}
+\item
+  \href{../../api_docs/python/array_ops.md\#dynamic_partition}{\texttt{dynamic\_partition}}
+\item
+  \href{../../api_docs/python/array_ops.md\#dynamic_stitch}{\texttt{dynamic\_stitch}}
+\item
+  \href{../../api_docs/python/array_ops.md\#expand_dims}{\texttt{expand\_dims}}
+\item
+  \href{../../api_docs/python/array_ops.md\#gather}{\texttt{gather}}
+\item
+  \href{../../api_docs/python/array_ops.md\#pack}{\texttt{pack}}
+\item
+  \href{../../api_docs/python/array_ops.md\#pad}{\texttt{pad}}
+\item
+  \href{../../api_docs/python/array_ops.md\#rank}{\texttt{rank}}
+\item
+  \href{../../api_docs/python/array_ops.md\#reshape}{\texttt{reshape}}
+\item
+  \href{../../api_docs/python/array_ops.md\#reverse}{\texttt{reverse}}
+\item
+  \href{../../api_docs/python/array_ops.md\#reverse_sequence}{\texttt{reverse\_sequence}}
+\item
+  \href{../../api_docs/python/array_ops.md\#shape}{\texttt{shape}}
+\item
+  \href{../../api_docs/python/array_ops.md\#size}{\texttt{size}}
+\item
+  \href{../../api_docs/python/array_ops.md\#slice}{\texttt{slice}}
+\item
+  \href{../../api_docs/python/array_ops.md\#split}{\texttt{split}}
+\item
+  \href{../../api_docs/python/array_ops.md\#squeeze}{\texttt{squeeze}}
+\item
+  \href{../../api_docs/python/array_ops.md\#string_to_number}{\texttt{string\_to\_number}}
+\item
+  \href{../../api_docs/python/array_ops.md\#tile}{\texttt{tile}}
+\item
+  \href{../../api_docs/python/array_ops.md\#to_bfloat16}{\texttt{to\_bfloat16}}
+\item
+  \href{../../api_docs/python/array_ops.md\#to_double}{\texttt{to\_double}}
+\item
+  \href{../../api_docs/python/array_ops.md\#to_float}{\texttt{to\_float}}
+\item
+  \href{../../api_docs/python/array_ops.md\#to_int32}{\texttt{to\_int32}}
+\item
+  \href{../../api_docs/python/array_ops.md\#to_int64}{\texttt{to\_int64}}
+\item
+  \href{../../api_docs/python/array_ops.md\#transpose}{\texttt{transpose}}
+\item
+  \href{../../api_docs/python/array_ops.md\#unpack}{\texttt{unpack}}
+\item
+  \textbf{\href{../../api_docs/python/math_ops.md}{Math}}:
+\item
+  \href{../../api_docs/python/math_ops.md\#abs}{\texttt{abs}}
+\item
+  \href{../../api_docs/python/math_ops.md\#accumulate_n}{\texttt{accumulate\_n}}
+\item
+  \href{../../api_docs/python/math_ops.md\#add}{\texttt{add}}
+\item
+  \href{../../api_docs/python/math_ops.md\#add_n}{\texttt{add\_n}}
+\item
+  \href{../../api_docs/python/math_ops.md\#argmax}{\texttt{argmax}}
+\item
+  \href{../../api_docs/python/math_ops.md\#argmin}{\texttt{argmin}}
+\item
+  \href{../../api_docs/python/math_ops.md\#batch_cholesky}{\texttt{batch\_cholesky}}
+\item
+  \href{../../api_docs/python/math_ops.md\#batch_matmul}{\texttt{batch\_matmul}}
+\item
+  \href{../../api_docs/python/math_ops.md\#batch_matrix_determinant}{\texttt{batch\_matrix\_determinant}}
+\item
+  \href{../../api_docs/python/math_ops.md\#batch_matrix_inverse}{\texttt{batch\_matrix\_inverse}}
+\item
+  \href{../../api_docs/python/math_ops.md\#ceil}{\texttt{ceil}}
+\item
+  \href{../../api_docs/python/math_ops.md\#cholesky}{\texttt{cholesky}}
+\item
+  \href{../../api_docs/python/math_ops.md\#complex}{\texttt{complex}}
+\item
+  \href{../../api_docs/python/math_ops.md\#complex_abs}{\texttt{complex\_abs}}
+\item
+  \href{../../api_docs/python/math_ops.md\#conj}{\texttt{conj}}
+\item
+  \href{../../api_docs/python/math_ops.md\#cos}{\texttt{cos}}
+\item
+  \href{../../api_docs/python/math_ops.md\#diag}{\texttt{diag}}
+\item
+  \href{../../api_docs/python/math_ops.md\#div}{\texttt{div}}
+\item
+  \href{../../api_docs/python/math_ops.md\#edit_distance}{\texttt{edit\_distance}}
+\item
+  \href{../../api_docs/python/math_ops.md\#exp}{\texttt{exp}}
+\item
+  \href{../../api_docs/python/math_ops.md\#floor}{\texttt{floor}}
+\item
+  \href{../../api_docs/python/math_ops.md\#imag}{\texttt{imag}}
+\item
+  \href{../../api_docs/python/math_ops.md\#inv}{\texttt{inv}}
+\item
+  \href{../../api_docs/python/math_ops.md\#invert_permutation}{\texttt{invert\_permutation}}
+\item
+  \href{../../api_docs/python/math_ops.md\#listdiff}{\texttt{listdiff}}
+\item
+  \href{../../api_docs/python/math_ops.md\#log}{\texttt{log}}
+\item
+  \href{../../api_docs/python/math_ops.md\#matmul}{\texttt{matmul}}
+\item
+  \href{../../api_docs/python/math_ops.md\#matrix_determinant}{\texttt{matrix\_determinant}}
+\item
+  \href{../../api_docs/python/math_ops.md\#matrix_inverse}{\texttt{matrix\_inverse}}
+\item
+  \href{../../api_docs/python/math_ops.md\#maximum}{\texttt{maximum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#minimum}{\texttt{minimum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#mod}{\texttt{mod}}
+\item
+  \href{../../api_docs/python/math_ops.md\#mul}{\texttt{mul}}
+\item
+  \href{../../api_docs/python/math_ops.md\#neg}{\texttt{neg}}
+\item
+  \href{../../api_docs/python/math_ops.md\#pow}{\texttt{pow}}
+\item
+  \href{../../api_docs/python/math_ops.md\#real}{\texttt{real}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_all}{\texttt{reduce\_all}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_any}{\texttt{reduce\_any}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_max}{\texttt{reduce\_max}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_mean}{\texttt{reduce\_mean}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_min}{\texttt{reduce\_min}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_prod}{\texttt{reduce\_prod}}
+\item
+  \href{../../api_docs/python/math_ops.md\#reduce_sum}{\texttt{reduce\_sum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#round}{\texttt{round}}
+\item
+  \href{../../api_docs/python/math_ops.md\#rsqrt}{\texttt{rsqrt}}
+\item
+  \href{../../api_docs/python/math_ops.md\#segment_max}{\texttt{segment\_max}}
+\item
+  \href{../../api_docs/python/math_ops.md\#segment_mean}{\texttt{segment\_mean}}
+\item
+  \href{../../api_docs/python/math_ops.md\#segment_min}{\texttt{segment\_min}}
+\item
+  \href{../../api_docs/python/math_ops.md\#segment_prod}{\texttt{segment\_prod}}
+\item
+  \href{../../api_docs/python/math_ops.md\#segment_sum}{\texttt{segment\_sum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sign}{\texttt{sign}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sin}{\texttt{sin}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sparse_segment_mean}{\texttt{sparse\_segment\_mean}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sparse_segment_sum}{\texttt{sparse\_segment\_sum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sqrt}{\texttt{sqrt}}
+\item
+  \href{../../api_docs/python/math_ops.md\#square}{\texttt{square}}
+\item
+  \href{../../api_docs/python/math_ops.md\#sub}{\texttt{sub}}
+\item
+  \href{../../api_docs/python/math_ops.md\#transpose}{\texttt{transpose}}
+\item
+  \href{../../api_docs/python/math_ops.md\#unique}{\texttt{unique}}
+\item
+  \href{../../api_docs/python/math_ops.md\#unsorted_segment_sum}{\texttt{unsorted\_segment\_sum}}
+\item
+  \href{../../api_docs/python/math_ops.md\#where}{\texttt{where}}
+\item
+  \textbf{\href{../../api_docs/python/control_flow_ops.md}{Control
+  Flow}}:
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#add_check_numerics_ops}{\texttt{add\_check\_numerics\_ops}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#Assert}{\texttt{Assert}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#check_numerics}{\texttt{check\_numerics}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#count_up_to}{\texttt{count\_up\_to}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#equal}{\texttt{equal}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#greater}{\texttt{greater}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#greater_equal}{\texttt{greater\_equal}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#group}{\texttt{group}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#identity}{\texttt{identity}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#is_finite}{\texttt{is\_finite}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#is_inf}{\texttt{is\_inf}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#is_nan}{\texttt{is\_nan}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#less}{\texttt{less}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#less_equal}{\texttt{less\_equal}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#logical_and}{\texttt{logical\_and}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#logical_not}{\texttt{logical\_not}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#logical_or}{\texttt{logical\_or}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#logical_xor}{\texttt{logical\_xor}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#no_op}{\texttt{no\_op}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#not_equal}{\texttt{not\_equal}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#Print}{\texttt{Print}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#select}{\texttt{select}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#tuple}{\texttt{tuple}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#verify_tensor_all_finite}{\texttt{verify\_tensor\_all\_finite}}
+\item
+  \href{../../api_docs/python/control_flow_ops.md\#where}{\texttt{where}}
+\item
+  \textbf{\href{../../api_docs/python/image.md}{Images}}:
+\item
+  \href{../../api_docs/python/image.md\#adjust_brightness}{\texttt{adjust\_brightness}}
+\item
+  \href{../../api_docs/python/image.md\#adjust_contrast}{\texttt{adjust\_contrast}}
+\item
+  \href{../../api_docs/python/image.md\#crop_to_bounding_box}{\texttt{crop\_to\_bounding\_box}}
+\item
+  \href{../../api_docs/python/image.md\#decode_jpeg}{\texttt{decode\_jpeg}}
+\item
+  \href{../../api_docs/python/image.md\#decode_png}{\texttt{decode\_png}}
+\item
+  \href{../../api_docs/python/image.md\#encode_jpeg}{\texttt{encode\_jpeg}}
+\item
+  \href{../../api_docs/python/image.md\#encode_png}{\texttt{encode\_png}}
+\item
+  \href{../../api_docs/python/image.md\#extract_glimpse}{\texttt{extract\_glimpse}}
+\item
+  \href{../../api_docs/python/image.md\#flip_left_right}{\texttt{flip\_left\_right}}
+\item
+  \href{../../api_docs/python/image.md\#flip_up_down}{\texttt{flip\_up\_down}}
+\item
+  \href{../../api_docs/python/image.md\#pad_to_bounding_box}{\texttt{pad\_to\_bounding\_box}}
+\item
+  \href{../../api_docs/python/image.md\#per_image_whitening}{\texttt{per\_image\_whitening}}
+\item
+  \href{../../api_docs/python/image.md\#random_brightness}{\texttt{random\_brightness}}
+\item
+  \href{../../api_docs/python/image.md\#random_contrast}{\texttt{random\_contrast}}
+\item
+  \href{../../api_docs/python/image.md\#random_crop}{\texttt{random\_crop}}
+\item
+  \href{../../api_docs/python/image.md\#random_flip_left_right}{\texttt{random\_flip\_left\_right}}
+\item
+  \href{../../api_docs/python/image.md\#random_flip_up_down}{\texttt{random\_flip\_up\_down}}
+\item
+  \href{../../api_docs/python/image.md\#resize_area}{\texttt{resize\_area}}
+\item
+  \href{../../api_docs/python/image.md\#resize_bicubic}{\texttt{resize\_bicubic}}
+\item
+  \href{../../api_docs/python/image.md\#resize_bilinear}{\texttt{resize\_bilinear}}
+\item
+  \href{../../api_docs/python/image.md\#resize_image_with_crop_or_pad}{\texttt{resize\_image\_with\_crop\_or\_pad}}
+\item
+  \href{../../api_docs/python/image.md\#resize_images}{\texttt{resize\_images}}
+\item
+  \href{../../api_docs/python/image.md\#resize_nearest_neighbor}{\texttt{resize\_nearest\_neighbor}}
+\item
+  \href{../../api_docs/python/image.md\#transpose_image}{\texttt{transpose\_image}}
+\item
+  \textbf{\href{../../api_docs/python/sparse_ops.md}{Sparse Tensors}}:
+\item
+  \href{../../api_docs/python/sparse_ops.md\#shape}{\texttt{shape}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_concat}{\texttt{sparse\_concat}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_fill_empty_rows}{\texttt{sparse\_fill\_empty\_rows}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_reorder}{\texttt{sparse\_reorder}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_retain}{\texttt{sparse\_retain}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_tensor_to_dense}{\texttt{sparse\_tensor\_to\_dense}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_to_dense}{\texttt{sparse\_to\_dense}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#sparse_to_indicator}{\texttt{sparse\_to\_indicator}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#SparseTensor}{\texttt{SparseTensor}}
+\item
+  \href{../../api_docs/python/sparse_ops.md\#SparseTensorValue}{\texttt{SparseTensorValue}}
+\item
+  \textbf{\href{../../api_docs/python/io_ops.md}{Inputs and Readers}}:
+\item
+  \href{../../api_docs/python/io_ops.md\#batch}{\texttt{batch}}
+\item
+  \href{../../api_docs/python/io_ops.md\#batch_join}{\texttt{batch\_join}}
+\item
+  \href{../../api_docs/python/io_ops.md\#decode_csv}{\texttt{decode\_csv}}
+\item
+  \href{../../api_docs/python/io_ops.md\#decode_raw}{\texttt{decode\_raw}}
+\item
+  \href{../../api_docs/python/io_ops.md\#FIFOQueue}{\texttt{FIFOQueue}}
+\item
+  \href{../../api_docs/python/io_ops.md\#FixedLengthRecordReader}{\texttt{FixedLengthRecordReader}}
+\item
+  \href{../../api_docs/python/io_ops.md\#IdentityReader}{\texttt{IdentityReader}}
+\item
+  \href{../../api_docs/python/io_ops.md\#limit_epochs}{\texttt{limit\_epochs}}
+\item
+  \href{../../api_docs/python/io_ops.md\#match_filenames_once}{\texttt{match\_filenames\_once}}
+\item
+  \href{../../api_docs/python/io_ops.md\#matching_files}{\texttt{matching\_files}}
+\item
+  \href{../../api_docs/python/io_ops.md\#parse_example}{\texttt{parse\_example}}
+\item
+  \href{../../api_docs/python/io_ops.md\#parse_single_example}{\texttt{parse\_single\_example}}
+\item
+  \href{../../api_docs/python/io_ops.md\#placeholder}{\texttt{placeholder}}
+\item
+  \href{../../api_docs/python/io_ops.md\#QueueBase}{\texttt{QueueBase}}
+\item
+  \href{../../api_docs/python/io_ops.md\#RandomShuffleQueue}{\texttt{RandomShuffleQueue}}
+\item
+  \href{../../api_docs/python/io_ops.md\#range_input_producer}{\texttt{range\_input\_producer}}
+\item
+  \href{../../api_docs/python/io_ops.md\#read_file}{\texttt{read\_file}}
+\item
+  \href{../../api_docs/python/io_ops.md\#ReaderBase}{\texttt{ReaderBase}}
+\item
+  \href{../../api_docs/python/io_ops.md\#shuffle_batch}{\texttt{shuffle\_batch}}
+\item
+  \href{../../api_docs/python/io_ops.md\#shuffle_batch_join}{\texttt{shuffle\_batch\_join}}
+\item
+  \href{../../api_docs/python/io_ops.md\#size}{\texttt{size}}
+\item
+  \href{../../api_docs/python/io_ops.md\#slice_input_producer}{\texttt{slice\_input\_producer}}
+\item
+  \href{../../api_docs/python/io_ops.md\#string_input_producer}{\texttt{string\_input\_producer}}
+\item
+  \href{../../api_docs/python/io_ops.md\#TextLineReader}{\texttt{TextLineReader}}
+\item
+  \href{../../api_docs/python/io_ops.md\#TFRecordReader}{\texttt{TFRecordReader}}
+\item
+  \href{../../api_docs/python/io_ops.md\#WholeFileReader}{\texttt{WholeFileReader}}
+\item
+  \textbf{\href{../../api_docs/python/python_io.md}{Data IO (Python
+  functions)}}:
+\item
+  \href{../../api_docs/python/python_io.md\#tf_record_iterator}{\texttt{tf\_record\_iterator}}
+\item
+  \href{../../api_docs/python/python_io.md\#TFRecordWriter}{\texttt{TFRecordWriter}}
+\item
+  \textbf{\href{../../api_docs/python/nn.md}{Neural Network}}:
+\item
+  \href{../../api_docs/python/nn.md\#avg_pool}{\texttt{avg\_pool}}
+\item
+  \href{../../api_docs/python/nn.md\#bias_add}{\texttt{bias\_add}}
+\item
+  \href{../../api_docs/python/nn.md\#compute_accidental_hits}{\texttt{compute\_accidental\_hits}}
+\item
+  \href{../../api_docs/python/nn.md\#conv2d}{\texttt{conv2d}}
+\item
+  \href{../../api_docs/python/nn.md\#depthwise_conv2d}{\texttt{depthwise\_conv2d}}
+\item
+  \href{../../api_docs/python/nn.md\#dropout}{\texttt{dropout}}
+\item
+  \href{../../api_docs/python/nn.md\#embedding_lookup}{\texttt{embedding\_lookup}}
+\item
+  \href{../../api_docs/python/nn.md\#fixed_unigram_candidate_sampler}{\texttt{fixed\_unigram\_candidate\_sampler}}
+\item
+  \href{../../api_docs/python/nn.md\#in_top_k}{\texttt{in\_top\_k}}
+\item
+  \href{../../api_docs/python/nn.md\#l2_loss}{\texttt{l2\_loss}}
+\item
+  \href{../../api_docs/python/nn.md\#l2_normalize}{\texttt{l2\_normalize}}
+\item
+  \href{../../api_docs/python/nn.md\#learned_unigram_candidate_sampler}{\texttt{learned\_unigram\_candidate\_sampler}}
+\item
+  \href{../../api_docs/python/nn.md\#local_response_normalization}{\texttt{local\_response\_normalization}}
+\item
+  \href{../../api_docs/python/nn.md\#log_uniform_candidate_sampler}{\texttt{log\_uniform\_candidate\_sampler}}
+\item
+  \href{../../api_docs/python/nn.md\#max_pool}{\texttt{max\_pool}}
+\item
+  \href{../../api_docs/python/nn.md\#max_pool_with_argmax}{\texttt{max\_pool\_with\_argmax}}
+\item
+  \href{../../api_docs/python/nn.md\#moments}{\texttt{moments}}
+\item
+  \href{../../api_docs/python/nn.md\#nce_loss}{\texttt{nce\_loss}}
+\item
+  \href{../../api_docs/python/nn.md\#relu}{\texttt{relu}}
+\item
+  \href{../../api_docs/python/nn.md\#relu6}{\texttt{relu6}}
+\item
+  \href{../../api_docs/python/nn.md\#sampled_softmax_loss}{\texttt{sampled\_softmax\_loss}}
+\item
+  \href{../../api_docs/python/nn.md\#separable_conv2d}{\texttt{separable\_conv2d}}
+\item
+  \href{../../api_docs/python/nn.md\#sigmoid}{\texttt{sigmoid}}
+\item
+  \href{../../api_docs/python/nn.md\#sigmoid_cross_entropy_with_logits}{\texttt{sigmoid\_cross\_entropy\_with\_logits}}
+\item
+  \href{../../api_docs/python/nn.md\#softmax}{\texttt{softmax}}
+\item
+  \href{../../api_docs/python/nn.md\#softmax_cross_entropy_with_logits}{\texttt{softmax\_cross\_entropy\_with\_logits}}
+\item
+  \href{../../api_docs/python/nn.md\#softplus}{\texttt{softplus}}
+\item
+  \href{../../api_docs/python/nn.md\#tanh}{\texttt{tanh}}
+\item
+  \href{../../api_docs/python/nn.md\#top_k}{\texttt{top\_k}}
+\item
+  \href{../../api_docs/python/nn.md\#uniform_candidate_sampler}{\texttt{uniform\_candidate\_sampler}}
+\item
+  \textbf{\href{../../api_docs/python/client.md}{Running Graphs}}:
+\item
+  \href{../../api_docs/python/client.md\#AbortedError}{\texttt{AbortedError}}
+\item
+  \href{../../api_docs/python/client.md\#AlreadyExistsError}{\texttt{AlreadyExistsError}}
+\item
+  \href{../../api_docs/python/client.md\#CancelledError}{\texttt{CancelledError}}
+\item
+  \href{../../api_docs/python/client.md\#DataLossError}{\texttt{DataLossError}}
+\item
+  \href{../../api_docs/python/client.md\#DeadlineExceededError}{\texttt{DeadlineExceededError}}
+\item
+  \href{../../api_docs/python/client.md\#FailedPreconditionError}{\texttt{FailedPreconditionError}}
+\item
+  \href{../../api_docs/python/client.md\#get_default_session}{\texttt{get\_default\_session}}
+\item
+  \href{../../api_docs/python/client.md\#InteractiveSession}{\texttt{InteractiveSession}}
+\item
+  \href{../../api_docs/python/client.md\#InternalError}{\texttt{InternalError}}
+\item
+  \href{../../api_docs/python/client.md\#InvalidArgumentError}{\texttt{InvalidArgumentError}}
+\item
+  \href{../../api_docs/python/client.md\#NotFoundError}{\texttt{NotFoundError}}
+\item
+  \href{../../api_docs/python/client.md\#OpError}{\texttt{OpError}}
+\item
+  \href{../../api_docs/python/client.md\#OutOfRangeError}{\texttt{OutOfRangeError}}
+\item
+  \href{../../api_docs/python/client.md\#PermissionDeniedError}{\texttt{PermissionDeniedError}}
+\item
+  \href{../../api_docs/python/client.md\#ResourceExhaustedError}{\texttt{ResourceExhaustedError}}
+\item
+  \href{../../api_docs/python/client.md\#Session}{\texttt{Session}}
+\item
+  \href{../../api_docs/python/client.md\#UnauthenticatedError}{\texttt{UnauthenticatedError}}
+\item
+  \href{../../api_docs/python/client.md\#UnavailableError}{\texttt{UnavailableError}}
+\item
+  \href{../../api_docs/python/client.md\#UnimplementedError}{\texttt{UnimplementedError}}
+\item
+  \href{../../api_docs/python/client.md\#UnknownError}{\texttt{UnknownError}}
+\item
+  \textbf{\href{../../api_docs/python/train.md}{Training}}:
+\item
+  \href{../../api_docs/python/train.md\#AdagradOptimizer}{\texttt{AdagradOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#AdamOptimizer}{\texttt{AdamOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#add_queue_runner}{\texttt{add\_queue\_runner}}
+\item
+  \href{../../api_docs/python/train.md\#AggregationMethod}{\texttt{AggregationMethod}}
+\item
+  \href{../../api_docs/python/train.md\#clip_by_average_norm}{\texttt{clip\_by\_average\_norm}}
+\item
+  \href{../../api_docs/python/train.md\#clip_by_global_norm}{\texttt{clip\_by\_global\_norm}}
+\item
+  \href{../../api_docs/python/train.md\#clip_by_norm}{\texttt{clip\_by\_norm}}
+\item
+  \href{../../api_docs/python/train.md\#clip_by_value}{\texttt{clip\_by\_value}}
+\item
+  \href{../../api_docs/python/train.md\#Coordinator}{\texttt{Coordinator}}
+\item
+  \href{../../api_docs/python/train.md\#exponential_decay}{\texttt{exponential\_decay}}
+\item
+  \href{../../api_docs/python/train.md\#ExponentialMovingAverage}{\texttt{ExponentialMovingAverage}}
+\item
+  \href{../../api_docs/python/train.md\#FtrlOptimizer}{\texttt{FtrlOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#global_norm}{\texttt{global\_norm}}
+\item
+  \href{../../api_docs/python/train.md\#global_step}{\texttt{global\_step}}
+\item
+  \href{../../api_docs/python/train.md\#GradientDescentOptimizer}{\texttt{GradientDescentOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#gradients}{\texttt{gradients}}
+\item
+  \href{../../api_docs/python/train.md\#histogram_summary}{\texttt{histogram\_summary}}
+\item
+  \href{../../api_docs/python/train.md\#image_summary}{\texttt{image\_summary}}
+\item
+  \href{../../api_docs/python/train.md\#merge_all_summaries}{\texttt{merge\_all\_summaries}}
+\item
+  \href{../../api_docs/python/train.md\#merge_summary}{\texttt{merge\_summary}}
+\item
+  \href{../../api_docs/python/train.md\#MomentumOptimizer}{\texttt{MomentumOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#Optimizer}{\texttt{Optimizer}}
+\item
+  \href{../../api_docs/python/train.md\#QueueRunner}{\texttt{QueueRunner}}
+\item
+  \href{../../api_docs/python/train.md\#RMSPropOptimizer}{\texttt{RMSPropOptimizer}}
+\item
+  \href{../../api_docs/python/train.md\#scalar_summary}{\texttt{scalar\_summary}}
+\item
+  \href{../../api_docs/python/train.md\#start_queue_runners}{\texttt{start\_queue\_runners}}
+\item
+  \href{../../api_docs/python/train.md\#stop_gradient}{\texttt{stop\_gradient}}
+\item
+  \href{../../api_docs/python/train.md\#summary_iterator}{\texttt{summary\_iterator}}
+\item
+  \href{../../api_docs/python/train.md\#SummaryWriter}{\texttt{SummaryWriter}}
+\item
+  \href{../../api_docs/python/train.md\#write_graph}{\texttt{write\_graph}}
+\item
+  \href{../../api_docs/python/train.md\#zero_fraction}{\texttt{zero\_fraction}}
+\end{itemize}
+
+--\textgreater{}
+
+
