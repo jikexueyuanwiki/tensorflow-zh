@@ -30,6 +30,12 @@ embeddings相关内容已经是个专家了，那么请安心跳过本节内容�
 
 通常图像或音频系统处理的是由图片中所有单个原始像素点强度值或者音频中功率谱密度的强度值，把它们编码成丰富、高纬度的向量数据集。对于物体或语音识别这一类的任务，我们所需的全部信息已经都存储在原始数据中（显然人类本身就是依赖原始数据进行日常的物体或语音识别的）。然后，自然语言处理系统通常将词汇作为离散的单一符号，例如"cat" 一词或可表示为\lstinline{Id537} ，而"dog"一词或可表示为\lstinline{Id143}。这些符号编码毫无规律，无法提供不同词汇之间可能存在的关联信息。换句话说，在处理关于"dogs" 一词的信息时，模型将无法利用已知的关于"cats"的信息（例如，它们都是动物，有四条腿，可作为宠物等等）。可见，将词汇表达为上述的独立离散符号将进一步导致数据稀疏，使我们在训练统计模型时不得不寻求更多的数据。而词汇的向量表示将克服上述的难题。
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\textwidth]{../SOURCE/images/audio-image-text.png}
+\caption{}
+\end{figure}
+
 \href{https://en.wikipedia.org/wiki/Vector_space_model}{向量空间模型(VSMs)}
 将词汇表达（嵌套）于一个连续的向量空间中，语义近似的词汇被映射为相邻的数据点。向量空间模型在自然语言处理领域中有着漫长且丰富的历史，不过几乎所有利用这一模型的方法都依赖于\href{https://en.wikipedia.org/wiki/Distributional_semantics\#Distributional_Hypothesis}{分布式假设}，其核心思想为出现于上下文情景中的词汇都有相类似的语义。采用这一假设的研究方法大致分为以下两类：\emph{基于技术的方法}(如，\href{https://en.wikipedia.org/wiki/Latent_semantic_analysis}{潜在语义分析})，和 \emph{预测方法} (如，\href{http://www.scholarpedia.org/article/Neural_net_language_models}{神经概率化语言模型}).
 
@@ -42,33 +48,35 @@ Word2vec是一种可以进行高效率词嵌套学习的预测模型。其两种
 
 神经概率化语言模型通常使用\href{https://en.wikipedia.org/wiki/Maximum_likelihood}{极大似然法(ML)} 进行训练，其中通过\href{https://en.wikipedia.org/wiki/Softmax_function}{\emph{softmax}function} 来最大化当提供前一个单词$h$ (代表"history")，后一个单词的概率$w_t$ (代表"target")，
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{../SOURCE/images/vr2.png}
-\caption{}
-\end{figure}
-
-当$score(w_t,h)$ 计算了文字 $w_t$ 和 上下文 $h$的相容性（通常使用向量积）。我们使用对数似然函数来训练训练集的最大值，比如通过：
-
 \begin{align}
 P(w_t|h) & = softmax(score(w_t,h)) \\
          & = \frac{exp\{score(w_t,h)\}}{\sum_{Word w'in Vocab}{exp\{score(w',h)\}}}
 \end{align}
 
+当$score(w_t,h)$ 计算了文字 $w_t$ 和 上下文 $h$的相容性（通常使用向量积）。我们使用对数似然函数来训练训练集的最大值，比如通过：
+
+\begin{align}
+J_{ML} & = \log{P(w_t|h)} \\
+       & = score(w_t,h) - \log{(\sum_{Word w'in Vocab}{\exp{\{score(w',h)\}}})}
+\end{align}
+
+这里提出了一个解决语言概率模型的合适的通用方法。然而这个方法实际执行起来开销非常大，因为我们需要去计算并正则化当前上下文环境 $h$ 中所有其他 $V$ 单词 $w'$ 的概率得分，\emph{在每一步训练迭代中}。
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{../SOURCE/images/vr2.png}
+\includegraphics[width=.75\textwidth]{../SOURCE/images/nce-nplm.png}
 \caption{}
 \end{figure}
 
-这里提出了一个解决语言概率模型的合适的通用方法。然而这个方法实际执行起来开销非常大，因为我们需要去计算并正则化当前上下文环境
-\textbf{h} 中所有其他 \textbf{V} 单词 \textbf{w'}
-的概率得分，\emph{在每一步训练迭代中}。
-
 从另一个角度来说，当使用word2vec模型时，我们并不需要对概率模型中的所有特征进行学习。而CBOW模型和Skip-Gram模型为了避免这种情况发生，使用一个二分类器（逻辑回归）在同一个上下文环境里从
-\textbf{k} 虚构的 (噪声) 单词 \includegraphics{../SOURCE/images/rw5.png}
-区分出真正的目标单词
+\textbf{k} 虚构的 (噪声) 单词区分出真正的目标单词
 \includegraphics{../SOURCE/images/rw4.png}。我们下面详细阐述一下CBOW模型，对于Skip-Gram模型只要简单地做相反的操作即可。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.75\textwidth]{../SOURCE/images/softmax-nplm.png}
+\caption{}
+\end{figure}
 
 从数学角度来说，我们的目标是对每个样本最大化：
 
