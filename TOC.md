@@ -1,7 +1,7 @@
 - 起步
   - [简介](SOURCE/get_started/introduction.md)
-  - [下载及安装](SOURCE/get_started/os_setup.md)
-  - [基本用法](SOURCE/get_started/basic_usage.md)
+  - [下载与安装](SOURCE/get_started/os_setup.md)
+  - [基本使用](SOURCE/get_started/basic_usage.md)
 - 教程
   - [总览](SOURCE/tutorials/overview.md)
   - [MNIST 机器学习入门](SOURCE/tutorials/mnist_beginners.md)
