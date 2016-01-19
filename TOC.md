@@ -27,10 +27,10 @@
 - 资源
   - [综述](SOURCE/resources/overview.md) 
   - [BibTex 引用](SOURCE/resources/bib.md) 
-  - [示例使用](SOURCE/resources/uses.md)
-  - [FAQ](SOURCE/resources/faq.md)
+  - [应用实例](SOURCE/resources/uses.md)
+  - [常见问题](SOURCE/resources/faq.md)
   - [术语表](SOURCE/resources/glossary.md)
-  - [Tensor排名、形状和类型](SOURCE/resources/dims_types.md)
+  - [Tensor的阶、形状和类型](SOURCE/resources/dims_types.md)
 - 其他
   - [常见问题汇总](SOURCE/faq.md)
   - [相关资源](SOURCE/resource.md)
