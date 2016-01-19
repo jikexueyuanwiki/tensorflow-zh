@@ -18,11 +18,11 @@
   - [变量:创建、初始化、保存和加载](SOURCE/how_tos/variables.md) 
   - [TensorBoard:可视化学习](SOURCE/how_tos/summaries_and_tensorboard.md) 
   - [TensorBoard:图表可视化](SOURCE/how_tos/graph_viz.md) 
-  - [读取数据](SOURCE/how_tos/reading_data.md) 
+  - [数据读取](SOURCE/how_tos/reading_data.md) 
   - [线程和队列](SOURCE/how_tos/threading_and_queues.md) 
   - [添加新的Op](SOURCE/how_tos/adding_an_op.md) 
   - [自定义数据读取](SOURCE/how_tos/new_data_formats.md) 
-  - [使用gpu](SOURCE/how_tos/using_gpu.md) 
+  - [使用GPUs](SOURCE/how_tos/using_gpu.md) 
   - [共享变量](SOURCE/how_tos/variable_scope.md) 
 - 资源
   - [综述](SOURCE/resources/overview.md) 
