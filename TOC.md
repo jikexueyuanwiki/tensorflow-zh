@@ -1,5 +1,5 @@
 - 起步
-  - [介绍](SOURCE/get_started/introduction.md)
+  - [简介](SOURCE/get_started/introduction.md)
   - [下载及安装](SOURCE/get_started/os_setup.md)
   - [基本用法](SOURCE/get_started/basic_usage.md)
 - 教程
