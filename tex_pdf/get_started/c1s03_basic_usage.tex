@@ -42,7 +42,7 @@ TensorFlow的图是一种对计算的抽象描述。在计算开始前, 图必�
 %
 %%
 %✠ \subsection{The computation graph}
-\subsection {图的构建}
+\subsection {图的构建} \label{computation_graph}
 
 TensorFlow programs are usually structured into a construction phase, that assembles a graph, and an execution phase that uses a session to execute ops in the graph.
 
@@ -104,7 +104,7 @@ The default graph now has three nodes: two constant() ops and one matmul() op. T
 
 %%%
 % \subsubsection {Launching the graph in a session}
-\subsubsection {在会话(session)中载入图(graph)}
+\subsubsection {在会话(session)中载入图(graph)} \label{launching_graph}
 
 Launching follows construction. To launch a graph, create a Session object. Without arguments the session constructor launches the default graph.
 

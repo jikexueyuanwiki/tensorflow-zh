@@ -53,7 +53,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 The downloaded data is split into three parts, 55,000 data points of training data \lstinline{(mnist.train)}, 10,000 points of test data \lstinline{(mnist.test)}, and 5,000 points of validation data \lstinline{(mnist.validation)}. This split is very important: it's essential in machine learning that we have separate data which we don't learn from so that we can make sure that what we've learned actually generalizes!
 
-下载下来的数据集可被分为三部分：55000 行训练用点数据集（\lstinline{mnist.train}），10000 行测试数据集（\lstinline{mnist.test}），以及5000行验证数据集（\lstinline{mnist.validation}）．这样的切分很重要：在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）．
+下载下来的数据集可被分为三部分：55000 行训练用点数据集（\lstinline{mnist.train}），10000 行测试数据集(\lstinline{mnist.test})，以及5000行验证数据集（\lstinline{mnist.validation}）．这样的切分很重要：在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）．
 
 As mentioned earlier, every MNIST data point has two parts: an image of a handwritten digit and a corresponding label. We will call the images "xs" and the labels "ys". Both the training set and test set contain xs and ys, for example the training images are \lstinline{mnist.train.images} and the train labels are \lstinline{mnist.train.labels}.
 
@@ -89,7 +89,7 @@ The result is that \lstinline{mnist.train.images} is a tensor (an n-dimensional 
 
 The corresponding labels in MNIST are numbers between 0 and 9, describing which digit a given image is of. For the purposes of this tutorial, we're going to want our labels as "one-hot vectors". A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension. In this case, the $n$th digit will be represented as a vector which is 1 in the $n$th dimensions. For example, 3 would be $[0,0,0,1,0,0,0,0,0,0]$. Consequently, mnist.train.labels is a \lstinline{[55000, 10]} array of floats.
 
-相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字．为了用于这个教程，我们使标签数据是"one-hot vectors"． 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0．所以在此教程中，数字n将表示成一个只有在第$n$维度（从0开始）数字为1的10维向量．比如，标签0将表示成(\lstinline{[1,0,0,0,0,0,0,0,0,0,0]})．因此，\lstinline{mnist.train.labels}是一个 \lstinline{[60000, 10]} 的数字矩阵．
+相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字．为了用于这个教程，我们使标签数据是"one-hot vectors"． 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0．所以在此教程中，数字n将表示成一个只有在第$n$维度（从0开始）数字为1的10维向量．比如，标签0将表示成(\lstinline{[1,0,0,0,0,0,0,0,0,0,0]})．因此，\lstinline{mnist.train.labels}是一个 \lstinline{[55000, 10]} 的数字矩阵．
 
 \begin{figure}[htbp]
 \centering
@@ -109,19 +109,19 @@ We know that every image in MNIST is a digit, whether it's a zero or a nine. We 
 
 This is a classic case where a softmax regression is a natural, simple model. If you want to assign probabilities to an object being one of several different things, softmax is the thing to do. Even later on, when we train more sophisticated models, the final step will be a layer of softmax.
 
-这是体现出softmax回归自然而又简介的一个典型案例．softmax模型可以用来给不同的对象分配概率．在后文，我们训练更加复杂的模型时，最后一步也往往需要用softmax来分配概率．
+这是能够体现softmax回归自然简约的一个典型案例．softmax模型可以用来给不同的对象分配概率．在后文，我们训练更加复杂的模型时，最后一步也往往需要用softmax来分配概率．
 
 A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
 
-softmax回归（softmax regression）分两步：首先对输入被分类对象属于某个类的"证据"相加求和，然后将这个"证据"的和转化为概率.
+softmax回归（softmax regression）分两步：首先对输入被分类对象属于某个类的“证据”相加求和，然后将这个“证据”的和转化为概率.
 
 To tally up the evidence that a given image is in a particular class, we do a weighted sum of the pixel intensities. The weight is negative if that pixel having a high intensity is evidence against the image being in that class, and positive if it is evidence in favor.
 
-我们使用加权的方法来累积计算一张图片是否属于某类的“证据”。如果图片的像素很强有力的证明该图不属于某个类，则权重为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值是正数．
+我们使用加权的方法来累积计算一张图片是否属于某类的“证据”。如果图片的像素强有力的体现该图不属于某个类，则权重为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值为正．
 
 The following diagram shows the weights one model learned for each of these classes. Red represents negative weights, while blue represents positive weights.
 
-下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值．红色代表负数权值，蓝色代表正数权值．
+下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值．红色代表负权值，蓝色代表正权值．
 
 \begin{figure}[htbp]
 \centering
@@ -131,7 +131,7 @@ The following diagram shows the weights one model learned for each of these clas
 
 We also add some extra evidence called a bias. Basically, we want to be able to say that some things are more likely independent of the input. The result is that the evidence for a class $i$ given an input $x$ is:
 
-我们也需要加入一个额外的偏置量（bias），因为输入往往会带有一些无关的干扰量．因此对于给定的输入图片$x$它代表的是数字$x$的证据可以表示为:
+我们也需要引入额外的“证据”，可称之为偏置量(bias）。总的来说，我们希望它代表了与所输入向无关的判断证据．因此对于给定的输入图片$x$代表某数字$i$的总体证据可以表示为:
 \begin{equation}
 evidence_i = \sum_j{W_{i,j}}x_j+b_i
 \end{equation}\\
@@ -240,51 +240,75 @@ That's it. It only took us one line to define our model, after a couple short li
 至此，我们先用了几行简短的代码来设置变量，然后只用了一行代码来定义我们的模型．TensorFlow不仅仅可以使softmax回归模型计算变得特别简单，它也用这种非常灵活的方式来描述其他各种数值计算，从机器学习模型对物理学模拟仿真模型．一旦被定义好之后，我们的模型就可以在不同的设备上运行：计算机的CPU，GPU，甚至是手机！
 
 \subsection{训练模型}
+
+In order to train our model, we need to define what it means for the model to be good. Well, actually, in machine learning we typically define what it means for a model to be bad, called the cost or loss, and then try to minimize how bad it is. But the two are equivalent.
+
 为了训练我们的模型，我们首先需要定义一个指标来评估这个模型是好的．其实，在机器学习，我们通常定义指标来表示一个模型是坏的，这个指标称为成本（cost）或损失（loss），然后尽量最小化这个指标．但是，这两种方式是相同的．
 
-一个非常常见的，非常漂亮的成本函数是“交叉熵”（cross-entropy）．交叉熵产生于信息论里面的信息压缩编码技术，但是它后来演变成为从博弈论到机器学习等其他领域里的重要技术手段．它的定义如下：
+One very common, very nice cost function is "cross-entropy." Surprisingly, cross-entropy arises from thinking about information compressing codes in information theory but it winds up being an important idea in lots of areas, from gambling to machine learning. It's defined:\\
+一个非常常见的，非常漂亮的成本函数是“交叉熵”(cross-entropy)．交叉熵产生于信息论里面的信息压缩编码技术，但是它后来演变成为从博弈论到机器学习等其他领域里的重要技术手段．它的定义如下：
+\\
 \begin{equation}
 H_{y'}(y) = -\sum_i{y_{i}'log(y_i)}
 \end{equation}
-$y$是我们预测的概率分布,$y'$是实际的分布（我们输入的one-hot vector)．比较粗糙的理解是，交叉熵是用来衡量我们的预测用于描述真相的低效性．更详细的关于交叉熵的解释超出本教程的范畴，但是你很有必要好好理解它．
+\\
+where $y$ is our predicted probability distribution, and $y'$ is the true distribution (the one-hot vector we'll input). In some rough sense, the cross-entropy is measuring how inefficient our predictions are for describing the truth. Going into more detail about cross-entropy is beyond the scope of this tutorial, but it's well worth \href{http://colah.github.io/posts/2015-09-Visual-Information/}{understanding}.
+\\
+$y$是我们预测的概率分布,$y'$是实际的分布（我们输入的one-hot vector)．比较粗糙的理解是，交叉熵是用来衡量我们的预测用于描述真相的低效性．更详细的关于交叉熵的解释超出本教程的范畴，但是你很有必要好好\href{http://colah.github.io/posts/2015-09-Visual-Information/}{理解}它．
 
+To implement cross-entropy we need to first add a new placeholder to input the correct answers:\\
 为了计算交叉熵，我们首先需要添加一个新的占位符用于输入正确值：
+\\
 \begin{lstlisting}
 y = tf.placeholder("float", [None,10])
 \end{lstlisting}
-然后我们可以用
-$-\sum{y'log(y)}$
-计算交叉熵:
+Then we can implement the cross-entropy $-\sum{y'log(y)}$,\\
+然后我们可以用 $-\sum{y'log(y)}$ 计算交叉熵:
 
 \begin{lstlisting}
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 \end{lstlisting}
 
-首先，用 tf.log 计算y的每个元素的对数．接下来，我们把y\_的每一个元素和tf.log(y\_)的对应元素相乘．最后，用tf.reduce\_sum计算张量的所有元素的总和．（注意，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和．对于100个数据点的预测表现比单一数据点的表现能更好地描述我们的模型的性能．
+First, \lstinline{tf.log} computes the logarithm of each element of \lstinline{y.} Next, we multiply each element of \lstinline{y_} with the corresponding element of \lstinline{tf.log(y)}. Finally, \lstinline{tf.reduce_sum} adds all the elements of the tensor.
 
-现在我们知道我们需要我们的模型做什么啦，用TensorFlow来训练它是非常容易的．因为TensorFlow拥有一张描述你各个计算单元的图，它可以自动地使用反向传播算法(backpropagation algorithm)来有效地确定你的变量是如何影响你想要最小化的那个成本值的．然后，TensorFlow会用你选择的优化算法来不断地修改变量以降低成本．
+首先，用 \lstinline{tf.log} 计算y的每个元素的对数．接下来，我们把\lstinline{y_}的每一个元素和\lstinline{tf.log(y_)}的对应元素相乘．最后，用\lstinline{tf.reduce_sum}计算张量的所有元素的总和．
+
+Note that this isn't just the cross-entropy of the truth with a single prediction, but the sum of the cross-entropies for all the images we looked at. In this example, we have 100 images in each batch: how well we are doing on 100 data points is a much better description of how good our model is than a single data point.
+
+值得注意的是，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和．对于100个数据点的预测表现比单一数据点的表现能更好地描述我们的模型的性能．
+
+Now that we know what we want our model to do, it's very easy to have TensorFlow train it to do so. Because TensorFlow knows the entire graph of your computations, it can automatically use the \href{http://colah.github.io/posts/2015-08-Backprop/}{backpropagation algorithm} to efficiently determine how your variables affect the cost you ask it minimize. Then it can apply your choice of optimization algorithm to modify the variables and reduce the cost.
+
+现在我们知道我们需要我们的模型做什么啦，用TensorFlow来训练它是非常容易的．因为TensorFlow拥有一张描述你各个计算单元的图，它可以自动地使用\href{http://colah.github.io/posts/2015-08-Backprop/}{反向传播算法(backpropagation algorithm)}来有效地确定你的变量是如何影响你想要最小化的那个成本值的．然后，TensorFlow会用你选择的优化算法来不断地修改变量以降低成本．
 
 \begin{lstlisting}
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 \end{lstlisting}
 
-在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵．梯度下降算法（gradient descent algorithm）是一个简单的学习过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动．当然TensorFlow也提供了其他许多优化算法：只要简单地调整一行代码就可以
-使用其他的算法．
+In this case, we ask TensorFlow to minimize \lstinline{cross_entropy} using the gradient descent algorithm with a learning rate of $0.01$. Gradient descent is a simple procedure, where TensorFlow simply shifts each variable a little bit in the direction that reduces the cost. But TensorFlow also provides \href{https://www.tensorflow.org/versions/master/api_docs/python/train.html#optimizers}{many other optimization algorithms}: using one is as simple as tweaking one line.
+
+在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵．梯度下降算法（gradient descent algorithm）是一个简单的学习过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动．当然TensorFlow也提供了\href{https://www.tensorflow.org/versions/master/api_docs/python/train.html#optimizers}{其他许多优化算法}：只要简单地调整一行代码就可以使用其他的算法．
+
+What TensorFlow actually does here, behind the scenes, is it adds new operations to your graph which implement backpropagation and gradient descent. Then it gives you back a single operation which, when run, will do a step of gradient descent training, slightly tweaking your variables to reduce the cost.
 
 TensorFlow在这里实际上所做的是，它会在后台给描述你的计算的那张图里面增加一系列新的计算操作单元用于实现反向传播算法和梯度下降算法．然后，它返回给你的只是一个单一的操作，当运行这个操作时，它用梯度下降算法训练你的模型，微调你的变量，不断减少成本．
+
+Now we have our model set up to train. One last thing before we launch it, we have to add an operation to initialize the variables we created:
 
 现在，我们已经设置好了我们的模型．在运行计算之前，我们需要添加一个操作来初始化我们创建的变量：
 
 \begin{lstlisting}
 init = tf.initialize_all_variables()
 \end{lstlisting}
-
-现在我们可以在一个 Session 里面启动我们的模型，并且初始化变量：
+\\
+We can now launch the model in a \lstinline{Session}, and run the operation that initializes the variables:\\
+现在我们可以在一个 \lstinline{Session} 里面启动我们的模型，并且初始化变量：
 \begin{lstlisting}
 sess = tf.Session()
 sess.run(init)
 \end{lstlisting}
-
+\\
+Let's train -- we'll run the training step 1000 times!\\
 然后开始训练模型，这里我们让模型循环训练1000次！
 \begin{lstlisting}
 for i in range(1000):
@@ -292,13 +316,21 @@ for i in range(1000):
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 \end{lstlisting}
 
-该循环的每个步骤中，我们都会随机抓取训练数据中的100个批处理数据点，然后我们用这些数据点作为参数替换之前的占位符来运行train\_step．
+Each step of the loop, we get a "batch" of one hundred random data points from our training set. We run \lstinline{train_step} feeding in the batches data to replace the placeholders.
 
-使用一小部分的随机数据来进行训练被称为随机训练（stochastic training）- 在这里更确切的说是随机梯度下降训练．在理想情况下，我们希望用我们所有的数据来进行每一步的训练，因为这能给我们更好的训练结果，但显然这需要很大的计算开销．所以，每一次训练我们可以使用不同的数据子集，这样做既可以减少计算开销，又可以最大化地学习到数据集的总体特性．
+该循环的每个步骤中，我们都会随机抓取训练数据中的100个批处理数据点，然后我们用这些数据点作为参数替换之前的占位符来运行\lstinline{train_step}．
 
-\subsection{评估我们的模型}
+Using small batches of random data is called stochastic training -- in this case, stochastic gradient descent. Ideally, we'd like to use all our data for every step of training because that would give us a better sense of what we should be doing, but that's expensive. So, instead, we use a different subset every time. Doing this is cheap and has much of the same benefit.
+
+使用一小部分的随机数据来进行训练被称为随机训练(stochastic training)---在这里更确切的说是随机梯度下降训练．理想情况下，我们希望用我们所有的数据来进行每一步的训练，因为这能给我们更好的训练结果，但显然这需要很大的计算开销．所以，每一次训练我们可以使用不同的数据子集，这样做既可以减少计算开销，又可以最大化地学习到数据集的总体特性．
+
+\subsection{Evaluating Our Model   ||   评估我们的模型}
+
+How well does our model do?
 
 那么我们的模型性能如何呢？
+
+Well, first let's figure out where we predicted the correct label. \lstinline{tf.argmax} is an extremely useful function which gives you the index of the highest entry in a tensor along some axis. For example, \lstinline{tf.argmax(y,1)} is the label our model thinks is most likely for each input, while \lstinline{tf.argmax(y_,1)} is the correct label. We can use \lstinline{tf.equal} to check if our prediction matches the truth.
 
 首先让我们找出那些预测正确的标签．\lstinline{tf.argmax()}是一个非常有用的函数，它能给你在一个张量里沿着某条轴的最高条目的索引值．比如，\lstinline{tf.argmax(y,1)}是模型认为每个输入最有可能对应的那些标签，而\lstinline{tf.argmax(y_,1)}代表正确的标签．我们可以用\lstinline{tf.equal} 来检测我们的预测是否真实标签匹配．
 
@@ -306,11 +338,15 @@ for i in range(1000):
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
 \end{lstlisting}
 
-这行代码会给我们一组布尔值．为了确定正确预测项的比例，我们可以把布尔值转换成浮点数，然后取平均值．例如，\lstinline{[True, False, True, True]}会变成\lstinline{[1,0,1,1]}，取平均值后得到 0.75 .
+That gives us a list of booleans. To determine what fraction are correct, we cast to floating point numbers and then take the mean. For example, \lstinline{[True, False, True, True]} would become \lstinline{[1,0,1,1]} which would become $0.75$.
+
+这行代码会给我们一组布尔值．为了确定正确预测项的比例，我们可以把布尔值转换成浮点数，然后取平均值．例如，\lstinline{[True, False, True, True]}会变成\lstinline{[1,0,1,1]}，取平均值后得到 $0.75$ .
 
 \begin{lstlisting}
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 \end{lstlisting}
+
+Finally, we ask for our accuracy on our test data.
 
 最后，我们计算所学习到的模型在测试数据集上面的正确率．
 
@@ -318,11 +354,16 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})
 \end{lstlisting}
 
+This should be about 91\%.
+
 最终结果值应该大约是91\%．
 
-这个结果好吗？嗯，并不太好．事实上，这个结果是很差的．这是因为我们仅仅使用了一个非常简单的模型．不过，做一些小小的改进，我们就可以得到97\%的正确率．最好的模型甚至可以获得超过99.7\%的准确率！（想了解更多信息，可以看看这个关于各种模型的性能对比列表．)
+Is that good? Well, not really. In fact, it's pretty bad. This is because we're using a very simple model. With some small changes, we can get to 97\%/. The best models can get to over 99.7\% accuracy! (For more information, have a look at this \href{http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html}{list of results})
 
-比结果更重要的是，我们从这个模型中学习到的设计思想．不过，如果你仍然对这里的结果有点失望，可以查看下一个教程，在那里你将学到如何用FensorFlow构建更加复杂的模型以获得更好的性能！
+这个结果好吗？嗯，并不太好．事实上，这个结果是很差的．这是因为我们仅仅使用了一个非常简单的模型．不过，做一些小小的改进，我们就可以得到97\%的正确率．最好的模型甚至可以获得超过99.7\%的准确率！（想了解更多信息，请参考这个\href{http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html}{结果对比列表}．)
+
+What matter is that we learned from this model. Still, if you're feeling a bit down about these results, check out the next tutorial where we do a lot better, and learn how to build more sophisticated models using TensorFlow!
+
+比结果更重要的是，我们从这个模型中学习到的设计思想．不过，如果你仍然对这里的结果有点失望，可以查看下个教程，在那里你将学到如何用FensorFlow构建更加复杂的模型以获得更好的性能！
 
 原文地址：\href{http://tensorflow.org/tutorials/mnist/beginners/index.md}{MNIST For ML Beginners}
-翻译：\href{https://github.com/linbojin}{linbojin} 校对：

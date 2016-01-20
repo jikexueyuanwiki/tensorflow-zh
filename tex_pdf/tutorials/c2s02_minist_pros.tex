@@ -8,45 +8,75 @@
 
 
 \newpage
-\section {深入MNIST} \label{MINIST_pros}
-TensorFlow是一个做大规模数值计算的强大库。其中一个特点就是它能够实现和训练深度神经网络。 在这一小节里，我们将会学习在MNIST上构建深度卷积分类器的基本步骤。
+\section {Deep MNIST for Experts   ||   深入MNIST} \label{MINIST_pros}
 
-\emph{这个教程假设你已经熟悉神经网络和MNIST数据集。如果你尚未了解，请查看\hyperref[MINIST_beginner]{新手指南}.}
+TensorFlow is a powerful library for doing large-scale numerical computation. One of the tasks at which it excels is implementing and training deep neural networks. In this tutorial we will learn the basic building blocks of a TensorFlow model while constructing a deep convolutional MNIST classifier.
 
-\subsection {安装}
-在创建模型之前，我们会先加载MNIST数据集，然后启动一个TensorFlow的session。
+TensorFlow是一个善于进行大规模数值计算的强大库件。其中一个强项就是训练和实现深度神经网络(deep neural networks)。在本小节中，我们将会学习TensorFlow模型构建的基本方法，并以此构建一个深度卷积MNIST分类器。
 
-\subsubsection {加载MINIST数据}
+This introduction assumes familiarity with neural networks and the MNIST dataset. If you don't have a background with them, check out the \hyperref[MINIST_beginner]{introduction for beginners}. Be sure to \hyperref[download_install]{install TensorFlow} before starting.
 
-为了方便起见，我们已经准备了一个脚本来自动下载和导入MNIST数据集。它会自动创建一个'MNIST\_data'的目录来存储数据。
+本教程假设您已经熟悉神经网络和MNIST数据集。如果你尚未了解，请查看\hyperref[MINIST_beginner]{新手指南}。再开始学习前请确保您已\hyperref[download_install]{安装TensorFlow}。
+
+%
+%%
+\subsection {Setup   |   安装}
+
+Before we create our model, we will first load the MNIST dataset, and start a TensorFlow session.
+
+在创建模型之前，我们会先加载MNIST数据集，然后启动一个TensorFlow会话。
+
+\subsubsection {Load MNIST Data  |  加载MINIST数据}
+
+For your convenience, we've included \href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{a script} which automatically downloads and imports the MNIST dataset. It will create a directory 'MNIST_data' in which to store the data files.
+
+为了方便起见，我们已经准备了一个\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{脚本}来自动下载和导入MNIST数据集。它会自动创建一个\lstinline{MNIST_data}的目录来存储数据。
 
 \begin{lstlisting}
 import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 \end{lstlisting}
 
-\subsubsection {开始TensorFlow的交互会话}
+Here \lstinline{mnist} is a lightweight class which stores the training, validation, and testing sets as NumPy arrays. It also provides a function for iterating through data minibatches, which we will use below.
 
-Tensorflow基于一个高效的C++模块进行运算。与这个模块的连接叫做session。一般而言，使用TensorFlow程序的流程是先创建一个图，然后在session中加载它。
+此处的 \lstinline{mnist} 是一个以NumPy数组形式存储训练、验证和测试数据的轻量级类。我们将在之后使用到它提供的一个函数功能，用于迭代按批处理数据。
 
-这里，我们使用更加方便的InteractiveSession类。通过它，你可以更加灵活地构建你的代码。它能让你在运行图的时候，插入一些构建计算图的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用InteractiveSession的话，你需要在开始session和加载图之前，构建整个计算图。
+\subsubsection {Start TensorFlow InteractiveSession  |  开始TensorFlow交互会话}
+
+Tensorflow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow programs is to first create a graph and then launch it in a session.
+
+Tensorflow基于一个高效的C++后台模块进行运算。与这个后台模块的连接叫做\emph{会话}(session)。TensorFlow编程的常规流程是先创建一个图，然后在session中加载它。
+
+Here we instead use the convenient InteractiveSession class, which makes TensorFlow more flexible about how you structure your code. It allows you to interleave operations which build a \hyperref[computation_graph]{computation graph} with ones that run the graph. This is particularly convenient when working in interactive contexts like IPython. If you are not using an InteractiveSession, then you should build the entire computation graph before starting a session and \hyperref[launching_graph]{launching} the graph.
+
+这里，我们使用更加方便的\emph{交互会话}(InteractiveSession)类，它可以让您更加灵活地构建代码。交互会话能让你在运行图的时候，插入一些构建计算图的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用InteractiveSession的话，你需要在开始session和加载图之前，构建整个计算图。
 
 \begin{lstlisting}
 import tensorflow as tf
 sess = tf.InteractiveSession()
 \end{lstlisting}
 
-\subsubsection {计算图}
+\subsubsection {Computation Graph  |  计算图}
 
-传统的计算行为中，为了更高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的lib，在Python外完成这些费时的操作（例如矩阵运算）。可是，每一步操作依然会经常在Python和第三方lib之间切换。这些操作很糟糕，特别是当你想在GPU上进行计算，又或者想使用分布式的做法的时候。这些情况下数据传输代价高昂。
+To do efficient numerical computing in Python, we typically use libraries like NumPy that do expensive operations such as matrix multiplication outside Python, using highly efficient code implemented in another language. Unfortunately, there can still be a lot of overhead from switching back to Python every operation. This overhead is especially bad if you want to run computations on GPUs or in a distributed manner, where there can be a high cost to transferring data.
 
-在TensorFlow中，也有Python与外界的频繁操作。但是它在这一方面，做了进一步的改良。TensorFlow构建一个交互操作的图，作为一个整体在Python外运行，而不是以代价高昂的单个交互操为单位在Python外运行。这与Theano、Torch的做法很相似。
+为了高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的库件，在Python外用其它执行效率高的语言完成这些高运算开销操作（如矩阵运算）。但是，每一步操作依然会需要切换回Python带来很大开销。特别的，这种开销会在GPU运算或是分布式集群运算这类高数据传输需求的运算形式上非常高昂。
 
-所以，这部分Python代码，目的是构建这个在外部运行的计算图，并安排这个计算图的哪一部分应该被运行。详细请阅读计算图 部分的基本用法。 %add link here
+TensorFlow also does its heavy lifting outside Python, but it takes things a step further to avoid this overhead. Instead of running a single expensive operation independently from Python, TensorFlow lets us describe a graph of interacting operations that run entirely outside Python. This approach is similar to that used in Theano or Torch.
 
-\subsection{构建Softmax Regression模型}
+TensorFlow将高运算量计算放在Python外进行，同时更进一步设法避免上述的额外运算开销。不同于在Python中独立运行运算开销昂贵的操作，TensorFlow让我们可以独立于Python以外以图的形式描述交互式操作。这与Theano、Torch的做法很相似。
 
-在这小节里，我们将会构建一个一层线性的softmax regression模型。下一节里，我们会扩展到多层卷积网络。
+The role of the Python code is therefore to build this external computation graph, and to dictate which parts of the computation graph should be run. See the \hyperref[computation_graph]{Computation Graph} section of \hyperref[basic_usage]{Basic Usage} for more detail.
+
+因此，这里Python代码的角色是构建其外部将运行的\emph{计算图}，并决定计算图的哪一部分将被运行。更多的细节和\hyperref[basic_usage]{基本使用方法}请参阅\hyperref[computation_graph]{计算图}章节。
+
+%
+%%
+\subsection{Build a Softmax Regression Model  ||  构建 Softmax 回归模型}
+
+In this section we will build a softmax regression model with a single linear layer. In the next section, we will extend this to the case of softmax regression with a multilayer convolutional network.
+
+在这小节里，我们将会构建一个包含单个线性隐层的 softmax 回归模型。我们将在下一小结把它扩展成多层卷积网络 softmax回归模型。
 
 \subsubsection{占位符(placeholder)}
 我们先来创建计算图的输入（图片）和输出（类别）。
