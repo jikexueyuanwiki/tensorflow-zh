@@ -117,3 +117,6 @@ Jeff回信原文：
 
 目前，离线版本(PDF、ePub)可正常下载、使用
 
+## Tex-PDF 修订版
+
+[Tex-PDF 修订版](https://github.com/jikexueyuanwiki/tensorflow-zh/tree/master/tex_pdf) 目前正在编订中，欢迎加入进来一起修订。您可以下载[预览版](https://github.com/jikexueyuanwiki/tensorflow-zh/blob/master/tex_pdf/tensorflow_manual_cn.pdf)查看目前最新状态。
