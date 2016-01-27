@@ -20,7 +20,7 @@ TensorFlow是一个善于大规模数值计算的强大库件。它的一个强�
 
 %
 %%
-\subsection {Setup   |   安装}
+\subsection {Setup  |  安装}
 
 Ⓔ \textcolor{etc}{Before we create our model, we will first load the MNIST dataset, and start a TensorFlow session.}
 
@@ -77,6 +77,7 @@ TensorFlow将高运算量计算放在Python外进行，同时更进一步设法�
 Ⓔ \textcolor{etc}{In this section we will build a softmax regression model with a single linear layer. In the next section, we will extend this to the case of softmax regression with a multilayer convolutional network.}
 
 在这小节里，我们将会构建一个包含单个线性隐层的 softmax 回归模型。我们将在下一小结把它扩展成多层卷积网络 softmax回归模型。
+\index{Softmax regression}
 
 %
 \subsubsection{Placeholder  |  占位符}
@@ -222,6 +223,7 @@ print accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels})
 Ⓔ \textcolor{etc}{Getting 91\% accuracy on MNIST is bad. It's almost embarrassingly bad. In this section, we'll fix that, jumping from a very simple model to something moderately sophisticated: a small convolutional neural network. This will get us to around 99.2\% accuracy --- not state of the art, but respectable.}
 
 在MNIST上只有91\%正确率，实在太糟糕。在这个小节里，我们用一个稍微复杂的模型：卷积神经网络来改善效果。这会达到大概99.2\%的准确率。虽然不是最高，但是还是比较让人满意。
+\index{卷积神经网络}
 
 %
 \subsubsection{Weight Initialization | 权重初始化}

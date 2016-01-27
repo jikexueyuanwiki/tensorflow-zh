@@ -11,11 +11,11 @@
 
 Ⓔ \textcolor{etc}{This tutorial is intended for readers who are new to both machine learning and TensorFlow. If you already know what MNIST is, and what softmax (multinomial logistic) regression is, you might prefer this faster paced tutorial. Be sure to install TensorFlow before starting either tutorial.}
 
-Ⓒ 这个教程的目标读者是对机器学习和TensorFlow都不太了解的新手．如果你已经了解MNIST和softmax回归(softmax regression)的相关知识，你可以阅读这个快速上手教程．
+Ⓒ 本教程的目标读者是对机器学习和TensorFlow都不太了解的新手．如果你已经了解MNIST和softmax回归(softmax regression)的相关知识，你可以阅读这个快速上手教程．
 
 Ⓔ \textcolor{etc}{When one learns how to program, there's a tradition that the first thing you do is print "Hello World." Just like programming has Hello World, machine learning has MNIST.}
 
-Ⓒ 当我们开始学习编程的时候，第一件事往往是学习打印“Hello World”．就好比编程入门有Hello World，机器学习入门有MNIST．
+Ⓒ 当我们开始学习编程的时候，第一件事往往是学习打印“Hello World”．就好比编程入门有Hello World，机器学习入门有MNIST．\index{MNIST 数据集}
 
 Ⓔ \textcolor{etc}{MNIST is a simple computer vision dataset. It consists of images of handwritten digits like these:}
 
@@ -43,7 +43,8 @@
 
 Ⓔ \textcolor{etc}{The MNIST data is hosted on Yann LeCun's website. For your convenience, we've included some python code to download and install the data automatically. You can either download the code and import it as below, or simply copy and paste it in.}
 
-MNIST数据集的官网是\href{http://yann.lecun.com/exdb/mnist/}{Yann LeCun's website}．在这里，我们提供了一份python源代码用于自动下载和安装这个数据集．你可以下载这段\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{代码}，然后用下面的代码导入到你的项目里面，也可以直接复制粘贴到你的代码文件里面．
+Ⓒ MNIST数据集的官网是\href{http://yann.lecun.com/exdb/mnist/}{Yann LeCun's website}．在这里，我们提供了一份python源代码用于自动下载和安装这个数据集．你可以下载这段\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{代码}，然后用下面的代码导入到你的项目里面，也可以直接复制粘贴到你的代码文件里面．
+
 
 %\begin{lstlisting}[language={[ANSI]Python}]
 \begin{lstlisting}
@@ -53,15 +54,15 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 Ⓔ \textcolor{etc}{The downloaded data is split into three parts, 55,000 data points of training data \lstinline{(mnist.train)}, 10,000 points of test data \lstinline{(mnist.test)}, and 5,000 points of validation data \lstinline{(mnist.validation)}. This split is very important: it's essential in machine learning that we have separate data which we don't learn from so that we can make sure that what we've learned actually generalizes!}
 
-下载下来的数据集可被分为三部分：55000 行训练用点数据集（\lstinline{mnist.train}），10000 行测试数据集(\lstinline{mnist.test})，以及5000行验证数据集（\lstinline{mnist.validation}）．这样的切分很重要：在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）．
+Ⓒ 下载下来的数据集可被分为三部分：55000 行训练用点数据集（\lstinline{mnist.train}），10000 行测试数据集(\lstinline{mnist.test})，以及5000行验证数据集（\lstinline{mnist.validation}）．这样的切分很重要：在机器学习模型设计时必须有一个单独的测试数据集不用于训练而是用来评估这个模型的性能，从而更加容易把设计的模型推广到其他数据集上（泛化）．
 
 Ⓔ \textcolor{etc}{As mentioned earlier, every MNIST data point has two parts: an image of a handwritten digit and a corresponding label. We will call the images "xs" and the labels "ys". Both the training set and test set contain xs and ys, for example the training images are \lstinline{mnist.train.images} and the train labels are \lstinline{mnist.train.labels}.}
 
-正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签．我们把这些图片设为“xs”，把这些标签设为“ys”．训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是\lstinline{mnist.train.images} ，训练数据集的标签是\lstinline{mnist.train.labels}．
+Ⓒ 正如前面提到的一样，每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签．我们把这些图片设为“xs”，把这些标签设为“ys”．训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是\lstinline{mnist.train.images} ，训练数据集的标签是\lstinline{mnist.train.labels}．
 
 Ⓔ \textcolor{etc}{Each image is 28 pixels by 28 pixels. We can interpret this as a big array of numbers:}
 
-每一张图片包含$ 28 \times 28$像素．我们可以用一个数字数组来表示这张图片：
+Ⓒ 每一张图片包含$ 28 \times 28$像素．我们可以用一个数字数组来表示这张图片：
 
 \begin{figure}[htbp]
 \centering
@@ -71,15 +72,15 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 Ⓔ \textcolor{etc}{We can flatten this array into a vector of $ 28 \times 28 = 784$ numbers. It doesn't matter how we flatten the array, as long as we're consistent between images. From this perspective, the MNIST images are just a bunch of points in a 784-dimensional vector space, with a \href{http://colah.github.io/posts/2014-10-Visualizing-MNIST/}{very rich structure} (warning: computationally intensive visualizations).}
 
-我们把这个数组展开成一个向量，长度是 $ 28 \times 28 = 784$．如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开．从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较\href{http://colah.github.io/posts/2014-10-Visualizing-MNIST/}{复杂的结构} (注意: 此类数据的可视化是计算密集型的)．
+Ⓒ 我们把这个数组展开成一个向量，长度是 $ 28 \times 28 = 784$．如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开．从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较\href{http://colah.github.io/posts/2014-10-Visualizing-MNIST/}{复杂的结构} (注意: 此类数据的可视化是计算密集型的)．
 
 Ⓔ \textcolor{etc}{Flattening the data throws away information about the 2D structure of the image. Isn't that bad? Well, the best computer vision methods do exploit this structure, and we will in later tutorials. But the simple method we will be using here, a softmax regression, won't.}
 
-展平图片的数字数组会丢失图片的二维结构信息．这显然是不理想的，最优秀的计算机视觉方法会挖掘并利用这些结构信息，我们会在后续教程中介绍．但是在这个教程中我们忽略这些结构，所介绍的简单数学模型，softmax回归(softmax regression)，不会利用这些结构信息．
+Ⓒ 展平图片的数字数组会丢失图片的二维结构信息．这显然是不理想的，最优秀的计算机视觉方法会挖掘并利用这些结构信息，我们会在后续教程中介绍．但是在这个教程中我们忽略这些结构，所介绍的简单数学模型，softmax回归(softmax regression)，不会利用这些结构信息．
 
 Ⓔ \textcolor{etc}{The result is that \lstinline{mnist.train.images} is a tensor (an n-dimensional array) with a shape of \lstinline{[55000, 784]}. The first dimension indexes the images and the second dimension indexes the pixels in each image. Each entry in the tensor is the pixel intensity between 0 and 1, for a particular pixel in a particular image.}
 
-因此，在MNIST训练数据集中，\lstinline{mnist.train.images}是一个形状为 \lstinline{[55000, 784]} 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点．在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间．
+Ⓒ 因此，在MNIST训练数据集中，\lstinline{mnist.train.images}是一个形状为 \lstinline{[55000, 784]} 的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点．在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间．
 
 \begin{figure}[htbp]
 \centering
@@ -87,9 +88,9 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 \caption{}
 \end{figure}
 
-Ⓔ The corresponding labels in MNIST are numbers between 0 and 9, describing which digit a given image is of. For the purposes of this tutorial, we're going to want our labels as "one-hot vectors". A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension. In this case, the $n$th digit will be represented as a vector which is 1 in the $n$th dimensions. For example, 3 would be $[0,0,0,1,0,0,0,0,0,0]$. Consequently, mnist.train.labels is a \lstinline{[55000, 10]} array of floats.
+Ⓔ \textcolor{etc}{The corresponding labels in MNIST are numbers between 0 and 9, describing which digit a given image is of. For the purposes of this tutorial, we're going to want our labels as "one-hot vectors". A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension. In this case, the $n$th digit will be represented as a vector which is 1 in the $n$th dimensions. For example, 3 would be $[0,0,0,1,0,0,0,0,0,0]$. Consequently, \lstinline{mnist.train.labels} is a \lstinline{[55000, 10]} array of floats.}
 
-相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字．为了用于这个教程，我们使标签数据是"one-hot vectors"． 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0．所以在此教程中，数字n将表示成一个只有在第$n$维度（从0开始）数字为1的10维向量．比如，标签0将表示成(\lstinline{[1,0,0,0,0,0,0,0,0,0,0]})．因此，\lstinline{mnist.train.labels}是一个 \lstinline{[55000, 10]} 的数字矩阵．
+Ⓒ 相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字．为了用于这个教程，我们使标签数据是"one-hot vectors"． 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0．所以在此教程中，数字n将表示成一个只有在第$n$维度（从0开始）数字为1的10维向量．比如，标签0将表示成(\lstinline{[1,0,0,0,0,0,0,0,0,0,0]})．因此，\lstinline{mnist.train.labels}是一个 \lstinline{[55000, 10]} 的数字矩阵．
 
 \begin{figure}[htbp]
 \centering
@@ -97,31 +98,31 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 \caption{}
 \end{figure}
 
-Ⓔ We're now ready to actually make our model!
+Ⓔ \textcolor{etc}{We're now ready to actually make our model!}
 
-现在，我们准备开始真正的建模之旅！
+Ⓒ 现在，我们准备开始真正的建模之旅！
 
 \subsection {Softmax回归介绍}
 
 Ⓔ We know that every image in MNIST is a digit, whether it's a zero or a nine. We want to be able to look at an image and give probabilities for it being each digit. For example, our model might look at a picture of a nine and be 80\% sure it's a nine, but give a 5\% chance to it being an eight (because of the top loop) and a bit of probability to all the others because it isn't sure.
 
-我们知道MNIST数据集的每一张图片都表示一个(0到9的)数字．那么，如果模型若能看到一张图就能知道它属于各个数字的对应概率就好了。比如，我们的模型可能看到一张数字"9"的图片，就判断出它是数字"9"的概率为80\%，而有5\%的概率属于数字"8"（因为8和9都有上半部分的小圆），同时给予其他数字对应的小概率（因为该图像代表它们的可能性微乎其微）．
+Ⓒ 我们知道MNIST数据集的每一张图片都表示一个(0到9的)数字．那么，如果模型若能看到一张图就能知道它属于各个数字的对应概率就好了。比如，我们的模型可能看到一张数字"9"的图片，就判断出它是数字"9"的概率为80\%，而有5\%的概率属于数字"8"（因为8和9都有上半部分的小圆），同时给予其他数字对应的小概率（因为该图像代表它们的可能性微乎其微）．\index{Softmax regression}
 
 Ⓔ This is a classic case where a softmax regression is a natural, simple model. If you want to assign probabilities to an object being one of several different things, softmax is the thing to do. Even later on, when we train more sophisticated models, the final step will be a layer of softmax.
 
-这是能够体现softmax回归自然简约的一个典型案例．softmax模型可以用来给不同的对象分配概率．在后文，我们训练更加复杂的模型时，最后一步也往往需要用softmax来分配概率．
+Ⓒ 这是能够体现softmax回归自然简约的一个典型案例．softmax模型可以用来给不同的对象分配概率．在后文，我们训练更加复杂的模型时，最后一步也往往需要用softmax来分配概率．
 
 Ⓔ A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
 
-softmax回归（softmax regression）分两步：首先对输入被分类对象属于某个类的“证据”相加求和，然后将这个“证据”的和转化为概率.
+Ⓒ softmax回归（softmax regression）分两步：首先对输入被分类对象属于某个类的“证据”相加求和，然后将这个“证据”的和转化为概率.
 
 Ⓔ To tally up the evidence that a given image is in a particular class, we do a weighted sum of the pixel intensities. The weight is negative if that pixel having a high intensity is evidence against the image being in that class, and positive if it is evidence in favor.
 
-我们使用加权的方法来累积计算一张图片是否属于某类的“证据”。如果图片的像素强有力的体现该图不属于某个类，则权重为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值为正．
+Ⓒ 我们使用加权的方法来累积计算一张图片是否属于某类的“证据”。如果图片的像素强有力的体现该图不属于某个类，则权重为负数，相反如果这个像素拥有有利的证据支持这张图片属于这个类，那么权值为正．
 
 Ⓔ The following diagram shows the weights one model learned for each of these classes. Red represents negative weights, while blue represents positive weights.
 
-下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值．红色代表负权值，蓝色代表正权值．
+Ⓒ 下面的图片显示了一个模型学习到的图片上每个像素对于特定数字类的权值．红色代表负权值，蓝色代表正权值．
 
 \begin{figure}[htbp]
 \centering
@@ -131,18 +132,17 @@ softmax回归（softmax regression）分两步：首先对输入被分类对象�
 
 Ⓔ We also add some extra evidence called a bias. Basically, we want to be able to say that some things are more likely independent of the input. The result is that the evidence for a class $i$ given an input $x$ is:
 
-我们也需要引入额外的“证据”，可称之为偏置量(bias）。总的来说，我们希望它代表了与所输入向无关的判断证据．因此对于给定的输入图片$x$代表某数字$i$的总体证据可以表示为:
+Ⓒ 我们也需要引入额外的“证据”，可称之为偏置量(bias）。总的来说，我们希望它代表了与所输入向无关的判断证据．因此对于给定的输入图片$x$代表某数字$i$的总体证据可以表示为:
 \begin{equation}
 evidence_i = \sum_j{W_{i,j}}x_j+b_i
 \end{equation}\\
 Ⓔ where $W_i$ is the weights and $b_i$ is the bias for class $i$, and $j$ is an index for summing over the pixels in our input image $x$. We then convert the evidence tallies into our predicted probabilities y using the "softmax" function:\\
-其中，$W_i$代表权重，$b_i$ 代表第 $i$ 类的偏置量，$j$代表给定图片$x$的像素索引用于像素求和．然后用softmax函数可以把这些证据转换
-成概率$y$:\\
+Ⓒ 其中，$W_i$ 代表权重，$b_i$ 代表第 $i$ 类的偏置量，$j$ 代表给定图片 $x$ 的像素索引用于像素求和．然后用softmax函数可以把这些证据转换成概率$y$:\\
 \begin{equation}
 y = softmax(evidence)
 \end{equation}\\
 Ⓔ Here softmax is serving as an "activation" or "link" function, shaping the output of our linear function into the form we want -- in this case, a probability distribution over 10 cases. You can think of it as converting tallies of evidence into probabilities of our input being in each class. It's defined as:\\
-这里的softmax可以看成是一个\emph{激励}（activation）函数或是\emph{链接}（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布．因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值．softmax函数可以定义为：\\
+Ⓒ 这里的softmax可以看成是一个\emph{激励}（activation）函数或是\emph{链接}（link）函数，把我们定义的线性函数的输出转换成我们想要的格式，也就是关于10个数字类的概率分布．因此，给定一张图片，它对于每一个数字的吻合度可以被softmax函数转换成为一个概率值．softmax函数可以定义为：\\
 \begin{equation}
 softmax(x) = normalize(exp(x))
 \end{equation}\\
@@ -152,7 +152,7 @@ softmax(x) = normalize(exp(x))
 softmax(x)_i = \frac{exp(x_i)}{\sum_j{exp(x_j)}}
 \end{equation}\\
 Ⓔ But it's often more helpful to think of softmax the first way: exponentiating its inputs and then normalizing them. The exponentiation means that one more unit of evidence increases the weight given to any hypothesis multiplicatively. And conversely, having one less unit of evidence means that a hypothesis gets a fraction of its earlier weight. No hypothesis ever has zero or negative weight. Softmax then normalizes these weights, so that they add up to one, forming a valid probability distribution. (To get more intuition about the softmax function, check out the \href{http://neuralnetworksanddeeplearning.com/chap3.html#softmax}{section} on it in Michael Nieslen's book, complete with an interactive visualization.)\\
-但是更多的时候把softmax模型函数定义为第一种形式：把输入值当成幂指数求值，再正则化这些结果值．这个幂运算表示，更大的证据对应更大的假设模型（hypothesis）里面的乘数权重值．反之，拥有更少的证据意味着在假设模型里面拥有更小的乘数系数．假设模型里的权值不可以是0值或者负值．Softmax然后会正则化这些权重值，使它们的总和等于1，以此构造一个有效的概率分布．（更多的关于Softmax函数的信息，可以参考Michael Nieslen的书里面的\href{http://neuralnetworksanddeeplearning.com/chap3.html#softmax}{这个部分}，其中有关于softmax的可交互式的可视化解释．）
+Ⓒ 但是更多的时候把softmax模型函数定义为第一种形式：把输入值当成幂指数求值，再正则化这些结果值．这个幂运算表示，更大的证据对应更大的假设模型（hypothesis）里面的乘数权重值．反之，拥有更少的证据意味着在假设模型里面拥有更小的乘数系数．假设模型里的权值不可以是0值或者负值．Softmax然后会正则化这些权重值，使它们的总和等于1，以此构造一个有效的概率分布．（更多的关于Softmax函数的信息，可以参考Michael Nieslen的书里面的\href{http://neuralnetworksanddeeplearning.com/chap3.html#softmax}{这个部分}，其中有关于softmax的可交互式的可视化解释．）
 
 Ⓔ You can picture our softmax regression as looking something like the following, although with a lot more $x$s. For each output, we compute a weighted sum of the $x$s, add a bias, and then apply softmax.\\
 对于softmax回归模型可以用下面的图解释，对于输入的$xs$ 加权求和，再分别加上一个偏置量，最后再输入到softmax函数中：
@@ -287,7 +287,7 @@ train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 Ⓔ In this case, we ask TensorFlow to minimize \lstinline{cross_entropy} using the gradient descent algorithm with a learning rate of $0.01$. Gradient descent is a simple procedure, where TensorFlow simply shifts each variable a little bit in the direction that reduces the cost. But TensorFlow also provides \href{https://www.tensorflow.org/versions/master/api_docs/python/train.html#optimizers}{many other optimization algorithms}: using one is as simple as tweaking one line.
 
-在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵．梯度下降算法（gradient descent algorithm）是一个简单的学习过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动．当然TensorFlow也提供了\href{https://www.tensorflow.org/versions/master/api_docs/python/train.html#optimizers}{其他许多优化算法}：只要简单地调整一行代码就可以使用其他的算法．
+在这里，我们要求TensorFlow用梯度下降算法（gradient descent algorithm）以0.01的学习速率最小化交叉熵．梯度下降算法（gradient descent algorithm）是一个简单的学习过程，TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动．当然TensorFlow也提供了\href{https://www.tensorflow.org/versions/master/api_docs/python/train.html#optimizers}{其他许多优化算法}：只要简单地调整一行代码就可以使用其他的算法．\index{梯度下降法}
 
 Ⓔ What TensorFlow actually does here, behind the scenes, is it adds new operations to your graph which implement backpropagation and gradient descent. Then it gives you back a single operation which, when run, will do a step of gradient descent training, slightly tweaking your variables to reduce the cost.
 

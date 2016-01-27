@@ -5,6 +5,9 @@
 %\documentclass[a4paper,11pt,twoside]{book}
 \documentclass[a4paper,11pt,twoside]{ctexbook}
 
+\usepackage{makeidx}
+\makeindex
+
 \usepackage{geometry}
 \geometry{left=3.5cm, right=3cm, top=3cm, bottom=3cm}
 %控制页眉页脚页码
@@ -22,9 +25,9 @@
 \usepackage{courier}
 % \usepackage{fontspec}
 
+\newfontfamily\CodeFont{Consolas}
 % \newfontfamily\CodeFont{Ubuntu Mono}
-% \newfontfamily\CodeFont{Consolas}
-\newfontfamily\CodeFont{Menlo}
+% \newfontfamily\CodeFont{Menlo}
 % \newfontfamily\CodeFont{Lucida Console}
 % \setmonofont{Lucida Console}
 
@@ -39,7 +42,7 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 \definecolor{codeback}{rgb}{0.8,0.87,0.95}
 \definecolor{etc}{rgb}{0.24,0.07,0.18}
-\definecolor{etc}{rgb}{0.44,0.27,0.38}
+\definecolor{etc}{rgb}{0.54,0.37,0.48}
 
 \usepackage{amsmath}
 
@@ -51,7 +54,7 @@
   backgroundcolor=\color{codeback},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\linespread{0.95}\footnotesize\CodeFont,   % the size of the fonts that are used for the code
   breakatwhitespace=false,           % sets if automatic breaks should only happen at whitespace
-  breakli% \fcolorbox{gray}{yellow}{test 张量 \emph{矢量} 1234 \lstinline{shape}}nes=true,                   % sets automatic line breaking
+  breaklines=true,                   % sets automatic line breaking
   captionpos=bl,                     % sets the caption-position to bottom
   commentstyle=\color{mygreen},      % comment style
   deletekeywords={...},              % if you want to delete keywords from the given language
@@ -85,6 +88,7 @@
 \title{TensorFlow 指南}
 \author{}
 \date{\today}
+
 % \thanks{}
 
 \begin{document}
@@ -115,7 +119,6 @@
 \include{tutorials/c2s09_pdes}
 \include{tutorials/c2s10_mnist_download}
 
-
 \newpage
 % Chapter 3 How to...
 % 第三章 运作方式
@@ -131,8 +134,7 @@
 \include{how_tos/c3s08_new_data_formats}
 \include{how_tos/c3s09_using_gpu}
 
-🍁💕🍁💕🍁💕🍁💕🍁💕🍁💕🍁💕🍁💕🍁💕 % English parts
-
+🍁 % English parts
 \newpage
 % Chapter 4 API (Python)
 \chapter{Python API}
@@ -160,6 +162,9 @@
 
 \newpage
 \chapter{其他}
+
+\printindex
+\addcontentsline{toc}{chapter}{索引}
 
 \end{document}
 

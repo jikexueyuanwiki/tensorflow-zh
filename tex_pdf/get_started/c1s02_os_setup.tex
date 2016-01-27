@@ -1,58 +1,69 @@
+%!TEX program = xelatex
+% Encoding: UTF8
+% SEIKA 2016 ｜ seika@live.ca
 
-\section {下载与安装} \label{download_install}
+% Chapter 1
+% Section 1.2 OS_Setup
 
-❂你可以使用我们提供的二进制包,或者源代码,安装 TensorFlow.
+
+\section {Download and Setup   ||   下载与安装} \label{download_install}
+
+Ⓔ \textcolor{etc}{You can install TensorFlow either from our provided binary packages or from the github source.}
+
+Ⓒ 您可以使用我们提供的二进制包，或者源代码，安装 TensorFlow.
 
 %
 %%
-\subsection {安装需求}
+\subsection {Requirements  ｜  安装需求}
 
-❂TensorFlow Python API 目前支持 Python 2.7 和 python 3.3以上版本。
+Ⓔ \textcolor{etc}{The TensorFlow Python API currently supports Python 2.7 and Python 3.3+ from source.}
 
-❂支持 GPU 运算的版本 (仅限Linux) 需要 Cuda Toolkit 7.0 和 CUDNN 6.5 V2. 具体请参考\href{ref????}{Cuda安装}。
+Ⓒ TensorFlow Python API 目前支持 Python 2.7 和 python 3.3以上版本．
+
+Ⓔ \textcolor{etc}{The GPU version (Linux only) currently requires the Cuda Toolkit 7.0 and CUDNN 6.5 V2. Please see \hyperref[install_cuda]{Cuda installation}.}
+
+Ⓒ 支持 GPU 运算的版本 (仅限Linux) 需要 Cuda Toolkit 7.0 和 CUDNN 6.5 V2. 具体请参考\hyperref[install_cuda]{Cuda安装}．
 
 %
 %%
-\subsection {安装总述}
+\subsection {Overview  |  安装总述}
+
+We support different ways to install TensorFlow:
+
 TensorFlow 支持通过以下不同的方式安装：
+
 \begin{itemize}
-%✠% \item \hyperref[pip_install]{Pip 安装}: Install TensorFlow on your machine, possibly upgrading previously installed Python packages. May impact existing Python programs on your machine.
-%✠% \item \hyperref[virtualenv_install]{Virtualenv 安装}: Install TensorFlow in its own directory, not impacting any existing Python programs on your machine.
-%✠% \item \hyperref[docker_install]{Docker 安装}: Run TensorFlow in a Docker container isolated from all other programs on your machine.
-
-\item \hyperref[pip_install]{Pip 安装}: 在你的机器上安装TensorFlow，可能会同时更新之前安装的Python包，并且影响到你机器当前可运行的Python程序．
-
-\item \hyperref[virtualenv_install]{Virtualenv 安装}: 在一个独立的路径下安装TensorFlow，不会影响到你机器当前运行的Python程序．
-
+\item \hyperref[pip_install]{Pip Install}: \textcolor{etc}{Install TensorFlow on your machine, possibly upgrading previously installed Python packages. May impact existing Python programs on your machine.}\\
+\item \hyperref[pip_install]{Pip 安装}: 在你的机器上安装TensorFlow，可能会同时更新之前安装的Python包，并且影响到你机器当前可运行的Python程序．\\
+\item \hyperref[virtualenv_install]{Virtualenv Install}: \textcolor{etc}{Install TensorFlow in its own directory, not impacting any existing Python programs on your machine.}\\
+\item \hyperref[virtualenv_install]{Virtualenv 安装}: 在一个独立的路径下安装TensorFlow，不会影响到你机器当前运行的Python程序．\\
+\item \hyperref[docker_install]{Docker Install}: \textcolor{etc}{Run TensorFlow in a Docker container isolated from all other programs on your machine.}\\
 \item \hyperref[docker_install]{Docker 安装}: 在一个独立的Docker容器中安装TensorFlow，并且不会影响到你机器上的任何其他程序．
 \end{itemize}
 
-%✠% If you are familiar with Pip, Virtualenv, or Docker, please feel free to adapt the instructions to your particular needs. The names of the pip and Docker images are listed in the corresponding installation sections.
+Ⓔ \textcolor{etc}{If you are familiar with Pip, Virtualenv, or Docker, please feel free to adapt the instructions to your particular needs. The names of the pip and Docker images are listed in the corresponding installation sections.}
 
-%✠% If you encounter installation errors, see common problems for some solutions.
+Ⓒ 如果你已经很熟悉Pip、Virtualenv、Docker这些工具的使用，请利用教程中提供的代码，根据你的需求安装TensorFlow．你会在下文的对应的安装教程中找到Pip或Docker安装所需的镜像．
 
-❂ 如果你已经很熟悉Pip、Virtualenv、Docker这些工具的使用，请利用教程中提供的代码，根据你的需求安装TensorFlow。你会在下文的对应的安装教程中找到Pip或Docker安装所需的镜像。
+Ⓔ \textcolor{etc}{If you encounter installation errors, see common problems for some solutions.}
 
-❂ 如果你遇到了安装错误，请参考章节\hyperref[comm_prob]{常见问题}寻找解决方案。
+Ⓒ 如果你遇到了安装错误，请参考章节\hyperref[comm_prob]{常见问题}寻找解决方案．
 
 %
 %%
-%✠%\subsection {Pip Installatioin} \label{pip_install}
-\subsection {Pip 安装} \label{pip_install}
+\subsection {Pip Installatioin  |  Pip 安装} \label{pip_install}
 
-%✠% \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} is a package management system used to install and manage software packages written in Python.
+Ⓔ \textcolor{etc}{\href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} is a package management system used to install and manage software packages written in Python.}
 
-❂ \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} 是一个用于安装和管理Python软件包的管理系统。
+Ⓒ \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{Pip} 是一个用于安装和管理Python软件包的管理系统．
 
-%✠% The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}
+Ⓔ \textcolor{etc}{The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}}
 
-%✠% The packages that will be installed or upgraded during the pip install are listed in the \href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}
+Ⓒ 安装依赖包(\href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}) 列出了pip安装时将会被安装或更新的库文件．
 
-❂ 安装依赖包(\href{https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py}{REQUIRED\_PACKAGES section of setup.py}) 列出了pip安装时将会被安装或更新的库文件。
+Ⓔ \textcolor{etc}{Install pip (or pip3 for python3) if it is not already installed:}
 
-%✠% Install pip (or pip3 for python3) if it is not already installed:
-
-❂ 如果pip尚未被安装，请使用以下代码先安装pip(如果你使用的是Python 3请安装 pip3 ):
+Ⓒ 如果pip尚未被安装，请使用以下代码先安装pip(如果你使用的是Python 3请安装 pip3 ):
 
 \begin{lstlisting}[language = bash]
 # Ubuntu/Linux 64-bit
@@ -64,8 +75,9 @@ $ sudo apt-get install python-pip python-dev
 $ sudo easy_install pip
 \end{lstlisting}
 
-%✠% Install TensorFlow:
-❂ 安装 TensorFlow:
+Ⓔ \textcolor{etc}{Install TensorFlow:}
+
+Ⓒ 安装 TensorFlow:
 
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit, CPU only:
@@ -83,8 +95,9 @@ $ sudo easy_install --upgrade six
 $ sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.6.0-py2-none-any.whl
 \end{lstlisting}
 
-%✠% For Python 3:
-❂ 基于 Python 3 的 TensorFlow 安装:
+Ⓔ \textcolor{etc}{For Python 3:}
+
+Ⓒ 基于 Python 3 的 TensorFlow 安装:
 
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit, CPU only:
@@ -103,33 +116,37 @@ $ sudo easy_install --upgrade six
 $ sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.6.0-py3-none-any.whl
 \end{lstlisting}
 
-%✠% You can now test your \hyperref[test_install]{installation}.
-❂ 至此你可以\hyperref[test_install]{测试安装}是否成功。
+Ⓔ \textcolor{etc}{You can now test your \hyperref[test_install]{installation}.}
+
+Ⓒ 至此你可以\hyperref[test_install]{测试安装}是否成功．
+
 
 %
 %%
-%✠% \subsection {Virtualenv Installation} \label{virtualenv_install}
-❂ \subsection {基于 Virtualenv 安装} \label{virtualenv_install}
+\subsection {Virtualenv installation  |  基于 Virtualenv 安装} \label{virtualenv_install}
 
-\href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{Virtualenv} is a tool to keep the dependencies required by different Python projects in separate places. The Virtualenv installation of TensorFlow will not override pre-existing version of the Python packages needed by TensorFlow.
+Ⓔ \textcolor{etc}{\href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{Virtualenv} is a tool to keep the dependencies required by different Python projects in separate places. The Virtualenv installation of TensorFlow will not override pre-existing version of the Python packages needed by TensorFlow.}
 
-%✠% With \href{https://pypi.python.org/pypi/virtualenv}{Virtualenv} the installation is as follows:
+Ⓒ \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{Virtualenv} 是一个管理在不同位置存放和调用 Python 项目所需依赖库的工具． TensorFlow 的 Virtualenv 安装不会覆盖先前已安装的 TensorFlow Python依赖包．
 
-❂ 基于\href{https://pypi.python.org/pypi/virtualenv}{Virtualenv}的安装分为以下几步:
+Ⓔ \textcolor{etc}{With \href{https://pypi.python.org/pypi/virtualenv}{Virtualenv} the installation is as follows:}
+
+Ⓒ 基于\href{https://pypi.python.org/pypi/virtualenv}{Virtualenv}的安装分为以下几步:
 
 \begin{itemize}
-%✠% \item Install pip and Virtualenv.
-%✠% \item Create a Virtualenv environment.
-%✠% \item Activate the Virtualenv environment and install TensorFlow in it.
-%✠% \item After the install you will activate the Virtualenv environment each time you want to use TensorFlow.
+\item \textcolor{etc}{Install pip and Virtualenv.}
+\item \textcolor{etc}{Create a Virtualenv environment.}
+\item \textcolor{etc}{Activate the Virtualenv environment and install TensorFlow in it.}
+\item \textcolor{etc}{After the install you will activate the Virtualenv environment each time you want to use TensorFlow.}
 \item 安装 pip 和 Virtualenv.
 \item 建立一个 Virtualenv 环境.
-\item 激活该 Virtualenv 环境，并且在该环境下安装 TensorFlow.
+\item 激活这个 Virtualenv 环境，并且在此环境下安装 TensorFlow.
 \item 安装完成之后，每次你需要使用TensorFlow之前必须激活这个Virtualenv 环境.
 \end{itemize}
 
-%✠% Install pip and Virtualenv:
-❂ 安装 pip 和 Virtualenv:
+Ⓔ \textcolor{etc}{Install pip and Virtualenv:}
+
+Ⓒ 安装 pip 和 Virtualenv:
 
 \begin{lstlisting}
 # Ubuntu/Linux 64-bit
@@ -142,14 +159,18 @@ $ sudo easy_install pip
 $ sudo pip install --upgrade virtualenv
 \end{lstlisting}
 
-%✠% Create a Virtualenv environment in the directory \lstinline{~/tensorflow}:
-❂ 在\lstinline{~/tensorflow}路径下建立一个 Virtualenv 环境:
+Ⓔ \textcolo{etc}{Create a Virtualenv environment in the directory} \lstinline{~/tensorflow}:
+
+Ⓒ 在\lstinline{~/tensorflow}路径下建立一个 Virtualenv 环境:
 
 \begin{lstlisting}
 $ virtualenv --system-site-packages ~/tensorflow
 \end{lstlisting}
 
-Activate the environment and use pip to install TensorFlow inside it:
+Ⓔ \textcolor{etc}{Activate the environment and use pip to install TensorFlow inside it:}
+
+Ⓒ 激活 Virtualenv 环境并使用pip在该环境下安装TensorFlow:
+
 \begin{lstlisting}
 $ source ~/tensorflow/bin/activate  # If using bash
 $ source ~/tensorflow/bin/activate.csh  # If using csh
@@ -165,7 +186,7 @@ $ source ~/tensorflow/bin/activate.csh  # If using csh
 (tensorflow)$ pip install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.5.0-py2-none-any.whl
 \end{lstlisting}
 
-and again for python3:
+Ⓔ and again for python3:
 
 \begin{lstlisting}
 $ source ~/tensorflow/bin/activate  # If using bash
@@ -182,16 +203,23 @@ $ source ~/tensorflow/bin/activate.csh  # If using csh
 (tensorflow)$ pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/tensorflow-0.6.0-py3-none-any.whl
 \end{lstlisting}
 
-With the Virtualenv environment activated, you can now \hyperref[test_install]{test your installation}.
+Ⓔ \textcolor{etc}{With the Virtualenv environment activated, you can now \hyperref[test_install]{test your installation}.}
 
-When you are done using TensorFlow, deactivate the environment.
+Ⓒ 在 Virtualenv 环境被激活时，您可以\hyperref[test_install]{测试安装}．
+
+Ⓔ \textcolor{etc}{When you are done using TensorFlow, deactivate the environment.}
+
+Ⓒ 当您无需使用 TensorFlow 时，取消激活该环境．
 
 \begin{lstlisting}
 (tensorflow)$ deactivate
 $  # Your prompt should change back
 \end{lstlisting}
 
-To use TensorFlow later you will have to activate the Virtualenv environment again:
+Ⓔ \textcolor{etc}{To use TensorFlow later you will have to activate the Virtualenv environment again:}
+
+Ⓒ 如果需要再次使用 TensorFlow 您需要先再次激活 Virtualenv 环境:
+
 \begin{lstlisting}
 $ source ~/tensorflow/bin/activate  # If using bash.
 $ source ~/tensorflow/bin/activate.csh  # If using csh.
@@ -201,6 +229,10 @@ $ source ~/tensorflow/bin/activate.csh  # If using csh.
 # When you are done using TensorFlow, deactivate the environment.
 (tensorflow)$ deactivate
 \end{lstlisting}
+
+%%%%%%%%%%%%%%%%
+% Done to here %
+%%%%%%%%%%%%%%%%
 
 %
 %%
@@ -242,19 +274,22 @@ $ path/to/repo/tensorflow/tools/docker/docker_run_gpu.sh b.gcr.io/tensorflow/ten
 
 You can now \hyperref[test_install]{test your installation} within the Docker container.
 
-% ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂ % ✠ % ❂
 
 %
 %%
 %✠% \subsection {Test the TensorFlow Installation} \label{test_install}
-❂ \subsection {测试 TensorFlow 安装} \label{test_install}
+\subsection {Test the TensorFlow installation  |  测试 TensorFlow 安装} \label{test_install}
 
 %%%
 \subsubsection {(Optional, Linux) Enable GPU Support}
 
 If you installed the GPU version of TensorFlow, you must also install the Cuda Toolkit~7.0 and CUDNN~6.5~V2. Please see \hyperref[install_cuda]{Cuda installation}.
 
+如果您安装了GPU版本的TensorFlow, 您还需要安装 Cuda Toolkit~7.0 和 CUDNN~6.5~V2。请参阅\hyperref[install_cuda]{Cuda 安装}。
+
 You also need to set the \lstinline{LD_LIBRARY_PATH} and \lstinline{CUDA_HOME} environment variables. Consider adding the commands below to your \lstinline{~/.bash_profile}. These assume your CUDA installation is in \lstinline{/usr/local/cuda}:
+
+您需要在先环境变量中设置\lstinline{LD_LIBRARY_PATH} 和 \lstinline{CUDA_HOME}。您可以在\lstinline{~/.bash_profile}中追加一下命令，假设您的CUDA安装位置为\lstinline{/usr/local/cuda}:
 
 \begin{lstlisting}
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
@@ -262,11 +297,15 @@ export CUDA_HOME=/usr/local/cuda
 \end{lstlisting}
 
 %%%
-\subsubsection {Run TensorFlow from the Command Line}
+\subsubsection {Run TensorFlow from the Command Line  |  从命令行运行TensorFlow}
 
 See \hyperref[comm_prob]{common problems} if an error happens.
 
+如果遇到任何报错，请参考\hyperref[comm_prob]{常见问题}。
+
 Open a terminal and type the following:
+
+打开终端，输入以下指令：
 
 \begin{lstlisting}
 $ python
@@ -284,20 +323,28 @@ Hello, TensorFlow!
 \end{lstlisting}
 
 %%%
-\subsubsection {Run a TensorFlow demo model}
+\subsubsection {Run a TensorFlow demo model  |  运行一个TensorFlow的演示模型}
 
 All TensorFlow packages, including the demo models, are installed in the Python library. The exact location of the Python library depends on your system, but is usually one of:
+
+所有版本的TensorFlow的Python库中包都附带了一些演示模型。 具体位位置取决于您的系统，它们通常会在以下位置出现：
+
 \begin{lstlisting}
 /usr/local/lib/python2.7/dist-packages/tensorflow
 /usr/local/lib/python2.7/site-packages/tensorflow
 \end{lstlisting}
 
 You can find out the directory with the following command:
+您可以用以下指令找到它的路径：
+
 \begin{lstlisting}
 $ python -c 'import site; print("\n".join(site.getsitepackages()))'
 \end{lstlisting}
 
 The simple demo model for classifying handwritten digits from the MNIST dataset is in the sub-directory \lstinline{models/image/mnist/convolutional.py}. You can run it from the command line as follows:
+
+在子目录\lstinline{models/image/mnist/convolutional.py}可以找到一个使用MNIST数据集进行手写数字识别的简单案例。您可以使用以下指令在命令行中直接运行：
+
 \begin{lstlisting}
 # Using 'python -m' to find the program in the python search path:
 $ python -m tensorflow.models.image.mnist.convolutional
@@ -342,7 +389,7 @@ Remember to replace \lstinline{PATH_TO_INSTALL.SH} with the location where you d
 
 Finally, follow the instructions in that script to place bazel into your binary path.
 
-\paragraph{Install other dependencies}
+\paragraph{Install other dependencies}\\
 
 \begin{lstlisting}
 $ sudo apt-get install python-numpy swig python-dev
@@ -460,7 +507,7 @@ Configuration finished
 
 Known issues
 
-Although it is possible to build both Cuda and non-Cuda configs under the same source tree, we recommend to run "bazel clean" when switching between these two configs in the same source tree.
+Although it is possible to build both Cuda and non-Cuda configs under the same source tree, we recommend to run \"bazel clean\" when switching between these two configs in the same source tree.
 
 You have to run configure before running bazel build. Otherwise, the build will fail with a clear error message. In the future, we might consider making this more conveninent by including the configure step in our build process, given necessary bazel new feature support.
 
@@ -521,9 +568,11 @@ $ pip install /tmp/tensorflow_pkg/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
 
 %
 %%
-\subsection {Train your first TensorFlow neural net model}
+\subsection {Train your first TensorFlow neural net model  |  训练第一个TensorFlow模型}
 
 Starting from the root of your source tree, run:
+
+从根目录开始运行一下指令：
 
 \begin{lstlisting}
 $ cd tensorflow/models/image/mnist
@@ -554,10 +603,10 @@ Validation error: 7.0%
 %%
 
 % \subsection {Common Problems} \label{comm_prob}
-\subsection {常见问题} \label{comm_prob}
+\subsection {Common Problems  |  常见问题} \label{comm_prob}
 
 %%%
-\subsubsection {GPU-related issues}
+\subsubsection {GPU-related issues  |  GPU有关问题}
 
 If you encounter the following when trying to run a TensorFlow program:
 
@@ -568,9 +617,9 @@ ImportError: libcudart.so.7.0: cannot open shared object file: No such file or d
 Make sure you followed the the GPU installation \hyperref[install_cuda]{instructions}.
 
 %%%
-\subsubsection {Pip installation issues}
+\subsubsection {Pip installation issues  |  Pip安装中的问题}
 
-\paragraph{Can't find setup.py}
+\paragraph{\lstinline{Can't find setup.py}}
 
 If, during pip install, you encounter an error like:
 
@@ -587,7 +636,7 @@ pip install --upgrade pip
 
 This may require sudo, depending on how pip is installed.
 
-\paragraph{SSLError: SSL\_VERIFY\_FAILED}
+\paragraph{\lstinline{SSLError: SSL_VERIFY_FAILED}}
 
 If, during pip install from a URL, you encounter an error like:
 
