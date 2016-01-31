@@ -77,6 +77,7 @@ Jeff回信原文：
 - [@ZHNathanielLee](https://github.com/ZHNathanielLee)
 - [@pengfoo](https://github.com/PengFoo)
 - [@qiaohaijun](https://github.com/qiaohaijun)
+- [@Seika](https://github.com/SeikaScarlet)
 
 ## 进度记录
 
@@ -97,7 +98,7 @@ Jeff回信原文：
 
 ## 持续改进
 
-这样的一个高技术领域的文档，我们在翻译的过程中，难免会有不完善的地方，希望请大家一起帮助我们持续改进文档的翻译质量，帮助更多的人，方法：
+这样一个高技术领域的文档，我们在翻译的过程中，难免会有不完善的地方，希望请大家一起帮助我们持续改进文档的翻译质量，帮助更多的人，方法：
 
 - 在GitHub上提Issue或Pull Request，地址为: [https://github.com/jikexueyuanwiki/tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
 - 加入我们的QQ群提建议--协同翻译群：248320884，技术交流群：495115006
