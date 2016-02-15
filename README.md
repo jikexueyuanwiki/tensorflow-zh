@@ -106,8 +106,6 @@ Jeff回信原文：
 - 在GitHub上提Issue或Pull Request，地址为: [https://github.com/jikexueyuanwiki/tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
 - 加入我们的QQ群提建议--协同翻译群：248320884，技术交流群：495115006
 - 给我们写邮件： wiki@jikexueyuan.com
-- 加入TensorFlow微信讨论群:   
-  ![](SOURCE/images/weixin.jpg)
 
 ## 感谢支持
 
