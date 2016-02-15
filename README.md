@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TensorFlow 官方文档中文版
 
 ![](SOURCE/images/TensorFlow.jpg)   
@@ -121,7 +120,7 @@ Jeff回信原文：
 ## Tex-PDF 修订版
 
 [Tex-PDF 修订版](tex_pdf) 目前正在编订中，欢迎加入进来一起修订。您可以在此查看[预览版](tex_pdf/tensorflow_manual_cn.pdf)目前最新状态。
-=======
+
 # TensorFlow 官方文档中文版
 
 ![](SOURCE/images/TensorFlow.jpg)   
