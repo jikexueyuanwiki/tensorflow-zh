@@ -1,0 +1,30 @@
+\begin{theindex}
+
+  \item graph, \hyperpage{26}
+
+  \indexspace
+
+  \item MNIST 数据集, \hyperpage{37}
+
+  \indexspace
+
+  \item session, \hyperpage{26}
+  \item Softmax regression, \hyperpage{40}, \hyperpage{52}
+
+  \indexspace
+
+  \item tensor, \hyperpage{26}
+
+  \indexspace
+
+  \item variable, \hyperpage{26}
+
+  \indexspace
+
+  \item 卷积神经网络, \hyperpage{55}
+
+  \indexspace
+
+  \item 梯度下降法, \hyperpage{47}
+
+\end{theindex}
