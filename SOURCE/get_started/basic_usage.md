@@ -221,7 +221,7 @@ input3 = tf.constant(5.0)
 intermed = tf.add(input2, input3)
 mul = tf.mul(input1, intermed)
 
-with tf.Session():
+with tf.Session() as sess:
   result = sess.run([mul, intermed])
   print result
 
@@ -255,7 +255,7 @@ with tf.Session() as sess:
 
 for a larger-scale example of feeds.
 如果没有正确提供 feed, `placeholder()` 操作将会产生错误.
-[MNIST 全连通 feed 教程](tensorflow-zh/SOURCE/tutorials/mnist_tf.md)
+MNIST 全连通 [feed 教程](http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/mnist_tf.html)
 ([source code](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/fully_connected_feed.py))
 给出了一个更大规模的使用 feed 的例子.
 

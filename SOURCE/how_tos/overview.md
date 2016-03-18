@@ -64,7 +64,7 @@ TensorFlow 已经提供一整套节点操作(）operation)，你可以在你的 
 
 翻译：[Terence Cooper](https://github.com/TerenceCooper) 
 
-校对：[lonlonago]( https://github.com/lonlonago)
+校对：[lonlonago](https://github.com/lonlonago)
 <div class='sections-order' style="display: none;">
 <!-- variables/index.md -->
 <!-- ../tutorials/mnist/tf/index.md -->
