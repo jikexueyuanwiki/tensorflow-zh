@@ -49,10 +49,10 @@ MNIST 模型, 请阅读高级教程 (红色药丸链接). 如果你以前从未�
 (蓝色药丸链接). 如果你的水平介于这两类人之间, 我们建议你先快速浏览初级教程, 然后再阅读高级教程.
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px; display: flex; flex-direction: row">
- <a href="tensorflow-zh/SOURCE/tutorials/mnist_beginners.md" title="面向机器学习初学者的 MNIST 初级教程">
+ <a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/mnist_beginners.html" title="面向机器学习初学者的 MNIST 初级教程">
    <img style="flex-grow:1; flex-shrink:1; border: 1px solid black;" src="../images/blue_pill.png" alt="面向机器学习初学者的 MNIST 初级教程" />
  </a>
- <a href="tensorflow-zh/SOURCE/tutorials/mnist_pros.md" title="面向机器学习专家的 MNIST 高级教程">
+ <a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/mnist_pros.html" title="面向机器学习专家的 MNIST 高级教程">
    <img style="flex-grow:1; flex-shrink:1; border: 1px solid black;" src="../images/red_pill.png" alt="面向机器学习专家的 MNIST 高级教程" />
  </a>
 </div>
