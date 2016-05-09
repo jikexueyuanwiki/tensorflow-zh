@@ -242,8 +242,8 @@ feed 只在调用它的方法内有效, 方法结束, feed 就会消失. 最常�
 
 ```python
 
-input1 = tf.placeholder(tf.types.float32)
-input2 = tf.placeholder(tf.types.float32)
+input1 = tf.placeholder(tf.float32)
+input2 = tf.placeholder(tf.float32)
 output = tf.mul(input1, input2)
 
 with tf.Session() as sess:
