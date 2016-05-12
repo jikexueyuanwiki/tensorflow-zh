@@ -26,7 +26,7 @@
 </div>
 
 [向量空间模型](https://en.wikipedia.org/wiki/Vector_space_model) (VSMs)将词汇表达（嵌套）于一个连续的向量空间中，语义近似的词汇被映射为相邻的数据点。向量空间模型在自然语言处理领域中有着漫长且丰富的历史，不过几乎所有利用这一模型的方法都依赖于
-[分布式假设](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_Hypothesis)，其核心思想为出现于上下文情景中的词汇都有相类似的语义。采用这一假设的研究方法大致分为以下两类：*基于技术的方法* (e.g.
+[分布式假设](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_Hypothesis)，其核心思想为出现于上下文情景中的词汇都有相类似的语义。采用这一假设的研究方法大致分为以下两类：*基于计数的方法* (e.g.
 [潜在语义分析](https://en.wikipedia.org/wiki/Latent_semantic_analysis))，
 和 *预测方法* (e.g.
 [神经概率化语言模型](http://www.scholarpedia.org/article/Neural_net_language_models)).
