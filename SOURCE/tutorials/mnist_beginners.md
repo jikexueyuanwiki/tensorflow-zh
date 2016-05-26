@@ -123,7 +123,7 @@ import tensorflow as tf
 我们通过操作符号变量来描述这些可交互的操作单元，可以用下面的方式创建一个：
 
 ```python
-x = tf.placeholder("float", [None, 784])
+x = tf.placeholder(tf.float32, [None, 784])
 ```
 
 `x`不是一个特定的值，而是一个占位符`placeholder`，我们在TensorFlow运行计算时输入这个值。我们希望能够输入任意数量的MNIST图像，每一张图展平成784维的向量。我们用2维的浮点数张量来表示这些图，这个张量的形状是`[None，784 ]`。（这里的`None`表示此张量的第一个维度可以是任何长度的。）
