@@ -15,8 +15,8 @@
 * 最后，我们着眼于让给这个简单版本的模型表现更好。
 
 我们会在教程的推进中循序渐进地解释代码，但是如果你更希望直入主题，可以在
-[tensorflow/g3doc/tutorials/word2vec/word2vec_basic.py](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/word2vec/word2vec_basic.py)查看到一个最简单的实现。这个基本的例子提供的代码可以完成下载一些数据，简单训练后展示结果。一旦你觉得已经完全掌握了这个简单版本，你可以查看
-[tensorflow/models/embedding/word2vec.py](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/models/embedding/word2vec.py)，这里提供了一些更复杂的实现，同时也展示了TensorFlow的一些更进阶的特性，比如如何更高效地使用线程将数据送入文本模型，再比如如何在训练中设置检查点等等。
+[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)查看到一个最简单的实现。这个基本的例子提供的代码可以完成下载一些数据，简单训练后展示结果。一旦你觉得已经完全掌握了这个简单版本，你可以查看
+[tensorflow/models/embedding/word2vec.py](https://www.tensorflow.org/code/tensorflow/models/embedding/word2vec.py)，这里提供了一些更复杂的实现，同时也展示了TensorFlow的一些更进阶的特性，比如如何更高效地使用线程将数据送入文本模型，再比如如何在训练中设置检查点等等。
 
 但是首先，让我们来看一下为何需要学习word embeddings。如果你对word embeddings相关内容已经是个专家了，那么请安心跳过本节内容，直接深入细节干一些脏活吧。
 
