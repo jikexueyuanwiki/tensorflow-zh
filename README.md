@@ -18,7 +18,7 @@ Google TensorFlow项目负责人Jeff Dean为该中文翻译项目回信称："*�
 
 Jeff回信原文：
 
-![jeff](SOURCE/images/jeff.png)
+![jeff](images/jeff.png)
 
 再次衷心感谢每一位为该翻译项目做出贡献的同学，我们会持续关注TensorFlow、AI领域以及其它最新技术的发展、持续维护该协作翻译、持续提供更多更优质的内容，为广大IT学习者们服务！
 
