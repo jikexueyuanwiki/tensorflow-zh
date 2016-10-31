@@ -32,3 +32,11 @@
 使用方法
 
     docker load < sensorflow.tar.gz
+
+### SSLError: SSL_VERIFY_FAILED
+
+在用url通过pip的方式安装的时候，可能会遇到的错误如下：
+
+        SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:590)
+
+解决办法:先下载wheel到本地，之后本地pip install
