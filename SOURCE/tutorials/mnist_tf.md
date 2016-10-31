@@ -81,7 +81,7 @@ labels_placeholder = tf.placeholder(tf.int32, shape=(batch_size))
 
 `inference()`函数会尽可能地构建图表，做到返回包含了预测结果（output prediction）的Tensor。
 
-它接受图像占位符为输入，在此基础上借助ReLu(Rectified Linear Units)激活函数，构建一对完全连接层（layers），以及一个有着十个节点（node）、指明了输出logtis模型的线性层。
+它接受图像占位符为输入，在此基础上借助ReLu(Rectified Linear Units)激活函数，构建一对完全连接层（layers），以及一个有着十个节点（node）、指明了输出logits模型的线性层。
 
 每一层都创建于一个唯一的[`tf.name_scope`](../api_docs/python/framework.md#name_scope)之下，创建于该作用域之下的所有元素都将带有其前缀。
 
