@@ -138,7 +138,7 @@ with graph.as_default():
   # tf.nce_loss automatically draws a new sample of the negative labels each
   # time we evaluate the loss.
   loss = tf.reduce_mean(
-      tf.nn.nce_loss(nce_weights, nce_biases, embed, train_labels,
+      tf.nn.nce_loss(nce_weights, nce_biases, train_labels,embed,
                      num_sampled, vocabulary_size))
 
   # Construct the SGD optimizer using a learning rate of 1.0.
