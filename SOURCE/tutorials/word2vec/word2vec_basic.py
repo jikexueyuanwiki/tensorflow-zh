@@ -138,7 +138,7 @@ with graph.as_default():
   # tf.nce_loss automatically draws a new sample of the negative labels each
   # time we evaluate the loss.
   loss = tf.reduce_mean(
-      tf.nn.nce_loss(nce_weights, nce_biases, embed, train_labels,
+      tf.nn.nce_loss(nce_weights, nce_biases, train_labels,embed,
                      num_sampled, vocabulary_size))
 
   # Construct the SGD optimizer using a learning rate of 1.0.
@@ -216,7 +216,7 @@ try:
   tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
   plot_only = 500
   low_dim_embs = tsne.fit_transform(final_embeddings[:plot_only,:])
-  labels = dictionary.keys()[:plot_only]
+  labels = list(dictionary.keys())[:plot_only]
   plot_with_labels(low_dim_embs, labels)
 
 except ImportError:
