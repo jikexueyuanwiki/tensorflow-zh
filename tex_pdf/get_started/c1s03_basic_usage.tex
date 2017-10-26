@@ -201,7 +201,7 @@ a = tf.constant([3.0, 3.0])
 x.initializer.run()
 
 # Add an op to subtract 'a' from 'x'.  Run it and print the result
-sub = tf.sub(x, a)
+sub = tf.subtract(x, a)
 print(sub.eval())
 # ==> [-2. -1.]
 
@@ -239,7 +239,7 @@ update = tf.assign(state, new_value)
 
 # Variables must be initialized by running an `init` Op after having
 # launched the graph.  We first have to add the `init` Op to the graph.
-init_op = tf.initialize_all_variables()
+init_op = tf.global_variables_initializer()
 
 # Launch the graph and run the ops.
 with tf.Session() as sess:
@@ -282,7 +282,7 @@ input1 = tf.constant(3.0)
 input2 = tf.constant(2.0)
 input3 = tf.constant(5.0)
 intermed = tf.add(input2, input3)
-mul = tf.mul(input1, intermed)
+mul = tf.multiply(input1, intermed)
 
 with tf.Session() as sess:
   result = sess.run([mul, intermed])
@@ -311,7 +311,7 @@ with tf.Session() as sess:
 \begin{lstlisting}
 input1 = tf.placeholder(tf.float32)
 input2 = tf.placeholder(tf.float32)
-output = tf.mul(input1, input2)
+output = tf.multiply(input1, input2)
 
 with tf.Session() as sess:
   print(sess.run([output], feed_dict={input1:[7.], input2:[2.]}))
