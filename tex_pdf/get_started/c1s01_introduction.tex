@@ -41,7 +41,9 @@ optimizer = tf.train.GradientDescentOptimizer(0.5)
 train = optimizer.minimize(loss)
 
 # Before starting, initialize the variables. We will 'run' this first.
-init = tf.initialize_all_variables()
+# initialize_all_variables() has been deprecated, and will be deleted after 2017/03/02
+# Update: use tf.global_variables_initializer() instead. 
+init = tf.global_variables_initializer()
 
 # Launch the graph.
 sess = tf.Session()
