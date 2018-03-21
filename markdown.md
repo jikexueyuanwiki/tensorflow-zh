@@ -113,7 +113,7 @@
 
 效果：  
 
-![我是示例图片的描述](images/example.png)    
+![我是示例图片的描述](http://s1.jikexueyuan.com/common/images/logo_c8caff4.png)
 
 ## 添加超链接  
 

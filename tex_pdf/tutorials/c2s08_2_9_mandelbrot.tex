@@ -1,0 +1,141 @@
+
+
+\section{曼德布洛特(Mandelbrot)集合
+}\label{ux66fcux5fb7ux5e03ux6d1bux7279mandelbrotux96c6ux5408}
+
+虽然可视化曼德布洛特(Mandelbrot)集合与机器学习没有任何关系，但这对于将TensorFlow应用在数学更广泛的领域是一个有趣的例子。实际上，这是tensorflow一个非常直截了当的可视化运用。（我们最终也许会提供一种更加精心设计的运用方式来生成真正更加美丽的图像。）
+
+说明：本教程使用了IPython的notebook。
+
+\subsection{基本步骤 }\label{ux57faux672cux6b65ux9aa4}
+
+首先，我们需要导入一些库。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 导入仿真库}
+\ImportTok{import} \NormalTok{tensorflow }\ImportTok{as} \NormalTok{tf}
+\ImportTok{import} \NormalTok{numpy }\ImportTok{as} \NormalTok{np}
+
+\CommentTok{# 导入可视化库}
+\ImportTok{import} \NormalTok{PIL.Image}
+\ImportTok{from} \NormalTok{cStringIO }\ImportTok{import} \NormalTok{StringIO}
+\ImportTok{from} \NormalTok{IPython.display }\ImportTok{import} \NormalTok{clear_output, Image, display}
+\ImportTok{import} \NormalTok{scipy.ndimage }\ImportTok{as} \NormalTok{nd}
+\end{Highlighting}
+\end{Shaded}
+
+现在我们将定义一个函数来显示迭代计算出的图像。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{DisplayFractal(a, fmt}\OperatorTok{=}\StringTok{'jpeg'}\NormalTok{):}
+  \CommentTok{"""显示迭代计算出的彩色分形图像。"""}
+  \NormalTok{a_cyclic }\OperatorTok{=} \NormalTok{(}\FloatTok{6.28}\OperatorTok{*}\NormalTok{a}\OperatorTok{/}\FloatTok{20.0}\NormalTok{).reshape(}\BuiltInTok{list}\NormalTok{(a.shape)}\OperatorTok{+}\NormalTok{[}\DecValTok{1}\NormalTok{])}
+  \NormalTok{img }\OperatorTok{=} \NormalTok{np.concatenate([}\DecValTok{10+20}\OperatorTok{*}\NormalTok{np.cos(a_cyclic),}
+                        \DecValTok{30+50}\OperatorTok{*}\NormalTok{np.sin(a_cyclic),}
+                        \DecValTok{155-80}\OperatorTok{*}\NormalTok{np.cos(a_cyclic)], }\DecValTok{2}\NormalTok{)}
+  \NormalTok{img[a}\OperatorTok{==}\NormalTok{a.}\BuiltInTok{max}\NormalTok{()] }\OperatorTok{=} \DecValTok{0}
+  \NormalTok{a }\OperatorTok{=} \NormalTok{img}
+  \NormalTok{a }\OperatorTok{=} \NormalTok{np.uint8(np.clip(a, }\DecValTok{0}\NormalTok{, }\DecValTok{255}\NormalTok{))}
+  \NormalTok{f }\OperatorTok{=} \NormalTok{StringIO()}
+  \NormalTok{PIL.Image.fromarray(a).save(f, fmt)}
+  \NormalTok{display(Image(data}\OperatorTok{=}\NormalTok{f.getvalue()))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{会话（session）和变量（variable）初始化
+}\label{ux4f1aux8bddsessionux548cux53d8ux91cfvariableux521dux59cbux5316}
+
+为了操作的方便，我们常常使用交互式会话（interactive
+session），但普通会话（regular session）也能正常使用。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+   \NormalTok{sess }\OperatorTok{=} \NormalTok{tf.InteractiveSession()}
+\end{Highlighting}
+\end{Shaded}
+
+我们可以自由的混合使用NumPy和TensorFlow，这一点非常方便。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 使用NumPy创建一个在[-2,2]x[-2,2]范围内的2维复数数组}
+
+\NormalTok{Y, X }\OperatorTok{=} \NormalTok{np.mgrid[}\OperatorTok{-}\FloatTok{1.3}\NormalTok{:}\FloatTok{1.3}\NormalTok{:}\FloatTok{0.005}\NormalTok{, }\OperatorTok{-}\DecValTok{2}\NormalTok{:}\DecValTok{1}\NormalTok{:}\FloatTok{0.005}\NormalTok{]}
+\NormalTok{Z }\OperatorTok{=} \NormalTok{X}\OperatorTok{+}\NormalTok{1j}\OperatorTok{*}\NormalTok{Y}
+\end{Highlighting}
+\end{Shaded}
+
+现在我们定义并初始化一组TensorFlow的张量 （tensors）。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xs }\OperatorTok{=} \NormalTok{tf.constant(Z.astype(}\StringTok{"complex64"}\NormalTok{))}
+\NormalTok{zs }\OperatorTok{=} \NormalTok{tf.Variable(xs)}
+\NormalTok{ns }\OperatorTok{=} \NormalTok{tf.Variable(tf.zeros_like(xs, }\StringTok{"float32"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+TensorFlow在使用之前需要你明确给定变量的初始值。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tf.initialize_all_variables().run()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{定义并运行计算
+}\label{ux5b9aux4e49ux5e76ux8fd0ux884cux8ba1ux7b97}
+
+现在我们指定更多的计算\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 计算一个新值z: z^2 + x}
+\NormalTok{zs_ }\OperatorTok{=} \NormalTok{zs}\OperatorTok{*}\NormalTok{zs }\OperatorTok{+} \NormalTok{xs}
+
+\CommentTok{# 这个新值会发散吗？}
+\NormalTok{not_diverged }\OperatorTok{=} \NormalTok{tf.complex_abs(zs_) }\OperatorTok{<} \DecValTok{4}
+
+\CommentTok{# 更新zs并且迭代计算。}
+\CommentTok{#}
+\CommentTok{# 说明：在这些值发散之后，我们仍然在计算zs，这个计算消耗特别大！}
+\CommentTok{#      如果稍微简单点，这里有更好的方法来处理。}
+\CommentTok{#}
+\NormalTok{step }\OperatorTok{=} \NormalTok{tf.group(}
+  \NormalTok{zs.assign(zs_),}
+  \NormalTok{ns.assign_add(tf.cast(not_diverged, }\StringTok{"float32"}\NormalTok{))}
+  \NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\ldots{}继续执行几百个步骤
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for} \NormalTok{i }\OperatorTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{200}\NormalTok{): step.run()}
+\end{Highlighting}
+\end{Shaded}
+
+让我们看看我们得到了什么。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DisplayFractal(ns.}\BuiltInTok{eval}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{../images/mandelbrot_output.jpg}
+\caption{jpeg}
+\end{figure}
+
+结果不错！
+
+\begin{quote}
+原文：\href{http://tensorflow.org/tutorials/mandelbrot/index.md}{Mandelbrot
+Set} 翻译：\href{https://github.com/ericxk}{ericxk}
+校对：\href{https://github.com/tensorfly}{tensorfly}
+\end{quote}

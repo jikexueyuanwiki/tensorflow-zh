@@ -1,0 +1,9 @@
+{
+    "name": "TensorFlow 官方文档中文版",
+    "introduction": "Google 人工智能系统 TensorFlow 官方文档中文版协同翻译。",
+    "path": {
+        "content": "SOURCE",
+        "images": "SOURCE/images"
+    }
+
+}

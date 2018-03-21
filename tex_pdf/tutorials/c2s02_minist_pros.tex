@@ -1,0 +1,375 @@
+%!TEX program = xelatex
+% Encoding: UTF8
+% SEIKA 2015
+
+
+% Chapter 2 Tutorials
+% Section 2.3 minist_pros
+
+
+\newpage
+\section {\textcolor{etc}{Deep MNIST for Experts}   ||   深入MNIST} \label{MINIST_pros}
+
+Ⓔ \textcolor{etc}{TensorFlow is a powerful library for doing large-scale numerical computation. One of the tasks at which it excels is implementing and training deep neural networks. In this tutorial we will learn the basic building blocks of a TensorFlow model while constructing a deep convolutional MNIST classifier.}
+
+TensorFlow是一个善于大规模数值计算的强大库件。它的一个强项就是训练并实现深度神经网络(deep neural networks)。在本小节中，我们将会学习TensorFlow模型构建的基本方法，并以此构建一个深度卷积MNIST分类器。
+
+Ⓔ \textcolor{etc}{This introduction assumes familiarity with neural networks and the MNIST dataset. If you don't have a background with them, check out the \hyperref[MINIST_beginner]{introduction for beginners}. Be sure to \hyperref[download_install]{install TensorFlow} before starting.}
+
+本教程假设您已经熟悉神经网络和MNIST数据集。如果你尚未了解，请查看\hyperref[MINIST_beginner]{新手指南}。再开始学习前请确保您已\hyperref[download_install]{安装TensorFlow}。
+
+%
+%%
+\subsection {Setup  |  安装}
+
+Ⓔ \textcolor{etc}{Before we create our model, we will first load the MNIST dataset, and start a TensorFlow session.}
+
+在创建模型之前，我们会先加载MNIST数据集，然后启动一个TensorFlow会话。
+
+\subsubsection {Load MNIST Data  |  加载MINIST数据}
+
+\textcolor{etc}{For your convenience, we've included \href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{a script} which automatically downloads and imports the MNIST dataset. It will create a directory \lstinline{'MNIST_data'} in which to store the data files.}
+
+为了方便起见，我们已经准备了一个\href{https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py}{脚本}来自动下载和导入MNIST数据集。它会自动创建一个\lstinline{'MNIST_data'}的目录来存储数据。
+
+\begin{lstlisting}
+import input_data
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+\end{lstlisting}
+
+\textcolor{etc}{Here \lstinline{mnist} is a lightweight class which stores the training, validation, and testing sets as NumPy arrays. It also provides a function for iterating through data minibatches, which we will use below.}
+
+此处的 \lstinline{mnist} 是一个以NumPy数组形式存储训练、验证和测试数据的轻量级类。我们将在之后使用到它提供的一个函数功能，用于迭代按批处理数据。
+
+\subsubsection {Start TensorFlow InteractiveSession  |  开始TensorFlow交互会话}
+
+Ⓔ \textcolor{etc}{Tensorflow relies on a highly efficient C++ backend to do its computation. The connection to this backend is called a session. The common usage for TensorFlow programs is to first create a graph and then launch it in a session.}
+
+Tensorflow基于一个高效的C++后台模块进行运算。与这个后台模块的连接叫做\emph{会话}(session)。TensorFlow编程的常规流程是先创建一个图，然后在session中加载它。
+
+Ⓔ \textcolor{etc}{Here we instead use the convenient InteractiveSession class, which makes TensorFlow more flexible about how you structure your code. It allows you to interleave operations which build a \hyperref[computation_graph]{computation graph} with ones that run the graph. This is particularly convenient when working in interactive contexts like IPython. If you are not using an InteractiveSession, then you should build the entire computation graph before starting a session and \hyperref[launching_graph]{launching} the graph.}
+
+这里，我们使用更加方便的\emph{交互会话}(InteractiveSession)类，它可以让您更加灵活地构建代码。交互会话能让你在运行图的时候，插入一些构建计算图的操作。这能给使用交互式文本shell如iPython带来便利。如果你没有使用InteractiveSession的话，你需要在开始session和加载图之前，构建整个计算图。
+
+\begin{lstlisting}
+import tensorflow as tf
+sess = tf.InteractiveSession()
+\end{lstlisting}
+
+\subsubsection {Computation Graph  |  计算图}
+
+Ⓔ \textcolor{etc}{To do efficient numerical computing in Python, we typically use libraries like NumPy that do expensive operations such as matrix multiplication outside Python, using highly efficient code implemented in another language. Unfortunately, there can still be a lot of overhead from switching back to Python every operation. This overhead is especially bad if you want to run computations on GPUs or in a distributed manner, where there can be a high cost to transferring data.}
+
+为了高效地在Python里进行数值计算，我们一般会使用像NumPy这样用其他语言编写的库件，在Python外用其它执行效率高的语言完成这些高运算开销操作（如矩阵运算）。但是，每一步操作依然会需要切换回Python带来很大开销。特别的，这种开销会在GPU运算或是分布式集群运算这类高数据传输需求的运算形式上非常高昂。
+
+Ⓔ \textcolor{etc}{TensorFlow also does its heavy lifting outside Python, but it takes things a step further to avoid this overhead. Instead of running a single expensive operation independently from Python, TensorFlow lets us describe a graph of interacting operations that run entirely outside Python. This approach is similar to that used in Theano or Torch.}
+
+TensorFlow将高运算量计算放在Python外进行，同时更进一步设法避免上述的额外运算开销。不同于在Python中独立运行运算开销昂贵的操作，TensorFlow让我们可以独立于Python以外以图的形式描述交互式操作。这与Theano、Torch的做法很相似。
+
+Ⓔ \textcolor{etc}{The role of the Python code is therefore to build this external computation graph, and to dictate which parts of the computation graph should be run. See the \hyperref[computation_graph]{Computation Graph} section of \hyperref[basic_usage]{Basic Usage} for more detail.}
+
+因此，这里Python代码的角色是构建其外部将运行的\emph{计算图}，并决定计算图的哪一部分将被运行。更多的细节和\hyperref[basic_usage]{基本使用方法}请参阅\hyperref[computation_graph]{计算图}章节。
+
+%
+%%
+\subsection{Build a Softmax Regression Model  ||  构建 Softmax 回归模型}
+
+Ⓔ \textcolor{etc}{In this section we will build a softmax regression model with a single linear layer. In the next section, we will extend this to the case of softmax regression with a multilayer convolutional network.}
+
+在这小节里，我们将会构建一个包含单个线性隐层的 softmax 回归模型。我们将在下一小结把它扩展成多层卷积网络 softmax回归模型。
+\index{Softmax regression}
+
+%
+\subsubsection{Placeholder  |  占位符}
+
+Ⓔ \textcolor{etc}{We start building the computation graph by creating nodes for the input images and target output classes.}
+
+我们先从创建输入图像和输出类别的节点来创建计算图。
+
+\begin{lstlisting}
+x = tf.placeholder("float", shape=[None, 784])
+y_ = tf.placeholder("float", shape=[None, 10])
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{Here \lstinline{x} and \lstinline{y} aren't specific values. Rather, they are each a \lstinline{placeholder} --- a value that we'll input when we ask TensorFlow to run a computation.}
+
+这里的\lstinline{x}和\lstinline{y}并不代表具体值，他们是一个\emph{占位符}(\lstinline{placeholder}) --- 当TensorFlow运行时需要赋值的变量。
+
+Ⓔ \textcolor{etc}{The input images \lstinline{x} will consist of a 2d tensor of floating point numbers. Here we assign it a \lstinline{shape} of \lstinline{[None, 784]}, where \lstinline{784} is the dimensionality of a single flattened MNIST image, and None indicates that the first dimension, corresponding to the batch size, can be of any size. The target output classes \lstinline{y_} will also consist of a 2d tensor, where each row is a one-hot 10-dimensional vector indicating which digit class the corresponding MNIST image belongs to.}
+
+输入图片\lstinline{x}是由浮点数值组成的2维张量(tensor)。这里，我们定义它为\lstinline{[None, 784]}的\lstinline{shape}，其中\lstinline{784}是单张展开的MNIST图片的维度数。\lstinline{None}对应\lstinline{shape}的第一个维度，代表了这批输入图像的数量，可能是任意值。目标输出类\lstinline{y_}也是一个2维张量，其中每一行为一个10维向量代表对应MNIST图片的所属数字的类别。
+
+Ⓔ \textcolor{etc}{The shape argument to placeholder is optional, but it allows TensorFlow to automatically catch bugs stemming from inconsistent tensor shapes.}
+
+虽然\lstinline{placeholder}的\lstinline{shape}参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。
+
+
+%%%%%
+% I, Seika, have revised to here
+% \fcolorbox{gray}{yellow}{test 张量 \emph{矢量} 1234 \lstinline{shape}}
+%%%%%
+
+\subsubsection{Variables  |  变量}
+
+Ⓔ \textcolor{etc}{We now define the weights \lstinline{W} and biases \lstinline{b} for our model. We could imagine treating these like additional inputs, but TensorFlow has an even better way to handle them: \lstinline{Variable}. A \lstinline{Variable} is a value that lives in TensorFlow's computation graph. It can be used and even modified by the computation. In machine learning applications, one generally has the model parameters be \lstinline{Variables}.}
+
+我们现在为模型定义权重\lstinline{W}和偏置\lstinline{b}。它们可以被视作是额外的输入量，但是TensorFlow有一个更好的方式来处理：\lstinline{Variable}。一个\lstinline{Variable}代表着在TensorFlow计算图中的一个值，它是能在计算过程中被读取和修改的。在机器学习的应用过程中，模型参数一般用\lstinline{Variable}来表示。
+
+\begin{lstlisting}
+W = tf.Variable(tf.zeros([784,10]))
+b = tf.Variable(tf.zeros([10]))
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{We pass the initial value for each parameter in the call to \lstinline{tf.Variable}. In this case, we initialize both \lstinline{W} and \lstinline{b} as tensors full of zeros. \lstinline{W} is a $784\times10$ matrix (because we have $784$ input features and $10$ outputs) and \lstinline{b} is a 10-dimensional vector (because we have $10$ classes).}
+
+我们在调用\lstinline{tf.Variable}的时候传入初始值。在这个例子里，我们把\lstinline{W}和\lstinline{b}都初始化为零向量。\lstinline{W}是一个$784\times10$的矩阵（因为我们有784个特征和10个输出值）。\lstinline{b}是一个10维的向量（因为我们有10个分类）。
+
+Ⓔ \textcolor{etc}{Before \lstinline{Variables} can be used within a session, they must be initialized using that session. This step takes the initial values (in this case tensors full of zeros) that have already been specified, and assigns them to each \lstinline{Variable}. This can be done for all \lstinline{Variables} at once.}
+
+\lstinline{Variable}需要在\lstinline{session}之前初始化，才能在\lstinline{session}中使用。初始化需要初始值（本例当中是全为零）传入并赋值给每一个\lstinline{Variable}。这个操作可以一次性完成。
+
+\begin{lstlisting}
+sess.run(tf.initialize_all_variables())
+\end{lstlisting}
+
+%
+%%
+\subsubsection{Predicted Class and Cost Function  |  预测分类与损失函数}
+
+Ⓔ \textcolor{etc}{We can now implement our regression model. It only takes one line! We multiply the vectorized input images \lstinline{x} by the weight matrix \lstinline{W}, add the bias \lstinline{b}, and compute the softmax probabilities that are assigned to each class.}
+
+现在我们可以实现我们的regression模型了。这只需要一行！我们把图片\lstinline{x}和权重矩阵\lstinline{W}相乘，加上偏置\lstinline{b}，然后计算每个分类的softmax概率值。
+
+\begin{lstlisting}
+y = tf.nn.softmax(tf.matmul(x,W) + b)
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{The cost function to be minimized during training can be specified just as easily. Our cost function will be the cross-entropy between the target and the model's prediction.}
+
+在训练中最小化损失函数同样很简单。我们这里的损失函数用目标分类和模型预测分类之间的交叉熵。
+
+\begin{lstlisting}
+cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{Note that \lstinline{tf.reduce_sum} sums across all images in the minibatch, as well as all classes. We are computing the cross entropy for the entire minibatch.}
+
+注意，\lstinline{tf.reduce_sum}把\lstinline{minibatch}里的每张图片的交叉熵值都加起来了。我们计算的交叉熵是指整个\lstinline{minibatch}的。
+
+%
+%%
+\subsection{Train the Model | 训练模型}
+
+Ⓔ \textcolor{etc}{Now that we have defined our model and training cost function, it is straightforward to train using TensorFlow. Because TensorFlow knows the entire computation graph, it can use automatic differentiation to find the gradients of the cost with respect to each of the variables. TensorFlow has a variety of \hyperref[optimizers]{builtin optimization algorithms}. For this example, we will use steepest gradient descent, with a step length of 0.01, to descend the cross entropy.}
+
+我们已经定义好了模型和训练的时候用的损失函数，接下来使用TensorFlow来训练。因为TensorFlow知道整个计算图，它会用自动微分法来找到损失函数对于各个变量的梯度。TensorFlow有大量\hyperref[optimizers]{内置优化算法}，这个例子中，我们用快速梯度下降法让交叉熵下降，步长为0.01。
+
+\begin{lstlisting}
+train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{What TensorFlow actually did in that single line was to add new operations to the computation graph. These operations included ones to compute gradients, compute parameter update steps, and apply update steps to the parameters.}
+
+这一行代码实际上是用来往计算图上添加一个新操作，其中包括计算梯度，计算每个参数的步长变化，并且计算出新的参数值。
+
+Ⓔ \textcolor{etc}{The returned operation \lstinline{train_step}, when run, will apply the gradient descent updates to the parameters. Training the model can therefore be accomplished by repeatedly running \lstinline{train_step}.}
+
+\lstinline{train_step}这个操作，用梯度下降来更新权值。因此，整个模型的训练可以通过反复地运行\lstinline{train_step}来完成。
+
+\begin{lstlisting}
+for i in range(1000):
+    batch = mnist.train.next_batch(50)
+    train_step.run(feed_dict={x: batch[0], y_: batch[1]})
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{Each training iteration we load 50 training examples. We then run the \lstinline{train_step} operation, using \lstinline{feed_dict} to replace the \lstinline{placeholder} tensors \lstinline{x} and \lstinline{y_} with the training examples. Note that you can replace any tensor in your computation graph using \lstinline{feed_dict} --- it's not restricted to just \lstinline{placeholders}.}
+
+每一步迭代，我们都会加载50个训练样本，然后执行一次\lstinline{train_step，使用}\lstinline{feed_dict}，用训练数据替换\lstinline{placeholder}向量\lstinline{x}和\lstinline{y_}。注意，在计算图中，你可以用\lstinline{feed_dict}来替代任何张量，并不仅限于替换\lstinline{placeholder}。
+
+\subsubsection{Evaluate the Model  |  评估模型}
+
+Ⓔ \textcolor{etc}{How well did our model do?}
+
+我们的模型效果怎样？
+
+Ⓔ \textcolor{etc}{First we'll figure out where we predicted the correct label. \lstinline{tf.argmax} is an extremely useful function which gives you the index of the highest entry in a tensor along some axis. For example, \lstinline{tf.argmax(y,1)} is the label our model thinks is most likely for each input, while \lstinline{tf.argmax(y_,1)} is the true label. We can use \lstinline{tf.equal} to check if our prediction matches the truth.}
+
+首先，要先知道我们哪些label是预测正确了。\lstinline{tf.argmax}是一个非常有用的函数。它会返回一个张量某个维度中的最大值的索引。例如，\lstinline{tf.argmax(y,1)}表示我们模型对每个输入的最大概率分类的分类值。而 \lstinline{tf.argmax(y_,1)}表示真实分类值。我们可以用\lstinline{tf.equal}来判断我们的预测是否与真实分类一致。
+
+\begin{lstlisting}
+correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{That gives us a list of booleans. To determine what fraction are correct, we cast to floating point numbers and then take the mean. For example, \lstinline{[True, False, True, True]} would become \lstinline{[1,0,1,1]} which would become \lstinline{0.75}.}
+
+这里返回一个布尔数组。为了计算我们分类的准确率，我们将布尔值转换为浮点数来代表对、错，然后取平均值。例如：\lstinline{[True, False, True, True]}变为\lstinline{[1,0,1,1]}，计算出平均值为\lstinline{0.75}。
+
+\begin{lstlisting}
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{Finally, we can evaluate our accuracy on the test data. This should be about 91\% correct.}
+
+最后，我们可以计算出在测试数据上的准确率，大概是91\%。
+
+\begin{lstlisting}
+print accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels})
+\end{lstlisting}
+
+%
+%%
+\subsection{Build a Multilayer Convolutional Network  |  构建多层卷积网络模型}
+
+Ⓔ \textcolor{etc}{Getting 91\% accuracy on MNIST is bad. It's almost embarrassingly bad. In this section, we'll fix that, jumping from a very simple model to something moderately sophisticated: a small convolutional neural network. This will get us to around 99.2\% accuracy --- not state of the art, but respectable.}
+
+在MNIST上只有91\%正确率，实在太糟糕。在这个小节里，我们用一个稍微复杂的模型：卷积神经网络来改善效果。这会达到大概99.2\%的准确率。虽然不是最高，但是还是比较让人满意。
+\index{卷积神经网络}
+
+%
+\subsubsection{Weight Initialization | 权重初始化}
+
+Ⓔ \textcolor{etc}{To create this model, we're going to need to create a lot of weights and biases. One should generally initialize weights with a small amount of noise for symmetry breaking, and to prevent 0 gradients. Since we're using ReLU neurons, it is also good practice to initialize them with a slightly positive initial bias to avoid "dead neurons." Instead of doing this repeatedly while we build the model, let's create two handy functions to do it for us.}
+
+在创建模型之前，我们先来创建权重和偏置。一般来说，初始化时应加入轻微噪声，来打破对称性，防止零梯度的问题。因为我们用的是ReLU，所以用稍大于0的值来初始化偏置能够避免节点输出恒为0的问题（dead neurons）。为了不在建立模型的时候反复做初始化操作，我们定义两个函数用于初始化。
+
+\begin{lstlisting}
+def weight_variable(shape):
+    initial = tf.truncated_normal(shape, stddev=0.1)
+    return tf.Variable(initial)
+
+def bias_variable(shape):
+    initial = tf.constant(0.1, shape=shape)
+    return tf.Variable(initial)
+\end{lstlisting}
+
+\subsubsection{Convolution and Pooling  |  卷积和池化}
+
+Ⓔ \textcolor{etc}{TensorFlow also gives us a lot of flexibility in convolution and pooling operations. How do we handle the boundaries? What is our stride size? In this example, we're always going to choose the vanilla version. Our convolutions uses a stride of one and are zero padded so that the output is the same size as the input. Our pooling is plain old max pooling over $2\times2$ blocks. To keep our code cleaner, let's also abstract those operations into functions.}
+
+TensorFlow在卷积和池化上有很强的灵活性。我们怎么处理边界？步长应该设多大？在这个实例里，我们会一直使用vanilla版本。我们的卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的$2\times2$大小的模板做max pooling。为了代码更简洁，我们把这部分抽象成一个函数。
+
+\begin{lstlisting}
+def conv2d(x, W):
+    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
+
+def max_pool_2x2(x):
+    return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+\end{lstlisting}
+
+\subsubsection{First Convolutional Layer  |  第一层卷积}
+
+Ⓔ \textcolor{etc}{We can now implement our first layer. It will consist of convolution, followed by max pooling. The convolutional will compute 32 features for each $5\times5$ patch. Its weight tensor will have a shape of \lstinline{[5, 5, 1, 32]}. The first two dimensions are the patch size, the next is the number of input channels, and the last is the number of output channels. We will also have a bias vector with a component for each output channel.}
+
+现在我们可以开始实现第一层了。它由一个卷积接一个max pooling完成。卷积在每个$5\times5$的patch中算出32个特征。权重是一个\lstinline{[5, 5, 1, 32]}的张量，前两个维度是patch的大小，接着是输入的通道数目，最后是输出的通道数目。输出对应一个同样大小的偏置向量。
+
+\begin{lstlisting}
+W_conv1 = weight_variable([5, 5, 1, 32])
+b_conv1 = bias_variable([32])
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{To apply the layer, we first reshape \lstinline{x} to a 4d tensor, with the second and third dimensions corresponding to image width and height, and the final dimension corresponding to the number of color channels.}
+
+为了用这一层，我们把\lstinline{x}变成一个4d向量，第2、3维对应图片的宽高，最后一维代表颜色通道。
+
+\begin{lstlisting}
+x_image = tf.reshape(x, [-1,28,28,1])
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{We then convolve \lstinline{x_image} with the weight tensor, add the bias, apply the ReLU function, and finally max pool.}
+
+我们把\lstinline{x_image}和权值向量进行卷积相乘，加上偏置，使用ReLU激活函数，最后max pooling。
+
+\begin{lstlisting}
+h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_pool1 = max_pool_2x2(h_conv1)
+\end{lstlisting}
+
+%
+\subsubsection{Second Convolutional Layer  |  第二层卷积}
+
+Ⓔ \textcolor{etc}{In order to build a deep network, we stack several layers of this type. The second layer will have 64 features for each $5\times5$ patch.}
+
+为了构建一个更深的网络，我们会把几个类似的层堆叠起来。第二层中，每个5x5的patch会得到64个特征。
+
+\begin{lstlisting}
+W_conv2 = weight_variable([5, 5, 32, 64])
+b_conv2 = bias_variable([64])
+
+h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+h_pool2 = max_pool_2x2(h_conv2)
+\end{lstlisting}
+
+%
+\subsubsection{Densely Connected Layer  |  密集连接层}
+
+Ⓔ \textcolor{etc}{Now that the image size has been reduced to $7\times7$, we add a fully-connected layer with 1024 neurons to allow processing on the entire image. We reshape the tensor from the pooling layer into a batch of vectors, multiply by a weight matrix, add a bias, and apply a ReLU.}
+
+现在，图片降维到$7\times7$，我们加入一个有1024个神经元的全连接层，用于处理整个图片。我们把池化层输出的张量reshape成一些向量，乘上权重矩阵，加上偏置，使用ReLU激活。
+
+\begin{lstlisting}
+W_fc1 = weight_variable([7 * 7 * 64, 1024])
+b_fc1 = bias_variable([1024])
+
+h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+\end{lstlisting}
+
+\textbf{Dropout}
+
+Ⓔ \textcolor{etc}{To reduce overfitting, we will apply dropout before the readout layer. We create a placeholder for the probability that a neuron's output is kept during dropout. This allows us to turn dropout on during training, and turn it off during testing. TensorFlow's tf.nn.dropout op automatically handles scaling neuron outputs in addition to masking them, so dropout just works without any additional scaling.}
+
+为了减少过拟合，我们在输出层之前加入dropout。我们用一个placeholder来代表一个神经元在dropout中被保留的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的\lstinline{tf.nn.dropout}操作会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。
+
+\begin{lstlisting}
+keep_prob = tf.placeholder("float")
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+\end{lstlisting}
+
+%
+\subsubsection{Readout Layer  |  输出层}
+
+Ⓔ \textcolor{etc}{Finally, we add a softmax layer, just like for the one layer softmax regression above.}
+
+最后，我们添加一个softmax层，就像前面的单层softmax regression一样。
+
+\begin{lstlisting}
+W_fc2 = weight_variable([1024, 10])
+b_fc2 = bias_variable([10])
+
+y_conv=tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+\end{lstlisting}
+
+%
+\subsubsection{Train and Evaluate the Model  |  训练和评估模型}
+
+Ⓔ \textcolor{etc}{How well does this model do? To train and evaluate it we will use code that is nearly identical to that for the simple one layer SoftMax network above. The differences are that: we will replace the steepest gradient descent optimizer with the more sophisticated ADAM optimizer; we will include the additional parameter \lstinline{keep_prob} in \lstinline{feed_dict} to control the dropout rate; and we will add logging to every 100th iteration in the training process.}
+
+这次效果又有多好呢？我们用前面几乎一样的代码来测测看。只是我们会用更加复杂的ADAM优化器来做梯度最速下降，在feed\_dict中加入额外的参数keep\_prob来控制dropout比例。然后每100次迭代输出一次日志。
+
+\begin{lstlisting}
+cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
+train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+sess.run(tf.initialize_all_variables())
+for i in range(20000):
+  batch = mnist.train.next_batch(50)
+  if i%100 == 0:
+    train_accuracy = accuracy.eval(feed_dict={
+        x:batch[0], y_: batch[1], keep_prob: 1.0})
+    print "step %d, training accuracy %g"%(i, train_accuracy)
+  train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+
+print "test accuracy %g"%accuracy.eval(feed_dict={
+    x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0})
+\end{lstlisting}
+
+Ⓔ \textcolor{etc}{The final test set accuracy after running this code should be approximately 99.2\%.}
+
+以上代码，在最终测试集上的准确率大概是99.2\%。
+
+Ⓔ \textcolor{etc}{We have learned how to quickly and easily build, train, and evaluate a fairly sophisticated deep learning model using TensorFlow.}
+
+目前为止，我们已经学会了用TensorFlow来快速和简易地搭建、训练和评估一个复杂一点儿的深度学习模型。
+
+原文地址：\href{https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html#deep-mnist-for-experts}{Deep MNIST for Experts}
