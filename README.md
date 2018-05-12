@@ -101,7 +101,8 @@ Jeff回信原文：
 这样的一个高技术领域的文档，我们在翻译的过程中，难免会有不完善的地方，希望请大家一起帮助我们持续改进文档的翻译质量，帮助更多的人，方法：
 
 - 在GitHub上提Issue或Pull Request，地址为: [https://github.com/jikexueyuanwiki/tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
-- 加入我们的QQ群提建议--协同翻译群：248320884，技术交流群：551830261
+- 加入TensorFlow技术交流群，与TensorFlower们一起研究交流技术干货--TensorFlow技术交流群：782484288
+- 对翻译感兴趣？加入协同翻译群：248320884，与翻译大神一道研究TensorFlow的本地化
 - 给我们写邮件： wiki@jikexueyuan.com
 
 ## 感谢支持
