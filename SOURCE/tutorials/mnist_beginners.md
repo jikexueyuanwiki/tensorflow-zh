@@ -20,7 +20,7 @@ MNIST是一个入门级的计算机视觉数据集，它包含各种手写数字
 MNIST数据集的官网是[Yann LeCun's website](http://yann.lecun.com/exdb/mnist/)。在这里，我们提供了一份python源代码用于自动下载和安装这个数据集。你可以下载[这份代码](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/tutorials/mnist/input_data.py)，然后用下面的代码导入到你的项目里面，也可以直接复制粘贴到你的代码文件里面。
 
 ```python
-import tensorflow.examples.tutorials.mnist.input_data
+import tensorflow.examples.tutorials.mnist.input_data as input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 ```
 
